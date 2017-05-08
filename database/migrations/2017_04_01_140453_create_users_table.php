@@ -13,12 +13,12 @@ class CreateUsersTable extends Migration {
 			$table->string('email')->unique();
 			$table->string('lname');
 			$table->string('fname');
-			$table->integer('idCountry')->unsigned();
-			$table->integer('idCity')->unsigned();
-			$table->date('birhday');
-			$table->text('picture');
-			$table->integer('points');
-			$table->datetime('creationDate');
+			$table->integer('idCountry')->unsigned()->nullable();
+			$table->integer('idCity')->unsigned()->nullable();
+			$table->date('birthday')->nullable();
+			$table->text('picture')->nullable();
+			$table->integer('points')->nullable();
+            $table->rememberToken();
 			$table->timestamps();
 		});
 	}

@@ -13,7 +13,6 @@ class CreateCategoriesTable extends Migration {
 			$table->string('title');
 			$table->text('icone');
 			$table->integer('idAdmin')->unsigned();
-			$table->datetime('creationDate');
 		});
 	}
 

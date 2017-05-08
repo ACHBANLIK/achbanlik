@@ -13,7 +13,6 @@ class CreateCommentsTable extends Migration {
 			$table->bigInteger('idPublication')->unsigned();
 			$table->text('text');
 			$table->text('image');
-			$table->datetime('creationDate');
 			$table->timestamps();
 		});
 	}

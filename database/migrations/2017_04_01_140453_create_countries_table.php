@@ -13,7 +13,6 @@ class CreateCountriesTable extends Migration {
 			$table->string('frenchName');
 			$table->string('arabicName');
 			$table->string('localName');
-			$table->datetime('creationDate');
 			$table->timestamps();
 		});
 	}

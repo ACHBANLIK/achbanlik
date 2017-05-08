@@ -11,11 +11,9 @@ class CreateFriendsTable extends Migration {
 			$table->increments('id');
 			$table->bigInteger('idUser1')->unsigned();
 			$table->bigInteger('idUser2')->unsigned();
-			$table->datetime('creationDate');
 			$table->timestamps();
-		});
+		});	
 	}
-
 	public function down()
 	{
 		Schema::drop('friends');

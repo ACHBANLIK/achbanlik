@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    PANDAWA
+                    Laravel
                 </div>
 
                 <div class="links">

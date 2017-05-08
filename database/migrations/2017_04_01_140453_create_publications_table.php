@@ -16,7 +16,6 @@ class CreatePublicationsTable extends Migration {
 			$table->text('text2');
 			$table->text('image1');
 			$table->text('image2');
-			$table->datetime('creationDate');
 			$table->timestamps();
 		});
 	}

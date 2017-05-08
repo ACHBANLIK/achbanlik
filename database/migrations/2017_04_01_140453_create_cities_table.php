@@ -14,7 +14,6 @@ class CreateCitiesTable extends Migration {
 			$table->string('arabicName', 55);
 			$table->string('localName', 55);
 			$table->integer('idCountry')->unsigned();
-			$table->datetime('creationDate');
 			$table->timestamps();
 		});
 	}

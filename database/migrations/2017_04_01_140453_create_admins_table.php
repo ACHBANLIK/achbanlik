@@ -14,7 +14,7 @@ class CreateAdminsTable extends Migration {
 			$table->string('fname');
 			$table->string('lname');
 			$table->tinyInteger('role');
-			$table->datetime('creationDate');
+            $table->rememberToken();
 			$table->timestamps();
 		});
 	}
