@@ -2,6 +2,25 @@
 
 return [
 
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Custom variables
+    |--------------------------------------------------------------------------
+    |
+    | This value is the name of your application. This value is used when the
+    | framework needs to place the application's name in a notification or
+    | any other location as required by the application or its packages.
+    */
+
+
+
+
+
+
+
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -12,7 +31,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'ACHBANLIK',
 
     /*
     |--------------------------------------------------------------------------
@@ -77,7 +96,8 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'fr',
+    'locales' => ['fr', 'en'],
 
     /*
     |--------------------------------------------------------------------------
@@ -90,7 +110,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'fr',
 
     /*
     |--------------------------------------------------------------------------
@@ -177,6 +197,21 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        /*
+         * custom ...
+         */
+
+        Themsaid\Langman\LangmanServiceProvider::class,
+
+        Collective\Html\HtmlServiceProvider::class,
+
+       /*
+         * End  custom ...
+         */
+      
+
+
     ],
 
     /*
@@ -226,6 +261,19 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        /*
+         * custom ...
+         */
+
+
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,  
+
+        /*
+         * End  custom ...
+         */
+
+        
     ],
 
 ];

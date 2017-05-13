@@ -13,6 +13,7 @@ class CreateAdminsTable extends Migration {
 			$table->string('password');
 			$table->string('fname');
 			$table->string('lname');
+			$table->string('image')->default('dd');
 			$table->tinyInteger('role');
             $table->rememberToken();
 			$table->timestamps();

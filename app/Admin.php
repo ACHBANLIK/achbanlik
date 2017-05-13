@@ -20,6 +20,15 @@ class Admin extends Authenticatable
         'fname' , 'lname', 'email', 'password',
     ];
 
+
+
+    public function isSuper()
+    {
+        if($this->role == 1)
+            return true;
+        else
+            return false;
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

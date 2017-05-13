@@ -1,26 +1,59 @@
-<?php
+        <?php
+        
+        /*
+        |--------------------------------------------------------------------------
+        | Web Routes
+        |--------------------------------------------------------------------------
+        |
+        | Here is where you can register web routes for your application. These
+        | routes are loaded by the RouteServiceProvider within a group which
+        | contains the "web" middleware group. Now create something great!
+        |
+        */
+        Auth::routes();
+        
+        
+        
+        Route::get('/', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+        
+        Route::get('/setlocale/{locale}', function ($locale) {
+        if (in_array($locale, \Config::get('app.locales'))) {
+            Session::put('locale', $locale);
+          }
+          return redirect()->back();
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
-
-  Route::prefix('admin')->group(function() {
-    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-    Route::get('/', 'AdminController@index')->name('admin.dashboard');
-  });
+        });
+        
+        
+/*                Route::get('setlocale/{locale}', function ($locale) {
+          if (in_array($locale, \Config::get('app.locales'))) {
+            Session::put('locale', $locale);
+          }
+          return redirect()->back();
+        });
+        */
+        
+        
+        Route::prefix('admin')->group(function() {
+        Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+        Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+        
+        Route::group(['namespace' => 'Admin'], function () {
+        Route::get('/', 'AdminController@index')->name('admin.dashboard');
+        Route::get('/blank', 'BlankController@index')->name('admin.blank');
+        Route::get('/dashboard', 'BlankController@index')->name('admin.dashboard');
+        Route::get('/admins', 'AdminsController@index')->name('admin.admins');
+        Route::get('/users', 'BlankController@index')->name('admin.users');
+        Route::get('/publications', 'BlankController@index')->name('admin.publications');
+        Route::get('/categories', 'BlankController@index')->name('admin.categories');
+        Route::get('/trophes', 'BlankController@index')->name('admin.trophes');
+        Route::get('/contact', 'BlankController@index')->name('admin.contact');
+        
+        
+        
+        
+        });
+        
+        
+        
+        });
