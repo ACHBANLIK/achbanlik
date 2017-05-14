@@ -13,7 +13,7 @@
                 
         
 
-                 @if (Auth::user()->isSuper())
+                 @if (Auth::user()->    ())
 
                   <li>
                       <a href="{{ route('admin.admins') }}">

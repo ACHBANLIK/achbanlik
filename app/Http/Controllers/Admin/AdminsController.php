@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+
+use Datatables;
+use DB;
+
+
 class AdminsController extends Controller
 {
 
@@ -29,6 +34,22 @@ class AdminsController extends Controller
     {
         return view('admin.admins');
     }
+
+
+    public function getAdmins()
+    {
+        $admins = DB::table('admins')->select('id' , 'fname' , 'lname' , 'email' , 'status')->where('role' , '2');
+        return Datatables::of($admins)
+            ->make(true);
+
+
+
+
+    }
+
+
+
+
 
     /**
      * Show the form for creating a new resource.

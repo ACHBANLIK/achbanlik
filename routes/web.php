@@ -42,14 +42,16 @@
         Route::get('/', 'AdminController@index')->name('admin.dashboard');
         Route::get('/blank', 'BlankController@index')->name('admin.blank');
         Route::get('/dashboard', 'BlankController@index')->name('admin.dashboard');
-        Route::get('/admins', 'AdminsController@index')->name('admin.admins');
         Route::get('/users', 'BlankController@index')->name('admin.users');
         Route::get('/publications', 'BlankController@index')->name('admin.publications');
         Route::get('/categories', 'BlankController@index')->name('admin.categories');
         Route::get('/trophes', 'BlankController@index')->name('admin.trophes');
         Route::get('/contact', 'BlankController@index')->name('admin.contact');
         
-        
+
+        Route::get('/admins', 'AdminsController@index')->name('admin.admins');
+        Route::get('/getadmins', 'AdminsController@getAdmins')->name('admin.getadmins');
+
         
         
         });

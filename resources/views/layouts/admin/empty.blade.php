@@ -30,7 +30,7 @@
       width: 100%
     }
   </style>
-     @yield('style')
+     @stack('styles')
 
    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
     <!--[if lt IE 9]>
@@ -61,8 +61,8 @@
     <!-- Scripts -->
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="{{ asset('js/jquery.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+  @stack('scripts')
+
 
 
 </body>

@@ -1,80 +1,161 @@
 @extends('layouts.admin.app')
 
 
-@section('style')
-    <link rel="stylesheet" href="{{ asset('assets/data-tables/DT_bootstrap.css') }}" />
-@endsection
+@push('styles')
+
+
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/data-tables/css/dataTables.bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/data-tables/responsive/css/responsive.bootstrap.min.css') }}">
+
+
+
+@endpush
 
 
 @section('content')
 
-              <!-- page start-->
-              <section class="panel">
-                  <header class="panel-heading">
-                      Editable Table
-                  </header>
-                  <div class="panel-body">
-                      <div class="adv-table editable-table ">
-                          <div class="clearfix">
-                              <div class="btn-group">
-                                  <button id="editable-sample_new" class="btn green">
-                                      Add New <i class="fa fa-plus"></i>
-                                  </button>
-                              </div>
-                              <div class="btn-group pull-right">
-                                  <button class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="fa fa-angle-down"></i>
-                                  </button>
-                                  <ul class="dropdown-menu pull-right">
-                                      <li><a href="#">Print</a></li>
-                                      <li><a href="#">Save as PDF</a></li>
-                                      <li><a href="#">Export to Excel</a></li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <div class="space15"></div>
-                          <table class="table table-striped table-hover table-bordered" id="editable-sample">
-                              <thead>
-                              <tr>
-                                  <th>Nom</th>
-                                  <th>Prénom</th>
-                                  <th>Email</th>
-                                  <th>Etat</th>
-                                  <th>Edit</th>
-                                  <th>Delete</th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              <tr class="">
-                                  <td>Jondi Rose</td>
-                                  <td>Alfred Jondi Rose</td>
-                                  <td>1</td>
-                                  <td class="center"><a href="#">Active</a></td>
-                                  <td><a class="edit" href="javascript:;">Edit</a></td>
-                                  <td><a class="delete" href="javascript:;">Delete</a></td>
-                              </tr>
-                              
-                              </tbody>
+
+
+  <!-- page start-->
+  <section class="panel">
+                          <header class="panel-heading">
+                              Dynamic Table
+                          </header>
+                          <div class="panel-body">
+                                <div class="adv-table">
+                          <table id="admins-table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                                      <thead>
+                                      <tr>
+                                          <th>Id</th>
+                                          <th>First Name</th>
+                                          <th>Last Name</th>
+                                          <th>Email</th>
+                                          <th>Status</th>
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+                                      </tbody>
                           </table>
-                      </div>
-                  </div>
-              </section>
+                                </div>
+                          </div>
+                      </section>
               <!-- page end-->
-         
-@endsection
 
 
-@section('script')
-         <script type="text/javascript" src="{{asset('assets/data-tables/jquery.dataTables.js')}}"></script>
-    <script type="text/javascript" src="{{asset('assets/data-tables/DT_bootstrap.js')}}"></script>
 
-    
-      <script src="{{asset('js/editable-table.js')}}"></script>
+@stop
 
-      <!-- END JAVASCRIPTS -->
-      <script>
-          jQuery(document).ready(function() {
-              EditableTable.init();
-          });
-      </script>
 
-@endsection
+@push('scripts')
+
+
+
+<script src="{{ asset('assets/data-tables/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/data-tables/js/dataTables.bootstrap.min.js') }}"></script>
+
+<script src="{{ asset('assets/data-tables/responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('assets/data-tables/responsive/js/responsive.bootstrap.min.js') }}"></script>
+
+
+
+
+
+<script type="text/javascript" src=""></script>
+        <script>
+    /*$(function() {
+    $('#admins-table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: '{{ route('admin.getadmins') }}',
+        columns: [
+            { data: 'id', name: 'id' },
+            { data: 'fname', name: 'fname' },
+            { data: 'lname', name: 'lname' },
+            { data: 'email', name: 'email' },
+            { data: 'statu's, render: function(data, type, row)
+                 {
+                    switch(data) 
+                    {
+                       case '1' : return 'On'; break;
+                       case '0' : return 'Off'; break; 
+                       default : return 'On'; break;
+                     }
+                  }
+            }
+        ]
+    });
+});*/
+
+
+
+
+function format ( d ) {
+    return 'Full name: '+d.first_name+' '+d.last_name+'<br>'+
+        'Salary: '+d.salary+'<br>'+
+        'The child row can contain any data you wish, including links, images, inner tables etc.';
+}
+ 
+$(document).ready(function() {
+    var dt = $('#admins-table').DataTable( {
+        "processing": true,
+        "serverSide": true,
+        "ajax": "scripts/ids-objects.php",
+        "columns": [
+            {
+                "class":          "details-control",
+                "orderable":      false,
+                "data":           null,
+                "defaultContent": ""
+            },
+            { data: 'id', name: 'id' },
+            { data: 'fname', name: 'fname' },
+            { data: 'lname', name: 'lname' },
+            { data: 'email', name: 'email' },
+            { data: 'status', name: 'status' },
+
+        ],
+        "order": [[1, 'asc']]
+    } );
+ 
+    // Array to track the ids of the details displayed rows
+    var detailRows = [];
+ 
+    $('#admins-table tbody').on( 'click', 'tr td.details-control', function () {
+        var tr = $(this).closest('tr');
+        var row = dt.row( tr );
+        var idx = $.inArray( tr.attr('id'), detailRows );
+ 
+        if ( row.child.isShown() ) {
+            tr.removeClass( 'details' );
+            row.child.hide();
+ 
+            // Remove from the 'open' array
+            detailRows.splice( idx, 1 );
+        }
+        else {
+            tr.addClass( 'details' );
+            row.child( format( row.data() ) ).show();
+ 
+            // Add to the 'open' array
+            if ( idx === -1 ) {
+                detailRows.push( tr.attr('id') );
+            }
+        }
+    } );
+ 
+    // On each draw, loop over the `detailRows` array and show any child rows
+    dt.on( 'draw', function () {
+        $.each( detailRows, function ( i, id ) {
+            $('#'+id+' td.details-control').trigger( 'click' );
+        } );
+    } );
+} );
+
+
+            </script>
+@endpush
+
+
+
+
+

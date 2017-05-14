@@ -12,6 +12,10 @@
 
     <!-- Styles -->
 
+
+
+
+
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-reset.css') }}" rel="stylesheet">
     <!--external css-->
@@ -21,7 +25,10 @@
     <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
 
-     @yield('style')
+
+     @stack('styles')
+
+
 
    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
     <!--[if lt IE 9]>
@@ -67,7 +74,7 @@
     <!-- Scripts -->
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="{{ asset('js/jquery-1.8.3.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/jquery.dcjqaccordion.2.7.js') }}"></script>
     <script src="{{ asset('js/jquery.scrollTo.min.js') }}"></script>
@@ -76,7 +83,8 @@
 
     <!--common script for all pages-->
     <script src="{{ asset('js/common-scripts.js') }}"></script>
-     @yield('script')
+    
+     @stack('scripts')
 
 
 </body>

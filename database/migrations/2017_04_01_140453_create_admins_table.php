@@ -15,6 +15,7 @@ class CreateAdminsTable extends Migration {
 			$table->string('lname');
 			$table->string('image')->default('dd');
 			$table->tinyInteger('role');
+			$table->tinyInteger('status')->default(1);
             $table->rememberToken();
 			$table->timestamps();
 		});
