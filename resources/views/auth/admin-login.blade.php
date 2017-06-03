@@ -47,15 +47,16 @@
 
 
                         <div class="form-group">
-                            <label class="checkbox">
                                 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                
                                 <span class="pull-right">
                                     <a data-toggle="modal" href="{{ route('password.request') }}"> Forgot Password?</a>
 
                                 </span>
-                            </label>
 
                         </div>
+
+
             <button class="btn btn-lg btn-login btn-block" type="submit">Login</button>
         </div>
 

@@ -43,10 +43,11 @@
 
 
 
+
                   <!-- user login dropdown start-->
                   <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                          {!! Html  ::image(asset('img/avatar1_small.jpg')) !!}
+                          {!! Html  ::image(asset('storage/'.Auth::user()->photo)  ,  '', array( 'height' => 30 )) !!}
                             <span class="username">{{ Auth::user()->fname }}  {{ Auth::user()->lname }}</span>
                           
                           <b class="caret"></b>

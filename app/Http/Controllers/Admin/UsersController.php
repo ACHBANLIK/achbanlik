@@ -2,8 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Events\SendUserWelcomeMail;
+use App\Http\UploadedFile;
+use Datatables;
+use DB;
+use App\User;
+use View;
+use Validator;
+use Response;
+use Event;
+use Illuminate\Support\Facades\Log;
 
 class UsersController extends Controller
 {
@@ -12,7 +24,7 @@ class UsersController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @return \Illuminate\Http\Response
      */
     public function __construct()
     {
@@ -27,8 +39,21 @@ class UsersController extends Controller
      */
     public function index()
     {
+
         return view('admin.users');
     }
+
+
+    public function getUsers()
+    {
+        $users = DB::table('users')->select('id' , 'fname' , 'lname' , 'points' , 'status')->orderBy('created_at' , 'desc');
+        return Datatables::of($users)
+            ->make(true);
+    }
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -48,7 +73,8 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
     }
 
     /**
@@ -59,7 +85,9 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $user = User::findOrFail($id);
+        return view('user.users' , ['user' => $user]);
     }
 
     /**
@@ -82,7 +110,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -93,6 +121,37 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
+
+
+
+    /**
+     * Change resource status.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function changeStatus() 
+    {
+
+        try {
+
+        $id = Input::get('id');
+        $user = User::findOrFail($id);
+        $user->status = abs($user->status - 1);
+        $user->save();
+
+
+
+        } catch (Exception $e) {
+            return response()->json('msg');
+        }
+
+
+        
+    }
+
+
+    
 }
+
