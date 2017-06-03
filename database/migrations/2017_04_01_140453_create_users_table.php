@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration {
 			$table->integer('points')->default(0);
             $table->rememberToken(); 	
 			$table->timestamps();
-		});
+		})	;
 	}
 
 	public function down()
