@@ -53,7 +53,7 @@
 
 
                   <li>
-                      <a href="trophes">
+                      <a href="trophies">
                           <i class="fa fa-money"></i>
                           <span>Trophés</span>
                       </a>
