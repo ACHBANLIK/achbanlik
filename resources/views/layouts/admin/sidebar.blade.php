@@ -27,7 +27,7 @@
 
 
                   <li>
-                      <a href="{{ route('admin.users') }}">
+                      <a href="users">
                           <i class="fa fa-users"></i>
                           <span>Utilisateurs</span>
                       </a>
@@ -35,7 +35,7 @@
 
 
                   <li>
-                      <a href="{{ route('admin.categories') }}">
+                      <a href="categories">
                           <i class="fa fa-bars"></i>
                           <span>Catégories</span>
                       </a>
@@ -44,7 +44,7 @@
 
 
                   <li>
-                      <a href="{{ route('admin.publications') }}">
+                      <a href="publications">
                           <i class="fa fa-book"></i>
                           <span>Publications</span>
                       </a>
@@ -53,7 +53,7 @@
 
 
                   <li>
-                      <a href="{{ route('admin.trophes') }}">
+                      <a href="trophies">
                           <i class="fa fa-money"></i>
                           <span>Trophés</span>
                       </a>
@@ -61,7 +61,7 @@
 
 
                   <li>
-                      <a href="{{ route('admin.contact') }}">
+                      <a href="contactus">
                           <i class="fa fa-envelope"></i>
                           <span>Contact / Messages</span>
                       </a>

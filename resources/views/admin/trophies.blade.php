@@ -40,7 +40,7 @@
     <section class="panel">
 
                           <header class="panel-heading">
-                              Administrateurs
+                             Trophies
                           </header>
                           <div class="panel-body">
                             <div class="adv-table">
@@ -48,10 +48,9 @@
                                             <thead>
                                             <tr>
                                                 <th>Id</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Email</th>
-                                                <th>Active</th>
+                                                <th>Title</th>
+                                                <th>Points</th>
+                                                <th>Description</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
@@ -105,23 +104,23 @@
                 <form  id="addForm" role="form" method="POST" enctype="multipart/form-data">
     
                   <div class="form-group">
-                    <label for="fname">First name</label>
-                      <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" required autofocus>
-                      <span class="help-block errorFname"></span>
+                    <label for="name">Name</label>
+                      <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                      <span class="help-block errorName"></span>
                   </div>
 
 
                   <div class="form-group">
-                    <label for="lname">Last name</label>
-                      <input id="lname" type="text" class="form-control" name="lname" value="{{ old('fname') }}" required autofocus>
-                      <span class="help-block errorLname"></span>
+                    <label for="points">Points</label>
+                      <input id="points" type="text" class="form-control" name="points" value="{{ old('points') }}" required autofocus>
+                      <span class="help-block errorPoints"></span>
                   </div>
 
 
                   <div class="form-group">
-                    <label for="email">Email</label>
-                      <input id="email" type="email" class="form-control" name="email" password="{{ old('email') }}" required autofocus>
-                      <span class="help-block errorEmail"></span>
+                    <label for="description">Description</label>
+                      <input id="description" type="description" class="form-control" name="description" password="{{ old('description') }}" required autofocus>
+                      <span class="help-block errorDescription"></span>
                   </div>
 
 
@@ -180,16 +179,22 @@
 
 
                   <div class="form-group">
-                    <label for="fname">First name</label>
-                      <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" required autofocus>
-                      <span class="help-block errorFname"></span>
+                    <label for="name">Name</label>
+                      <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                      <span class="help-block errorName"></span>
                   </div>
 
 
                   <div class="form-group">
-                    <label for="lname">Last name</label>
-                      <input id="lname" type="text" class="form-control" name="lname" value="{{ old('fname') }}" required autofocus>
-                      <span class="help-block errorLname"></span>
+                    <label for="points">Points</label>
+                      <input id="points" type="text" class="form-control" name="points" value="{{ old('points') }}" required autofocus>
+                      <span class="help-block errorPoints"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                      <textarea id="description" type="text" class="form-control" name="description"> value="{{ old('description') }}" required autofocus> </textarea>
+                      <span class="help-block errorDescription"></span>
                   </div>
 
 
@@ -245,11 +250,7 @@
 
                 <center>
                   <div class="form-group">
-<<<<<<< HEAD
-                      <img  id="showimage" style="max-width:100px;max-height:100px;"/>
-=======
                       <img  id="showimage" style="max-width:200px;max-height:200px;"/>
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
                   </div>
                 </center>
       
@@ -261,23 +262,22 @@
 
 
                   <div class="form-group">
-                    <label for="fname">First name</label>
-                      <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" disabled="disabled">                  
+                    <label for="name">Name</label>
+                      <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" disabled="disabled">                  
                   </div>
 
 
 
 
                   <div class="form-group">
-                    <label for="lname">Last name</label>
-                      <input id="lname" type="text" class="form-control" name="lname" value="{{ old('fname') }}" disabled="disabled">
+                    <label for="points">Points</label>
+                      <input id="points" type="text" class="form-control" name="points" value="{{ old('points') }}" disabled="disabled">
                   </div>
 
-<<<<<<< HEAD
 
                   <div class="form-group">
-                    <label for="email">Email</label>
-                      <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" disabled="disabled">
+                    <label for="description">Description</label>
+                      <textarea id="description" type="text" class="form-control" name="description"> value="{{ old('description') }}" disabled="disabled"></textarea>
                   </div>
 
 
@@ -295,29 +295,6 @@
 
 
 
-=======
-
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                      <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" disabled="disabled">
-                  </div>
-
-
-
-
-                </form>
-                
-                
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- Show Modal -->
-
-
-
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
 <!-- Confirmation Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" 
      aria-labelledby="myModalLabel" aria-hidden="true"> 
@@ -331,7 +308,7 @@
                        <span class="sr-only">Close</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Are you sure you want to delete <span id="fname"></span>&nbsp;<span id="lname"></span>?
+                    Are you sure you want to delete <span id="name"></span>?
                 </h4>
             </div>
             
@@ -391,9 +368,9 @@
 
 
     $('#editModal').on("show.bs.modal", function (e) {
-         $("#editModal #fname").val($(e.relatedTarget).data('fname'));
-         $("#editModal #lname").val($(e.relatedTarget).data('lname'));
-         $("#editModal #email").val($(e.relatedTarget).data('email'));
+         $("#editModal #name").val($(e.relatedTarget).data('name'));
+         $("#editModal #points").val($(e.relatedTarget).data('points'));
+         $("#editModal #description").val($(e.relatedTarget).data('description'));
          $("#editModal #id").val($(e.relatedTarget).data('id'));
          var pic = "storage/"+$(e.relatedTarget).data("photo");
          $("#editModal #showimage").attr('src', assetBaseUrl.replace('src' , pic));
@@ -401,16 +378,16 @@
 
 
     $('#deleteModal').on("show.bs.modal", function (e) {
-         $("#deleteModal #fname").html($(e.relatedTarget).data('fname'));
-         $("#deleteModal #lname").html($(e.relatedTarget).data('lname'));
+         $("#deleteModal #name").html($(e.relatedTarget).data('name'));
+         $("#deleteModal #points").html($(e.relatedTarget).data('points'));
          $("#deleteModal #id").val($(e.relatedTarget).data('id'));
     });
 
 
     $('#showModal').on("show.bs.modal", function (e) {
-         $("#showModal #fname").val($(e.relatedTarget).data('fname'));
-         $("#showModal #lname").val($(e.relatedTarget).data('lname'));
-         $("#showModal #email").val($(e.relatedTarget).data('email'));
+         $("#showModal #name").val($(e.relatedTarget).data('name'));
+         $("#showModal #points").val($(e.relatedTarget).data('points'));
+         $("#showModal #description").val($(e.relatedTarget).data('description'));
          $("#showModal #id").val($(e.relatedTarget).data('id'));
          var pic = "storage/"+$(e.relatedTarget).data("photo");
          $("#showModal #showimage").attr('src', assetBaseUrl.replace('src' , pic));
@@ -432,11 +409,7 @@ $("#addModal #submit").click(function(e)
 {
 
 
-<<<<<<< HEAD
-$(this).button('loading');
-=======
 $("#addModal #submit").button('loading');
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
 
 
   $.ajaxSetup({
@@ -447,7 +420,7 @@ $("#addModal #submit").button('loading');
 
   $.ajax({
                 type: 'POST',
-                url: 'admins',
+                url: 'trophies',
                 processData: false,
                 contentType: false,
                 cache: false,
@@ -455,35 +428,27 @@ $("#addModal #submit").button('loading');
 
                     success: function(data) {
                     
-<<<<<<< HEAD
-                      $(this).button('reset');
-=======
                      $("#addModal #submit").button('reset');
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
 
                     $('.form-group').removeClass('has-error');
                     $('.help-block').html("");
 
                     if ((data.errors)) {
-<<<<<<< HEAD
-                      $(this).button('reset');
-=======
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
                         setTimeout(function () {
                             toastr.error('Validation error!', 'Error Alert', {timeOut: 5000});
                         }, 500);
 
-                        if (data.errors.fname) {
-                            $('#addForm #fname').parent(".form-group").addClass('has-error');
-                            $('#addForm .errorFname').html("<strong>"+data.errors.fname+"<strong>");
+                        if (data.errors.name) {
+                            $('#addForm #name').parent(".form-group").addClass('has-error');
+                            $('#addForm .errorName').html("<strong>"+data.errors.name+"<strong>");
                         }
-                        if (data.errors.lname) {
-                            $('#addForm #lname').parent(".form-group").addClass('has-error');
-                            $('#addForm .errorLname').html("<strong>"+data.errors.lname+"<strong>");
+                        if (data.errors.points) {
+                            $('#addForm #points').parent(".form-group").addClass('has-error');
+                            $('#addForm .errorPoints').html("<strong>"+data.errors.points+"<strong>");
                         }
-                        if (data.errors.email) {
-                            $('#addForm #email').parent(".form-group").addClass('has-error');
-                            $('#addForm .errorEmail').html("<strong>"+data.errors.email+"<strong>");
+                        if (data.errors.description) {
+                            $('#addForm #description').parent(".form-group").addClass('has-error');
+                            $('#addForm .errorDescription').html("<strong>"+data.errors.description+"<strong>");
                         }   
                         if (data.errors.photo) {
                             $('#addForm #photo').parent(".form-group").addClass('has-error');
@@ -495,15 +460,11 @@ $("#addModal #submit").button('loading');
                         $('#admins-table').DataTable().draw(false)
                         toastr.success('Successfully created admin!', 'Success Alert', {timeOut: 5000});
                     }
-<<<<<<< HEAD
-                }
-=======
                 },
                   error:function()
                   {
                      $("#addModal #submit").button('reset');
                   }
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
             });
 
 
@@ -519,11 +480,7 @@ $("#editModal #submit").click(function(e)
 {
 
 
-<<<<<<< HEAD
-$(this).button('loading');
-=======
 $("#editModal #submit").button('loading');
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
 
 
 var formData  = new FormData($('#editForm')[0])
@@ -542,38 +499,30 @@ var formData  = new FormData($('#editForm')[0])
 
   $.ajax({
                 type: 'post',
-                url: 'admins/'+$("#editModal #id").val(),             
+                url: 'trophies/'+$("#editModal #id").val(),             
                 data: formData,
                 cache: false,
                 contentType: false,
                 processData: false,
 
                     success: function(data) {
-<<<<<<< HEAD
-                      $(this).button('reset');
-=======
                       $("#editModal #submit").button('reset');
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
 
                     $('.form-group').removeClass('has-error');
                     $('.help-block').html("");
 
                     if ((data.errors)) {
-<<<<<<< HEAD
-                      $(this).button('reset');
-=======
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
                         setTimeout(function () {
                             toastr.error('Validation error!', 'edit Alert', {timeOut: 5000});
                         }, 500);
 
-                        if (data.errors.fname) {
-                            $('#editForm #fname').parent(".form-group").addClass('has-error');
-                            $('#editForm .errorFname').html("<strong>"+data.errors.fname+"<strong>");
+                        if (data.errors.name) {
+                            $('#editForm #name').parent(".form-group").addClass('has-error');
+                            $('#editForm .errorName').html("<strong>"+data.errors.name+"<strong>");
                         }
-                        if (data.errors.lname) {
-                            $('#editForm #lname').parent(".form-group").addClass('has-error');
-                            $('#editForm .errorLname').html("<strong>"+data.errors.lname+"<strong>");
+                        if (data.errors.points) {
+                            $('#editForm #points').parent(".form-group").addClass('has-error');
+                            $('#editForm .errorPoints').html("<strong>"+data.errors.points+"<strong>");
                         }
                         if (data.errors.photo) {
                             $('#editForm #photo').parent(".form-group").addClass('has-error');
@@ -583,17 +532,13 @@ var formData  = new FormData($('#editForm')[0])
                         $("#editModal").modal("hide"); 
                         $("#editForm").trigger('reset');  
                         $('#admins-table').DataTable().draw(false)
-                        toastr.success('Successfully edited admin!', 'Success Alert', {timeOut: 5000});
+                        toastr.success('Successfully edited trophy!', 'Success Alert', {timeOut: 5000});
                     }
-<<<<<<< HEAD
-                }
-=======
                 },
                   error:function()
                   {
                     $("#editModal #submit").button('reset');
                   }
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
 
             });        
 
@@ -606,41 +551,26 @@ var formData  = new FormData($('#editForm')[0])
 
 $("#deleteModal #submit").click(function(e)
 {
-<<<<<<< HEAD
-     $(this).button('loading');
-=======
      $("#deleteModal #submit").button('loading');
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
   $.ajax({
       type: 'DELETE',
-      url: 'admins/' + $("#deleteModal #id").val(),
+      url: 'trophies/' + $("#deleteModal #id").val(),
       data: 
       {
         '_token': $('input[name=_token]').val(),
       },
       success: function(data) {
       
-<<<<<<< HEAD
-      $(this).button('reset');
-
-
-      $("#deleteModal").modal("hide");   
-
-      $('#admins-table').DataTable().draw(false)
-      toastr.success('Successfully deleted Admin!', 'Success Alert', {timeOut: 5000});
-      }
-=======
         $("#deleteModal #submit").button('reset');
         $("#deleteModal").modal("hide");   
 
         $('#admins-table').DataTable().draw(false)
-        toastr.success('Successfully deleted Admin!', 'Success Alert', {timeOut: 5000});
+        toastr.success('Successfully deleted Trophy!', 'Success Alert', {timeOut: 5000});
       },
        error:function()
        {
       $("#deleteModal #submit").button('reset');
         }
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
     });
 });
 
@@ -649,22 +579,13 @@ $("#deleteModal #submit").click(function(e)
     var table  =  $('#admins-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{{ route('admin.getadmins') }}',
+        ajax: '{{ route('admin.gettrophies') }}',
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'fname', name: 'fname' },
-            { data: 'lname', name: 'lname' },
-            { data: 'email', name: 'email' },
-            { data: null,name: 'status' , searchable: false,render: function(data)
-                 {
-                    var actions = '';
+            { data: 'name', name: 'name' },
+            { data: 'points', name: 'points' },
+            { data: 'description', name: 'description' },
 
-                        actions += '<input type="checkbox" class="status" onclick="changeStatus(:id)" id="" data-id=":id" '+ isActive(data.status) +'>';
-
-                        return actions.replace(/:id/g, data.id);
-                  
-                  }
-            },
 
             {
                     name: 'actions',
@@ -673,13 +594,13 @@ $("#deleteModal #submit").click(function(e)
                     searchable: false,
                     render: function (data) {
                         var actions = '';
-                        actions += '<a data-toggle="modal"  data-id=":id" data-fname=":fname" data-lname=":lname" data-email=":email" data-status=":status"  data-photo=":photo" data-target="#showModal"><span class="glyphicon glyphicon-eye-open"></span></a>';
+                        actions += '<a data-toggle="modal"  data-id=":id" data-name=":name" data-points=":points" data-description=":description"   data-photo=":photo" data-target="#showModal"><span class="glyphicon glyphicon-eye-open"></span></a>';
 
-                        actions += '|<a data-toggle="modal"  data-id=":id" data-fname=":fname" data-lname=":lname" data-email=":email" data-status=":status" data-photo=":photo"  data-target="#editModal"><span class="glyphicon glyphicon-edit"></span></a>';
+                        actions += '|<a data-toggle="modal"  data-id=":id" data-name=":name" data-points=":points" data-description=":description"  data-photo=":photo"  data-target="#editModal"><span class="glyphicon glyphicon-edit"></span></a>';
 
-                        actions += '|<a data-toggle="modal"  data-id=":id" data-fname=":fname" data-lname=":lname" data-mail=":mail" data-status=":status"  data-target="#deleteModal"><span class="glyphicon glyphicon-trash"></span></a>';
+                        actions += '|<a data-toggle="modal"  data-id=":id" data-name=":name" data-points=":points" data-description=":description"  data-target="#deleteModal"><span class="glyphicon glyphicon-trash"></span></a>';
 
-                        return actions.replace(/:id/g, data.id).replace(/:fname/g, data.fname).replace(/:lname/g, data.lname).replace(/:email/g, data.email).replace(/:status/g, data.status).replace(/:photo/g, data.photo);
+                        return actions.replace(/:id/g, data.id).replace(/:name/g, data.name).replace(/:points/g, data.points).replace(/:description/g, data.description).replace(/:photo/g, data.photo);
                     }
             }
 
@@ -691,13 +612,6 @@ $("#deleteModal #submit").click(function(e)
 
 });
 
-function isActive(value)
-{
-  if (value == 1)
-    return "checked";
-  else
-    return "";
-}
 
 
 function readURL(input , id) {
@@ -713,33 +627,6 @@ function readURL(input , id) {
    
 
 
-
-function changeStatus(id)
-{
-
-
-        $.ajax({
-          type: 'POST',
-          url: "{{ URL::route('changeStatus') }}",
-          data: {
-          '_token': $('input[name=_token]').val(),
-          'id': id
-          },
-          success: function(data) {
-
-            if(data.msg)
-            {
-              toastr.error('Error!', 'Error Alert', {timeOut: 5000});
-            }else
-            {
-              toastr.success('Successfully edited admin!', 'Success Alert', {timeOut: 5000});
-            }
-
-          },
-        });                
-}
-
-
             </script>
 
 
@@ -749,8 +636,4 @@ function changeStatus(id)
 
 
 
-<<<<<<< HEAD
   
-=======
-  
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b

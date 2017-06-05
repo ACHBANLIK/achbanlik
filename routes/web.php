@@ -45,7 +45,9 @@
         Route::get('/users', 'BlankController@index')->name('admin.users');
         Route::get('/publications', 'BlankController@index')->name('admin.publications');
         Route::get('/categories', 'BlankController@index')->name('admin.categories');
-        Route::get('/trophes', 'BlankController@index')->name('admin.trophes');
+        Route::get('/trophies', 'BlankController@index')->name('admin.trophies');
+        Route::get('/contact', 'BlankController@index')->name('admin.contact');
+
         Route::get('/contact', 'BlankController@index')->name('admin.contact');
 
         Route::get('/contact', 'BlankController@index')->name('admin.contact');
@@ -56,6 +58,27 @@
         Route::post('admins/changeStatus', array('as' => 'changeStatus', 'uses' => 'AdminsController@changeStatus'));
         
         
+
+        Route::resource('users', 'UsersController');
+        Route::get('/getusers', 'UsersController@getUsers')->name('admin.getusers');
+        Route::post('users/changeStatus', array('as' => 'changeStatus', 'uses' => 'UsersController@changeStatus'));
+
+
+        Route::resource('trophies', 'TrophiesController');
+        Route::get('/gettrophies', 'TrophiesController@getTrophies')->name('admin.gettrophies');
+
+        Route::resource('categories', 'CategoriesController');
+        Route::get('/getcategories', 'CategoriesController@getCategories')->name('admin.getcategories');
+
+
+        Route::resource('contactus', 'ContactusController');
+        Route::get('/getcontactus', 'CategoriesController@getContactus')->name('admin.getcontactus');
+
+
+
+
+
+
         });
         
         

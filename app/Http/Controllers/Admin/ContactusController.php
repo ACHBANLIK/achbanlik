@@ -10,14 +10,14 @@ use App\Events\SendUserWelcomeMail;
 use App\Http\UploadedFile;
 use Datatables;
 use DB;
-use App\User;
+use App\Contactus;
 use View;
 use Validator;
 use Response;
 use Event;
 use Illuminate\Support\Facades\Log;
 
-class UsersController extends Controller
+class ContactusController extends Controller
 {
 
 
@@ -40,14 +40,14 @@ class UsersController extends Controller
     public function index()
     {
 
-        return view('admin.users');
+        return view('admin.contactus');
     }
 
 
-    public function getUsers()
+    public function getContactus()
     {
-        $users = DB::table('users')->select('id' , 'fname' , 'lname' , 'points' , 'status')->orderBy('created_at' , 'desc');
-        return Datatables::of($users)
+        $contactus = DB::table('contactus')->select('id' , 'title' , 'message' )->orderBy('created_at' , 'desc');
+        return Datatables::of($contactus)
             ->make(true);
     }
 
@@ -86,8 +86,8 @@ class UsersController extends Controller
     public function show($id)
     {
 
-        $user = User::findOrFail($id);
-        return view('user.users' , ['user' => $user]);
+        $contactus = Contactus::findOrFail($id);
+        return view('user.contactus' , ['contactus' => $contactus]);
     }
 
     /**
@@ -126,30 +126,7 @@ class UsersController extends Controller
 
 
 
-    /**
-     * Change resource status.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function changeStatus() 
-    {
 
-        try {
-
-        $id = Input::get('id');
-        $user = User::findOrFail($id);
-        $user->status = abs($user->status - 1);
-        $user->save();
-
-
-
-        } catch (Exception $e) {
-            return response()->json('msg');
-        }
-
-
-        
-    }
 
 
     

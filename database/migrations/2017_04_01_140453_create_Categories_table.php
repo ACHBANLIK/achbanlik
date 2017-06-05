@@ -9,10 +9,12 @@ class CreateCategoriesTable extends Migration {
 	{
 		Schema::create('Categories', function(Blueprint $table) {
 			$table->increments('id');
-			$table->timestamps();
 			$table->string('title');
-			$table->text('icone');
+			$table->longText('description');
+			$table->string('icone')->default('public/sm-img-2.jpg');
 			$table->integer('idAdmin')->unsigned();
+			$table->rememberToken();    
+            $table->timestamps();
 		});
 	}
 
