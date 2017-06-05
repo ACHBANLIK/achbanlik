@@ -20,6 +20,9 @@ class usersTableSedder extends Seeder
             'fname' => 'basma',
             'lname' => 'chebbourh',
             'email' => 'basma.chebbourh@gmail.com',
+            'idCountry' => 150,         
+            'photo' => 'storage/all/user_avatar.png',   
+            'birthday' => Carbon::now()->format('d-m-Y'); 
             'password' => bcrypt('Temp123*'),
         ]
         );
@@ -30,6 +33,9 @@ class usersTableSedder extends Seeder
             'fname' => 'olea',
             'lname' => 'fadlo',
             'email' => 'olea.fadlo@gmail.com',
+            'idCountry' => 150,   
+            'birthday' => Carbon::now()->format('d-m-Y'); 
+            'photo' => 'storage/all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         );
@@ -40,6 +46,9 @@ class usersTableSedder extends Seeder
             'fname' => 'hamza',
             'lname' => 'zakaria',
             'email' => 'hamza.zakaria@gmail.com',
+            'idCountry' => 150,   
+            'birthday' => Carbon::now()->format('d-m-Y'); 
+            'photo' => 'storage/all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         );

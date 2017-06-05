@@ -10,7 +10,7 @@ use App\Events\SendAdminWelcomeMail;
 use App\Http\UploadedFile;
 use Datatables;
 use DB;
-use App\Trophies;
+use App\trophy;
 use View;
 use Validator;
 use Response;
@@ -33,9 +33,9 @@ protected function validateMe(Request $request   , string $param)
         case 'store':
                 $rules =
                 [
-                    'name'=> 'required|name|max:255|unique:trophies',
+                    'name'=> 'required|max:255|unique:trophies',
                     'description'=> 'required|max:255|regex:/^[a-z ,.\'-]+$/i',
-                    'points' => 'required|max:255', 
+                    'points' => 'required|numeric',
                     'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 ];
             break;
@@ -45,7 +45,7 @@ protected function validateMe(Request $request   , string $param)
                 [
                     'name'=> 'required|max:255|regex:/^[a-z ,.\'-]+$/i',
                     'description' => 'required|max:255|regex:/^[a-z ,.\'-]+$/i', 
-                    'points' => 'required|max:255', 
+                    'points' => 'required|numeric',
                     'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 ];
             break;
@@ -119,7 +119,7 @@ protected function validateMe(Request $request   , string $param)
         else
         {
 
-            $trophy = new Trophies();
+            $trophy = new trophy();
             $trophy->name = $request->name;
             $trophy->description = $request->description;
             $trophy->points = $request->points;
@@ -150,7 +150,7 @@ protected function validateMe(Request $request   , string $param)
     public function show($id)
     {
 
-        $trophy = Trophies::findOrFail($id);
+        $trophy = trophy::findOrFail($id);
         return view('admin.trophies' , ['trophy' => $trophy]);
     }
 
@@ -183,7 +183,7 @@ protected function validateMe(Request $request   , string $param)
         else
         {
 
-            $trophy = Trophies::findOrFail($id);
+            $trophy = trophy::findOrFail($id);
             $trophy->name = $request->name;
             $trophy->description = $request->description;
             $trophy->points = $request->points;
@@ -192,11 +192,11 @@ protected function validateMe(Request $request   , string $param)
             if($request->hasFile('photo'))
             {
 
-               if($trophy->photo != "all/trophy-award-icon.jpg")
+               if($trophy->photo != "all/trophy.png")
                {
                     Storage::delete($trophy->photo);
                }
-               $trophy->photo = $request->file('photo')->store('admins_avatars');
+               $trophy->photo = $request->file('photo')->store('trophies');
             }
 
             $trophy->save();
@@ -219,8 +219,8 @@ protected function validateMe(Request $request   , string $param)
      */
     public function destroy($id)
     {
-        $trophy = Trophies::findOrFail($id);
-        if($trophy->photo != "all/trophy-award-icon.jpg")
+        $trophy = trophy::findOrFail($id);
+        if($trophy->photo != "all/trophy.png")
         {
             Storage::delete($trophy->photo);
         }

@@ -11,7 +11,6 @@ use App\Http\UploadedFile;
 use Datatables;
 use DB;
 use App\Admin;
-use App\Picture;
 use View;
 use Validator;
 use Response;

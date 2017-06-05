@@ -4,7 +4,7 @@
               <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
           </div>
           <!--logo start-->
-          <a href="{{ route('admin.dashboard') }}" class="logo" >ACHBAN<span>LIK</span></a>
+          <a href="{{ route('admin.dashboard') }}" class="logo" >GADGET<span>STORE</span></a>
           <!--logo end-->
 
           <div class="top-nav ">

@@ -11,10 +11,10 @@ class CreateCategoriesTable extends Migration {
 			$table->increments('id');
 			$table->string('title');
 			$table->string('description');
-			$table->string('icone')->default('public/sm-img-2.jpg');
+			$table->string('photo')->default('all/category.png');
 			$table->integer('idAdmin')->unsigned();
-			$table->rememberToken();    
-            $table->timestamps();
+			$table->timestamp('updated_at')->useCurrent();
+			$table->timestamp('created_at')->useCurrent();
 		});
 	}
 

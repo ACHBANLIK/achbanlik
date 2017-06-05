@@ -85,9 +85,15 @@ class UsersController extends Controller
      */
     public function show($id)
     {
+        try {
 
         $user = User::findOrFail($id);
-        return view('user.users' , ['user' => $user]);
+
+        } catch (Exception $e) {
+            return response()->json('msg');
+        }
+        return response()->json($user);
+
     }
 
     /**
@@ -140,9 +146,6 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         $user->status = abs($user->status - 1);
         $user->save();
-
-
-
         } catch (Exception $e) {
             return response()->json('msg');
         }

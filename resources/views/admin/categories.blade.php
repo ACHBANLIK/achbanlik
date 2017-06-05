@@ -12,6 +12,12 @@
 
 
 <style>
+
+td
+{
+      text-overflow: ellipsis;
+}
+
   #loader-wrapper .loader-section {
     position: fixed;
     top: 0;
@@ -19,6 +25,7 @@
     height: 100%;
     background: #222222;
     z-index: 1000;
+}
 }
  
 #loader-wrapper .loader-section.section-left {
@@ -49,6 +56,7 @@
                                             <tr>
                                                 <th>Id</th>
                                                 <th>Title</th>
+                                                <th>Date de création</th>
                                                 <th>Description</th>
                                                 <th>Action</th>
                                             </tr>
@@ -111,8 +119,18 @@
 
                   <div class="form-group">
                     <label for="description">Description</label>
-                      <input id="description" type="text" class="form-control" name="description" value="{{ old('description') }}" required autofocus>
-                      <span class="help-block errordescription"></span>
+                      <textarea id="description" class="form-control" name="description" required autofocus>{{ old('description') }}</textarea>
+                      <span class="help-block errorDescription"></span>
+                  </div>
+
+
+                  <div class="form-group">
+                      <label for="photo">Photo</label>
+                      <input type="file" id="photo" name="photo">
+                      <span class="help-block errorPhoto"></span>
+                      <br>
+                      <img src="{{ asset('img/placeholder.svg') }}" id="showimage" style="max-width:100px;max-height:100px;"/>
+                      
                   </div>
 
 
@@ -170,10 +188,19 @@
 
                   <div class="form-group">
                     <label for="description">Description</label>
-                      <input id="description" type="text" class="form-control" name="description" value="{{ old('description')}}" required autofocus>
+                      <textarea id="description" class="form-control" name="description" required autofocus>{{ old('description') }}</textarea>
                       <span class="help-block errorDescription"></span>
                   </div>
 
+
+                  <div class="form-group">
+                      <label for="photo">Photo</label>
+                      <input type="file" id="photo" name="photo">
+                      <span class="help-block errorPhoto"></span>
+                      <br>
+                      <img src="{{ asset('img/placeholder.svg') }}" id="showimage" style="max-width:100px;max-height:100px;"/>
+                      
+                  </div>
 
 
                   <div class="clearfix">
@@ -216,7 +243,7 @@
 
                 <center>
                   <div class="form-group">
-                      <img  id="showimage" style="max-width:200px;max-height:200px;"/>
+                      <img  id="showimage" style="max-width:100px;max-height:100px;"/>
                   </div>
                 </center>
       
@@ -235,8 +262,15 @@
 
 
                   <div class="form-group">
+                    <label for="created_at">Date de création</label>
+                      <input id="created_at" type="text" class="form-control" name="created_at" value="{{ old('created_at') }}" disabled="disabled">
+                  </div>
+
+
+
+                  <div class="form-group">
                     <label for="description">Description</label>
-                      <input id="description" type="text" class="form-control" name="description" value="{{ old('description') }}" disabled="disabled">
+                      <textarea id="description" class="form-control" name="description" disabled="disabled"></textarea>
                   </div>
 
 
@@ -330,6 +364,7 @@
 
     $('#editModal').on("show.bs.modal", function (e) {
          $("#editModal #title").val($(e.relatedTarget).data('title'));
+         $("#showModal #created_at").val($(e.relatedTarget).data('created_at'));
          $("#editModal #description").val($(e.relatedTarget).data('description'));
          $("#editModal #id").val($(e.relatedTarget).data('id'));
          var pic = "storage/"+$(e.relatedTarget).data("photo");
@@ -346,8 +381,12 @@
 
     $('#showModal').on("show.bs.modal", function (e) {
          $("#showModal #title").val($(e.relatedTarget).data('title'));
+         $("#showModal #created_at").val($(e.relatedTarget).data('created_at'));
          $("#showModal #description").val($(e.relatedTarget).data('description'));
          $("#showModal #id").val($(e.relatedTarget).data('id'));
+         var pic = "storage/"+$(e.relatedTarget).data("photo");
+         $("#showModal #showimage").attr('src', assetBaseUrl.replace('src' , pic));
+
       });
 
 
@@ -378,6 +417,7 @@ $("#addModal #submit").button('loading');
 
                     success: function(data) {
                     
+                    console.log(data);
                      $("#addModal #submit").button('reset');
 
                     $('.form-group').removeClass('has-error');
@@ -435,9 +475,6 @@ var formData  = new FormData($('#editForm')[0])
        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
    }
 });
-
-
-
 
 
   $.ajax({
@@ -523,6 +560,7 @@ $("#deleteModal #submit").click(function(e)
         columns: [
             { data: 'id', name: 'id' },
             { data: 'title', name: 'title' },
+            { data: 'created_at', name: 'created_at' },
             { data: 'description', name: 'description' },
           
 
@@ -533,13 +571,13 @@ $("#deleteModal #submit").click(function(e)
                     searchable: false,
                     render: function (data) {
                         var actions = '';
-                        actions += '<a data-toggle="modal"  data-id=":id" data-title=":title" data-description=":description" data-target="#showModal"><span class="glyphicon glyphicon-eye-open"></span></a>';
+                        actions += '<a data-toggle="modal"  data-id=":id" data-title=":title" data-description=":description" data-created_at=":created_at" data-photo=":photo" data-target="#showModal"><span class="glyphicon glyphicon-eye-open"></span></a>';
 
-                        actions += '|<a data-toggle="modal"  data-id=":id" data-title=":title" data-description=":description" data-target="#editModal"><span class="glyphicon glyphicon-edit"></span></a>';
+                        actions += '|<a data-toggle="modal"  data-id=":id" data-title=":title" data-description=":description" data-created_at=":created_at" data-photo=":photo" data-target="#editModal"><span class="glyphicon glyphicon-edit"></span></a>';
 
-                        actions += '|<a data-toggle="modal"  data-id=":id" data-title=":title" data-description=":description" data-target="#deleteModal"><span class="glyphicon glyphicon-trash"></span></a>';
+                        actions += '|<a data-toggle="modal"  data-id=":id" data-target="#deleteModal"><span class="glyphicon glyphicon-trash"></span></a>';
 
-                        return actions.replace(/:id/g, data.id).replace(/:title/g, data.title).replace(/:description/g, data.description);
+                        return actions.replace(/:id/g, data.id).replace(/:title/g, data.title).replace(/:description/g, data.description).replace(/:photo/g, data.photo).replace(/:created_at/g, data.created_at);
                     }
             }
 

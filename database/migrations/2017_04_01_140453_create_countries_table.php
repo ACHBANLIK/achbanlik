@@ -9,10 +9,10 @@ class CreateCountriesTable extends Migration {
 	{
 		Schema::create('countries', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('englishName');
-			$table->string('frenchName');
-			$table->string('arabicName');
-			$table->string('localName');
+			$table->string('en');
+			$table->string('fr')->nullable();
+			$table->string('ar')->nullable();
+			$table->string('code');
 			$table->timestamps();
 		});
 	}

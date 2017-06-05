@@ -20,10 +20,10 @@ class CreateTrophiesTable extends Migration
     $table->string('name');
     $table->text('description');
     $table->integer('points');
-    $table->string('photo')->default('all/trophy-award-icon.jpg');
-    $table->rememberToken();    
+    $table->string('photo')->default('all/trophy.png');
     $table->timestamps();
 
+    
     });
     }
 

@@ -12,22 +12,17 @@
 
 
 <style>
-  #loader-wrapper .loader-section {
-    position: fixed;
-    top: 0;
-    width: 51%;
-    height: 100%;
-    background: #222222;
-    z-index: 1000;
+
+
+.glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+
+small {
+display: block;
+line-height: 1.428571429;
+color: #999;
 }
- 
-#loader-wrapper .loader-section.section-left {
-    left: 0;
-}
- 
-#loader-wrapper .loader-section.section-right {
-    right: 0;
-}
+
+
 </style>
 @endpush
 
@@ -92,54 +87,40 @@
                        <span class="sr-only">Close</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Admin
+                    User
                 </h4>
             </div>
             
             <!-- Modal Body -->
             <div class="modal-body">
-                
-                <form  id="showForm" role="form">
+                 <center>
+ <img class="loading" src="{{ asset('img/cube.svg') }}" />
+</center> 
+ <div class="well well-sm content">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img alt="" class="img-rounded img-responsive" id="showimage" />
+                    </div>
+                    <div class="col-sm-6 col-md-8">
 
 
-                <center>
-                  <div class="form-group">
-                      <img  id="showimage" style="max-width:200px;max-height:200px;"/>
-                  </div>
-                </center>
-      
-                  <div class="form-group">
-                    <label for="id">Id</label>
-                      <input id="id" type="text" class="form-control" name="id" value="{{ old('id') }}" disabled="disabled">
-                  </div>
+                        <h4 id="name">Bhaumik Patel</h4>
+
+                        <small><cite  id="country">San Francisco, USA <i class="glyphicon glyphicon-map-marker">
+                        </i></cite></small>
 
 
+                        <p id="email"><i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
 
-                  <div class="form-group">
-                    <label for="fname">First name</label>
-                      <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" disabled="disabled">                  
-                  </div>
+                        <p id="birthday"><i class="glyphicon glyphicon-envelope"></i>email@example.com</p>
 
 
+                    </div>
+                </div>
+            </div>
 
+            
 
-                  <div class="form-group">
-                    <label for="lname">Last name</label>
-                      <input id="lname" type="text" class="form-control" name="lname" value="{{ old('fname') }}" disabled="disabled">
-                  </div>
-
-
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                      <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" disabled="disabled">
-                  </div>
-
-
-
-
-                </form>
-                
-                
             </div>
 
         </div>
@@ -179,10 +160,31 @@
 
 
     $('#showModal').on("show.bs.modal", function (e) {
-         $("#showModal #fname").val($(e.relatedTarget).data('fname'));
-         $("#showModal #lname").val($(e.relatedTarget).data('lname'));
-         $("#showModal #points").val($(e.relatedTarget).data('email'));
-         $("#showModal #id").val($(e.relatedTarget).data('id'));
+
+        $.ajax({
+          type: 'GET',
+          url: 'users/'+$(e.relatedTarget).data('id'),
+          data: {
+          '_token': $('input[name=_token]').val(),
+              },
+          success: function(data) {
+
+
+          if(data.msg)
+            {
+              toastr.error('Error!', 'Error Alert', {timeOut: 5000});
+              $("#showModal").modal('show');
+            }else
+            {
+               $('#showModal #name').html(data.fname +" "+data.lname);
+               $('#showModal #country').html(data.country);
+               var pic = "storage/"+$(e.relatedTarget).data("photo");
+               $("#showModal #showimage").attr('src', assetBaseUrl.replace('src' , pic));
+            }
+
+          },
+        });  
+
       });
 
 
@@ -246,7 +248,7 @@ $("#deleteModal #submit").click(function(e)
                     searchable: false,
                     render: function (data) {
                         var actions = '';
-                        actions += '<a data-toggle="modal"  data-id=":id" data-fname=":fname" data-lname=":lname" data-points=":points" data-status=":status"   data-target="#showModal"><span class="glyphicon glyphicon-eye-open"></span></a>';
+                        actions += '<a data-toggle="modal"  data-id=":id" data-target="#showModal"><span class="glyphicon glyphicon-eye-open"></span></a>';
 
 
                         return actions.replace(/:id/g, data.id).replace(/:fname/g, data.fname).replace(/:lname/g, data.lname).replace(/:points/g, data.points).replace(/:status/g, data.status);

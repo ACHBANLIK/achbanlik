@@ -6,16 +6,14 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Events\SendAdminWelcomeMail;
 use App\Http\UploadedFile;
 use Datatables;
 use DB;
-use App\Categories;
+use App\category;
 use View;
 use Validator;
 use Response;
-use Event;
-use Illuminate\Support\Facades\Log;
+use Auth;
 
 class CategoriesController extends Controller
 {
@@ -33,9 +31,9 @@ protected function validateMe(Request $request   , string $param)
         case 'store':
                 $rules =
                 [
-                    'title'=> 'required|title|max:255|unique:categories',
+                    'title'=> 'required|max:255|unique:categories',
                     'description'=> 'required|max:255|regex:/^[a-z ,.\'-]+$/i',
-
+                    'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 ];
             break;
         
@@ -44,7 +42,7 @@ protected function validateMe(Request $request   , string $param)
                 [
                     'title'=> 'required|max:255|regex:/^[a-z ,.\'-]+$/i',
                     'description' => 'required|max:255|regex:/^[a-z ,.\'-]+$/i', 
-
+                    'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 ];
             break;
     }
@@ -79,9 +77,13 @@ protected function validateMe(Request $request   , string $param)
     }
 
 
+
+
+
+
     public function getCategories()
     {
-        $categories = DB::table('categories')->select('id' , 'title' , 'description' )->orderBy('created_at' , 'desc');
+        $categories = DB::table('categories')->select('id' , 'title' , DB::raw("DATE_FORMAT(created_at, '%d-%m-%Y') as created_at")  , 'description', 'photo')->orderBy('created_at' , 'desc');
         return Datatables::of($categories)
             ->make(true);
     }
@@ -111,18 +113,25 @@ protected function validateMe(Request $request   , string $param)
 
 
         $validator = $this->validateMe($request , "store");
+
         if ($validator->fails()){
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
         }
         else
         {
 
-            $category = new Categories();
+            $category = new category();
+            $category->idAdmin = Auth::user()->id;
             $category->title = $request->title;
             $category->description = $request->description;
-            $category->save();
+           // $category->created_at = date('d-m-Y H:i:s');
 
-            //Event::fire(new SendAdminWelcomeMail($category->id));
+            if($request->hasFile('photo'))
+            {
+               $category->photo = $request->file('photo')->store('categories');
+            }
+
+            $category->save();
             return response()->json(['success'=>'done']);
 
              
@@ -140,7 +149,7 @@ protected function validateMe(Request $request   , string $param)
     public function show($id)
     {
 
-        $category = Categories::findOrFail($id);
+        $category = category::findOrFail($id);
         return view('admin.categories' , ['category' => $category]);
     }
 
@@ -173,9 +182,21 @@ protected function validateMe(Request $request   , string $param)
         else
         {
 
-            $category = Categories::findOrFail($id);
+            $category = category::findOrFail($id);
+
             $category->title = $request->title;
             $category->description = $request->description;
+            //$category->updated_at = date('d-m-Y H:i:s');
+
+            if($request->hasFile('photo'))
+            {
+
+               if($trophy->photo != "all/category.png")
+               {
+                    Storage::delete($trophy->photo);
+               }
+               $trophy->photo = $request->file('photo')->store('categories');
+            }
 
             $category->save();
 
@@ -197,7 +218,7 @@ protected function validateMe(Request $request   , string $param)
      */
     public function destroy($id)
     {
-        $category = Categories::findOrFail($id);
+        $category = category::findOrFail($id);
         $category->delete();
         return response()->json($category);
     }

@@ -119,7 +119,7 @@
 
                   <div class="form-group">
                     <label for="description">Description</label>
-                      <input id="description" type="description" class="form-control" name="description" password="{{ old('description') }}" required autofocus>
+                      <textarea id="description" class="form-control" name="description" required autofocus>{{ old('description') }}</textarea>
                       <span class="help-block errorDescription"></span>
                   </div>
 
@@ -191,12 +191,13 @@
                       <span class="help-block errorPoints"></span>
                   </div>
 
+
+
                   <div class="form-group">
                     <label for="description">Description</label>
-                      <input id="description" type="text" class="form-control" name="description" value="{{ old('description') }}" required autofocus>
+                      <textarea id="description" class="form-control" name="description" required autofocus>{{ old('description') }}</textarea>
                       <span class="help-block errorDescription"></span>
                   </div>
-
 
   
 
@@ -277,7 +278,7 @@
 
                   <div class="form-group">
                     <label for="description">Description</label>
-                      <input id="description" type="text" class="form-control" name="description" value="{{ old('description') }}" disabled="disabled">
+                      <textarea id="description" class="form-control" name="description" disabled="disabled"></textarea>
                   </div>
 
 

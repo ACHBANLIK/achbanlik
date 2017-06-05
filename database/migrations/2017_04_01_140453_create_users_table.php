@@ -15,12 +15,12 @@ class CreateUsersTable extends Migration {
 			$table->string('fname');
 			$table->boolean('status')->default(true);
 			$table->integer('idCountry')->unsigned()->nullable();
-			$table->integer('idCity')->unsigned()->nullable();
 			$table->date('birthday')->nullable();
 			$table->text('photo')->nullable();
 			$table->integer('points')->default(0);
             $table->rememberToken(); 	
-			$table->timestamps();
+			$table->timestamp('updated_at')->useCurrent();
+			$table->timestamp('created_at')->useCurrent();
 		})	;
 	}
 

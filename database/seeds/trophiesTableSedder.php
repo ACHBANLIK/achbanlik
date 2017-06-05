@@ -20,7 +20,6 @@ class trophiesTableSedder extends Seeder
             'name' => 'welcome',
             'points' => '5',
             'description' => 'trophée de bienvenu',
-            'remember_token' => str_random(60),
         ]
         );
 
@@ -31,7 +30,6 @@ class trophiesTableSedder extends Seeder
             'name' => 'InfoProfil',
             'points' => '10',
             'description' => 'Les information de USER sont completes',
-            'remember_token' => str_random(60),
         ]
         );
 
@@ -40,7 +38,6 @@ class trophiesTableSedder extends Seeder
             'name' => 'FistPublication',
             'points' => '10',
             'description' => 'User a publié sa premiere publication dans la platforme ',
-            'remember_token' => str_random(60),
         ]
         );
 

@@ -13,16 +13,7 @@ class CreateForeignKeys extends Migration {
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
-		Schema::table('users', function(Blueprint $table) {
-			$table->foreign('idCity')->references('id')->on('cities')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
-		Schema::table('cities', function(Blueprint $table) {
-			$table->foreign('idCountry')->references('id')->on('countries')
-						->onDelete('cascade')
-						->onUpdate('cascade');
-		});
+	
 		Schema::table('publications', function(Blueprint $table) {
 			$table->foreign('idUser')->references('id')->on('users')
 						->onDelete('restrict')
@@ -74,12 +65,6 @@ class CreateForeignKeys extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table) {
 			$table->dropForeign('users_idCountry_foreign');
-		});
-		Schema::table('users', function(Blueprint $table) {
-			$table->dropForeign('users_idCity_foreign');
-		});
-		Schema::table('cities', function(Blueprint $table) {
-			$table->dropForeign('cities_idCountry_foreign');
 		});
 		Schema::table('publications', function(Blueprint $table) {
 			$table->dropForeign('publications_idUser_foreign');
