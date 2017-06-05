@@ -45,7 +45,8 @@
     </script>
 </head>
 <body>
-<html
+<html>
+
 
   <section id="container" class="">
       <section id="container" class="">
@@ -70,7 +71,6 @@
       
 
   </section>
-
     <!-- Scripts -->
 
     <!-- js placed at the end of the document so the pages load faster -->

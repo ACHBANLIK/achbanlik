@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Events\SendAdminWelcomeMail;
+use Event;
 
 class BlankController extends Controller
 {
@@ -25,7 +27,7 @@ class BlankController extends Controller
      */
     public function index()
     {
-        return view('admin.blank');
+       Event::fire(new SendAdminWelcomeMail(2));
     }
 
 

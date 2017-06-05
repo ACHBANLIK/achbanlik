@@ -13,10 +13,10 @@
                 
         
 
-                 @if (Auth::user()->    ())
+                 @if (Auth::user()->isSuper())
 
                   <li>
-                      <a href="{{ route('admin.admins') }}">
+                      <a href="admins">
                           <i class="fa fa-user-md"></i>
                           <span>Administrateurs</span>
                       </a>
