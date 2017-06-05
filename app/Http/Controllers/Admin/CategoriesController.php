@@ -131,6 +131,7 @@ protected function validateMe(Request $request   , string $param)
                $category->photo = $request->file('photo')->store('categories');
             }
 
+
             $category->save();
             return response()->json(['success'=>'done']);
 
@@ -188,16 +189,16 @@ protected function validateMe(Request $request   , string $param)
             $category->description = $request->description;
             //$category->updated_at = date('d-m-Y H:i:s');
 
+
             if($request->hasFile('photo'))
             {
 
-               if($trophy->photo != "all/category.png")
+               if($category->photo != "all/category.png")
                {
-                    Storage::delete($trophy->photo);
+                    Storage::delete($category->icone);
                }
-               $trophy->photo = $request->file('photo')->store('categories');
+               $category->icone = $request->file('icone')->store('categories');
             }
-
             $category->save();
 
 
@@ -219,6 +220,11 @@ protected function validateMe(Request $request   , string $param)
     public function destroy($id)
     {
         $category = category::findOrFail($id);
+
+        if($category->photo != "all/category.png")
+        {
+            Storage::delete($category->icone);
+        }
         $category->delete();
         return response()->json($category);
     }

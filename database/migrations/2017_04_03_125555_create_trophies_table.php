@@ -18,7 +18,7 @@ class CreateTrophiesTable extends Migration
 
     $table->increments('id');
     $table->string('name');
-    $table->text('description');
+    $table->longText('description');
     $table->integer('points');
     $table->string('photo')->default('all/trophy.png');
     $table->timestamps();

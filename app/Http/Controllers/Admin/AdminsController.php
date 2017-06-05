@@ -132,10 +132,17 @@ protected function validateMe(Request $request   , string $param)
 
             $admin->save();
 
+<<<<<<< HEAD
+
+            return response()->json(['success'=>'done']);
+
+            // Event::fire(new SendAdminWelcomeMail($admin->id));
+=======
             //Event::fire(new SendAdminWelcomeMail($admin->id));
             return response()->json(['success'=>'done']);
 
              
+>>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
         }
 
 

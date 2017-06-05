@@ -49,6 +49,8 @@
         Route::get('/contact', 'BlankController@index')->name('admin.contact');
 
         Route::get('/contact', 'BlankController@index')->name('admin.contact');
+
+        Route::get('/contact', 'BlankController@index')->name('admin.contact');
         
 
         Route::resource('admins', 'AdminsController');
@@ -67,6 +69,13 @@
 
         Route::resource('categories', 'CategoriesController');
         Route::get('/getcategories', 'CategoriesController@getCategories')->name('admin.getcategories');
+
+
+        Route::resource('contactus', 'ContactusController');
+        Route::get('/getcontactus', 'CategoriesController@getContactus')->name('admin.getcontactus');
+
+
+
 
 
 
