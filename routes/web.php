@@ -69,6 +69,13 @@
         Route::get('/getcategories', 'CategoriesController@getCategories')->name('admin.getcategories');
 
 
+        Route::resource('contactus', 'ContactusController');
+        Route::get('/getcontactus', 'CategoriesController@getContactus')->name('admin.getcontactus');
+
+
+
+
+
 
         });
         

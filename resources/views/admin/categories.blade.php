@@ -40,7 +40,7 @@
     <section class="panel">
 
                           <header class="panel-heading">
-                              Categories
+                             Trophies
                           </header>
                           <div class="panel-body">
                             <div class="adv-table">
@@ -49,6 +49,7 @@
                                             <tr>
                                                 <th>Id</th>
                                                 <th>Title</th>
+                                                <th>Points</th>
                                                 <th>Description</th>
                                                 <th>Action</th>
                                             </tr>
@@ -103,18 +104,34 @@
                 <form  id="addForm" role="form" method="POST" enctype="multipart/form-data">
     
                   <div class="form-group">
-                    <label for="">Title</label>
-                      <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required autofocus>
-                      <span class="help-block errorTitle"></span>
+                    <label for="name">Name</label>
+                      <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                      <span class="help-block errorName"></span>
+                  </div>
+
+
+                  <div class="form-group">
+                    <label for="points">Points</label>
+                      <input id="points" type="text" class="form-control" name="points" value="{{ old('points') }}" required autofocus>
+                      <span class="help-block errorPoints"></span>
                   </div>
 
 
                   <div class="form-group">
                     <label for="description">Description</label>
-                      <input id="description" type="text" class="form-control" name="description" value="{{ old('description') }}" required autofocus>
-                      <span class="help-block errordescription"></span>
+                      <input id="description" type="description" class="form-control" name="description" password="{{ old('description') }}" required autofocus>
+                      <span class="help-block errorDescription"></span>
                   </div>
 
+
+                  <div class="form-group">
+                      <label for="image">Photo</label>
+                      <input type="file" id="photo" name="photo">
+                      <span class="help-block errorPhoto"></span>
+                      <br>
+                      <img src="{{ asset('img/placeholder.svg') }}" id="showimage" style="max-width:100px;max-height:100px;"/>
+                      
+                  </div>
 
 
                   <div class="clearfix">
@@ -162,18 +179,35 @@
 
 
                   <div class="form-group">
-                    <label for="title">Title</label>
-                      <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required autofocus>
+                    <label for="name">Name</label>
+                      <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
                       <span class="help-block errorName"></span>
                   </div>
 
 
                   <div class="form-group">
+                    <label for="points">Points</label>
+                      <input id="points" type="text" class="form-control" name="points" value="{{ old('points') }}" required autofocus>
+                      <span class="help-block errorPoints"></span>
+                  </div>
+
+                  <div class="form-group">
                     <label for="description">Description</label>
-                      <input id="description" type="text" class="form-control" name="description" value="{{ old('description')}}" required autofocus>
+                      <textarea id="description" type="text" class="form-control" name="description"> value="{{ old('description') }}" required autofocus</textarea>
                       <span class="help-block errorDescription"></span>
                   </div>
 
+
+  
+
+                  <div class="form-group">
+                      <label for="photo">Photo</label>
+                      <input type="file" id="photo" name="photo">
+                      <span class="help-block errorPhoto"></span>
+                      <br>
+                      <img src="{{ asset('img/placeholder.svg') }}" id="showimage" style="max-width:100px;max-height:100px;"/>
+                      
+                  </div>
 
 
                   <div class="clearfix">
@@ -204,7 +238,7 @@
                        <span class="sr-only">Close</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Categories
+                    Admin
                 </h4>
             </div>
             
@@ -228,18 +262,23 @@
 
 
                   <div class="form-group">
-                    <label for="title">Title</label>
-                      <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" disabled="disabled">                  
+                    <label for="name">Name</label>
+                      <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" disabled="disabled">                  
                   </div>
+
 
 
 
                   <div class="form-group">
-                    <label for="description">Description</label>
-                      <input id="description" type="text" class="form-control" name="description" value="{{ old('description') }}" disabled="disabled">
+                    <label for="points">Points</label>
+                      <input id="points" type="text" class="form-control" name="points" value="{{ old('points') }}" disabled="disabled">
                   </div>
 
 
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                      <textarea id="description" type="text" class="form-control" name="description"> value="{{ old('description') }}" disabled="disabled"</textarea>
+                  </div>
 
 
 
@@ -269,7 +308,7 @@
                        <span class="sr-only">Close</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Are you sure you want to delete <span id="title"></span>?
+                    Are you sure you want to delete <span id="name"></span>?
                 </h4>
             </div>
             
@@ -329,7 +368,8 @@
 
 
     $('#editModal').on("show.bs.modal", function (e) {
-         $("#editModal #title").val($(e.relatedTarget).data('title'));
+         $("#editModal #name").val($(e.relatedTarget).data('name'));
+         $("#editModal #points").val($(e.relatedTarget).data('points'));
          $("#editModal #description").val($(e.relatedTarget).data('description'));
          $("#editModal #id").val($(e.relatedTarget).data('id'));
          var pic = "storage/"+$(e.relatedTarget).data("photo");
@@ -338,20 +378,30 @@
 
 
     $('#deleteModal').on("show.bs.modal", function (e) {
-         $("#deleteModal #title").html($(e.relatedTarget).data('title'));
-         $("#deleteModal #description").html($(e.relatedTarget).data('description'));
+         $("#deleteModal #name").html($(e.relatedTarget).data('name'));
+         $("#deleteModal #points").html($(e.relatedTarget).data('points'));
          $("#deleteModal #id").val($(e.relatedTarget).data('id'));
     });
 
 
     $('#showModal').on("show.bs.modal", function (e) {
-         $("#showModal #title").val($(e.relatedTarget).data('title'));
+         $("#showModal #name").val($(e.relatedTarget).data('name'));
+         $("#showModal #points").val($(e.relatedTarget).data('points'));
          $("#showModal #description").val($(e.relatedTarget).data('description'));
          $("#showModal #id").val($(e.relatedTarget).data('id'));
+         var pic = "storage/"+$(e.relatedTarget).data("photo");
+         $("#showModal #showimage").attr('src', assetBaseUrl.replace('src' , pic));
       });
 
 
+$("#addModal #photo").change(function () { 
+  readURL(this , "#addModal");
+});
 
+
+$("#editModal #photo").change(function () { 
+  readURL(this , "#editModal");
+});
 
 
 
@@ -370,7 +420,7 @@ $("#addModal #submit").button('loading');
 
   $.ajax({
                 type: 'POST',
-                url: 'categories',
+                url: 'trophies',
                 processData: false,
                 contentType: false,
                 cache: false,
@@ -388,20 +438,27 @@ $("#addModal #submit").button('loading');
                             toastr.error('Validation error!', 'Error Alert', {timeOut: 5000});
                         }, 500);
 
-                        if (data.errors.description) {
-                            $('#addForm #title').parent(".form-group").addClass('has-error');
-                            $('#addForm .errorTitle').html("<strong>"+data.errors.title+"<strong>");
+                        if (data.errors.name) {
+                            $('#addForm #name').parent(".form-group").addClass('has-error');
+                            $('#addForm .errorName').html("<strong>"+data.errors.name+"<strong>");
+                        }
+                        if (data.errors.points) {
+                            $('#addForm #points').parent(".form-group").addClass('has-error');
+                            $('#addForm .errorPoints').html("<strong>"+data.errors.points+"<strong>");
                         }
                         if (data.errors.description) {
                             $('#addForm #description').parent(".form-group").addClass('has-error');
                             $('#addForm .errorDescription').html("<strong>"+data.errors.description+"<strong>");
-                        }
-                         
+                        }   
+                        if (data.errors.photo) {
+                            $('#addForm #photo').parent(".form-group").addClass('has-error');
+                            $('#addForm .errorPhoto').html("<strong>"+data.errors.photo+"<strong>");
+                        }                                
                     } else {
                         $("#addModal").modal("hide"); 
                         $("#addForm").trigger('reset');  
                         $('#admins-table').DataTable().draw(false)
-                        toastr.success('Successfully created Category!', 'Success Alert', {timeOut: 5000});
+                        toastr.success('Successfully created admin!', 'Success Alert', {timeOut: 5000});
                     }
                 },
                   error:function()
@@ -442,7 +499,7 @@ var formData  = new FormData($('#editForm')[0])
 
   $.ajax({
                 type: 'post',
-                url: 'categories/'+$("#editModal #id").val(),             
+                url: 'trophies/'+$("#editModal #id").val(),             
                 data: formData,
                 cache: false,
                 contentType: false,
@@ -459,20 +516,23 @@ var formData  = new FormData($('#editForm')[0])
                             toastr.error('Validation error!', 'edit Alert', {timeOut: 5000});
                         }, 500);
 
-                        if (data.errors.title) {
-                            $('#editForm #title').parent(".form-group").addClass('has-error');
-                            $('#editForm .errorTitle').html("<strong>"+data.errors.title+"<strong>");
+                        if (data.errors.name) {
+                            $('#editForm #name').parent(".form-group").addClass('has-error');
+                            $('#editForm .errorName').html("<strong>"+data.errors.name+"<strong>");
                         }
-                        if (data.errors.description) {
-                            $('#editForm #description').parent(".form-group").addClass('has-error');
-                            $('#editForm .errordescription').html("<strong>"+data.errors.description+"<strong>");
+                        if (data.errors.points) {
+                            $('#editForm #points').parent(".form-group").addClass('has-error');
+                            $('#editForm .errorPoints').html("<strong>"+data.errors.points+"<strong>");
                         }
-                             
+                        if (data.errors.photo) {
+                            $('#editForm #photo').parent(".form-group").addClass('has-error');
+                            $('#editForm .errorPhoto').html("<strong>"+data.errors.photo+"<strong>");
+                        }                                
                     } else {
                         $("#editModal").modal("hide"); 
                         $("#editForm").trigger('reset');  
                         $('#admins-table').DataTable().draw(false)
-                        toastr.success('Successfully edited Category!', 'Success Alert', {timeOut: 5000});
+                        toastr.success('Successfully edited trophy!', 'Success Alert', {timeOut: 5000});
                     }
                 },
                   error:function()
@@ -494,7 +554,7 @@ $("#deleteModal #submit").click(function(e)
      $("#deleteModal #submit").button('loading');
   $.ajax({
       type: 'DELETE',
-      url: 'categories/' + $("#deleteModal #id").val(),
+      url: 'trophies/' + $("#deleteModal #id").val(),
       data: 
       {
         '_token': $('input[name=_token]').val(),
@@ -505,7 +565,7 @@ $("#deleteModal #submit").click(function(e)
         $("#deleteModal").modal("hide");   
 
         $('#admins-table').DataTable().draw(false)
-        toastr.success('Successfully deleted Category!', 'Success Alert', {timeOut: 5000});
+        toastr.success('Successfully deleted Trophy!', 'Success Alert', {timeOut: 5000});
       },
        error:function()
        {
@@ -519,12 +579,13 @@ $("#deleteModal #submit").click(function(e)
     var table  =  $('#admins-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: '{{ route('admin.getcategories') }}',
+        ajax: '{{ route('admin.gettrophies') }}',
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'title', name: 'title' },
+            { data: 'name', name: 'name' },
+            { data: 'points', name: 'points' },
             { data: 'description', name: 'description' },
-          
+
 
             {
                     name: 'actions',
@@ -533,13 +594,13 @@ $("#deleteModal #submit").click(function(e)
                     searchable: false,
                     render: function (data) {
                         var actions = '';
-                        actions += '<a data-toggle="modal"  data-id=":id" data-title=":title" data-description=":description" data-target="#showModal"><span class="glyphicon glyphicon-eye-open"></span></a>';
+                        actions += '<a data-toggle="modal"  data-id=":id" data-name=":name" data-points=":points" data-description=":description"   data-photo=":photo" data-target="#showModal"><span class="glyphicon glyphicon-eye-open"></span></a>';
 
-                        actions += '|<a data-toggle="modal"  data-id=":id" data-title=":title" data-description=":description" data-target="#editModal"><span class="glyphicon glyphicon-edit"></span></a>';
+                        actions += '|<a data-toggle="modal"  data-id=":id" data-name=":name" data-points=":points" data-description=":description"  data-photo=":photo"  data-target="#editModal"><span class="glyphicon glyphicon-edit"></span></a>';
 
-                        actions += '|<a data-toggle="modal"  data-id=":id" data-title=":title" data-description=":description" data-target="#deleteModal"><span class="glyphicon glyphicon-trash"></span></a>';
+                        actions += '|<a data-toggle="modal"  data-id=":id" data-name=":name" data-points=":points" data-description=":description"  data-target="#deleteModal"><span class="glyphicon glyphicon-trash"></span></a>';
 
-                        return actions.replace(/:id/g, data.id).replace(/:title/g, data.title).replace(/:description/g, data.description);
+                        return actions.replace(/:id/g, data.id).replace(/:name/g, data.name).replace(/:points/g, data.points).replace(/:description/g, data.description).replace(/:photo/g, data.photo);
                     }
             }
 
@@ -550,7 +611,6 @@ $("#deleteModal #submit").click(function(e)
 
 
 });
-
 
 
 
@@ -565,9 +625,6 @@ function readURL(input , id) {
   }
 }
    
-
-
-
 
 
             </script>

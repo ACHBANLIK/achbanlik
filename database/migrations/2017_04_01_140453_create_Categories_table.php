@@ -10,7 +10,7 @@ class CreateCategoriesTable extends Migration {
 		Schema::create('Categories', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('title');
-			$table->string('description');
+			$table->longText('description');
 			$table->string('icone')->default('public/sm-img-2.jpg');
 			$table->integer('idAdmin')->unsigned();
 			$table->rememberToken();    

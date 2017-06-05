@@ -61,7 +61,7 @@
 
 
                   <li>
-                      <a href="{{ route('admin.contact') }}">
+                      <a href="contactus">
                           <i class="fa fa-envelope"></i>
                           <span>Contact / Messages</span>
                       </a>
