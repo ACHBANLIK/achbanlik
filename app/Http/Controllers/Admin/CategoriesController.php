@@ -35,6 +35,8 @@ protected function validateMe(Request $request   , string $param)
                 [
                     'title'=> 'required|title|max:255|unique:categories',
                     'description'=> 'required|max:255|regex:/^[a-z ,.\'-]+$/i',
+                    'icone' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
 
                 ];
             break;
@@ -43,7 +45,9 @@ protected function validateMe(Request $request   , string $param)
                 $rules =
                 [
                     'title'=> 'required|max:255|regex:/^[a-z ,.\'-]+$/i',
-                    'description' => 'required|max:255|regex:/^[a-z ,.\'-]+$/i', 
+                    'description' => 'required|max:255|regex:/^[a-z ,.\'-]+$/i',
+                    'icone' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
 
                 ];
             break;
@@ -81,7 +85,7 @@ protected function validateMe(Request $request   , string $param)
 
     public function getCategories()
     {
-        $categories = DB::table('categories')->select('id' , 'title' , 'description' )->orderBy('created_at' , 'desc');
+        $categories = DB::table('categories')->select('id' , 'title' , 'description','icone' )->orderBy('created_at' , 'desc');
         return Datatables::of($categories)
             ->make(true);
     }
@@ -120,6 +124,13 @@ protected function validateMe(Request $request   , string $param)
             $category = new Categories();
             $category->title = $request->title;
             $category->description = $request->description;
+
+
+        if($request->hasFile('icone'))
+            {
+
+               $category->photo = $request->file('icone')->store('category_icone');
+            }            
             $category->save();
 
             //Event::fire(new SendAdminWelcomeMail($category->id));
@@ -177,6 +188,15 @@ protected function validateMe(Request $request   , string $param)
             $category->title = $request->title;
             $category->description = $request->description;
 
+            if($request->hasFile('icone'))
+            {
+
+               if($category->photo != "all/admin_avatar.png")
+               {
+                    Storage::delete($category->icone);
+               }
+               $category->icone = $request->file('icone')->store('category_icone');
+            }
             $category->save();
 
 
@@ -198,6 +218,12 @@ protected function validateMe(Request $request   , string $param)
     public function destroy($id)
     {
         $category = Categories::findOrFail($id);
+
+        if($category->icone != "all/admin_avatar.png")
+        {
+            Storage::delete($category->icone);
+        }
+
         $category->delete();
         return response()->json($category);
     }
