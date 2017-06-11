@@ -10,7 +10,7 @@ class CreateOpinionsTable extends Migration {
 		Schema::create('opinions', function(Blueprint $table) {
 			$table->increments('id');
 			$table->bigInteger('idUser')->unsigned();
-			$table->tinyInteger('choice');
+			$table->tinyInteger('choice')->default(1);
 			$table->bigInteger('idPublication')->unsigned();
 			$table->timestamps();
 		});

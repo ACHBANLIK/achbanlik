@@ -46,7 +46,9 @@ class ContactusController extends Controller
 
     public function getContactus()
     {
-        $contactus = DB::table('contactus')->select('id' , 'title' , 'message' )->orderBy('created_at' , 'desc');
+        $contactus = DB::table('contactus')
+                    ->join('users' , 'users.id' , '=' , 'contactus.idUser')
+                    ->select('contactus.id' , 'contactus.title' , 'contactus.message',  DB::raw('CONCAT(users.fname, " ", users.lname) AS full_name')  )->orderBy('contactus.created_at' , 'desc');
         return Datatables::of($contactus)
             ->make(true);
     }

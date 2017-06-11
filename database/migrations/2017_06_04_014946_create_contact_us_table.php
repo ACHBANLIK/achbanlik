@@ -14,10 +14,12 @@ class CreateContactUsTable extends Migration
     public function up()
     {
         Schema::create('contactus', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
+            $table->bigInteger('idUser')->unsigned();
            $table->string('title');
             $table->longText('message');
-            $table->timestamps();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

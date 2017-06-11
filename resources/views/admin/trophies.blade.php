@@ -4,11 +4,11 @@
 @push('styles')
 <meta name="csrf-token" content="{{ csrf_token() }}">
   
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/data-tables/css/dataTables.bootstrap.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/data-tables/responsive/css/responsive.bootstrap.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/bootstrap-toggle/css/bootstrap-toggle.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/toastr/css/toastr.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/full-loader.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/data-tables/css/dataTables.bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/data-tables/responsive/css/responsive.bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/bootstrap-toggle/css/bootstrap-toggle.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/toastr/css/toastr.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/css/full-loader.css') }}">
 
 
 <style>
@@ -129,7 +129,7 @@
                       <input type="file" id="photo" name="photo">
                       <span class="help-block errorPhoto"></span>
                       <br>
-                      <img src="{{ asset('img/placeholder.svg') }}" id="showimage" style="max-width:100px;max-height:100px;"/>
+                      <img src="{{ asset('admin/img/placeholder.svg') }}" id="showimage" style="max-width:100px;max-height:100px;"/>
                       
                   </div>
 
@@ -206,7 +206,7 @@
                       <input type="file" id="photo" name="photo">
                       <span class="help-block errorPhoto"></span>
                       <br>
-                      <img src="{{ asset('img/placeholder.svg') }}" id="showimage" style="max-width:100px;max-height:100px;"/>
+                      <img src="{{ asset('admin/img/placeholder.svg') }}" id="showimage" style="max-width:100px;max-height:100px;"/>
                       
                   </div>
 
@@ -239,7 +239,7 @@
                        <span class="sr-only">Close</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Admin
+                    Trophé
                 </h4>
             </div>
             
@@ -345,13 +345,13 @@
 
 
 
-<script src="{{ asset('assets/data-tables/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('assets/data-tables/js/dataTables.bootstrap.min.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/js/dataTables.bootstrap.min.js') }}"></script>
 
-<script src="{{ asset('assets/data-tables/responsive/js/dataTables.responsive.min.js') }}"></script>
-<script src="{{ asset('assets/data-tables/responsive/js/responsive.bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/bootstrap-toggle/js/bootstrap-toggle.min.js') }}"></script>
-<script src="{{ asset('assets/toastr/js/toastr.min.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/responsive/js/responsive.bootstrap.min.js') }}"></script>
+<script src="{{ asset('admin/assets/bootstrap-toggle/js/bootstrap-toggle.min.js') }}"></script>
+<script src="{{ asset('admin/assets/toastr/js/toastr.min.js') }}"></script>
 
 
 

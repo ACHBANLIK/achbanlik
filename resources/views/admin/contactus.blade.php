@@ -4,30 +4,18 @@
 @push('styles')
 <meta name="csrf-token" content="{{ csrf_token() }}">
   
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/data-tables/css/dataTables.bootstrap.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/data-tables/responsive/css/responsive.bootstrap.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/bootstrap-toggle/css/bootstrap-toggle.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/toastr/css/toastr.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/full-loader.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/data-tables/css/dataTables.bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/data-tables/responsive/css/responsive.bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/bootstrap-toggle/css/bootstrap-toggle.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/toastr/css/toastr.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/css/full-loader.css') }}">
 
 
 <style>
-  #loader-wrapper .loader-section {
-    position: fixed;
-    top: 0;
-    width: 51%;
-    height: 100%;
-    background: #222222;
-    z-index: 1000;
-}
- 
-#loader-wrapper .loader-section.section-left {
-    left: 0;
-}
- 
-#loader-wrapper .loader-section.section-right {
-    right: 0;
-}
+
+th, td { white-space: nowrap; }
+
+
 </style>
 @endpush
 
@@ -48,6 +36,7 @@
                                             <thead>
                                             <tr>
                                                 <th>Id</th>
+                                                <th>User</th>
                                                 <th>Title</th>
                                                 <th>Action</th>
                                             </tr>
@@ -122,8 +111,22 @@
 
 
                   <div class="form-group">
-                    <label for="title">Title</label>
+                    <label for="full_name">User</label>
+                      <input id="full_name" type="text" class="form-control" name="full_name" value="{{ old('full_name') }}" disabled="disabled">                  
+                  </div>
+
+
+                  <div class="form-group">
+                    <label for="full_name">Title</label>
                       <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" disabled="disabled">                  
+                  </div>
+
+
+
+
+                  <div class="form-group">
+                    <label for="mesage">Message</label>
+                      <textarea id="message" class="form-control" name="message" disabled="disabled">{{ old('message') }}</textarea>
                   </div>
 
 
@@ -153,13 +156,13 @@
 
 
 
-<script src="{{ asset('assets/data-tables/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('assets/data-tables/js/dataTables.bootstrap.min.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/js/dataTables.bootstrap.min.js') }}"></script>
 
-<script src="{{ asset('assets/data-tables/responsive/js/dataTables.responsive.min.js') }}"></script>
-<script src="{{ asset('assets/data-tables/responsive/js/responsive.bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/bootstrap-toggle/js/bootstrap-toggle.min.js') }}"></script>
-<script src="{{ asset('assets/toastr/js/toastr.min.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/responsive/js/responsive.bootstrap.min.js') }}"></script>
+<script src="{{ asset('admin/assets/bootstrap-toggle/js/bootstrap-toggle.min.js') }}"></script>
+<script src="{{ asset('admin/assets/toastr/js/toastr.min.js') }}"></script>
 
 
 
@@ -183,7 +186,8 @@
 
     $('#showModal').on("show.bs.modal", function (e) {
          $("#showModal #title").val($(e.relatedTarget).data('title'));
-         $("#showModal #message").val($(e.relatedTarget).data('message'));
+         $("#showModal #full_name").val($(e.relatedTarget).data('full_name'));
+         $("#showModal #message").html($(e.relatedTarget).data('message'));
          $("#showModal #id").val($(e.relatedTarget).data('id'));
       });
 
@@ -199,9 +203,8 @@
         ajax: '{{ route('admin.getcontactus') }}',
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'title', name: 'title' },
-            { data: 'message', name: 'message' },
-
+            { data: 'full_name', name: 'full_name' },
+            { data: 'title', name: 'title'},
             {
                     name: 'actions',
                     data: null,
@@ -209,10 +212,10 @@
                     searchable: false,
                     render: function (data) {
                         var actions = '';
-                        actions += '<a data-toggle="modal"  data-id=":id" data-title=":title" data-message=":message"  data-target="#showModal"><span class="glyphicon glyphicon-eye-open"></span></a>';
+                        actions += '<a data-toggle="modal"  data-id=":id" data-title=":title" data-message=":message" data-full_name=":full_name"  data-target="#showModal"><span class="glyphicon glyphicon-eye-open"></span></a>';
 
 
-                        return actions.replace(/:id/g, data.id).replace(/:title/g, data.title).replace(/:message/g, data.message);
+                        return actions.replace(/:id/g, data.id).replace(/:title/g, data.title).replace(/:message/g, data.message).replace(/:full_name/g, data.full_name);
                     }
             }
 

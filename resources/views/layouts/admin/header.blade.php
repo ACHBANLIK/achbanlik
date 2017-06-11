@@ -17,7 +17,7 @@
        <li class="dropdown language">
 
                       <a data-close-others="true" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle" href="#">
-                          {!! Html  ::image(asset('img/flags/'.config('app.locale').'.png')) !!}
+                          {!! Html  ::image(asset('admin/img/flags/'.config('app.locale').'.png')) !!}
                           <span class="username">{{ config('app.locale') }}</span>
                           <b class="caret"></b>
                       </a>
@@ -30,7 +30,7 @@
                        @foreach(config('app.locales') as $lang)
                           <li class="{{ config('app.locale') == $lang ? 'hidden' : '' }}"><a href="/setlocale/{{ $lang }}"> 
 
-                          {!! Html  ::image(asset('img/flags/'.$lang.'.png')) !!}
+                          {!! Html  ::image(asset('admin/img/flags/'.$lang.'.png')) !!}
 
                            {{ $lang }}</a></li>
         
@@ -47,7 +47,7 @@
                   <!-- user login dropdown start-->
                   <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                          {!! Html  ::image(asset('storage/'.Auth::user()->photo)  ,  '', array( 'height' => 30 )) !!}
+                          {!! Html  ::image(asset('/storage/'.Auth::user()->photo)  ,  '', array( 'height' => 30 )) !!}
                             <span class="username">{{ Auth::user()->fname }}  {{ Auth::user()->lname }}</span>
                           
                           <b class="caret"></b>

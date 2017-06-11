@@ -16,14 +16,14 @@
 
 
 
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap-reset.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/bootstrap-reset.css') }}" rel="stylesheet">
     <!--external css-->
-    <link href="{{ asset('assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
     <!-- Custom styles for this template -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/style-responsive.css') }}" rel="stylesheet" />
+    <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet" />
 
 
      @stack('styles')
@@ -74,15 +74,15 @@
     <!-- Scripts -->
 
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="{{ asset('js/jquery.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.dcjqaccordion.2.7.js') }}"></script>
-    <script src="{{ asset('js/jquery.scrollTo.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.nicescroll.js') }}"></script>
-    <script src="{{ asset('js/respond.min.js') }}" ></script>
+    <script src="{{ asset('admin/js/jquery.js') }}"></script>
+    <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('admin/js/jquery.dcjqaccordion.2.7.js') }}"></script>
+    <script src="{{ asset('admin/js/jquery.scrollTo.min.js') }}"></script>
+    <script src="{{ asset('admin/js/jquery.nicescroll.js') }}"></script>
+    <script src="{{ asset('admin/js/respond.min.js') }}" ></script>
 
     <!--common script for all pages-->
-    <script src="{{ asset('js/common-scripts.js') }}"></script>
+    <script src="{{ asset('admin/js/common-scripts.js') }}"></script>
     
      @stack('scripts')
 

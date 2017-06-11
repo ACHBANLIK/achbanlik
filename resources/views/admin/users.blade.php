@@ -4,11 +4,11 @@
 @push('styles')
 <meta name="csrf-token" content="{{ csrf_token() }}">
   
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/data-tables/css/dataTables.bootstrap.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/data-tables/responsive/css/responsive.bootstrap.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/bootstrap-toggle/css/bootstrap-toggle.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/toastr/css/toastr.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/full-loader.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/data-tables/css/dataTables.bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/data-tables/responsive/css/responsive.bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/bootstrap-toggle/css/bootstrap-toggle.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/toastr/css/toastr.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/css/full-loader.css') }}">
 
 
 <style>
@@ -21,6 +21,9 @@ display: block;
 line-height: 1.428571429;
 color: #999;
 }
+
+
+.mycontent{display: none;}
 
 
 </style>
@@ -93,32 +96,36 @@ color: #999;
             
             <!-- Modal Body -->
             <div class="modal-body">
-                 <center>
- <img class="loading" src="{{ asset('img/cube.svg') }}" />
-</center> 
- <div class="well well-sm content">
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <img alt="" class="img-rounded img-responsive" id="showimage" />
-                    </div>
-                    <div class="col-sm-6 col-md-8">
+            <center>
+              <img class="myloading" src="{{ asset('admin/img/cube.svg') }}" />
+            </center> 
 
+          <div class="mycontent">
+                      <!--widget start-->
+                      <aside class="profile-nav alt green-border">
+                          <section class="panel">
+                              <div class="user-heading alt green-bg">
+                                  <a href="#">
+                                      <img alt="" id="showimage">
+                                  </a>
+                                  <h1 id="name"></h1>
+                                  <p>
+                                    <span id="email"></span> <br>
+                                    <span id="country"></span> <i class="glyphicon glyphicon-map-marker"></i> 
+                                  </p>
+                              </div>
 
-                        <h4 id="name">Bhaumik Patel</h4>
+                              <ul class="nav nav-pills nav-stacked">
+                                  <li><a href="javascript:;"> <i class="fa fa-file-image-o"></i> Publications <span id="publications" class="label label-primary pull-right r-activity"></span></a></li>
+                                  <li><a href="javascript:;"> <i class="fa fa-comments"></i> Votes <span id="votes" class="label label-info pull-right r-activity">11</span></a></li>
+                                  <li><a href="javascript:;"> <i class="fa fa-trophy"></i> Points <span id="points" class="label label-warning pull-right r-activity"></span></a></li>
+                                  {{-- <li><a href="javascript:;"> <i class="fa fa-users"></i> Amis <span id="points" class="label label-success pull-right r-activity">10</span></a></li> --}}
+                              </ul>
 
-                        <small><cite  id="country">San Francisco, USA <i class="glyphicon glyphicon-map-marker">
-                        </i></cite></small>
-
-
-                        <p id="email"><i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
-
-                        <p id="birthday"><i class="glyphicon glyphicon-envelope"></i>email@example.com</p>
-
-
-                    </div>
-                </div>
-            </div>
-
+                          </section>
+                      </aside>
+                      <!--widget end-->
+          </div>
             
 
             </div>
@@ -138,13 +145,13 @@ color: #999;
 
 
 
-<script src="{{ asset('assets/data-tables/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('assets/data-tables/js/dataTables.bootstrap.min.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/js/dataTables.bootstrap.min.js') }}"></script>
 
-<script src="{{ asset('assets/data-tables/responsive/js/dataTables.responsive.min.js') }}"></script>
-<script src="{{ asset('assets/data-tables/responsive/js/responsive.bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/bootstrap-toggle/js/bootstrap-toggle.min.js') }}"></script>
-<script src="{{ asset('assets/toastr/js/toastr.min.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/responsive/js/responsive.bootstrap.min.js') }}"></script>
+<script src="{{ asset('admin/assets/bootstrap-toggle/js/bootstrap-toggle.min.js') }}"></script>
+<script src="{{ asset('admin/assets/toastr/js/toastr.min.js') }}"></script>
 
 
 
@@ -170,15 +177,24 @@ color: #999;
           success: function(data) {
 
 
+
           if(data.msg)
             {
               toastr.error('Error!', 'Error Alert', {timeOut: 5000});
               $("#showModal").modal('show');
             }else
             {
-               $('#showModal #name').html(data.fname +" "+data.lname);
+               $(".myloading").hide();
+               $(".mycontent").show(); 
+               $('#showModal #name').html(data.user.fname +" "+data.user.lname);
+               $('#showModal #email').html(data.user.email);
+               $('#showModal #birthday').html(data.user.birthday);
                $('#showModal #country').html(data.country);
-               var pic = "storage/"+$(e.relatedTarget).data("photo");
+               $('#showModal #points').html(("0" + data.user.points).slice(-2));
+               $('#showModal #votes').html(("0" + data.votes).slice(-2));
+               $('#showModal #publications').html(("0" + data.publications).slice(-2));
+
+               var pic = "storage/"+data.user.photo;
                $("#showModal #showimage").attr('src', assetBaseUrl.replace('src' , pic));
             }
 
@@ -186,38 +202,6 @@ color: #999;
         });  
 
       });
-
-
-
-
-
-
-
-
-$("#deleteModal #submit").click(function(e)
-{
-     $("#deleteModal #submit").button('loading');
-  $.ajax({
-      type: 'DELETE',
-      url: 'admins/' + $("#deleteModal #id").val(),
-      data: 
-      {
-        '_token': $('input[name=_token]').val(),
-      },
-      success: function(data) {
-      
-        $("#deleteModal #submit").button('reset');
-        $("#deleteModal").modal("hide");   
-
-        $('#admins-table').DataTable().draw(false)
-        toastr.success('Successfully deleted Admin!', 'Success Alert', {timeOut: 5000});
-      },
-       error:function()
-       {
-      $("#deleteModal #submit").button('reset');
-        }
-    });
-});
 
 
 
@@ -292,7 +276,7 @@ function changeStatus(id)
 
         $.ajax({
           type: 'POST',
-          url: "{{ URL::route('changeStatus') }}",
+          url: "{{ URL::route('admin.changeUserStatus') }}",
           data: {
           '_token': $('input[name=_token]').val(),
           'id': id

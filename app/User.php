@@ -9,6 +9,26 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function country()
+    {
+        return $this->belongsTo('App\Country', 'idCountry', 'id');
+    }
+
+
+
+   public function publications()
+    {
+        return $this->hasMany('App\Publication', 'idUser', 'id');
+    }
+
+
+   public function opinions()
+    {
+        return $this->hasMany('App\Opinion', 'idUser', 'id');
+    }
+
+
+
     /**
      * The attributes that are mass assignable.
      *

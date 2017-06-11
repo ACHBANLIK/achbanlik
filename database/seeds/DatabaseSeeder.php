@@ -17,6 +17,9 @@ class DatabaseSeeder extends Seeder
         $this->call(trophiesTableSedder::class);
         $this->call(categoriesTableSedder::class);
         $this->call(contactusTableSedder::class);
-
+        $this->call(typesTableSedder::class);
+        $this->call(publicationsTableSedder::class);
+        $this->call(commentsTableSedder::class);
+        $this->call(opinionsTableSedder::class);
     }
 }

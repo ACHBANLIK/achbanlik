@@ -4,7 +4,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
                   <li>
-                      <a href="index.html">
+                      <a href="{{ route('admin.dashboard') }}">
                           <i class="fa fa-dashboard"></i>
                           <span>@lang('adminTemplate.dashboard')</span>
                       </a>
@@ -16,7 +16,7 @@
                  @if (Auth::user()->isSuper())
 
                   <li>
-                      <a href="admins">
+                      <a href="{{ route('admin.admins') }}">
                           <i class="fa fa-user-md"></i>
                           <span>Administrateurs</span>
                       </a>
@@ -27,7 +27,7 @@
 
 
                   <li>
-                      <a href="users">
+                      <a href="{{ route('admin.users') }}">
                           <i class="fa fa-users"></i>
                           <span>Utilisateurs</span>
                       </a>
@@ -35,7 +35,7 @@
 
 
                   <li>
-                      <a href="categories">
+                      <a href="{{ route('admin.categories') }}">
                           <i class="fa fa-bars"></i>
                           <span>Catégories</span>
                       </a>
@@ -44,7 +44,7 @@
 
 
                   <li>
-                      <a href="publications">
+                      <a href="{{ route('admin.publications') }}">
                           <i class="fa fa-book"></i>
                           <span>Publications</span>
                       </a>
@@ -53,7 +53,7 @@
 
 
                   <li>
-                      <a href="trophies">
+                      <a href="{{ route('admin.trophies') }}">
                           <i class="fa fa-money"></i>
                           <span>Trophés</span>
                       </a>
@@ -61,19 +61,13 @@
 
 
                   <li>
-                      <a href="contactus">
+                      <a href="{{ route('admin.contactus') }}">
                           <i class="fa fa-envelope"></i>
                           <span>Contact / Messages</span>
                       </a>
                   </li>
 
 
-                  <li>
-                      <a href="">
-                      <a href="{{ route('admin.blank') }}">
-                          <span>Page vide</span>
-                      </a>
-                  </li>
 
 
               </ul>

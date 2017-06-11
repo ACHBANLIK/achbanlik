@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Carbon\Carbon;
 class usersTableSedder extends Seeder
 {
     /**
@@ -20,9 +20,9 @@ class usersTableSedder extends Seeder
             'fname' => 'basma',
             'lname' => 'chebbourh',
             'email' => 'basma.chebbourh@gmail.com',
-            'idCountry' => 150,         
-            'photo' => 'storage/all/user_avatar.png',   
-            'birthday' => Carbon::now()->format('d-m-Y'); 
+            'idCountry' => 149,         
+            'photo' => 'all/user_avatar.png',   
+            'birthday' => Carbon::now(),
             'password' => bcrypt('Temp123*'),
         ]
         );
@@ -33,9 +33,9 @@ class usersTableSedder extends Seeder
             'fname' => 'olea',
             'lname' => 'fadlo',
             'email' => 'olea.fadlo@gmail.com',
-            'idCountry' => 150,   
-            'birthday' => Carbon::now()->format('d-m-Y'); 
-            'photo' => 'storage/all/user_avatar.png',   
+            'idCountry' => 149,   
+            'birthday' => Carbon::now(), 
+            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         );
@@ -46,9 +46,9 @@ class usersTableSedder extends Seeder
             'fname' => 'hamza',
             'lname' => 'zakaria',
             'email' => 'hamza.zakaria@gmail.com',
-            'idCountry' => 150,   
-            'birthday' => Carbon::now()->format('d-m-Y'); 
-            'photo' => 'storage/all/user_avatar.png',   
+            'idCountry' => 149,   
+            'birthday' => Carbon::now(), 
+            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         );

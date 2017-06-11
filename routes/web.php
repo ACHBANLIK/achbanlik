@@ -32,7 +32,6 @@
           return redirect()->back();
         });
         */
-
         
         Route::prefix('admin')->group(function() {
         Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -41,41 +40,43 @@
         Route::group(['namespace' => 'Admin'], function () {
         Route::get('/', 'DashboardController@index')->name('admin.dashboard');
         Route::get('/dashboard', 'DashboardController@index')->name('admin.dashboard');
-        Route::get('/blank', 'BlankController@index')->name('admin.blank');
-        Route::get('/users', 'BlankController@index')->name('admin.users');
-        Route::get('/publications', 'BlankController@index')->name('admin.publications');
-        Route::get('/categories', 'BlankController@index')->name('admin.categories');
-        Route::get('/trophies', 'BlankController@index')->name('admin.trophies');
-        Route::get('/contact', 'BlankController@index')->name('admin.contact');
-
-        Route::get('/contact', 'BlankController@index')->name('admin.contact');
-
-        Route::get('/contact', 'BlankController@index')->name('admin.contact');
+ 
         
 
-        Route::resource('admins', 'AdminsController');
+        Route::resource('admins', 'AdminsController' ,  ['names' => ['index' => 'admin.admins']]);
         Route::get('/getadmins', 'AdminsController@getAdmins')->name('admin.getadmins');
-        Route::post('admins/changeStatus', array('as' => 'changeStatus', 'uses' => 'AdminsController@changeStatus'));
+        Route::post('admins/changeStatus', 'AdminsController@changeStatus')->name('admin.changeAdminstatus');
         
         
 
-        Route::resource('users', 'UsersController');
+        Route::resource('users', 'UsersController' ,  ['names' => ['index' => 'admin.users']]);
         Route::get('/getusers', 'UsersController@getUsers')->name('admin.getusers');
-        Route::post('users/changeStatus', array('as' => 'changeStatus', 'uses' => 'UsersController@changeStatus'));
+        Route::post('users/changeStatus', 'UsersController@changeStatus')->name('admin.changeUserStatus');
 
 
-        Route::resource('trophies', 'TrophiesController');
+        Route::resource('trophies', 'TrophiesController' ,  ['names' => ['index' => 'admin.trophies']]);
         Route::get('/gettrophies', 'TrophiesController@getTrophies')->name('admin.gettrophies');
 
-        Route::resource('categories', 'CategoriesController');
+        Route::resource('categories', 'CategoriesController' ,  ['names' => ['index' => 'admin.categories']]);
         Route::get('/getcategories', 'CategoriesController@getCategories')->name('admin.getcategories');
 
 
-        Route::resource('contactus', 'ContactusController');
-        Route::get('/getcontactus', 'CategoriesController@getContactus')->name('admin.getcontactus');
+        Route::resource('contactus', 'ContactusController' ,  ['names' => ['index' => 'admin.contactus']]);
+        Route::get('/getcontactus', 'ContactusController@getContactus')->name('admin.getcontactus');
 
 
 
+
+
+        Route::resource('publications', 'PublicationsController',  ['names' => ['index' => 'admin.publications']]);
+
+        Route::get('/getpublications', 'PublicationsController@getPublications')->name('admin.getpublications');
+        Route::post('publications/changeStatus', 'PublicationsController@changeStatus')->name('admin.changePublicationStatus');
+
+        Route::resource('comments', 'CommentsController');
+
+        Route::get('/getcomments/{id}', 'CommentsController@getcomments')->name('admin.getcomments');
+        Route::post('comments/changeStatus', 'CommentsController@changeStatus')->name('admin.changeCommentStatus');
 
 
 

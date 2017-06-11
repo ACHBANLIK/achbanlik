@@ -4,11 +4,11 @@
 @push('styles')
 <meta name="csrf-token" content="{{ csrf_token() }}">
   
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/data-tables/css/dataTables.bootstrap.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/data-tables/responsive/css/responsive.bootstrap.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/bootstrap-toggle/css/bootstrap-toggle.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/toastr/css/toastr.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('css/full-loader.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/data-tables/css/dataTables.bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/data-tables/responsive/css/responsive.bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/bootstrap-toggle/css/bootstrap-toggle.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/toastr/css/toastr.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/css/full-loader.css') }}">
 
 
 <style>
@@ -130,7 +130,7 @@
                       <input type="file" id="photo" name="photo">
                       <span class="help-block errorPhoto"></span>
                       <br>
-                      <img src="{{ asset('img/placeholder.svg') }}" id="showimage" style="max-width:100px;max-height:100px;"/>
+                      <img src="{{ asset('admin/img/placeholder.svg') }}" id="showimage" style="max-width:100px;max-height:100px;"/>
                       
                   </div>
 
@@ -200,7 +200,7 @@
                       <input type="file" id="photo" name="photo">
                       <span class="help-block errorPhoto"></span>
                       <br>
-                      <img src="{{ asset('img/placeholder.svg') }}" id="showimage" style="max-width:100px;max-height:100px;"/>
+                      <img src="{{ asset('admin/img/placeholder.svg') }}" id="showimage" style="max-width:100px;max-height:100px;"/>
                       
                   </div>
 
@@ -240,50 +240,23 @@
             <!-- Modal Body -->
             <div class="modal-body">
                 
-                <form  id="showForm" role="form">
+              <!--widget start-->
+              <aside class="profile-nav alt green-border">
+                  <section class="panel">
+                      <div class="user-heading alt green-bg">
+                          <a href="#">
+                              <img alt="" id="showimage">
+                          </a>
+                          <h1><span id="fname"></span>  <span id="lname"></span></h1>
+                          <p>
+                            <span id="email"></span> <br>
+                          </p>
+                      </div>
 
 
-                <center>
-                  <div class="form-group">
-<<<<<<< HEAD
-                      <img  id="showimage" style="max-width:100px;max-height:100px;"/>
-=======
-                      <img  id="showimage" style="max-width:200px;max-height:200px;"/>
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
-                  </div>
-                </center>
-      
-                  <div class="form-group">
-                    <label for="id">Id</label>
-                      <input id="id" type="text" class="form-control" name="id" value="{{ old('id') }}" disabled="disabled">
-                  </div>
-
-
-
-                  <div class="form-group">
-                    <label for="fname">First name</label>
-                      <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" disabled="disabled">                  
-                  </div>
-
-
-
-
-                  <div class="form-group">
-                    <label for="lname">Last name</label>
-                      <input id="lname" type="text" class="form-control" name="lname" value="{{ old('fname') }}" disabled="disabled">
-                  </div>
-
-<<<<<<< HEAD
-
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                      <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" disabled="disabled">
-                  </div>
-
-
-
-
-                </form>
+                  </section>
+              </aside>
+              <!--widget end-->
                 
                 
             </div>
@@ -295,29 +268,6 @@
 
 
 
-=======
-
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                      <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" disabled="disabled">
-                  </div>
-
-
-
-
-                </form>
-                
-                
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- Show Modal -->
-
-
-
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
 <!-- Confirmation Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" 
      aria-labelledby="myModalLabel" aria-hidden="true"> 
@@ -367,13 +317,13 @@
 
 
 
-<script src="{{ asset('assets/data-tables/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('assets/data-tables/js/dataTables.bootstrap.min.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/js/dataTables.bootstrap.min.js') }}"></script>
 
-<script src="{{ asset('assets/data-tables/responsive/js/dataTables.responsive.min.js') }}"></script>
-<script src="{{ asset('assets/data-tables/responsive/js/responsive.bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/bootstrap-toggle/js/bootstrap-toggle.min.js') }}"></script>
-<script src="{{ asset('assets/toastr/js/toastr.min.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('admin/assets/data-tables/responsive/js/responsive.bootstrap.min.js') }}"></script>
+<script src="{{ asset('admin/assets/bootstrap-toggle/js/bootstrap-toggle.min.js') }}"></script>
+<script src="{{ asset('admin/assets/toastr/js/toastr.min.js') }}"></script>
 
 
 
@@ -408,10 +358,9 @@
 
 
     $('#showModal').on("show.bs.modal", function (e) {
-         $("#showModal #fname").val($(e.relatedTarget).data('fname'));
-         $("#showModal #lname").val($(e.relatedTarget).data('lname'));
-         $("#showModal #email").val($(e.relatedTarget).data('email'));
-         $("#showModal #id").val($(e.relatedTarget).data('id'));
+         $("#showModal #fname").html($(e.relatedTarget).data('fname'));
+         $("#showModal #lname").html($(e.relatedTarget).data('lname'));
+         $("#showModal #email").html($(e.relatedTarget).data('email'));
          var pic = "storage/"+$(e.relatedTarget).data("photo");
          $("#showModal #showimage").attr('src', assetBaseUrl.replace('src' , pic));
       });
@@ -432,11 +381,7 @@ $("#addModal #submit").click(function(e)
 {
 
 
-<<<<<<< HEAD
-$(this).button('loading');
-=======
 $("#addModal #submit").button('loading');
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
 
 
   $.ajaxSetup({
@@ -455,20 +400,12 @@ $("#addModal #submit").button('loading');
 
                     success: function(data) {
                     
-<<<<<<< HEAD
-                      $(this).button('reset');
-=======
                      $("#addModal #submit").button('reset');
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
 
                     $('.form-group').removeClass('has-error');
                     $('.help-block').html("");
 
                     if ((data.errors)) {
-<<<<<<< HEAD
-                      $(this).button('reset');
-=======
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
                         setTimeout(function () {
                             toastr.error('Validation error!', 'Error Alert', {timeOut: 5000});
                         }, 500);
@@ -495,15 +432,11 @@ $("#addModal #submit").button('loading');
                         $('#admins-table').DataTable().draw(false)
                         toastr.success('Successfully created admin!', 'Success Alert', {timeOut: 5000});
                     }
-<<<<<<< HEAD
-                }
-=======
                 },
                   error:function()
                   {
                      $("#addModal #submit").button('reset');
                   }
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
             });
 
 
@@ -519,11 +452,7 @@ $("#editModal #submit").click(function(e)
 {
 
 
-<<<<<<< HEAD
-$(this).button('loading');
-=======
 $("#editModal #submit").button('loading');
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
 
 
 var formData  = new FormData($('#editForm')[0])
@@ -549,20 +478,12 @@ var formData  = new FormData($('#editForm')[0])
                 processData: false,
 
                     success: function(data) {
-<<<<<<< HEAD
-                      $(this).button('reset');
-=======
                       $("#editModal #submit").button('reset');
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
 
                     $('.form-group').removeClass('has-error');
                     $('.help-block').html("");
 
                     if ((data.errors)) {
-<<<<<<< HEAD
-                      $(this).button('reset');
-=======
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
                         setTimeout(function () {
                             toastr.error('Validation error!', 'edit Alert', {timeOut: 5000});
                         }, 500);
@@ -585,15 +506,11 @@ var formData  = new FormData($('#editForm')[0])
                         $('#admins-table').DataTable().draw(false)
                         toastr.success('Successfully edited admin!', 'Success Alert', {timeOut: 5000});
                     }
-<<<<<<< HEAD
-                }
-=======
                 },
                   error:function()
                   {
                     $("#editModal #submit").button('reset');
                   }
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
 
             });        
 
@@ -606,11 +523,7 @@ var formData  = new FormData($('#editForm')[0])
 
 $("#deleteModal #submit").click(function(e)
 {
-<<<<<<< HEAD
-     $(this).button('loading');
-=======
      $("#deleteModal #submit").button('loading');
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
   $.ajax({
       type: 'DELETE',
       url: 'admins/' + $("#deleteModal #id").val(),
@@ -620,16 +533,6 @@ $("#deleteModal #submit").click(function(e)
       },
       success: function(data) {
       
-<<<<<<< HEAD
-      $(this).button('reset');
-
-
-      $("#deleteModal").modal("hide");   
-
-      $('#admins-table').DataTable().draw(false)
-      toastr.success('Successfully deleted Admin!', 'Success Alert', {timeOut: 5000});
-      }
-=======
         $("#deleteModal #submit").button('reset');
         $("#deleteModal").modal("hide");   
 
@@ -640,7 +543,6 @@ $("#deleteModal #submit").click(function(e)
        {
       $("#deleteModal #submit").button('reset');
         }
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b
     });
 });
 
@@ -720,7 +622,7 @@ function changeStatus(id)
 
         $.ajax({
           type: 'POST',
-          url: "{{ URL::route('changeStatus') }}",
+          url: "{{ URL::route('admin.changeAdminstatus') }}",
           data: {
           '_token': $('input[name=_token]').val(),
           'id': id
@@ -749,8 +651,4 @@ function changeStatus(id)
 
 
 
-<<<<<<< HEAD
   
-=======
-  
->>>>>>> 7e2aa3e37b6abaea97e1c6aaf1fbdedf6f9c7f9b

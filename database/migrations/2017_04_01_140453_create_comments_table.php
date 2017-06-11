@@ -12,8 +12,10 @@ class CreateCommentsTable extends Migration {
 			$table->bigInteger('idUser')->unsigned();
 			$table->bigInteger('idPublication')->unsigned();
 			$table->text('text');
-			$table->text('image');
-			$table->timestamps();
+			$table->boolean('status')->default(1);
+			$table->text('image')->nullable();
+			$table->timestamp('updated_at')->useCurrent();
+			$table->timestamp('created_at')->useCurrent();
 		});
 	}
 

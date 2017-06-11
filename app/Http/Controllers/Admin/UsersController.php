@@ -11,6 +11,9 @@ use App\Http\UploadedFile;
 use Datatables;
 use DB;
 use App\User;
+use App\Country;
+use App\Publication;
+use App\Opinion;
 use View;
 use Validator;
 use Response;
@@ -87,16 +90,18 @@ class UsersController extends Controller
     {
         try {
 
-        $user = User::findOrFail($id);
+
+
+         $user = User::findOrFail($id);
 
         } catch (Exception $e) {
             return response()->json('msg');
         }
-        return response()->json($user);
+        return response()->json(array('user' =>$user , 'country' =>$user->country->name ,  'publications' =>$user->publications()->count() ,  'votes' =>$user->opinions()->count()));
 
     }
 
-    /**
+    /**opinionscons
      * Show the form for editing the specified resource.
      *
      * @param  int  $id

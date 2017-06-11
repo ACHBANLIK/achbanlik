@@ -70,6 +70,6 @@
 
 
 @push('scripts')
-    <script src="{{ asset('js/jquery.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('admin/js/jquery.js') }}"></script>
+    <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
 @endpush
