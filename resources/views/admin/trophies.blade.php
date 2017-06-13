@@ -40,18 +40,18 @@
     <section class="panel">
 
                           <header class="panel-heading">
-                             Trophies
+                            @lang('adminTemplate.trophes')
                           </header>
                           <div class="panel-body">
                             <div class="adv-table">
                               <table id="admins-table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                             <thead>
                                             <tr>
-                                                <th>Id</th>
-                                                <th>Title</th>
-                                                <th>Points</th>
-                                                <th>Description</th>
-                                                <th>Action</th>
+                                                <th>@lang('field.id')</th>
+                                                <th>@lang('field.title')</th>
+                                                <th>@lang('field.points')</th>
+                                                <th>@lang('field.description')</th>
+                                                <th>@lang('field.action')</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -62,7 +62,7 @@
 
                           
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
-                              <span class="glyphicon glyphicon-plus"></span> Nouveau
+                              <span class="glyphicon glyphicon-plus"></span> @lang('field.new')
                             </button> 
 
 
@@ -91,10 +91,10 @@
                 <button type="button" class="close" 
                    data-dismiss="modal">
                        <span aria-hidden="true">&times;</span>
-                       <span class="sr-only">Close</span>
+                       <span class="sr-only">@lang('field.close')</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    New
+                   @lang('field.new')
                 </h4>
             </div>
             
@@ -104,28 +104,28 @@
                 <form  id="addForm" role="form" method="POST" enctype="multipart/form-data">
     
                   <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">@lang('field.name')</label>
                       <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
                       <span class="help-block errorName"></span>
                   </div>
 
 
                   <div class="form-group">
-                    <label for="points">Points</label>
+                    <label for="points">@lang('field.points')</label>
                       <input id="points" type="text" class="form-control" name="points" value="{{ old('points') }}" required autofocus>
                       <span class="help-block errorPoints"></span>
                   </div>
 
 
                   <div class="form-group">
-                    <label for="description">Description</label>
+                    <label for="description">@lang('field.description')</label>
                       <textarea id="description" class="form-control" name="description" required autofocus>{{ old('description') }}</textarea>
                       <span class="help-block errorDescription"></span>
                   </div>
 
 
                   <div class="form-group">
-                      <label for="image">Photo</label>
+                      <label for="image">@lang('field.image')</label>
                       <input type="file" id="photo" name="photo">
                       <span class="help-block errorPhoto"></span>
                       <br>
@@ -135,7 +135,7 @@
 
 
                   <div class="clearfix">
-                    <button type="button" id="submit" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours">Valider</button>
+                    <button type="button" id="submit" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours">@lang('field.validate')</button>
                   </div>
 
                 </form>
@@ -160,10 +160,10 @@
                 <button type="button" class="close" 
                    data-dismiss="modal">
                        <span aria-hidden="true">&times;</span>
-                       <span class="sr-only">Close</span>
+                       <span class="sr-only">@lang('field.close')</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Edit
+                    @lang('crud.edit')
                 </h4>
             </div>
             
@@ -179,14 +179,14 @@
 
 
                   <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">@lang('field.name')</label>
                       <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
                       <span class="help-block errorName"></span>
                   </div>
 
 
                   <div class="form-group">
-                    <label for="points">Points</label>
+                    <label for="points">@lang('field.points')</label>
                       <input id="points" type="text" class="form-control" name="points" value="{{ old('points') }}" required autofocus>
                       <span class="help-block errorPoints"></span>
                   </div>
@@ -194,7 +194,7 @@
 
 
                   <div class="form-group">
-                    <label for="description">Description</label>
+                    <label for="description">@lang('field.description')</label>
                       <textarea id="description" class="form-control" name="description" required autofocus>{{ old('description') }}</textarea>
                       <span class="help-block errorDescription"></span>
                   </div>
@@ -202,7 +202,7 @@
   
 
                   <div class="form-group">
-                      <label for="photo">Photo</label>
+                      <label for="photo">@lang('field.image')</label>
                       <input type="file" id="photo" name="photo">
                       <span class="help-block errorPhoto"></span>
                       <br>
@@ -212,7 +212,7 @@
 
 
                   <div class="clearfix">
-                    <button type="button" id="submit" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours">Valider</button>
+                    <button type="button" id="submit" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours">@lang('field.validate')</button>
                   </div>
 
                 </form>
@@ -236,10 +236,10 @@
                 <button type="button" class="close" 
                    data-dismiss="modal">
                        <span aria-hidden="true">&times;</span>
-                       <span class="sr-only">Close</span>
+                       <span class="sr-only">@lang('field.close')</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Trophé
+                    @lang('field.trophie')
                 </h4>
             </div>
             
@@ -256,14 +256,14 @@
                 </center>
       
                   <div class="form-group">
-                    <label for="id">Id</label>
+                    <label for="id">@lang('field.id')</label>
                       <input id="id" type="text" class="form-control" name="id" value="{{ old('id') }}" disabled="disabled">
                   </div>
 
 
 
                   <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">@lang('field.name')</label>
                       <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" disabled="disabled">                  
                   </div>
 
@@ -271,13 +271,13 @@
 
 
                   <div class="form-group">
-                    <label for="points">Points</label>
+                    <label for="points">@lang('field.points')</label>
                       <input id="points" type="text" class="form-control" name="points" value="{{ old('points') }}" disabled="disabled">
                   </div>
 
 
                   <div class="form-group">
-                    <label for="description">Description</label>
+                    <label for="description">@lang('field.description')</label>
                       <textarea id="description" class="form-control" name="description" disabled="disabled"></textarea>
                   </div>
 
@@ -306,10 +306,10 @@
                 <button type="button" class="close" 
                    data-dismiss="modal">
                        <span aria-hidden="true">&times;</span>
-                       <span class="sr-only">Close</span>
+                       <span class="sr-only">@lang('field.close')</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Are you sure you want to delete <span id="name"></span>?
+                    @lang('field.deleteoperation') <span id="name"></span>?
                 </h4>
             </div>
             
@@ -321,8 +321,8 @@
                   <input type="hidden" name="id" id="id" value="">
                   
                   <center>
-                    <button  type="button" data-dismiss="modal"  class="btn btn-danger btn-lg btn-bloc">Non</button>
-                    <button id="submit" type="button" class="btn btn-primary btn-lg btn-bloc" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours" >Oui</button>
+                    <button  type="button" data-dismiss="modal"  class="btn btn-danger btn-lg btn-bloc">@lang('field.no')</button>
+                    <button id="submit" type="button" class="btn btn-primary btn-lg btn-bloc" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours" >@lang('field.yes')</button>
 
                   </center>
 

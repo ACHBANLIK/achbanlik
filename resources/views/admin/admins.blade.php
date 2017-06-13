@@ -40,19 +40,19 @@
     <section class="panel">
 
                           <header class="panel-heading">
-                              Administrateurs
+                              @lang('adminTemplate.admins')
                           </header>
                           <div class="panel-body">
                             <div class="adv-table">
                               <table id="admins-table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                             <thead>
                                             <tr>
-                                                <th>Id</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Email</th>
-                                                <th>Active</th>
-                                                <th>Action</th>
+                                                <th>@lang('field.id')</th>
+                                                <th>@lang('field.fname')</th>
+                                                <th>@lang('field.lname')</th>
+                                                <th>@lang('field.email')</th>
+                                                <th>@lang('field.active')</th>
+                                                <th>@lang('field.action')</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -63,7 +63,7 @@
 
                           
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
-                              <span class="glyphicon glyphicon-plus"></span> Nouveau
+                              <span class="glyphicon glyphicon-plus"></span> @lang('field.new')
                             </button> 
 
 
@@ -95,7 +95,7 @@
                        <span class="sr-only">Close</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    New
+                  @lang('field.new')
                 </h4>
             </div>
             
@@ -105,28 +105,28 @@
                 <form  id="addForm" role="form" method="POST" enctype="multipart/form-data">
     
                   <div class="form-group">
-                    <label for="fname">First name</label>
+                    <label for="fname">@lang('field.fname')</label>
                       <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" required autofocus>
                       <span class="help-block errorFname"></span>
                   </div>
 
 
                   <div class="form-group">
-                    <label for="lname">Last name</label>
+                    <label for="lname">@lang('field.lname')</label>
                       <input id="lname" type="text" class="form-control" name="lname" value="{{ old('fname') }}" required autofocus>
                       <span class="help-block errorLname"></span>
                   </div>
 
 
                   <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email">@lang('field.email')</label>
                       <input id="email" type="email" class="form-control" name="email" password="{{ old('email') }}" required autofocus>
                       <span class="help-block errorEmail"></span>
                   </div>
 
 
                   <div class="form-group">
-                      <label for="image">Photo</label>
+                      <label for="image">@lang('field.image')</label>
                       <input type="file" id="photo" name="photo">
                       <span class="help-block errorPhoto"></span>
                       <br>
@@ -136,7 +136,7 @@
 
 
                   <div class="clearfix">
-                    <button type="button" id="submit" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours">Valider</button>
+                    <button type="button" id="submit" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours">@lang('field.validate')</button>
                   </div>
 
                 </form>
@@ -164,7 +164,7 @@
                        <span class="sr-only">Close</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Edit
+                    @lang('crud.edit')
                 </h4>
             </div>
             
@@ -180,14 +180,14 @@
 
 
                   <div class="form-group">
-                    <label for="fname">First name</label>
+                    <label for="fname">@lang('field.fname')</label>
                       <input id="fname" type="text" class="form-control" name="fname" value="{{ old('fname') }}" required autofocus>
                       <span class="help-block errorFname"></span>
                   </div>
 
 
                   <div class="form-group">
-                    <label for="lname">Last name</label>
+                    <label for="lname">@lang('field.lname')</label>
                       <input id="lname" type="text" class="form-control" name="lname" value="{{ old('fname') }}" required autofocus>
                       <span class="help-block errorLname"></span>
                   </div>
@@ -196,7 +196,7 @@
   
 
                   <div class="form-group">
-                      <label for="photo">Photo</label>
+                      <label for="photo">@lang('field.image')</label>
                       <input type="file" id="photo" name="photo">
                       <span class="help-block errorPhoto"></span>
                       <br>
@@ -206,7 +206,7 @@
 
 
                   <div class="clearfix">
-                    <button type="button" id="submit" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours">Valider</button>
+                    <button type="button" id="submit" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours">@lang('field.validate')</button>
                   </div>
 
                 </form>
@@ -233,7 +233,7 @@
                        <span class="sr-only">Close</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Admin
+                   @lang('field.admin')
                 </h4>
             </div>
             
@@ -278,10 +278,10 @@
                 <button type="button" class="close" 
                    data-dismiss="modal">
                        <span aria-hidden="true">&times;</span>
-                       <span class="sr-only">Close</span>
+                       <span class="sr-only">@lang('field.close')</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Are you sure you want to delete <span id="fname"></span>&nbsp;<span id="lname"></span>?
+                   @lang('field.deleteoperation') <span id="fname"></span>&nbsp;<span id="lname"></span>?
                 </h4>
             </div>
             
@@ -293,8 +293,8 @@
                   <input type="hidden" name="id" id="id" value="">
                   
                   <center>
-                    <button  type="button" data-dismiss="modal"  class="btn btn-danger btn-lg btn-bloc">Non</button>
-                    <button id="submit" type="button" class="btn btn-primary btn-lg btn-bloc" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours" >Oui</button>
+                    <button  type="button" data-dismiss="modal"  class="btn btn-danger btn-lg btn-bloc">@lang('field.no')</button>
+                    <button id="submit" type="button" class="btn btn-primary btn-lg btn-bloc" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours" >@lang('field.yes')</button>
 
                   </center>
 

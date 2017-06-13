@@ -14,6 +14,64 @@ class contactusTableSedder extends Seeder
 	{
 
 
+        DB::table('contactus')->insert(
+        [
+            'idUser' => 11,
+            'title' => 'Besoin de plus d`information',
+            'message' => '---------------------message--------------------------  ',
+        ]
+        );
+
+
+        DB::table('contactus')->insert(
+        [
+            'idUser' => 1,
+            'title' => 'Bugs successives ',
+            'message' => '---------------------message--------------------------  ',
+        ]
+        );
+        
+        DB::table('contactus')->insert(
+        [
+            'idUser' => 8,
+            'title' => 'Publication confidentielle a supprimer SVP',
+            'message' => '---------------------message--------------------------  ',
+        ]
+        );
+
+        DB::table('contactus')->insert(
+        [
+            'idUser' => 7,
+            'title' => 'Acces a la categorie santé',
+            'message' => '---------------------message--------------------------  ',
+        ]
+        );
+
+        DB::table('contactus')->insert(
+        [
+            'idUser' => 6,
+            'title' => 'Probleme d`image',
+            'message' => '---------------------message--------------------------  ',
+        ]
+        );
+
+
+        DB::table('contactus')->insert(
+        [
+            'idUser' => 5,
+            'title' => 'Publication a supprimer',
+            'message' => '---------------------message--------------------------  ',
+        ]
+          );
+
+        DB::table('contactus')->insert(
+        [
+            'idUser' => 3,
+            'title' => 'Help',
+            'message' => '---------------------message--------------------------  ',
+        ]
+          );
+
 
    		DB::table('contactus')->insert(
         [
@@ -31,6 +89,8 @@ class contactusTableSedder extends Seeder
             'message' => '---------------------message--------------------------  ',
         ]
         );
+
+
 
 
 
