@@ -47,18 +47,18 @@ td
     <section class="panel">
 
                           <header class="panel-heading">
-                              Categories
+                              @lang('adminTemplate.categories')
                           </header>
                           <div class="panel-body">
                             <div class="adv-table">
                               <table id="admins-table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                             <thead>
                                             <tr>
-                                                <th>Id</th>
-                                                <th>Title</th>
-                                                <th>Date de création</th>
-                                                <th>Description</th>
-                                                <th>Action</th>
+                                                <th>@lang('field.idCategory')</th>
+                                                <th>@lang('field.title')</th>
+                                                <th>@lang('field.creationdate')</th>
+                                                <th>@lang('field.description')</th>
+                                                <th>@lang('field.action')</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -69,7 +69,7 @@ td
 
                           
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
-                              <span class="glyphicon glyphicon-plus"></span> Nouveau
+                              <span class="glyphicon glyphicon-plus"></span> @lang('field.new')
                             </button> 
 
 
@@ -98,10 +98,10 @@ td
                 <button type="button" class="close" 
                    data-dismiss="modal">
                        <span aria-hidden="true">&times;</span>
-                       <span class="sr-only">Close</span>
+                       <span class="sr-only">@lang('field.close')</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    New
+                   @lang('field.new')
                 </h4>
             </div>
             
@@ -111,21 +111,21 @@ td
                 <form  id="addForm" role="form" method="POST" enctype="multipart/form-data">
     
                   <div class="form-group">
-                    <label for="">Title</label>
+                    <label for="">@lang('field.title')</label>
                       <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required autofocus>
                       <span class="help-block errorTitle"></span>
                   </div>
 
 
                   <div class="form-group">
-                    <label for="description">Description</label>
+                    <label for="description">@lang('field.description')</label>
                       <textarea id="description" class="form-control" name="description" required autofocus>{{ old('description') }}</textarea>
                       <span class="help-block errorDescription"></span>
                   </div>
 
 
                   <div class="form-group">
-                      <label for="photo">Photo</label>
+                      <label for="photo">@lang('field.image')</label>
                       <input type="file" id="photo" name="photo">
                       <span class="help-block errorPhoto"></span>
                       <br>
@@ -136,7 +136,7 @@ td
 
 
                   <div class="clearfix">
-                    <button type="button" id="submit" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours">Valider</button>
+                    <button type="button" id="submit" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours">@lang('field.validate')</button>
                   </div>
 
                 </form>
@@ -161,10 +161,10 @@ td
                 <button type="button" class="close" 
                    data-dismiss="modal">
                        <span aria-hidden="true">&times;</span>
-                       <span class="sr-only">Close</span>
+                       <span class="sr-only">@lang('field.close')</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Edit
+                    @lang('field.edit')
                 </h4>
             </div>
             
@@ -180,21 +180,21 @@ td
 
 
                   <div class="form-group">
-                    <label for="title">Title</label>
+                    <label for="title">@lang('field.title')</label>
                       <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required autofocus>
                       <span class="help-block errorName"></span>
                   </div>
 
 
                   <div class="form-group">
-                    <label for="description">Description</label>
+                    <label for="description">@lang('field.description')</label>
                       <textarea id="description" class="form-control" name="description" required autofocus>{{ old('description') }}</textarea>
                       <span class="help-block errorDescription"></span>
                   </div>
 
 
                   <div class="form-group">
-                      <label for="photo">Photo</label>
+                      <label for="photo">@lang('field.image')</label>
                       <input type="file" id="photo" name="photo">
                       <span class="help-block errorPhoto"></span>
                       <br>
@@ -204,7 +204,7 @@ td
 
 
                   <div class="clearfix">
-                    <button type="button" id="submit" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours">Valider</button>
+                    <button type="button" id="submit" class="btn btn-primary btn-lg" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours">@lang('field.validate')</button>
                   </div>
 
                 </form>
@@ -231,7 +231,7 @@ td
                        <span class="sr-only">Close</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Categories
+                    @lang('adminTemplate.categories')
                 </h4>
             </div>
             
@@ -248,28 +248,28 @@ td
                 </center>
       
                   <div class="form-group">
-                    <label for="id">Id</label>
+                    <label for="id">@lang('field.idCategory')</label>
                       <input id="id" type="text" class="form-control" name="id" value="{{ old('id') }}" disabled="disabled">
                   </div>
 
 
 
                   <div class="form-group">
-                    <label for="title">Title</label>
+                    <label for="title">@lang('field.title')</label>
                       <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" disabled="disabled">                  
                   </div>
 
 
 
                   <div class="form-group">
-                    <label for="created_at">Date de création</label>
+                    <label for="created_at">@lang('field.creationdate')</label>
                       <input id="created_at" type="text" class="form-control" name="created_at" value="{{ old('created_at') }}" disabled="disabled">
                   </div>
 
 
 
                   <div class="form-group">
-                    <label for="description">Description</label>
+                    <label for="description">@lang('field.description')</label>
                       <textarea id="description" class="form-control" name="description" disabled="disabled"></textarea>
                   </div>
 
@@ -300,10 +300,10 @@ td
                 <button type="button" class="close" 
                    data-dismiss="modal">
                        <span aria-hidden="true">&times;</span>
-                       <span class="sr-only">Close</span>
+                       <span class="sr-only">@lang('field.close')</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Are you sure you want to delete <span id="title"></span>?
+                    @lang('field.deleteoperation') <span id="title"></span>?
                 </h4>
             </div>
             
@@ -315,8 +315,8 @@ td
                   <input type="hidden" name="id" id="id" value="">
                   
                   <center>
-                    <button  type="button" data-dismiss="modal"  class="btn btn-danger btn-lg btn-bloc">Non</button>
-                    <button id="submit" type="button" class="btn btn-primary btn-lg btn-bloc" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours" >Oui</button>
+                    <button  type="button" data-dismiss="modal"  class="btn btn-danger btn-lg btn-bloc">@lang('field.no')</button>
+                    <button id="submit" type="button" class="btn btn-primary btn-lg btn-bloc" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours" >@lang('field.oui')</button>
 
                   </center>
 

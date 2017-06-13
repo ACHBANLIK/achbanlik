@@ -19,8 +19,8 @@ return [
     'users' => 'Utilisateurs',
     'categories' => 'Catégories',
     'publications' => 'Publications',
-    'trophes' => 'Trophés',
+    'trophes' => 'Trophées',
     'contact' => 'Contact / Réclamations',
-    'blankpage' => 'Blank Page',
+    'blankpage' => 'Page Blanche',
 
 ];

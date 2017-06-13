@@ -23,7 +23,6 @@ class commentsTableSedder extends Seeder
         );
 
 
-
         DB::table('comments')->insert(
         [
             'idUser' => 2,
@@ -69,5 +68,6 @@ class commentsTableSedder extends Seeder
             'text' => 'mon commentaire 3',
         ]
         );
+
     }
 }
