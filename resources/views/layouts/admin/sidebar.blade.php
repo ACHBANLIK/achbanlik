@@ -18,7 +18,7 @@
                   <li>
                       <a href="{{ route('admin.admins') }}">
                           <i class="fa fa-user-md"></i>
-                          <span>Administrateurs</span>
+                          <span>@lang('adminTemplate.admins')</span>
                       </a>
                   </li>
 
@@ -29,7 +29,7 @@
                   <li>
                       <a href="{{ route('admin.users') }}">
                           <i class="fa fa-users"></i>
-                          <span>Utilisateurs</span>
+                          <span>@lang('adminTemplate.users')</span>
                       </a>
                   </li>
 
@@ -37,7 +37,7 @@
                   <li>
                       <a href="{{ route('admin.categories') }}">
                           <i class="fa fa-bars"></i>
-                          <span>Catégories</span>
+                          <span>@lang('adminTemplate.categories')</span>
                       </a>
                   </li>
 
@@ -46,7 +46,7 @@
                   <li>
                       <a href="{{ route('admin.publications') }}">
                           <i class="fa fa-book"></i>
-                          <span>Publications</span>
+                          <span>@lang('adminTemplate.publications')</span>
                       </a>
                   </li>
 
@@ -55,7 +55,7 @@
                   <li>
                       <a href="{{ route('admin.trophies') }}">
                           <i class="fa fa-money"></i>
-                          <span>Trophés</span>
+                          <span>@lang('adminTemplate.trophes')</span>
                       </a>
                   </li>
 
@@ -63,7 +63,7 @@
                   <li>
                       <a href="{{ route('admin.contactus') }}">
                           <i class="fa fa-envelope"></i>
-                          <span>Contact / Messages</span>
+                          <span>@lang('adminTemplate.contact')</span>
                       </a>
                   </li>
 

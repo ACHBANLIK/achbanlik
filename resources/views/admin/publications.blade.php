@@ -38,20 +38,20 @@ color: #999;
     <section class="panel">
 
                           <header class="panel-heading">
-                              Publications
+                              @lang('adminTemplate.publications')
                           </header>
                           <div class="panel-body">
                             <div class="adv-table">
                               <table id="publication-table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                             <thead>
                                             <tr>
-                                                <th>Id</th>
-                                                <th>Titre</th>
-                                                <th>User</th>
-                                                <th>Category</th>
-                                                <th>Type</th>
-                                                <th>Approved</th>
-                                                <th>Action</th>
+                                                <th>@lang('field.id')</th>
+                                                <th>@lang('field.title')</th>
+                                                <th>@lang('field.user')</th>
+                                                <th>@lang('field.categorie')</th>
+                                                <th>@lang('field.type')</th>
+                                                <th>@lang('field.approved')</th>
+                                                <th>@lang('field.action')</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -88,10 +88,10 @@ color: #999;
                 <button type="button" class="close" 
                    data-dismiss="modal">
                        <span aria-hidden="true">&times;</span>
-                       <span class="sr-only">Close</span>
+                       <span class="sr-only">@lang('field.close')</span>
                 </button>
                 <h4 class="modal-title" id="title">
-                    Publication
+                    @lang('field.publication')
                 </h4>
             </div>
             

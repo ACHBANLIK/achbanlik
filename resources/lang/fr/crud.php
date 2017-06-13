@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Language Lines
+    | admin page Template language lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are used during authentication for various
@@ -13,12 +13,10 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'rememberme '=>'Remember Me',
-    'login'=>'Login',
-    'forgotpassword'=>'Forgot Your Password',
-
+    /* sidebar */
+    'add' => 'Nouveau Ajout',
+    'edit' => 'Editer',
+    'delete' => 'Supprimer',
 
 
 ];

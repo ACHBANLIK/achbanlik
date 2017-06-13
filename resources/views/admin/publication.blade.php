@@ -61,15 +61,15 @@ color: #999;
                                        {{ title_case($publication->user->fname) }}  {{ title_case($publication->user->lname) }}
                                   </li>
                                   <li>
-                                      <h5>Catégorie</h5>
+                                      <h5>@lang('field.categorie')</h5>
                                        {{ title_case($publication->category->title) }} 
                                   </li>
                                   <li>
-                                      <h5>Confidentialité</h5>
-                                      {{ ($publication->privacy ? 'Public' : 'Privé') }}
+                                      <h5>@lang('field.confidentiality')</h5>
+                                      {{ ($publication->privacy ? 'public' : 'private') }}
                                   </li>
                                   <li>
-                                      <h5>Commentaires</h5>
+                                      <h5>@lang('field.comments')</h5>
                                       {{ $publication->comments->count() }}
                                   </li>
                                   <li>
@@ -192,18 +192,18 @@ color: #999;
     <section class="panel">
 
                           <header class="panel-heading">
-                              Comments  
+                              @lang('field.comments')  
                           </header>
                           <div class="panel-body">
                             <div class="adv-table">
                               <table id="comments-table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                             <thead>
                                             <tr>
-                                                <th>Id</th>
-                                                <th>User</th>
-                                                <th>Commentaire</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
+                                                <th>@lang('field.id')</th>
+                                                <th>@lang('field.user')</th>
+                                                <th>@lang('field.comment')</th>
+                                                <th>@lang('field.status')</th>
+                                                <th>@lang('field.action')</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -230,10 +230,10 @@ color: #999;
                 <button type="button" class="close" 
                    data-dismiss="modal">
                        <span aria-hidden="true">&times;</span>
-                       <span class="sr-only">Close</span>
+                       <span class="sr-only">@lang('field.close')</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Commentaire 
+                    @lang('field.comment')
                 </h4>
             </div>
             
@@ -250,20 +250,20 @@ color: #999;
                 </center>
       
                   <div class="form-group">
-                    <label for="id">Id</label>
+                    <label for="id">@lang('field.id')</label>
                       <input id="id" type="text" class="form-control" name="id" value="{{ old('id') }}" disabled="disabled">
                   </div>
 
 
 
                   <div class="form-group">
-                    <label for="full_name">User</label>
+                    <label for="full_name">@lang('field.user')</label>
                       <input id="full_name" type="text" class="form-control" name="full_name" value="{{ old('full_name') }}" disabled="disabled">                  
                   </div>
 
 
                   <div class="form-group">
-                    <label for="description">Commentaire</label>
+                    <label for="description">@lang('field.comment')</label>
                       <textarea id="text" class="form-control" name="text" required autofocus>{{ old('text') }}</textarea>
                   </div>
 
@@ -287,10 +287,10 @@ color: #999;
                 <button type="button" class="close" 
                    data-dismiss="modal">
                        <span aria-hidden="true">&times;</span>
-                       <span class="sr-only">Close</span>
+                       <span class="sr-only">@lang('field.close')</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Are you sure you want to delete <span id="text"></span>of<span id="full_name"></span>?
+                    @lang('field.deleteoperation') <span id="text"> @lang('field.of') </span><span id="full_name"></span>?
                 </h4>
             </div>
             
@@ -302,8 +302,8 @@ color: #999;
                   <input type="hidden" name="id" id="id" value="">
                   
                   <center>
-                    <button  type="button" data-dismiss="modal"  class="btn btn-danger btn-lg btn-bloc">Non</button>
-                    <button id="submit" type="button" class="btn btn-primary btn-lg btn-bloc" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours" >Oui</button>
+                    <button  type="button" data-dismiss="modal"  class="btn btn-danger btn-lg btn-bloc">@lang('field.no')</button>
+                    <button id="submit" type="button" class="btn btn-primary btn-lg btn-bloc" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours" >@lang('field.yes')</button>
 
                   </center>
 

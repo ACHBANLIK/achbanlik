@@ -41,6 +41,23 @@ class trophiesTableSedder extends Seeder
         ]
         );
 
+        DB::table('trophies')->insert(
+        [
+            'name' => '100 Pulications ',
+            'points' => '2',
+            'description' => 'Depassement de 100 publications par l user',
+        ]
+        );
+
+
+        DB::table('trophies')->insert(
+        [
+            'name' => '50 Votes ',
+            'points' => '3',
+            'description' => 'Depassement de 50  votes par l user',
+        ]
+        );
+
 
     }
 }

@@ -24,5 +24,8 @@ class commentsTableSedder extends Seeder
 
 
 
+
+
+
     }
 }
