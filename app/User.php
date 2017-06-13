@@ -15,7 +15,6 @@ class User extends Authenticatable
     }
 
 
-
    public function publications()
     {
         return $this->hasMany('App\Publication', 'idUser', 'id');
@@ -27,6 +26,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Opinion', 'idUser', 'id');
     }
 
+   public function comments()
+    {
+        return $this->hasMany('App\Comment', 'idUser', 'id');
+    }
+
+
+   public function utrophies()
+    {
+        return $this->hasMany('App\Utrophy', 'idUser', 'id');
+    }
 
 
     /**

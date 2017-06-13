@@ -19,6 +19,7 @@ class CreatePublicationsTable extends Migration {
 			$table->text('text2')->nullable();
 			$table->text('image1')->nullable();
 			$table->text('image2')->nullable();
+			$table->integer('selected')->nullable();
 			$table->timestamp('date_fin')->useCurrent();
 			$table->timestamp('updated_at')->useCurrent();
 			$table->timestamp('created_at')->useCurrent();

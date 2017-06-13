@@ -26,6 +26,72 @@ class publicationsTableSedder extends Seeder
         );
 
 
+        DB::table('publications')->insert(
+        [
+            'title' => 'Help me :agadir ou esaouira',
+            'idUser' => 2,
+            'idCategory' => 1,
+            'idType' => 3,  
+            'text1' => 'text test 1',
+            'text2' => 'text test 2',
+            'status' => 0 
+        ]
+        );
+
+
+        DB::table('publications')->insert(
+        [
+            'title' => 'Help me :agadir ou esaouira',
+            'idUser' => 2,
+            'idCategory' => 1,
+            'idType' => 3,  
+            'text1' => 'text test 1',
+            'text2' => 'text test 2',
+            'status' => 0 
+        ]
+        );
+
+
+        DB::table('publications')->insert(
+        [
+            'title' => 'Help me :agadir ou esaouira',
+            'idUser' => 2,
+            'idCategory' => 1,
+            'idType' => 4,  
+            'text1' => 'text test 1',
+            'text2' => 'text test 2',
+            'status' => 0 
+        ]
+        );
+
+
+
+
+         DB::table('publications')->insert(
+        [
+            'title' => 'Help me :agadir ou esaouira',
+            'idUser' => 2,
+            'idCategory' => 1,
+            'idType' => 5,  
+            'text1' => 'text test 1',
+            'text2' => 'text test 2',
+            'status' => 0 
+        ]
+        );
+        
+
+        DB::table('publications')->insert(
+        [
+            'title' => 'Help me :agadir ou esaouira',
+            'idUser' => 2,
+            'idCategory' => 1,
+            'idType' => 6,  
+            'text1' => 'text test 1',
+            'text2' => 'text test 2',
+            'status' => 0 
+        ]
+        );
+
 
     }
 }

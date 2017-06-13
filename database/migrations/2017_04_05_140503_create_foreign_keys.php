@@ -12,8 +12,8 @@ class CreateForeignKeys extends Migration {
 			$table->foreign('idCountry')->references('id')->on('countries')
 						->onDelete('cascade')
 						->onUpdate('cascade');
-		});
-	
+		});	
+
 		Schema::table('publications', function(Blueprint $table) {
 			$table->foreign('idUser')->references('id')->on('users')
 						->onDelete('restrict')
@@ -64,6 +64,19 @@ class CreateForeignKeys extends Migration {
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
+
+		Schema::table('utrophies', function(Blueprint $table) {
+			$table->foreign('idTrophy')->references('id')->on('trophies')
+						->onDelete('restrict')
+						->onUpdate('restrict');
+		});
+
+		Schema::table('utrophies', function(Blueprint $table) {
+			$table->foreign('idUser')->references('id')->on('users')
+						->onDelete('restrict')
+						->onUpdate('restrict');
+		});
+
 	}
 
 	public function down()
@@ -101,5 +114,12 @@ class CreateForeignKeys extends Migration {
 		Schema::table('friends', function(Blueprint $table) {
 			$table->dropForeign('friends_idUser2_foreign');
 		});
+		Schema::table('utrophies', function(Blueprint $table) {
+			$table->dropForeign('utrophies_idTrophy_foreign');
+		});
+		Schema::table('utrophies', function(Blueprint $table) {
+			$table->dropForeign('utrophies_idUser_foreign');
+		});
+
 	}
 }

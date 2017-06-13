@@ -117,9 +117,10 @@ color: #999;
 
                               <ul class="nav nav-pills nav-stacked">
                                   <li><a href="javascript:;"> <i class="fa fa-file-image-o"></i> Publications <span id="publications" class="label label-primary pull-right r-activity"></span></a></li>
-                                  <li><a href="javascript:;"> <i class="fa fa-comments"></i> Votes <span id="votes" class="label label-info pull-right r-activity">11</span></a></li>
-                                  <li><a href="javascript:;"> <i class="fa fa-trophy"></i> Points <span id="points" class="label label-warning pull-right r-activity"></span></a></li>
-                                  {{-- <li><a href="javascript:;"> <i class="fa fa-users"></i> Amis <span id="points" class="label label-success pull-right r-activity">10</span></a></li> --}}
+                                  <li><a href="javascript:;"> <i class="fa fa-comments"></i> Votes <span id="votes" class="label label-info pull-right r-activity"></span></a></li>
+                                  <li><a href="javascript:;"> <i class="fa fa-comments"></i> Comments <span id="comments" class="label label-info pull-right r-activity"></span></a></li>                                  
+                                  <li><a href="javascript:;"> <i class="fa fa-trophy"></i> Trophies <span id="trophies" class="label label-warning pull-right r-activity"></span></a></li>
+     
                               </ul>
 
                           </section>
@@ -190,7 +191,8 @@ color: #999;
                $('#showModal #email').html(data.user.email);
                $('#showModal #birthday').html(data.user.birthday);
                $('#showModal #country').html(data.country);
-               $('#showModal #points').html(("0" + data.user.points).slice(-2));
+               $('#showModal #comments').html(("0" + data.user.comments).slice(-2));
+               $('#showModal #trophies').html(("0" + data.user.trophies).slice(-2));
                $('#showModal #votes').html(("0" + data.votes).slice(-2));
                $('#showModal #publications').html(("0" + data.publications).slice(-2));
 

@@ -9,6 +9,8 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/bootstrap-toggle/css/bootstrap-toggle.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/toastr/css/toastr.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/full-loader.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css') }}"  media="screen">
+
 
 
 <style>
@@ -54,6 +56,7 @@ color: #999;
                               </div>
                           </div>
 
+
                           <footer class="weather-category">
                               <ul>
                                   <li class="active">
@@ -61,15 +64,15 @@ color: #999;
                                        {{ title_case($publication->user->fname) }}  {{ title_case($publication->user->lname) }}
                                   </li>
                                   <li>
-                                      <h5>Catégorie</h5>
+                                      <i class="fa fa-list"></i><br>
                                        {{ title_case($publication->category->title) }} 
                                   </li>
                                   <li>
-                                      <h5>Confidentialité</h5>
+                                      <i class="fa fa-user-secret"></i><br>
                                       {{ ($publication->privacy ? 'Public' : 'Privé') }}
                                   </li>
                                   <li>
-                                      <h5>Commentaires</h5>
+                                      <i class="fa fa-comment"></i><br>
                                       {{ $publication->comments->count() }}
                                   </li>
                                   <li>
@@ -78,7 +81,11 @@ color: #999;
                                   </li>
 
                               </ul>
+
+                              
                           </footer>
+
+
 
                       </section>
 
@@ -90,11 +97,11 @@ color: #999;
 
 
 
-                      @if ($publication->idType === 0)
+                      @if ($publication->idType === 1)
 
 
                       <div class="row product-list">
-                          <div class="col-md-6 product-list col-md-offset-3">
+                          <div class="col-md-4 product-list col-md-offset-4">
                               <section class="panel">
 
                                   <div class="panel-body text-center">
@@ -118,11 +125,11 @@ color: #999;
                       </div>
 
 
-                      @elseif ($publication->idType === 1)
+                      @elseif ($publication->idType === 2)
 
 
                       <div class="row product-list">
-                          <div class="col-md-6 product-list col-md-offset-3">
+                          <div class="col-md-3 product-list col-md-offset-4">
                               <section class="panel">
 
                                   <div class="panel-body text-center">
@@ -139,53 +146,180 @@ color: #999;
 
                       </div>
 
-                      @elseif($publication->type === 2)
-
-                          <div class="row">
-                              <div class="col-lg-6">
-                                  <div class="panel">
-                                      <div class="panel-body">
-                                          <div class="bio-chart">
-                                              <input class="knob" data-width="100" data-height="100" data-displayPrevious=true  data-thickness=".2" value="35" data-fgColor="#e06b7d" data-bgColor="#e8e8e8">
-                                          </div>
-                                          <div class="bio-desk">
-                                              <h4 class="red">Envato Website</h4>
-                                              <p>Started : 15 July</p>
-                                              <p>Deadline : 15 August</p>
-                                          </div>
-
-                                         <br>
-              
+                      @elseif ($publication->idType === 3)
 
 
+                      <div class="row product-list">
+                          <div class="col-md-3 product-list col-md-offset-4">
+                              <section class="panel">
+                                  <div class="panel-body text-center">
+
+                                      <div class="pro-img-box">
+                                          <img src="{{ ($publication->image1 == '') ? '/storage/all/publication.png' : $publication->image1 }}" alt=""/>
                                       </div>
-                                  </div>
-                              </div>
-                              <div class="col-lg-6">
-                                  <div class="panel">
-                                      <div class="panel-body">
-                                          <div class="bio-chart">
-                                              <input class="knob" data-width="100" data-height="100" data-displayPrevious=true  data-thickness=".2" value="63" data-fgColor="#4CC5CD" data-bgColor="#e8e8e8">
-                                          </div>
-                                          <div class="bio-desk">
-                                              <h4 class="terques">ThemeForest CMS </h4>
-                                              <p>Started : 15 July</p>
-                                              <p>Deadline : 15 August</p>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
 
+                                      <h4>
+                                          <a href="#" class="pro-title">
+                                               {{ title_case($publication->text1) }} 
+                                          </a>
+                                      </h4>
+
+                                      <span class="price"><i class="glyphicon glyphicon-arrow-up"></i>{{ $publication->opinions->where('choice' , '=' , '1')->count() }}</span>
+                                      <span class="price"><i class="glyphicon glyphicon-arrow-down"></i>{{ $publication->opinions->where('choice' , '=' , '2')->count() }}</span>
+
+                                  </div>
+                              </section>
                           </div>
-    
+
+                      </div>
+
+
+                      @elseif($publication->idType === 4)
+
+
+                      <div class="row product-list">
+
+
+                          <div class="col-md-4 product-list col-md-offset-1">
+                              <section class="panel">
+
+                                  <div class="panel-body text-center">
+
+                                      <div class="easy-pie-chart">
+                                          <div class="percentage" data-percent="{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '1')->count() / $publication->opinions->count()) }}"><span>{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '1')->count() / $publication->opinions->count()) }}</span>%</div>
+                                      </div>  
+
+                                      <h4>
+                                          <span href="#" class="pro-title">
+                                              {{ title_case($publication->text1) }} 
+                                          </span>
+                                      </h4>
+
+
+                                  </div>
+
+
+
+                              </section>
+                          </div>
+
+
+                          <div class="col-md-4 product-list col-md-offset-1">
+                              <section class="panel">
+
+                                  <div class="panel-body text-center">
+
+                                      <div class="easy-pie-chart">
+                                          <div class="percentage" data-percent="{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '2')->count() / $publication->opinions->count()) }}"><span>{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '2')->count() / $publication->opinions->count()) }}</span>%</div>
+                                      </div>  
+
+                                      <h4>
+                                          <span href="#" class="pro-title">
+                                              {{ title_case($publication->text2) }} 
+                                          </span>
+                                      </h4>
+
+
+                                  </div>
+
+
+
+                              </section>
+                          </div>
+                          
+
+                      </div>
+  
+
+
+                      @elseif ($publication->idType === 5)
+
+
+                      <div class="row product-list">
+
+
+                          <div class="col-md-3 product-list col-md-offset-2">
+                              <section class="panel">
+
+                                  <div class="panel-body text-center">
+
+                                      <div class="pro-img-box">
+                                          <img src="{{ ($publication->image1 == '') ? '/storage/all/publication.png' : $publication->image1 }}" alt=""/>
+                                      </div>
+
+                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '1')->count() / $publication->opinions->count()) }}%</span>
+                                  </div>
+                              </section>
+                          </div>
+
+
+                          <div class="col-md-3 product-list col-md-offset-2">
+                              <section class="panel">
+
+                                  <div class="panel-body text-center">
+
+                                      <div class="pro-img-box">
+                                          <img src="{{ ($publication->image2 == '') ? '/storage/all/publication.png' : $publication->image1 }}" alt=""/>
+                                      </div>
+
+                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '2')->count() / $publication->opinions->count()) }}%</span>
+                                  </div>
+                              </section>
+                          </div>
+
+
+
+                      </div>
+
+                      @elseif ($publication->idType === 6)
+
+
+                      <div class="row product-list">
+                          <div class="col-md-3 product-list col-md-offset-2">
+                              <section class="panel">
+                                  <div class="panel-body text-center">
+
+                                      <div class="pro-img-box">
+                                          <img src="{{ ($publication->image1 == '') ? '/storage/all/publication.png' : $publication->image1 }}" alt=""/>
+                                      </div>
+
+                                      <h4>
+                                          <a href="#" class="pro-title">
+                                               {{ title_case($publication->text1) }} 
+                                          </a>
+                                      </h4>
+
+                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '1')->count() / $publication->opinions->count()) }}%</span>
+
+                                  </div>
+                              </section>
+                          </div>
+
+                          <div class="col-md-3 product-list col-md-offset-2">
+                              <section class="panel">
+                                  <div class="panel-body text-center">
+
+                                      <div class="pro-img-box">
+                                          <img src="{{ ($publication->image2 == '') ? '/storage/all/publication.png' : $publication->image1 }}" alt=""/>
+                                      </div>
+
+                                      <h4>
+                                          <a href="#" class="pro-title">
+                                               {{ title_case($publication->text2) }} 
+                                          </a>
+                                      </h4>
+
+                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '2')->count() / $publication->opinions->count()) }}%</span>
+
+                                  </div>
+                              </section>
+                          </div>
+
+                      </div>
+
                       @endif
 
-
-
                       </section>
-
-
-
 
 
 
@@ -337,13 +471,23 @@ color: #999;
 <script src="{{ asset('admin/assets/data-tables/responsive/js/responsive.bootstrap.min.js') }}"></script>
 <script src="{{ asset('admin/assets/bootstrap-toggle/js/bootstrap-toggle.min.js') }}"></script>
 <script src="{{ asset('admin/assets/toastr/js/toastr.min.js') }}"></script>
-<script src="{{ asset('admin/assets/jquery-knob/js/jquery.knob.js') }}"></script>
+<script src="{{ asset('admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js') }}"></script>
 
 
 
 
                <script>
-      $(".knob").knob();
+
+
+
+$('.percentage').easyPieChart({
+  animate: 1000,
+  lineWidth: 4,
+  onStep: function(value) {
+    this.$el.find('span').text(Math.round(value));
+  }
+});
+
      var assetBaseUrl = "{{ asset('src') }}";
 
 

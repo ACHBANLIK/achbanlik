@@ -23,15 +23,8 @@
           return redirect()->back();
 
         });
-            
-        
-/*                Route::get('setlocale/{locale}', function ($locale) {
-          if (in_array($locale, \Config::get('app.locales'))) {
-            Session::put('locale', $locale);
-          }
-          return redirect()->back();
-        });
-        */
+
+
         
         Route::prefix('admin')->group(function() {
         Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -39,6 +32,7 @@
         
         Route::group(['namespace' => 'Admin'], function () {
         Route::get('/', 'DashboardController@index')->name('admin.dashboard');
+        
         Route::get('/dashboard', 'DashboardController@index')->name('admin.dashboard');
  
         

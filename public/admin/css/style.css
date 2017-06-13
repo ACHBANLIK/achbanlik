@@ -4627,14 +4627,15 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
 }
 
 .product-list img{
-    max-width: 100px;
-    max-height: 300px;
+  width: 100%;
     border-radius: 4px 4px 0 0;
     -webkit-border-radius: 4px 4px 0 0;
 }
 
 .product-list .pro-img-box {
     position: relative;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 
@@ -4692,7 +4693,6 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
 .product-list .price {
     color:#fc5959 ;
     font-size: 15px;
-    margin-top: 10px;
 }
 
 .pro-img-details {

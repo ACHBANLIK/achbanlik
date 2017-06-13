@@ -37,6 +37,7 @@ class usersTableSedder extends Seeder
             'birthday' => Carbon::now(), 
             'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
+            'points' => 100,   
         ]
         );
 

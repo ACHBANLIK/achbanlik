@@ -165,7 +165,9 @@ color: #999;
 
 
     var table  =  $('#publication-table').DataTable({
-        processing: true,
+
+
+         processing: true,
         serverSide: true,
         ajax: '{{ route('admin.getpublications') }}',
         columns: [
