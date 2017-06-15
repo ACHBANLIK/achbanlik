@@ -13,10 +13,10 @@ class CreateUsersTable extends Migration {
 			$table->string('email')->unique();
 			$table->string('lname');
 			$table->string('fname');
+			$table->string('photo')->default('all/user_avatar.jpg');
 			$table->boolean('status')->default(true);
 			$table->integer('idCountry')->unsigned()->nullable();
 			$table->date('birthday')->nullable();
-			$table->text('photo')->nullable();
 			$table->integer('points')->default(0);
             $table->rememberToken(); 	
 			$table->timestamp('updated_at')->useCurrent();

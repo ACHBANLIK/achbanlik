@@ -13,8 +13,13 @@
 
 <style>
 
-th, td { white-space: nowrap; }
-
+table td {
+  word-wrap: break-word;
+  max-width: 150px;
+}
+#contactus-table td {
+  white-space:inherit;
+}
 
 </style>
 @endpush
@@ -32,7 +37,7 @@ th, td { white-space: nowrap; }
                           </header>
                           <div class="panel-body">
                             <div class="adv-table">
-                              <table id="admins-table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                              <table id="contactus-table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                             <thead>
                                             <tr>
                                                 <th>Id</th>
@@ -197,7 +202,11 @@ th, td { white-space: nowrap; }
 
 
 
-    var table  =  $('#admins-table').DataTable({
+    var table  =  $('#contactus-table').DataTable({
+      
+        "language": {
+            "url": "{{ asset('admin/assets/data-tables/lang/datatable.'.config('app.locale').'.json') }}"
+        },
         processing: true,
         serverSide: true,
         ajax: '{{ route('admin.getcontactus') }}',

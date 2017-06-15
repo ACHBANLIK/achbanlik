@@ -10,20 +10,26 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/toastr/css/toastr.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/full-loader.css') }}">
 
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/bootstrap-daterangepicker/daterangepicker-bs3.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/bootstrap-datepicker/css/datepicker.css') }}">
+
+
+<!-- filter -->
+{{-- <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/jquery-ui/jquery-ui-1.10.1.custom.min.css') }}">
+ --}}<!-- filter -->
+
 
 <style>
 
 
-.glyphicon {  margin-bottom: 10px;margin-right: 10px;}
 
-small {
-display: block;
-line-height: 1.428571429;
-color: #999;
+table td {
+  word-wrap: break-word;
+  max-width: 150px;
 }
-
-
-.mycontent{display: none;}
+#publications-table td {
+  white-space:inherit;
+}
 
 
 </style>
@@ -31,6 +37,125 @@ color: #999;
 
 
 @section('content')
+
+
+
+
+              <!-- filter -->
+              <div class="row">
+              <div class="col-md-12">
+                  <section class="panel ">
+                      <header class="panel-heading">
+                          Filter
+                          <span class="tools pull-right">
+                            <a href="javascript:;" class="fa fa-chevron-down"></a>
+                            <a href="javascript:;" class="fa fa-times"></a>
+                        </span>
+                      </header>
+                      <div class="panel-body">
+                          <form method="POST" id="filterForm" class="form-horizontal tasi-form">
+
+
+
+                              <div class="form-group">
+
+
+                                  <label class="control-label col-md-2">Utilisateur</label>
+                                  <div class="col-md-3">
+                                   <input id="user" type="text" class="form-control" name="user">
+                                  </div>
+
+
+
+                                  <label class="control-label col-md-2">Date Range</label>
+                                  <div class="col-md-4">
+                                      <div class="input-group input-large" data-date="13-07-2013" data-date-format="mm-dd-yyyy">
+                                          <input type="text" class="form-control from" name="from">
+                                          <span class="input-group-addon">To</span>
+                                          <input type="text" class="form-control to" name="to">
+                                          <div class="input-group-btn">
+                                              <button type="button" id="resetDate" class="btn btn-danger date-reset"><i class="fa fa-times"></i></button>
+                                          </div>
+
+                                      </div>
+                                      <span class="help-block">Select date range</span>
+                                  </div>
+
+
+
+
+                                                        
+
+                              </div>
+
+
+
+                              <div class="form-group sliders">
+                                  <label class="control-label col-md-3">Nombre des signals</label>
+                                  <div class="col-md-6">
+                                          <div id="slider-signals" class="slider"></div>
+                                          <div class="slider-info"> 
+                                              Signals : 
+                                              <span class="slider-info" id="slider-signals-show"></span>
+                                          </div>
+                                  </div>
+                              </div>
+
+
+                           
+                              <div class="form-group">
+
+                                  <label class="control-label col-md-2">Status</label>
+                                  <div class="col-md-2">
+                                          <select name="status" id="status" class="form-control bound-s">
+                                              <option value="-1">Tous</option>
+                                              <option value="0">Désactivé</option>
+                                              <option value="1">Active</option>
+                                              <option value="2">Cloturée  </option>
+                                          </select>
+                                  </div>
+
+
+                                  <label class="control-label col-md-2">Catégorie</label>
+                                  <div class="col-md-2">
+                                          <select name="cat" id="cat" class="form-control bound-s">
+                                              <option value="-1">Tous</option>
+                                              @foreach ($categories as $item)
+                                                <option value="{{ $item->id }}">{{ $item->title }}</option>
+                                              @endforeach
+                                          </select>
+                                  </div>
+
+
+                                  <label class="control-label col-md-2">Type</label>
+                                  <div class="col-md-2">
+                                          <select name="type" id="type" class="form-control bound-s">
+                                              <option value="-1">Tous</option>
+                                              @foreach ($types as $item)
+                                                <option value="{{ $item->id }}">{{ $item->title }}</option>
+                                              @endforeach
+                                          </select>
+                                  </div>
+
+                              </div>
+
+
+
+
+
+                              <button type="submit" class="btn btn-primary">
+                                 <i class="fa fa-filter"></i>
+                                  Rafiner
+                              </button>
+          
+
+
+                          </form>
+                      </div>
+                  </section>
+              </div>
+          </div>
+              <!-- filter -->
 
 
   <!-- page start-->
@@ -42,7 +167,7 @@ color: #999;
                           </header>
                           <div class="panel-body">
                             <div class="adv-table">
-                              <table id="publication-table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                              <table id="publications-table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                             <thead>
                                             <tr>
                                                 <th>@lang('field.id')</th>
@@ -50,6 +175,7 @@ color: #999;
                                                 <th>@lang('field.user')</th>
                                                 <th>@lang('field.categorie')</th>
                                                 <th>@lang('field.type')</th>
+                                                <th>Signals</th>
                                                 <th>@lang('field.approved')</th>
                                                 <th>@lang('field.action')</th>
                                             </tr>
@@ -148,6 +274,17 @@ color: #999;
 <script src="{{ asset('admin/assets/toastr/js/toastr.min.js') }}"></script>
 
 
+<!-- filter -->
+
+
+<script src="{{ asset('admin/assets/jquery-ui/jquery-ui-1.10.1.custom.min.js') }}"></script>
+<script src="{{ asset('admin/js/jquery.ui.touch-punch.min.js') }}"></script>
+
+<script src="{{ asset('admin/assets/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<script src="{{ asset('admin/assets/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
+
+
+<!-- filter -->
 
 
         <script>
@@ -155,27 +292,87 @@ color: #999;
      var assetBaseUrl = "{{ asset('src') }}";
 
 
-
     $(function() {
 
 
 
 
+    // filter
 
 
 
-    var table  =  $('#publication-table').DataTable({
+    $("#slider-signals").slider({
+        range: true,
+        min: 0,
+        max: 100,
+        values: [0, 0],
+        slide: function (event, ui) {
+            $("#slider-signals-show").text(ui.values[0] + " - " + ui.values[1]);
+        }
+    });
+
+    $("#slider-signals-show").text($("#slider-signals").slider("values", 0) + " - " + $("#slider-signals").slider("values", 1));
 
 
+
+  $("#resetDate").click(function(e)
+  {
+    $(".to").val("");
+    $(".to").val("");
+  });
+
+  var checkin = $('.from').datepicker({
+              onRender: function(date) {
+                  return date.valueOf() < now.valueOf() ? 'disabled' : '';
+              }
+          }).on('changeDate', function(ev) {
+                  if (ev.date.valueOf() > checkout.date.valueOf()) {
+                      var newDate = new Date(ev.date)
+                      newDate.setDate(newDate.getDate() + 1);
+                      checkout.setValue(newDate);
+                  }
+                  checkin.hide();
+                  $('.to')[0].focus();
+              }).data('datepicker');
+          var checkout = $('.to').datepicker({
+              onRender: function(date) {
+                  return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+              }
+          }).on('changeDate', function(ev) {
+                  checkout.hide();
+              }).data('datepicker');
+
+    // end filter
+
+
+    var table  =  $('#publications-table').DataTable({
+
+        "language": {
+            "url": "{{ asset('admin/assets/data-tables/lang/datatable.'.config('app.locale').'.json') }}"
+        },
          processing: true,
         serverSide: true,
-        ajax: '{{ route('admin.getpublications') }}',
+        ajax: {
+            url: '{{ route('admin.getpublications') }}',
+            data: function (d) {
+                d.from = $('input[name=from]').val();
+                d.to = $('input[name=to]').val();
+                d.user = $('input[name=user]').val();
+                d.signals1 = $("#slider-signals").slider("values", 0)
+                d.signals2 = $("#slider-signals").slider("values", 1)
+                d.cat = $( "#cat" ).val();
+                d.type = $( "#type" ).val();
+                d.status = $( "#status" ).val();
+            }
+        },
+
         columns: [
             { data: 'id', name: 'id' },
             { data: 'title', name: 'title' },
-            { data: 'full_name', name: 'full_name' },
-            { data: 'c_title', name: 'c_title' },
-            { data: 'type', name: 'type' },
+            { data: 'full_name', name: 'full_name'  , searchable:false },
+            { data: 'c_title', name: 'c_title', searchable:false},
+            { data: 'type', name: 'type', searchable:false },
+            { data: 'signals', name: 'signals' },
             { data: null,name: 'status' , searchable: false,render: function(data)
                  {
                     var actions = '';
@@ -205,6 +402,10 @@ color: #999;
     });
 
 
+    $('#filterForm').on('submit', function(e) {
+        table.draw();
+        e.preventDefault();
+    });
 
 
 });

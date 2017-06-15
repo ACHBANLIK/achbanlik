@@ -21,6 +21,5 @@ class DatabaseSeeder extends Seeder
         $this->call(publicationsTableSedder::class);
         $this->call(commentsTableSedder::class);
         $this->call(opinionsTableSedder::class);
-        $this->call(utrophiesTableSedder::class);
     }
 }

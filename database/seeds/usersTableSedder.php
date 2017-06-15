@@ -13,15 +13,14 @@ class usersTableSedder extends Seeder
    		
 	{
 
-
-
    		DB::table('users')->insert(
         [
             'fname' => 'basma',
             'lname' => 'chebbourh',
             'email' => 'basma.chebbourh@gmail.com',
             'idCountry' => 149,         
-            'photo' => 'all/user_avatar.png',   
+            'photo' => 'users_avatars/basmachebbourh.png',
+            'points' => '100',
             'birthday' => Carbon::now(),
             'password' => bcrypt('Temp123*'),
         ]
@@ -35,9 +34,8 @@ class usersTableSedder extends Seeder
             'email' => 'olea.fadlo@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
+            'photo' => 'users_avatars/olayafadlo.jpg',
             'password' => bcrypt('Temp123*'),
-            'points' => 100,   
         ]
         );
 
@@ -49,7 +47,7 @@ class usersTableSedder extends Seeder
             'email' => 'hamza.zakaria@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
+            'photo' => 'users_avatars/hamzazakaria.jpg',
             'password' => bcrypt('Temp123*'),
         ]
         );
@@ -62,7 +60,6 @@ class usersTableSedder extends Seeder
             'email' => 'manal.mesrar@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         );   
@@ -75,7 +72,6 @@ class usersTableSedder extends Seeder
             'email' => 'najwa.benadada@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         );
@@ -88,7 +84,6 @@ class usersTableSedder extends Seeder
             'email' => 'ayoub.mabrouk8@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         );   
@@ -100,7 +95,6 @@ class usersTableSedder extends Seeder
             'email' => 'nisrine.fdlan@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         ); 
@@ -112,7 +106,6 @@ class usersTableSedder extends Seeder
             'email' => 'mouhcine.zineb@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         );      
@@ -124,7 +117,6 @@ class usersTableSedder extends Seeder
             'email' => 'elnouakit.zineb@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         ); 
@@ -136,7 +128,6 @@ class usersTableSedder extends Seeder
             'email' => 'boujaber.adam@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         ); 
@@ -148,7 +139,6 @@ class usersTableSedder extends Seeder
             'email' => 'lebbar.khadija@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         ); 
@@ -160,7 +150,6 @@ class usersTableSedder extends Seeder
             'email' => 'houda.fadlo@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         ); 
@@ -172,7 +161,6 @@ class usersTableSedder extends Seeder
             'email' => 'zarharoui.fatima@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         );
@@ -184,7 +172,6 @@ class usersTableSedder extends Seeder
             'email' => 'chahid.sihame@outlook.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         ); 
@@ -196,7 +183,6 @@ class usersTableSedder extends Seeder
             'email' => 'risk.Hanane@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         ); 
@@ -209,7 +195,6 @@ class usersTableSedder extends Seeder
             'email' => 'amine.metoual@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         );
@@ -222,7 +207,6 @@ class usersTableSedder extends Seeder
             'email' => 'firas.radi@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         );        
@@ -234,7 +218,6 @@ class usersTableSedder extends Seeder
             'email' => 'majda.tazi@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         );
@@ -247,7 +230,6 @@ class usersTableSedder extends Seeder
             'email' => 'imane.fillali@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'all/user_avatar.png',   
             'password' => bcrypt('Temp123*'),
         ]
         );

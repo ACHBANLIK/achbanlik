@@ -21,7 +21,6 @@ class adminsTableSedder extends Seeder
             'lname' => 'admin',
             'email' => 'admin@achbanlik.ma',
             'password' => bcrypt('Temp123*'),
-            'remember_token' => str_random(60),
             'role' => 1,
         ]
         );
@@ -33,7 +32,7 @@ class adminsTableSedder extends Seeder
             'lname' => 'faldo',
             'email' => 'fadlo.olea@achbanlik.ma',
             'password' => bcrypt('Temp123*'),
-            'remember_token' => str_random(60),
+            'photo' => 'admins_avatars/olayafadlo.jpg',
             'role' => 2,
         ] 
         );
@@ -45,7 +44,7 @@ class adminsTableSedder extends Seeder
             'lname' => 'chebbourh',
             'email' => 'basma.chebbourh@achbanlik.ma',
             'password' => bcrypt('Temp123*'),
-            'remember_token' => str_random(60),
+            'photo' => 'admins_avatars/admin_avatar.png',
             'role' => 2,
         ]
         );
@@ -58,7 +57,7 @@ class adminsTableSedder extends Seeder
             'lname' => 'zakaria',
             'email' => 'hamza.zakaria@achbanlik.ma',
             'password' => bcrypt('Temp123*'),
-            'remember_token' => str_random(60),
+            'photo' => 'admins_avatars/hamzazakaria.jpg',
             'role' => 2,
         ] 
         );

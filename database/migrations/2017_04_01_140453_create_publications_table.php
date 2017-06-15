@@ -9,17 +9,17 @@ class CreatePublicationsTable extends Migration {
 	{
 		Schema::create('publications', function(Blueprint $table) {
 			$table->bigIncrements('id');
-			$table->text('title');
+			$table->string('title')->length(100);
 			$table->bigInteger('idUser')->unsigned();
 			$table->integer('idCategory')->unsigned();
 			$table->integer('idType')->unsigned();
-			$table->boolean('status')->default(false);
+			$table->boolean('status')->default(true);
 			$table->boolean('privacy')->default(true);
+			$table->integer('signals')->default(0);
 			$table->text('text1')->nullable();
 			$table->text('text2')->nullable();
 			$table->text('image1')->nullable();
 			$table->text('image2')->nullable();
-			$table->integer('selected')->nullable();
 			$table->timestamp('date_fin')->useCurrent();
 			$table->timestamp('updated_at')->useCurrent();
 			$table->timestamp('created_at')->useCurrent();

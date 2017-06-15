@@ -9,7 +9,8 @@ class CreateTypesTable extends Migration {
 	{
 		Schema::create('Types', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('title');
+			$table->string('title_fr');
+			$table->string('title_en');
 			$table->string('icone');
 			$table->timestamp('updated_at')->useCurrent();
 			$table->timestamp('created_at')->useCurrent();

@@ -93,8 +93,22 @@ class contactusTableSedder extends Seeder
 
 
 
+        DB::table('contactus')->insert(
+        [
+            'idUser' => 18,
+            'title' => ' Comment modifié ma publication ',
+            'message' => 'SVP je voudrais savoir comment je peux modifier ma publication en ajoutant 2 photos ',
+        ]
+          );
 
 
+        DB::table('contactus')->insert(
+        [
+            'idUser' => 19,
+            'title' => ' mon profil il n`est pas accessible  ',
+            'message' => 'je n`y arrive pas a acceder a ma page de profil svpppppppppp i need help ',
+        ]
+          );
 
     }
 }

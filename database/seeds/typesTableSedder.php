@@ -16,7 +16,8 @@ class typesTableSedder extends Seeder
 
         DB::table('types')->insert(
         [
-            'title' => 'Texte',
+            'title_fr' => 'Texte',
+            'title_en' => 'Texte',
             'icone' => 'glyphicon glyphicon-book',
         ]
         );
@@ -24,7 +25,8 @@ class typesTableSedder extends Seeder
 
         DB::table('types')->insert(
         [
-            'title' => 'Image',
+            'title_fr' => 'Image',
+            'title_en' => 'Image',
             'icone' => 'glyphicon glyphicon-picture',
         ]
         );
@@ -32,7 +34,8 @@ class typesTableSedder extends Seeder
 
         DB::table('types')->insert(
         [
-            'title' => 'Texte & Image',
+            'title_fr' => 'Texte et Image',
+            'title_en' => 'Texte and Image',
             'icone' => 'glyphicon glyphicon-playlist',
         ]
         );
@@ -40,7 +43,8 @@ class typesTableSedder extends Seeder
 
         DB::table('types')->insert(
         [
-            'title' => 'Texte<sup>^2</sup>',
+            'title_fr' => '2 * Texte',
+            'title_en' => '2 * Texte',
             'icone' => 'glyphicon glyphicon-text-size',
         ]
         );
@@ -48,7 +52,8 @@ class typesTableSedder extends Seeder
 
         DB::table('types')->insert(
         [
-            'title' => 'Image<sup>^2</sup>',
+            'title_fr' => '2 * Image',
+            'title_en' => '2 * Image',
             'icone' => 'glyphicon glyphicon-object-align-horizontal',
         ]
         );
@@ -56,7 +61,8 @@ class typesTableSedder extends Seeder
 
         DB::table('types')->insert(
         [
-            'title' => 'Texte & Image<sup>^2</sup>',
+            'title_fr' => '2 * Texte et Image',
+            'title_en' => '2 * Texte and  Image',
             'icone' => 'glyphicon glyphicon-th-large',
         ]
         );

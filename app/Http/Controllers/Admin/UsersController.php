@@ -97,7 +97,7 @@ class UsersController extends Controller
         } catch (Exception $e) {
             return response()->json('msg');
         }
-        return response()->json(array('user' =>$user , 'country' =>$user->country->name ,  'publications' =>$user->publications()->count() ,  'votes' =>$user->opinions()->count()  , 'comments' =>$user->commnets()->count() , 'trophies' =>$user->trophies()->count()));
+        return response()->json(array('user' =>$user , 'country' =>$user->country->name ,  'publications' =>$user->publications()->count() ,  'votes' =>$user->opinions()->count()  , 'comments' =>$user->comments()->count() , 'trophies' =>$user->utrophies()->count()));
 
     }
 

@@ -19,6 +19,9 @@ use Validator;
 use Response;
 use Event;
 use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
+
+
 class PublicationsController extends Controller
 {
 
@@ -35,17 +38,54 @@ class PublicationsController extends Controller
 
 
 
-    public function getPublications()
+    public function getPublications(Request $request)
     {
         $publications = DB::table('publications')
                     ->join('users' , 'users.id' , '=' , 'publications.idUser')
                     ->join('categories' , 'categories.id' , '=' , 'publications.idCategory')
                     ->join('types' , 'types.id' , '=' , 'publications.idType')
-        ->select('publications.id' , 'publications.title', 'publications.status' , DB::raw('types.title AS type'),  DB::raw('CONCAT(users.fname, " ", users.lname) AS full_name')  , DB::raw('categories.title AS c_title'))->orderBy('publications.created_at' , 'desc');
-
-
+        ->select('publications.id' , 'publications.title', 'publications.status' , 'publications.signals' , DB::raw('types.title_'.config('app.locale').' AS type'),  DB::raw('CONCAT(users.fname, " ", users.lname) AS full_name')  , DB::raw('categories.title_'.config('app.locale').' AS c_title'))->orderBy('publications.created_at' , 'desc');
+        
         return Datatables::of($publications)
-            ->make(true);
+         ->filter(function ($query) use ($request) {
+
+
+            if ($request->has('user')) {
+                $query->where('users.fname', 'like', "%{$request->get('user')}%");
+
+                $query->orWhere('users.lname', 'like', "%{$request->get('user')}%");
+            }
+
+            
+            if ($request->has('type') && $request->get('type') != "-1") {
+                $query->where('publications.idType', '=', $request->get('type'));
+            }
+
+            if ($request->has('cat') && $request->get('cat') != "-1") {
+                $query->where('publications.idCategory', '=', $request->get('cat'));
+            }
+
+            if ($request->has('status') && $request->get('status') != "-1") {
+                $query->where('publications.status', '=', $request->get('status'));
+            }
+
+            if ($request->has('signals2') && $request->get('signals2') != "0") {
+                $query->whereBetween('publications.signals',array($request->get('signals1')  , $request->get('signals2')));
+            }
+
+            if ($request->has('from') && $request->has('to')) {
+                $query->whereDate('publications.created_at' , '>=' ,  Carbon::Parse($request->get('from'))->toDateTimeString());
+                $query->whereDate('publications.created_at' , '<=' ,  Carbon::Parse($request->get('to'))->addHours(23)->addMinutes(59)->toDateTimeString());
+            }
+
+
+        })->make(true);
+
+
+
+
+
+
     }
 
 
@@ -58,7 +98,14 @@ class PublicationsController extends Controller
      */
     public function index()
     {
-        return view('admin.publications');
+         $categories = DB::table('categories')
+        ->select('id' , DB::raw('title_'.config('app.locale').' AS title'))->orderBy('created_at' , 'desc')->get();
+
+         $types = DB::table('types')
+        ->select('id' , DB::raw('title_'.config('app.locale').' AS title'))->orderBy('created_at' , 'desc')->get();
+
+
+        return view('admin.publications' , ['categories' => $categories , 'types' => $types]);
     }
 
  

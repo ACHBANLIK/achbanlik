@@ -42,7 +42,7 @@ color: #999;
                           </header>
                           <div class="panel-body">
                             <div class="adv-table">
-                              <table id="admins-table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                              <table id="users-table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                             <thead>
                                             <tr>
                                                 <th>Id</th>
@@ -117,7 +117,7 @@ color: #999;
 
                               <ul class="nav nav-pills nav-stacked">
                                   <li><a href="javascript:;"> <i class="fa fa-file-image-o"></i> Publications <span id="publications" class="label label-primary pull-right r-activity"></span></a></li>
-                                  <li><a href="javascript:;"> <i class="fa fa-comments"></i> Votes <span id="votes" class="label label-info pull-right r-activity"></span></a></li>
+                                  <li><a href="javascript:;"> <i class="fa fa-eye"></i> Votes <span id="votes" class="label label-info pull-right r-activity"></span></a></li>
                                   <li><a href="javascript:;"> <i class="fa fa-comments"></i> Comments <span id="comments" class="label label-info pull-right r-activity"></span></a></li>                                  
                                   <li><a href="javascript:;"> <i class="fa fa-trophy"></i> Trophies <span id="trophies" class="label label-warning pull-right r-activity"></span></a></li>
      
@@ -191,8 +191,8 @@ color: #999;
                $('#showModal #email').html(data.user.email);
                $('#showModal #birthday').html(data.user.birthday);
                $('#showModal #country').html(data.country);
-               $('#showModal #comments').html(("0" + data.user.comments).slice(-2));
-               $('#showModal #trophies').html(("0" + data.user.trophies).slice(-2));
+               $('#showModal #comments').html(("0" + data.comments).slice(-2));
+               $('#showModal #trophies').html(("0" + data.trophies).slice(-2));
                $('#showModal #votes').html(("0" + data.votes).slice(-2));
                $('#showModal #publications').html(("0" + data.publications).slice(-2));
 
@@ -207,7 +207,12 @@ color: #999;
 
 
 
-    var table  =  $('#admins-table').DataTable({
+    var table  =  $('#users-table').DataTable({
+
+        "language": {
+            "url": "{{ asset('admin/assets/data-tables/lang/datatable.'.config('app.locale').'.json') }}"
+        },
+
         processing: true,
         serverSide: true,
         ajax: '{{ route('admin.getusers') }}',

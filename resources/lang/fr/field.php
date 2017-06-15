@@ -75,15 +75,36 @@ return [
 
     /* sidebar Opinions */
     'choice' => 'Choix',
-    'trip'=>'Voyage',
-
-    'food'=>'Aliments',
+    'travelandtransport'=>'Voyage et transport',
+    'food'=>'Aliment',
     'health&beauty'=> 'Santé & Beauté',
-    'Fashion'=>'Mode',
+    'fashionwomen'=>'Mode Femme',
+    'fashionmen'=>'Mode Homme',
     'hardware'=>'Matériel d`équipement',    
-    'automobiles&motorcycles'=>'Automobiles & Motorcycles',
-    'phone&telecommunication'=>'Phone & Telecommunication',
-    'home&garden'=>'Home & Garden',
+    'automobiles&motorcycles'=>'Automobiles et motos',
+    'phone&telecommunication'=>'Téléphone et télécommunication',
+    'home&garden'=>'Maison & Jardin',
+    'sports'=>'Sports',
+    'study'=>'Etude',
+    'goodplan'=>'Bon Plan',
+    'others'=>'autres',
+
+
+    /* sidebar Validation edit , add, delete */
+
+   'successfullycreatedadmin'=>'Administrateur créé avec succès',
+   'successfullyeditedadmin'=>'Administrateur modifié avec succès',
+   'successfullydeletedadmin'=>'Administrateur supprimé avec succès',
+
+   'successfullycreatedcategory'=>'Categorie créé avec succès',
+   'successfullyeditecategory'=>'Categorie modifiée avec succès',
+   'successfullydeletedcategory'=>'Categorie supprimée avec succès',
+
+
+   'successfullycreatedtrophie'=>'Trophée créé avec succès',
+   'successfullyeditetrophie'=>'Trophée modifiée avec succès',
+   'successfullydeletedtrophie'=>'Trophée supprimée avec succès',
+
 
     /* sidebar Others */
     'search' => 'Chercher',
@@ -104,5 +125,6 @@ return [
     'name'=>'Nom',
     'trophie'=>'Trophée'
    
+
 
     ];

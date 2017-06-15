@@ -72,14 +72,34 @@ return [
 
     /* sidebar Opinions */
     'choice' => 'Choice',
-    'trip'=>'Trip',
+    'travelandtransport'=>'Travel and Transport',
     'food'=>'Food',
     'health&beauty'=> 'Health & Beauty',
-    'Fashion'=>'fashion',
+    'fashionwomen'=>'Fashion Women',    
+    'fashionmen'=>'Fashion Men',
     'hardware'=>'Hardware',    
     'automobiles&motorcycles'=>'Automobiles & Motorcycles',
     'phone&telecommunication'=>'Phone & Telecommunication',
     'home&garden'=>'Home & Garden',
+    'sports'=>'Sports',
+    'study'=>'Study',
+    'goodplan'=>'Good Plan ',
+    'others'=>'Others',    
+
+    /* sidebar Validation edit , add, delete(admin, categorie,trophie,contactus) */
+
+   'successfullycreatedadmin'=>'Successfully Created Admin',
+   'successfullyeditedadmin'=>'Successfully Edited admin',
+   'successfullydeletedadmin'=>'Successfully Deleted admin',
+
+   'successfullycreatedcategory'=>'Successfully Created category',
+   'successfullyeditecategory'=>'Successfully Edited category',
+   'successfullydeletedcategory'=>'Successfully Deleted category',
+
+
+   'successfullycreatedtrophie'=>'Successfully Created Trophie',
+   'successfullyeditetrophie'=>'Successfully Edited Trophie',
+   'successfullydeletedtrophie'=>'Successfully Deleted Trophie',
 
 
 

@@ -80,10 +80,9 @@ protected function validateMe(Request $request   , string $param)
 
 
 
-
     public function getCategories()
     {
-        $categories = DB::table('categories')->select('id' , 'title' , DB::raw("DATE_FORMAT(created_at, '%d-%m-%Y') as created_at")  , 'description', 'photo')->orderBy('created_at' , 'desc');
+        $categories = DB::table('categories')->select('id' , 'title_'.config('app.locale') , DB::raw("DATE_FORMAT(created_at, '%d-%m-%Y') as created_at")  , 'description', 'photo')->orderBy('created_at' , 'desc');
         return Datatables::of($categories)
             ->make(true);
     }

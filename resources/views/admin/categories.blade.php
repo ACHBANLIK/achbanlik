@@ -13,28 +13,18 @@
 
 <style>
 
-td
-{
-      text-overflow: ellipsis;
+
+
+table td {
+  word-wrap: break-word;
+  max-width: 1000px;
 }
 
-  #loader-wrapper .loader-section {
-    position: fixed;
-    top: 0;
-    width: 51%;
-    height: 100%;
-    background: #222222;
-    z-index: 1000;
+#categories-table td {
+  white-space:inherit;
 }
-}
- 
-#loader-wrapper .loader-section.section-left {
-    left: 0;
-}
- 
-#loader-wrapper .loader-section.section-right {
-    right: 0;
-}
+
+
 </style>
 @endpush
 
@@ -51,7 +41,7 @@ td
                           </header>
                           <div class="panel-body">
                             <div class="adv-table">
-                              <table id="admins-table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                              <table id="categories-table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                             <thead>
                                             <tr>
                                                 <th>@lang('field.idCategory')</th>
@@ -440,7 +430,7 @@ $("#addModal #submit").button('loading');
                     } else {
                         $("#addModal").modal("hide"); 
                         $("#addForm").trigger('reset');  
-                        $('#admins-table').DataTable().draw(false)
+                        $('#categories-table').DataTable().draw(false)
                         toastr.success('Successfully created Category!', 'Success Alert', {timeOut: 5000});
                     }
                 },
@@ -508,7 +498,7 @@ var formData  = new FormData($('#editForm')[0])
                     } else {
                         $("#editModal").modal("hide"); 
                         $("#editForm").trigger('reset');  
-                        $('#admins-table').DataTable().draw(false)
+                        $('#categories-table').DataTable().draw(false)
                         toastr.success('Successfully edited Category!', 'Success Alert', {timeOut: 5000});
                     }
                 },
@@ -541,7 +531,7 @@ $("#deleteModal #submit").click(function(e)
         $("#deleteModal #submit").button('reset');
         $("#deleteModal").modal("hide");   
 
-        $('#admins-table').DataTable().draw(false)
+        $('#categories-table').DataTable().draw(false)
         toastr.success('Successfully deleted Category!', 'Success Alert', {timeOut: 5000});
       },
        error:function()
@@ -553,13 +543,18 @@ $("#deleteModal #submit").click(function(e)
 
 
 
-    var table  =  $('#admins-table').DataTable({
+    var table  =  $('#categories-table').DataTable({
+
+        "language": {
+            "url": "{{ asset('admin/assets/data-tables/lang/datatable.'.config('app.locale').'.json') }}"
+        },
+      
         processing: true,
         serverSide: true,
         ajax: '{{ route('admin.getcategories') }}',
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'title', name: 'title' },
+            { data: 'title_{{ config('app.locale') }}', name: 'title_{{ config('app.locale') }}' },
             { data: 'created_at', name: 'created_at' },
             { data: 'description', name: 'description' },
           

@@ -65,8 +65,8 @@ color: #999;
                                   </li>
                                   <li>
                                       <i class="fa fa-list"></i><br>
-                                       {{ title_case($publication->category->title) }} 
-                                  </li>
+                                      {{ $publication->category->{'title_'.config('app.locale')} }}
+                                 </li>
                                   <li>
                                       <i class="fa fa-user-secret"></i><br>
                                       {{ ($publication->privacy ? 'Public' : 'Privé') }}
@@ -135,7 +135,7 @@ color: #999;
                                   <div class="panel-body text-center">
 
                                       <div class="pro-img-box">
-                                          <img src="{{ ($publication->image1 == '') ? '/storage/all/publication.png' : $publication->image1 }}" alt=""/>
+                                        <img src="{{ asset(  ($publication->image1 == '') ? 'storage/all/publication.png' : './storage/'.$publication->image1  ) }}" />
                                       </div>
 
                                       <span class="price"><i class="glyphicon glyphicon-arrow-up"></i>{{ $publication->opinions->where('choice' , '=' , '1')->count() }}</span>
@@ -155,7 +155,7 @@ color: #999;
                                   <div class="panel-body text-center">
 
                                       <div class="pro-img-box">
-                                          <img src="{{ ($publication->image1 == '') ? '/storage/all/publication.png' : $publication->image1 }}" alt=""/>
+                                        <img src="{{ asset(  ($publication->image1 == '') ? 'storage/all/publication.png' : './storage/'.$publication->image1  ) }}" />
                                       </div>
 
                                       <h4>
@@ -186,7 +186,7 @@ color: #999;
                                   <div class="panel-body text-center">
 
                                       <div class="easy-pie-chart">
-                                          <div class="percentage" data-percent="{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '1')->count() / $publication->opinions->count()) }}"><span>{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '1')->count() / $publication->opinions->count()) }}</span>%</div>
+                                          <div class="percentage" data-percent="{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '1')->count()*100 / $publication->opinions->count()) }}"><span>{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '1')->count()*100 / $publication->opinions->count()) }}</span>%</div>
                                       </div>  
 
                                       <h4>
@@ -210,7 +210,7 @@ color: #999;
                                   <div class="panel-body text-center">
 
                                       <div class="easy-pie-chart">
-                                          <div class="percentage" data-percent="{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '2')->count() / $publication->opinions->count()) }}"><span>{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '2')->count() / $publication->opinions->count()) }}</span>%</div>
+                                          <div class="percentage" data-percent="{{ ($publication->opinions->count()  == 0 ? '0' : $publication->opinions->where('choice' , '=' , '2')->count()*100 / $publication->opinions->count()) }}"><span>{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '2')->count()*100 / $publication->opinions->count()) }}</span>%</div>
                                       </div>  
 
                                       <h4>
@@ -244,10 +244,10 @@ color: #999;
                                   <div class="panel-body text-center">
 
                                       <div class="pro-img-box">
-                                          <img src="{{ ($publication->image1 == '') ? '/storage/all/publication.png' : $publication->image1 }}" alt=""/>
+                                        <img src="{{ asset(  ($publication->image1 == '') ? 'storage/all/publication.png' : './storage/'.$publication->image1  ) }}" />
                                       </div>
 
-                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '1')->count() / $publication->opinions->count()) }}%</span>
+                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '1')->count()*100 / $publication->opinions->count()) }}%</span>
                                   </div>
                               </section>
                           </div>
@@ -259,10 +259,10 @@ color: #999;
                                   <div class="panel-body text-center">
 
                                       <div class="pro-img-box">
-                                          <img src="{{ ($publication->image2 == '') ? '/storage/all/publication.png' : $publication->image1 }}" alt=""/>
+                                        <img src="{{ asset(  ($publication->image2 == '') ? 'storage/all/publication.png' : './storage/'.$publication->image2  ) }}" />
                                       </div>
 
-                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '2')->count() / $publication->opinions->count()) }}%</span>
+                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '2')->count()*100 / $publication->opinions->count()) }}%</span>
                                   </div>
                               </section>
                           </div>
@@ -280,7 +280,7 @@ color: #999;
                                   <div class="panel-body text-center">
 
                                       <div class="pro-img-box">
-                                          <img src="{{ ($publication->image1 == '') ? '/storage/all/publication.png' : $publication->image1 }}" alt=""/>
+                                        <img src="{{ asset(  ($publication->image1 == '') ? 'storage/all/publication.png' : './storage/'.$publication->image1  ) }}" />
                                       </div>
 
                                       <h4>
@@ -289,7 +289,7 @@ color: #999;
                                           </a>
                                       </h4>
 
-                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '1')->count() / $publication->opinions->count()) }}%</span>
+                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '1')->count()*100 / $publication->opinions->count()) }}%</span>
 
                                   </div>
                               </section>
@@ -300,7 +300,7 @@ color: #999;
                                   <div class="panel-body text-center">
 
                                       <div class="pro-img-box">
-                                          <img src="{{ ($publication->image2 == '') ? '/storage/all/publication.png' : $publication->image1 }}" alt=""/>
+                                        <img src="{{ asset(  ($publication->image2 == '') ? 'storage/all/publication.png' : './storage/'.$publication->image2  ) }}" />
                                       </div>
 
                                       <h4>
@@ -309,7 +309,7 @@ color: #999;
                                           </a>
                                       </h4>
 
-                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '2')->count() / $publication->opinions->count()) }}%</span>
+                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '2')->count()*100 / $publication->opinions->count()) }}%</span>
 
                                   </div>
                               </section>

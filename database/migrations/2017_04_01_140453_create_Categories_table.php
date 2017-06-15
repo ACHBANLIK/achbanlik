@@ -9,7 +9,8 @@ class CreateCategoriesTable extends Migration {
 	{
 		Schema::create('Categories', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('title');
+			$table->string('title_fr');
+			$table->string('title_en');
 			$table->string('description');
 			$table->string('photo')->default('all/category.png');
 			$table->integer('idAdmin')->unsigned();

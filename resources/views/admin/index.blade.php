@@ -9,6 +9,10 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/toastr/css/toastr.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/full-loader.css') }}">
 
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/bootstrap-datepicker/css/datepicker.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/bootstrap-daterangepicker/daterangepicker-bs3.css') }}">
+
+
 <style>
 
 
@@ -18,6 +22,57 @@
 
 
 @section('content')
+
+
+              <!--date picker start-->
+      <div class="row">
+              <div class="col-md-12">
+                  <section class="panel">
+                      <header class="panel-heading">
+                          Filtres
+                          <span class="tools pull-right">
+                            <a href="javascript:;" class="fa fa-chevron-down"></a>
+                        </span>
+                      </header>
+                      <div class="panel-body" >
+                          <form  id="filterForm" action="{{ route('admin.dashboard') }}" method="GET"  class="form-horizontal tasi-form">
+
+
+                              <div class="form-group">
+                                  <label class="control-label col-md-3">Date Range</label>
+                                  <div class="col-md-4">
+                                      <div class="input-group input-large" data-date-format="mm-dd-yyyy h:m:s">
+                                          <input type="text" class="form-control from" name="from" value="{{ $from }}" required>
+                                          <span class="help-block errorDp1"></span>
+                                          <span class="input-group-addon">To</span>
+                                          <input type="text" class="form-control to" name="to" value="{{ $to }}" required>
+                                          <span class="help-block errorDp2"></span>
+
+                                              <div class="input-group-btn">
+                                                  <button type="button" id="resetdate" class="btn btn-danger date-reset"><i class="fa fa-times"></i></button>
+                                                  <button type="submit" id="filter"  class="btn btn-warning date-set"><i class="fa fa-filter"></i></button>
+
+                                              </div>
+
+
+
+                                      </div>
+
+
+                                  </div>
+                              </div>
+
+                          </form>
+                      </div>
+                  </section>
+              </div>
+
+
+
+          </div>
+              <!--date picker end-->
+
+
 
               <div class="row state-overview">
                   <div class="col-lg-3 col-sm-6">
@@ -75,125 +130,109 @@
               </div>
               <!--state overview end-->
 
-              <div class="row">
-                  <div class="col-lg-8">
-                      <!--custom chart start-->
-                      <div class="border-head">
-                          <h3>Earning Graph</h3>
-                      </div>
-                      <div class="custom-bar-chart">
-                          <ul class="y-axis">
-                              <li><span>100</span></li>
-                              <li><span>80</span></li>
-                              <li><span>60</span></li>
-                              <li><span>40</span></li>
-                              <li><span>20</span></li>
-                              <li><span>0</span></li>
-                          </ul>
-                          <div class="bar">
-                              <div class="title">JAN</div>
-                              <div class="value tooltips" data-original-title="80%" data-toggle="tooltip" data-placement="top">80%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">FEB</div>
-                              <div class="value tooltips" data-original-title="50%" data-toggle="tooltip" data-placement="top">50%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">MAR</div>
-                              <div class="value tooltips" data-original-title="40%" data-toggle="tooltip" data-placement="top">40%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">APR</div>
-                              <div class="value tooltips" data-original-title="55%" data-toggle="tooltip" data-placement="top">55%</div>
-                          </div>
-                          <div class="bar">
-                              <div class="title">MAY</div>
-                              <div class="value tooltips" data-original-title="20%" data-toggle="tooltip" data-placement="top">20%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">JUN</div>
-                              <div class="value tooltips" data-original-title="39%" data-toggle="tooltip" data-placement="top">39%</div>
-                          </div>
-                          <div class="bar">
-                              <div class="title">JUL</div>
-                              <div class="value tooltips" data-original-title="75%" data-toggle="tooltip" data-placement="top">75%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">AUG</div>
-                              <div class="value tooltips" data-original-title="45%" data-toggle="tooltip" data-placement="top">45%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">SEP</div>
-                              <div class="value tooltips" data-original-title="50%" data-toggle="tooltip" data-placement="top">50%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">OCT</div>
-                              <div class="value tooltips" data-original-title="42%" data-toggle="tooltip" data-placement="top">42%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">NOV</div>
-                              <div class="value tooltips" data-original-title="60%" data-toggle="tooltip" data-placement="top">60%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">DEC</div>
-                              <div class="value tooltips" data-original-title="90%" data-toggle="tooltip" data-placement="top">90%</div>
-                          </div>
-                      </div>
-                      <!--custom chart end-->
-                  </div>
-                  <div class="col-lg-4">
-                      <!--new earning start-->
-                      <div class="panel terques-chart">
-                          <div class="panel-body chart-texture">
-                              <div class="chart">
-                                  <div class="heading">
-                                      <span>Friday</span>
-                                      <strong>$ 57,00 | 15%</strong>
-                                  </div>
-                                  <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,564,455]"></div>
-                              </div>
-                          </div>
-                          <div class="chart-tittle">
-                              <span class="title">New Earning</span>
-                              <span class="value">
-                                  <a href="#" class="active">Market</a>
-                                  |
-                                  <a href="#">Referal</a>
-                                  |
-                                  <a href="#">Online</a>
-                              </span>
-                          </div>
-                      </div>
-                      <!--new earning end-->
 
-                      <!--total earning start-->
-                      <div class="panel green-chart">
-                          <div class="panel-body">
-                              <div class="chart">
-                                  <div class="heading">
-                                      <span>June</span>
-                                      <strong>23 Days | 65%</strong>
-                                  </div>
-                                  <div id="barchart"></div>
-                              </div>
-                          </div>
-                          <div class="chart-tittle">
-                              <span class="title">Total Earning</span>
-                              <span class="value">$, 76,54,678</span>
-                          </div>
-                      </div>
-                      <!--total earning end-->
-                  </div>
-              </div>
+
+
+
+
               <div class="row">
-                  <div class="col-lg-4">
+
+
+
+
+
+                 <div class="col-lg-7">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Publications par catégorie
+                          </header>
+                          <div class="panel-body">
+                              <div id="pubsCat" style="height: 400px"></div>
+                          </div>
+                      </section>
+                  </div>
+
+
+                  <div class="col-lg-5">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Publications - Status
+                          </header>
+                          <div class="panel-body">
+                             <div id="pubsStatus" style="width: 550px; height: 400px; margin: 0 auto">
+                          </div>
+                      </section>
+                  </div>
+
+                  
+                </div>
+
+
+
+              <div class="row">
+                 
+
+
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Publications
+                          </header>
+                          <div class="panel-body">
+                            <div id="pubsTime" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                          </div>
+                      </section>
+                  </div>
+
+
+
+                </div>
+
+
+
+              <div class="row">
+            
+            
+                   <div class="col-lg-5">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Users - Status
+                          </header>
+                          <div class="panel-body">
+                             <div id="usersStatus" style="width: 400px; height: 400px; margin: 0 auto">
+                          </div>
+                      </section>
+                  </div>
+
+                  
+
+                  <div class="col-lg-7">
+                      <section class="panel">
+                          <header class="panel-heading">
+                                Publications par Type
+                          </header>
+                          <div class="panel-body">
+                             <div id="pubsType" style="width: 600px; height: 400px; margin: 0 auto">
+                          </div>
+                      </section>
+                 </div>
+
+
+
+
+
+
+
+
+{{--                    <div class="col-lg-4">
                       <!--user info table start-->
                       <section class="panel">
                           <div class="panel-body">
                               <a href="#" class="task-thumb">
-                                 {!! Html  ::image(asset($bestUser->photo)) !!}
-                              </a>
-                              <div class="task-thumb-details">
+                              <img style="max-width: 100px;" src="{{ asset('storage/'.$bestUser->photo) }}" />
+                              </a>&nbsp;&nbsp;&nbsp;
+  
+                              <div  class="task-thumb-details">
                                   <h1>{{ $bestUser->fname }} {{ $bestUser->lname }}</h1>
                                   <p>Best User</p>
                               </div>
@@ -202,14 +241,14 @@
                               <tbody>
                                 <tr>
                                     <td>
-                                        <i class=" fa fa-tasks"></i>
+                                        <i class=" fa fa-tags"></i>
                                     </td>
                                     <td>Publications</td>
                                     <td> {{ $bestUser->publications->count() }}</td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <i class="fa fa-exclamation-triangle"></i>
+                                        <i class="fa fa-eye"></i>
                                     </td>
                                     <td>opinions</td>
                                     <td> {{ $bestUser->opinions->count() }}</td>
@@ -223,7 +262,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <i class=" fa fa-bell-o"></i>
+                                        <i class=" fa fa-trophy"></i>
                                     </td>
                                     <td>Trophies</td>
                                     <td> {{ $bestUser->utrophies->count() }}</td>
@@ -233,468 +272,14 @@
                       </section>
                       <!--user info table end-->
                   </div>
-                  <div class="col-lg-8">
-                      <!--work progress start-->
-                      <section class="panel">
-                          <div class="panel-body progress-panel">
-                              <div class="task-progress">
-                                  <h1>Work Progress</h1>
-                                  <p>Anjelina Joli</p>
-                              </div>
-                              <div class="task-option">
-                                  <select class="styled">
-                                      <option>Anjelina Joli</option>
-                                      <option>Tom Crouse</option>
-                                      <option>Jhon Due</option>
-                                  </select>
-                              </div>
-                          </div>
-                          <table class="table table-hover personal-task">
-                              <tbody>
-                              <tr>
-                                  <td>1</td>
-                                  <td>
-                                      Target Sell
-                                  </td>
-                                  <td>
-                                      <span class="badge bg-important">75%</span>
-                                  </td>
-                                  <td>
-                                    <div id="work-progress1"></div>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>2</td>
-                                  <td>
-                                      Product Delivery
-                                  </td>
-                                  <td>
-                                      <span class="badge bg-success">43%</span>
-                                  </td>
-                                  <td>
-                                      <div id="work-progress2"></div>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>3</td>
-                                  <td>
-                                      Payment Collection
-                                  </td>
-                                  <td>
-                                      <span class="badge bg-info">67%</span>
-                                  </td>
-                                  <td>
-                                      <div id="work-progress3"></div>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>4</td>
-                                  <td>
-                                      Work Progress
-                                  </td>
-                                  <td>
-                                      <span class="badge bg-warning">30%</span>
-                                  </td>
-                                  <td>
-                                      <div id="work-progress4"></div>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>5</td>
-                                  <td>
-                                      Delivery Pending
-                                  </td>
-                                  <td>
-                                      <span class="badge bg-primary">15%</span>
-                                  </td>
-                                  <td>
-                                      <div id="work-progress5"></div>
-                                  </td>
-                              </tr>
-                              </tbody>
-                          </table>
-                      </section>
-                      <!--work progress end-->
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-lg-8">
-                      <!--timeline start-->
-                      <section class="panel">
-                          <div class="panel-body">
-                                  <div class="text-center mbot30">
-                                      <h3 class="timeline-title">Timeline</h3>
-                                      <p class="t-info">This is a project timeline</p>
-                                  </div>
-
-                                  <div class="timeline">
-                                      <article class="timeline-item">
-                                          <div class="timeline-desk">
-                                              <div class="panel">
-                                                  <div class="panel-body">
-                                                      <span class="arrow"></span>
-                                                      <span class="timeline-icon red"></span>
-                                                      <span class="timeline-date">08:25 am</span>
-                                                      <h1 class="red">12 July | Sunday</h1>
-                                                      <p>Lorem ipsum dolor sit amet consiquest dio</p>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </article>
-                                      <article class="timeline-item alt">
-                                          <div class="timeline-desk">
-                                              <div class="panel">
-                                                  <div class="panel-body">
-                                                      <span class="arrow-alt"></span>
-                                                      <span class="timeline-icon green"></span>
-                                                      <span class="timeline-date">10:00 am</span>
-                                                      <h1 class="green">10 July | Wednesday</h1>
-                                                      <p><a href="#">Jonathan Smith</a> added new milestone <span><a href="#" class="green">ERP</a></span></p>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </article>
-                                      <article class="timeline-item">
-                                          <div class="timeline-desk">
-                                              <div class="panel">
-                                                  <div class="panel-body">
-                                                      <span class="arrow"></span>
-                                                      <span class="timeline-icon blue"></span>
-                                                      <span class="timeline-date">11:35 am</span>
-                                                      <h1 class="blue">05 July | Monday</h1>
-                                                      <p><a href="#">Anjelina Joli</a> added new album <span><a href="#" class="blue">PARTY TIME</a></span></p>
-                                                      <div class="album">
-                                                          <a href="#">
-                                                              <img alt="" src="img/sm-img-1.jpg">
-                                                          </a>
-                                                          <a href="#">
-                                                              <img alt="" src="img/sm-img-2.jpg">
-                                                          </a>
-                                                          <a href="#">
-                                                              <img alt="" src="img/sm-img-3.jpg">
-                                                          </a>
-                                                          <a href="#">
-                                                              <img alt="" src="img/sm-img-1.jpg">
-                                                          </a>
-                                                          <a href="#">
-                                                              <img alt="" src="img/sm-img-2.jpg">
-                                                          </a>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </article>
-                                      <article class="timeline-item alt">
-                                          <div class="timeline-desk">
-                                              <div class="panel">
-                                                  <div class="panel-body">
-                                                      <span class="arrow-alt"></span>
-                                                      <span class="timeline-icon purple"></span>
-                                                      <span class="timeline-date">3:20 pm</span>
-                                                      <h1 class="purple">29 June | Saturday</h1>
-                                                      <p>Lorem ipsum dolor sit amet consiquest dio</p>
-                                                      <div class="notification">
-                                                          <i class=" fa fa-exclamation-sign"></i> New task added for <a href="#">Denial Collins</a>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </article>
-                                      <article class="timeline-item">
-                                          <div class="timeline-desk">
-                                              <div class="panel">
-                                                  <div class="panel-body">
-                                                      <span class="arrow"></span>
-                                                      <span class="timeline-icon light-green"></span>
-                                                      <span class="timeline-date">07:49 pm</span>
-                                                      <h1 class="light-green">10 June | Friday</h1>
-                                                      <p><a href="#">Jonatha Smith</a> added new milestone <span><a href="#" class="light-green">prank</a></span> Lorem ipsum dolor sit amet consiquest dio</p>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </article>
-                                  </div>
-
-                                  <div class="clearfix">&nbsp;</div>
-                              </div>
-                      </section>
-                      <!--timeline end-->
-                  </div>
-                  <div class="col-lg-4">
-                      <!--revenue start-->
-                      <section class="panel">
-                          <div class="revenue-head">
-                              <span>
-                                  <i class="fa fa-bar-chart-o"></i>
-                              </span>
-                              <h3>Revenue</h3>
-                              <span class="rev-combo pull-right">
-                                 June 2013
-                              </span>
-                          </div>
-                          <div class="panel-body">
-                              <div class="row">
-                                  <div class="col-lg-6 col-sm-6 text-center">
-                                  
-                                      <div class="easy-pie-chart">
-                                          <div class="percentage" data-percent="35"><span>35</span>%</div>
-                                      </div>
-                                  </div>
-                                  <div class="col-lg-6 col-sm-6">
-                                      <div class="chart-info chart-position">
-                                          <span class="increase"></span>
-                                          <span>Revenue Increase</span>
-                                      </div>
-                                      <div class="chart-info">
-                                          <span class="decrease"></span>
-                                          <span>Revenue Decrease</span>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="panel-footer revenue-foot">
-                              <ul>
-                                  <li class="first active">
-                                      <a href="javascript:;">
-                                          <i class="fa fa-bullseye"></i>
-                                          Graphical
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="javascript:;">
-                                          <i class=" fa fa-th-large"></i>
-                                          Tabular
-                                      </a>
-                                  </li>
-                                  <li class="last">
-                                      <a href="javascript:;">
-                                          <i class=" fa fa-align-justify"></i>
-                                          Listing
-                                      </a>
-                                  </li>
-                              </ul>
-                          </div>
-                      </section>
-                      <!--revenue end-->
-                      <!--features carousel start-->
-                      <section class="panel">
-                          <div class="flat-carousal">
-                              <div id="owl-demo" class="owl-carousel owl-theme">
-                                  <div class="item">
-                                      <h1>Flatlab is new model of admin dashboard for happy use</h1>
-                                      <div class="text-center">
-                                          <a href="javascript:;" class="view-all">View All</a>
-                                      </div>
-                                  </div>
-                                  <div class="item">
-                                      <h1>Fully responsive and build with Bootstrap 3.0</h1>
-                                      <div class="text-center">
-                                          <a href="javascript:;" class="view-all">View All</a>
-                                      </div>
-                                  </div>
-                                  <div class="item">
-                                      <h1>Responsive Frontend is free if you get this.</h1>
-                                      <div class="text-center">
-                                          <a href="javascript:;" class="view-all">View All</a>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="panel-body">
-                              <ul class="ft-link">
-                                  <li class="active">
-                                      <a href="javascript:;">
-                                          <i class="fa fa-bars"></i>
-                                          Sales
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="javascript:;">
-                                          <i class=" fa fa-calendar-o"></i>
-                                          promo
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="javascript:;">
-                                          <i class=" fa fa-camera"></i>
-                                          photo
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="javascript:;">
-                                          <i class=" fa fa-circle"></i>
-                                          other
-                                      </a>
-                                  </li>
-                              </ul>
-                          </div>
-                      </section>
-                      <!--features carousel end-->
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-lg-8">
-                      <!--latest product info start-->
-                      <section class="panel post-wrap pro-box">
-                          <aside>
-                              <div class="post-info">
-                                  <span class="arrow-pro right"></span>
-                                  <div class="panel-body">
-                                      <h1><strong>popular</strong> <br> Brand of this week</h1>
-                                      <div class="desk yellow">
-                                          <h3>Dimond Ring</h3>
-                                          <p>Lorem ipsum dolor set amet lorem ipsum dolor set amet ipsum dolor set amet</p>
-                                      </div>
-                                      <div class="post-btn">
-                                          <a href="javascript:;">
-                                              <i class="fa fa-chevron-circle-left"></i>
-                                          </a>
-                                          <a href="javascript:;">
-                                              <i class="fa fa-chevron-circle-right"></i>
-                                          </a>
-                                      </div>
-                                  </div>
-                              </div>
-                          </aside>
-                          <aside class="post-highlight yellow v-align">
-                              <div class="panel-body text-center">
-                                  <div class="pro-thumb">
-                                      <img src="img/ring.jpg" alt="">
-                                  </div>
-                              </div>
-                          </aside>
-                      </section>
-                      <!--latest product info end-->
-                      <!--twitter feedback start-->
-                      <section class="panel post-wrap pro-box">
-                          <aside class="post-highlight terques v-align">
-                              <div class="panel-body">
-                                  <h2>Flatlab is new model of admin dashboard <a href="javascript:;"> http://demo.com/</a> 4 days ago  by jonathan smith</h2>
-                              </div>
-                          </aside>
-                          <aside>
-                              <div class="post-info">
-                                  <span class="arrow-pro left"></span>
-                                  <div class="panel-body">
-                                      <div class="text-center twite">
-                                          <h1>Twitter Feed</h1>
-                                      </div>
-
-                                      <footer class="social-footer">
-                                          <ul>
-                                              <li>
-                                                  <a href="#">
-                                                    <i class="fa fa-facebook"></i>
-                                                  </a>
-                                              </li>
-                                              <li class="active">
-                                                  <a href="#">
-                                                      <i class="fa fa-twitter"></i>
-                                                  </a>
-                                              </li>
-                                              <li>
-                                                  <a href="#">
-                                                      <i class="fa fa-google-plus"></i>
-                                                  </a>
-                                              </li>
-                                              <li>
-                                                  <a href="#">
-                                                      <i class="fa fa-pinterest"></i>
-                                                  </a>
-                                              </li>
-                                          </ul>
-                                      </footer>
-                                  </div>
-                              </div>
-                          </aside>
-                      </section>
-                      <!--twitter feedback end-->
-                  </div>
-                  <div class="col-lg-4">
-                      <div class="row">
-                          <div class="col-xs-6">
-                              <!--pie chart start-->
-                              <section class="panel">
-                                  <div class="panel-body">
-                                      <div class="chart">
-                                          <div id="pie-chart" ></div>
-                                      </div>
-                                  </div>
-                                  <footer class="pie-foot">
-                                      Free: 260GB
-                                  </footer>
-                              </section>
-                              <!--pie chart start-->
-                          </div>
-                          <div class="col-xs-6">
-                              <!--follower start-->
-                              <section class="panel">
-                                  <div class="follower">
-                                      <div class="panel-body">
-                                          <h4>Jonathan Smith</h4>
-                                          <div class="follow-ava">
-                                              <img src="img/follower-avatar.jpg" alt="">
-                                          </div>
-                                      </div>
-                                  </div>
-
-                                  <footer class="follower-foot">
-                                      <ul>
-                                          <li>
-                                              <h5>2789</h5>
-                                              <p>Follower</p>
-                                          </li>
-                                          <li>
-                                              <h5>270</h5>
-                                              <p>Following</p>
-                                          </li>
-                                      </ul>
-                                  </footer>
-                              </section>
-                              <!--follower end-->
-                          </div>
-                      </div>
-                      <!--weather statement start-->
-                      <section class="panel">
-                          <div class="weather-bg">
-                              <div class="panel-body">
-                                  <div class="row">
-                                      <div class="col-xs-6">
-                                        <i class="fa fa-cloud"></i>
-                                          California
-                                      </div>
-                                      <div class="col-xs-6">
-                                          <div class="degree">
-                                              24°
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <footer class="weather-category">
-                              <ul>
-                                  <li class="active">
-                                      <h5>humidity</h5>
-                                      56%
-                                  </li>
-                                  <li>
-                                      <h5>precip</h5>
-                                      1.50 in
-                                  </li>
-                                  <li>
-                                      <h5>winds</h5>
-                                      10 mph
-                                  </li>
-                              </ul>
-                          </footer>
-
-                      </section>
-                      <!--weather statement end-->
-                  </div>
-              </div>
+ --}}
 
 
+                </div>
+
+           
+
+</div>
 
 
 @stop
@@ -713,6 +298,17 @@
 <script src="{{ asset('admin/assets/toastr/js/toastr.min.js') }}"></script>
 
 
+<script src="{{ asset('admin/assets/Highcharts-5.0.12/code/highcharts.js') }}"></script>
+<script src="{{ asset('admin/assets/Highcharts-5.0.12/code/highcharts-3d.js') }}"></script>
+<script src="{{ asset('admin/assets/Highcharts-5.0.12/code/modules/exporting.js') }}"></script>
+
+
+<script src="{{ asset('admin/assets/Highcharts-5.0.12/code/highcharts-more.js') }}"></script>
+<script src="{{ asset('admin/assets/Highcharts-5.0.12/code/modules/solid-gauge.js') }}"></script>
+
+
+<script src="{{ asset('admin/assets/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
+<script src="{{ asset('admin/assets/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 
 
         <script>
@@ -725,6 +321,251 @@
 
 
 
+
+        // disabling dates
+        var nowTemp = new Date();
+        var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+        var checkin = $('.from').datepicker({
+            onRender: function(date) {
+                return date.valueOf() < now.valueOf() ? 'disabled' : '';
+            }
+        }).on('changeDate', function(ev) {
+                if (ev.date.valueOf() > checkout.date.valueOf()) {
+                    var newDate = new Date(ev.date)
+                    newDate.setDate(newDate.getDate() + 1);
+                    checkout.setValue(newDate);
+                }
+                checkin.hide();
+                $('.to')[0].focus();
+            }).data('datepicker');
+
+        var checkout = $('.to').datepicker({
+            onRender: function(date) {
+                return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+            }
+        }).on('changeDate', function(ev) {
+                checkout.hide();
+            }).data('datepicker');
+
+
+
+        $("#resetdate").click(function(event) {
+          $('.from').val("");
+          $('.to').val("");
+        });
+
+
+Highcharts.chart('pubsCat', {
+    chart: {
+        type: 'pie',
+        options3d: {
+            enabled: true,
+            alpha: 45
+        }
+    },
+    title: {
+        text: 'Publications par catégorie'
+    },
+    plotOptions: {
+        pie: {
+            innerSize: 100,
+            depth: 45
+        }
+    },
+    series: [{
+        name: 'Publications',
+        data: [
+        @foreach ($pubsCat as $item)
+           ['{{ $item->{'title_'.config('app.locale')} }}', {{ $item->count }}],
+        @endforeach
+        ] 
+    }]
+});
+
+
+    
+
+Highcharts.chart('pubsType', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Publications par type'
+    },
+
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                style: {
+                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+            }
+        }
+    },
+
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [
+        @foreach ($pubsType as $item)
+          {
+              name: '{{ $item->{'title_'.config('app.locale')} }}',
+              y: {{ $item->count }}
+          },
+        @endforeach
+             
+
+        ]
+    }]
+});
+
+
+
+
+Highcharts.chart('pubsStatus', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: 0,
+        plotShadow: false
+    },
+    title: {
+        text: 'Publications',
+        align: 'center',
+        verticalAlign: 'middle',
+        y: 40
+    },
+
+    plotOptions: {
+        pie: {
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                distance: -50,
+                style: {
+                    fontWeight: 'bold',
+                    color: 'white'
+                }
+            },
+            startAngle: -90,
+            endAngle: 90,
+            center: ['50%', '75%']
+        }
+    },
+    series: [{
+        type: 'pie',
+        name: 'Count : ',
+        innerSize: '50%',
+        data: [
+        @foreach ($pubsStatus as $item)
+           [getStatusName({{ $item->status }}), {{ $item->count }}],
+        @endforeach
+
+        ]
+    }]
+});
+
+
+Highcharts.chart('usersStatus', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: 0,
+        plotShadow: false
+    },
+    title: {
+        text: 'Users',
+        align: 'center',
+        verticalAlign: 'middle',
+        y: 40
+    },
+
+    plotOptions: {
+        pie: {
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                distance: -50,
+                style: {
+                    fontWeight: 'bold',
+                    color: 'white'
+                }
+            },
+            startAngle: -90,
+            endAngle: 90,
+            center: ['50%', '75%']
+        }
+    },
+    series: [{
+        type: 'pie',
+        name: 'Count : ',
+        innerSize: '50%',
+        data: [
+        @foreach ($usersStatus as $item)
+           [getStatusName({{ $item->status }}), {{ $item->count }}],
+        @endforeach
+
+        ]
+    }]
+});
+
+
+
+Highcharts.chart('pubsTime', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Publications - Date'
+    },
+    xAxis: {
+        title: {
+            text: 'Mois'
+        },
+        categories: [
+        @foreach ($pubsTime as $item)
+           '{{ $item->month }}',
+        @endforeach
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Publications (Nombre)'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: 
+            '<td style="padding:0"><b>{point.y}  publications</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Mois',
+        data: 
+        [
+        @foreach ($pubsTime as $item)
+           {{ $item->count }},
+        @endforeach
+        ],
+
+    }]
+});
 
 
 
@@ -771,6 +612,25 @@
 
 
 });
+
+
+
+
+function getStatusName(value)
+{
+  switch (value) 
+  {
+    case 0:
+      return "Désactivée";
+      break;
+    case 1:
+      return "Active";
+      break;
+    case 2:
+      return "Cloturée";
+      break;   
+  }
+}
 
 function isActive(value)
 {

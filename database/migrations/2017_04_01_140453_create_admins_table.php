@@ -13,7 +13,7 @@ class CreateAdminsTable extends Migration {
 			$table->string('password');
 			$table->string('fname');
 			$table->string('lname');
-			$table->string('photo')->default('all/admin_avatar.png');
+			$table->string('photo')->default('all/admin_avatar.jpg');
 			$table->tinyInteger('role')->default(2);
 			$table->boolean('status')->default(true);
             $table->rememberToken();
