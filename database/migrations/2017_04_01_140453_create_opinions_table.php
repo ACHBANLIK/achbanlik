@@ -12,7 +12,8 @@ class CreateOpinionsTable extends Migration {
 			$table->bigInteger('idUser')->unsigned();
 			$table->tinyInteger('choice')->default(1);
 			$table->bigInteger('idPublication')->unsigned();
-			$table->timestamps();
+			$table->timestamp('updated_at')->useCurrent();
+			$table->timestamp('created_at')->useCurrent();
 		});
 	}
 
