@@ -1,0 +1,458 @@
+
+@media screen and (max-width: 1700px) {
+    .ice-berge {
+        background-position: 100% 80%;
+    }
+
+    .massonry-post-item.massonry-post-item2 {
+        width: 18%;
+        float: left;
+    }
+    .massonry-post-sizer.massonry-post-sizer2 {
+        width: 18%;
+    }
+}
+@media screen and (max-width: 1400px) {
+    .ice-berge {
+        background-position: 100% 70%;
+    }
+
+    .ice-berge a.badges {
+        margin: 0 0;
+    }
+    .header-1 .header-top .badge-list a.badges h6 {
+            font-size: 0.9em;
+    }
+
+    .massonry-post-item.massonry-post-item2 {
+        width: 23%;
+        float: left;
+    }
+    .massonry-post-sizer.massonry-post-sizer2 {
+        width: 23%;
+    }    
+    .image-post {
+        width: 20%;
+    }
+}
+@media screen and (max-width: 1300px) {
+    .ice-berge a.badges {
+        width: 40px;
+        margin: 0 0;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .bannar-item-item-big,
+    .bannar-item-item-small {
+        height: 300px;
+    }
+    .bannar-item-small-inner {
+        height: 150px;
+    }
+    .massonry-post-item {
+        width: 30.5%;
+        float: left;
+    }
+    .massonry-post-sizer {
+        width: 30.5%;
+    }
+    .ice-berge {
+            background-image: none;
+    }
+    .massonry-post-item.massonry-post-item2 {
+        width: 22%;
+        float: left;
+    }
+    .massonry-post-sizer.massonry-post-sizer2 {
+        width: 22%;
+    }
+    .boxed .body-wrapper {
+        width: auto;
+        margin: auto;
+    }
+}
+@media screen and (max-width: 990px) {
+    .emoji-menu li {
+        padding: 15px 5px 5px;
+    }
+    .header-section .logo {
+        padding: 7px 0;
+    }
+    .create-post-login {
+        display: none;
+    }
+    .bannar-item-item-big {
+        width: 100%;
+        height: 400px;
+    }
+    .bannar-item-item-small {
+        width: 50%;
+        height: 400px;
+    }
+    .bannar-item-small-inner {
+        height: 200px;
+    }
+    aside.col-md-4.sidebar {
+        margin: auto;
+        margin-bottom: 60px;
+    }
+    aside.sidebar-left {
+        max-width: 250px;
+        margin: auto;
+        margin-bottom: 60px;
+    }
+    .hvb-bottom.menu-area {
+            display: none;
+    }
+    .hvb-logo-badge {
+        display: none;
+    }
+    .header-5 .hvb-logo-badge{
+        display: block;
+    }
+    .header-5 .badge-list {
+        display: none;
+    }
+    .header-5 .hvb-logo-badge .menu-toggle{
+        float: right;
+        color: #222;
+        transform: translateY(6px);
+    }
+    .mobile-menu-section {
+        display: block;
+    }
+    .sign-in-toggle {
+        display: inline-block;
+        height: 23px;
+        overflow: hidden;
+    }
+    .sign-in-toggle button {
+        background-color: transparent;
+        border: 0;
+        border-radius: 2px;
+        color: #fff;
+        font-weight: normal;
+        letter-spacing: 0.046875em;
+        line-height: 1;
+        padding: 2px;
+        text-transform: capitalize;
+        font-size: 1em;
+    }
+    .menu-toggle {
+        display: inline-block;
+        margin: 0 7px;
+        padding: 0;
+        font-size: 25px;
+    }
+    .hvbt-menu-list {
+        display: none;	
+    }
+    .header-1 .header-bottom,
+    .header-2 .header-top,
+    .header-4 .header-top,
+    .header-5 .hvb-logo-badge{
+        padding: 10px 0;
+    }
+    .header-style3 {
+        padding: 10px 20px;
+    }
+    .logo {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    .header-style3 .logo,
+    .header-4 .logo{
+        padding: 5px 0;
+    }    
+    .header-1 .share,
+    .header-1 .search,
+    .header-3 .create-post-login {
+        display: none;
+    }
+    .header-5 .hvb-top  .logo {
+        display: block;
+        padding: 19px 0;
+    }    
+    .header-2 .badge-list {
+        float: none;
+        display: none;
+    }
+    .header-2 .menu-toggle {
+        float: right;
+    }
+    .header-6 .header-bottom {
+        overflow: hidden;
+    }
+    .header-6 .trending-menu {
+        display: none;
+    }
+    .header-6 .logo {
+        padding: 6px 20px; 
+    }
+    .header-6 .menu-toggle {
+        float: right;
+        margin-right: 20px;
+    }
+    .crss-link {
+        padding: 0;
+    }
+    .footer .footer-logo {
+        margin-bottom: 25px;
+    }
+    .header-style3 .menu.main-menu {
+        display: none;
+    }
+    .header-style3 .share-search {
+        display: none;
+    }
+    .header-style3 .toggle-menu-icon {
+        display: none;
+    }
+    .header-style3 {
+        text-align: right;
+    }
+    .footer .widget {
+        text-align: center;
+    }
+    .latest-comment .latest-post-item .comment-icon {
+        float: none;
+    }
+    .latest-comment .latest-post-item .comment-content {
+        display: inline; 
+    }
+    .header-4 .badge-list {
+        display: none;
+    }
+    .header-4 .logo {
+        float: left;
+    }
+    .header-4 .share-search {
+       display: none;
+    }
+    .header-4 .header-bottom {
+        display: none;
+    }
+    .footer .widget {
+        margin-bottom: 60px;
+    }
+    .footer .small-post-list2 .post-item {
+        display: inline-block;
+    }
+    .footer .small-post-list2 .post-item .content {
+        text-align: left;
+    }
+    .header-1 .menu.main-menu {
+        display: none;
+    }
+    .toggle-menu-icon {
+        display: none;
+    }
+    .ice-berge {
+        padding: 0;
+    }
+    .ice-berge-area {
+        bottom: 0;
+    }
+    .slider-section.slider-3 {
+        margin-bottom: 20px;
+    }
+    .massonry-post-item.massonry-post-item2 {
+        width: 30.5%;
+        float: left;
+    }
+    .massonry-post-sizer.massonry-post-sizer2 {
+        width: 30.5%;
+    }
+    .sidebar-left {
+        display: none;
+    }
+    .bannar-section .bannar-item-item-big {
+        padding-right: 0;
+        margin-bottom: 4px;
+    }
+    .image-post {
+        width: 20%;
+    }
+    .three-col-post .clearfix {
+        display: none;
+    }
+}
+@media screen and (max-width: 768px) {
+    .admin-bar .mobile-menu-section {
+        top: 5px;
+    }
+    main.main-content {
+        max-width: 100%;
+        margin: auto;
+    }
+    .cat-share {
+        text-align: left;
+    }
+
+    .massonry-post-item {
+        width: 45.5%;
+        float: left;
+    }
+    .massonry-post-sizer {
+        width: 45.5%;
+    }
+    .main-content-massonry {
+        padding-left: 20px;
+    }
+    .header-1 .header-top {
+        display: none;
+    }
+    .header-1 .logo, .header-5 .logo {
+        padding-left: 20px;
+    }
+    .header-1 .essential-btn {
+        margin-right: 10px;
+    }
+    .massonry-post-item.massonry-post-item2 {
+        width: 45.5%;
+        float: left;
+    }
+    .massonry-post-sizer.massonry-post-sizer2 {
+        width: 45.5%;
+    }
+    .massonry-post-area.massonry-post-area2 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .image-post {
+        width: 25%;
+    }
+    .comment-author img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+    .comment-list li .comment-body .comment-content {
+        margin-left: 60px;
+    }
+    .reply > a {
+        margin-left: 60px;
+    }
+}
+@media screen and (max-width: 640px) {
+    .bannar-item-item-big {
+        width: 100%;
+        height: 300px;
+    }
+    .bannar-item-item-small {
+        width: 50%;
+        height: 300px;
+    }
+    .bannar-item-small-inner {
+        height: 150px;
+    }
+    .ice-header-top {
+        display: none;
+    }
+    .image-post {
+        width: 33.33%;
+    }
+    .comment-author img {
+        width: 40px;
+        height: 40px;
+        margin-right: 8px;
+    }
+    .comment-list li .comment-body .comment-content,.reply > a {
+        margin-left: 48px;
+    }
+    ul.comment-list ul.children {
+        margin-left: 35px;
+    }
+    #loginModal .wp-social-login-provider-list .wp-social-login-provider {
+        width: 100%;
+    }
+    #loginModal .modal-content .modal-body {
+        padding: 0 20px 20px;
+    }
+    .logo h1.site-title, .header-1 .logo h1.site-title, 
+    .header-5 .logo h1.site-title, .header-style3 .logo h1.site-title, 
+    .header-top .logo h1.site-title {
+        font-size: 1.5em;
+        padding: 8px 0;
+    }    
+}
+@media screen and (max-width: 440px) {
+    .header-1 .logo, 
+    .header-5 .logo,
+    .header-style3 .logo,
+    .header-top .logo{
+        padding-left: 6px;
+        max-width: 160px;
+    }
+    .logo h1.site-title,
+    .header-1 .logo h1.site-title, 
+    .header-5 .logo h1.site-title,
+    .header-style3 .logo h1.site-title,
+    .header-top .logo h1.site-title{
+        font-size: 2em;
+        padding: 5px 0;
+    }
+    .header-style3 {
+        padding: 20px 5px;
+    }
+    .header-style3 .logo {
+        padding-top: 0;
+        padding-bottom: 0;
+    }    
+    .bannar-item-item-big {
+        width: 100%;
+        height: auto;
+    }
+    .bannar-item-item-small {
+        width: 100%;
+        height: auto;
+    }
+    .bannar-item-small-inner {
+        height: auto;
+        width: 100%;
+    }
+    .col-xs-6 {
+        width: 100% !important;
+    }
+    .social-media a {
+        padding: 5px 15px;
+    }
+    .modal-footer span {
+        float: none !important;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .massonry-post-item {
+        width: 100%;
+        float: left;
+    }
+    .massonry-post-sizer {
+        width: 100%;
+    }
+    .main-content-massonry {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .header-4 .logo {
+        float: none;
+    }
+    .crss-link {
+        display: block;
+        float: none !important;
+        padding: 0;
+    }
+    .massonry-post-item.massonry-post-item2 {
+        width: 100%;
+        float: left;
+    }
+    .massonry-post-sizer.massonry-post-sizer2 {
+        width: 100%;
+    }
+    .image-post {
+        width: 50%;
+    }
+    .post-password-form input[type="submit"] {
+        margin-top: 10px;
+    }
+}

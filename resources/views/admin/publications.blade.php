@@ -46,7 +46,7 @@ table td {
               <div class="col-md-12">
                   <section class="panel ">
                       <header class="panel-heading">
-                          Filter
+                          @lang('field.filter')
                           <span class="tools pull-right">
                             <a href="javascript:;" class="fa fa-chevron-down"></a>
                             <a href="javascript:;" class="fa fa-times"></a>
@@ -60,25 +60,25 @@ table td {
                               <div class="form-group">
 
 
-                                  <label class="control-label col-md-2">Utilisateur</label>
+                                  <label class="control-label col-md-2">@lang('field.user')</label>
                                   <div class="col-md-3">
                                    <input id="user" type="text" class="form-control" name="user">
                                   </div>
 
 
 
-                                  <label class="control-label col-md-2">Date Range</label>
+                                  <label class="control-label col-md-2">@lang('field.daterange')</label>
                                   <div class="col-md-4">
                                       <div class="input-group input-large" data-date="13-07-2013" data-date-format="mm-dd-yyyy">
                                           <input type="text" class="form-control from" name="from">
-                                          <span class="input-group-addon">To</span>
+                                          <span class="input-group-addon">@lang('field.to')</span>
                                           <input type="text" class="form-control to" name="to">
                                           <div class="input-group-btn">
                                               <button type="button" id="resetDate" class="btn btn-danger date-reset"><i class="fa fa-times"></i></button>
                                           </div>
 
                                       </div>
-                                      <span class="help-block">Select date range</span>
+                                      <span class="help-block">@lang('field.selectdaterange')</span>
                                   </div>
 
 
@@ -91,11 +91,11 @@ table td {
 
 
                               <div class="form-group sliders">
-                                  <label class="control-label col-md-3">Nombre des signals</label>
+                                  <label class="control-label col-md-3">@lang('field.numberofsignals')</label>
                                   <div class="col-md-6">
                                           <div id="slider-signals" class="slider"></div>
                                           <div class="slider-info"> 
-                                              Signals : 
+                                              @lang('field.signals') : 
                                               <span class="slider-info" id="slider-signals-show"></span>
                                           </div>
                                   </div>
@@ -105,21 +105,21 @@ table td {
                            
                               <div class="form-group">
 
-                                  <label class="control-label col-md-2">Status</label>
+                                  <label class="control-label col-md-2">@lang('field.status')</label>
                                   <div class="col-md-2">
                                           <select name="status" id="status" class="form-control bound-s">
-                                              <option value="-1">Tous</option>
-                                              <option value="0">Désactivé</option>
-                                              <option value="1">Active</option>
-                                              <option value="2">Cloturée  </option>
+                                              <option value="-1">@lang('field.all')</option>
+                                              <option value="0">@lang('field.disabled')</option>
+                                              <option value="1">@lang('field.active')</option>
+                                              <option value="2">@lang('field.fenced')</option>
                                           </select>
                                   </div>
 
 
-                                  <label class="control-label col-md-2">Catégorie</label>
+                                  <label class="control-label col-md-2">@lang('field.categorie')</label>
                                   <div class="col-md-2">
                                           <select name="cat" id="cat" class="form-control bound-s">
-                                              <option value="-1">Tous</option>
+                                              <option value="-1">@lang('field.all')</option>
                                               @foreach ($categories as $item)
                                                 <option value="{{ $item->id }}">{{ $item->title }}</option>
                                               @endforeach
@@ -127,10 +127,10 @@ table td {
                                   </div>
 
 
-                                  <label class="control-label col-md-2">Type</label>
+                                  <label class="control-label col-md-2">@lang('field.type')</label>
                                   <div class="col-md-2">
                                           <select name="type" id="type" class="form-control bound-s">
-                                              <option value="-1">Tous</option>
+                                              <option value="-1">@lang('field.all')</option>
                                               @foreach ($types as $item)
                                                 <option value="{{ $item->id }}">{{ $item->title }}</option>
                                               @endforeach
@@ -145,7 +145,7 @@ table td {
 
                               <button type="submit" class="btn btn-primary">
                                  <i class="fa fa-filter"></i>
-                                  Rafiner
+                                  @lang('field.refine')
                               </button>
           
 
@@ -175,7 +175,7 @@ table td {
                                                 <th>@lang('field.user')</th>
                                                 <th>@lang('field.categorie')</th>
                                                 <th>@lang('field.type')</th>
-                                                <th>Signals</th>
+                                                <th>@lang('field.signals')</th>
                                                 <th>@lang('field.approved')</th>
                                                 <th>@lang('field.action')</th>
                                             </tr>

@@ -212,7 +212,7 @@ table td {
         ajax: '{{ route('admin.getcontactus') }}',
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'full_name', name: 'full_name' },
+            { data: 'full_name', name: 'full_name' , searchable:false },
             { data: 'title', name: 'title'},
             {
                     name: 'actions',

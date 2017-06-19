@@ -430,7 +430,7 @@ $("#addModal #submit").button('loading');
                         $("#addModal").modal("hide"); 
                         $("#addForm").trigger('reset');  
                         $('#admins-table').DataTable().draw(false)
-                        toastr.success('Successfully created admin!', 'Success Alert', {timeOut: 5000});
+                        toastr.success('@lang('field.successfullycreatedadmin')','@lang('field.successalert')', {timeOut: 5000});
                     }
                 },
                   error:function()
@@ -504,7 +504,7 @@ var formData  = new FormData($('#editForm')[0])
                         $("#editModal").modal("hide"); 
                         $("#editForm").trigger('reset');  
                         $('#admins-table').DataTable().draw(false)
-                        toastr.success('Successfully edited admin!', 'Success Alert', {timeOut: 5000});
+                        toastr.success('@lang('field.successfullyeditedadmin')','@lang('field.successalert')', {timeOut: 5000});
                     }
                 },
                   error:function()
@@ -537,7 +537,7 @@ $("#deleteModal #submit").click(function(e)
         $("#deleteModal").modal("hide");   
 
         $('#admins-table').DataTable().draw(false)
-        toastr.success('Successfully deleted Admin!', 'Success Alert', {timeOut: 5000});
+        toastr.success('@lang('field.successfullydeletedadmin')','@lang('field.successalert')', {timeOut: 5000});
       },
        error:function()
        {
@@ -549,6 +549,10 @@ $("#deleteModal #submit").click(function(e)
 
 
     var table  =  $('#admins-table').DataTable({
+
+              "language": {
+            "url": "{{ asset('admin/assets/data-tables/lang/datatable.'.config('app.locale').'.json') }}"
+        },
         processing: true,
         serverSide: true,
         ajax: '{{ route('admin.getadmins') }}',

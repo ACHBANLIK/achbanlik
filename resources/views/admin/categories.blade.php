@@ -45,7 +45,8 @@ table td {
                                             <thead>
                                             <tr>
                                                 <th>@lang('field.idCategory')</th>
-                                                <th>@lang('field.title')</th>
+                                                <th>@lang('field.title_fr')</th>
+                                                <th>@lang('field.title_en')</th>
                                                 <th>@lang('field.creationdate')</th>
                                                 <th>@lang('field.description')</th>
                                                 <th>@lang('field.action')</th>
@@ -101,10 +102,16 @@ table td {
                 <form  id="addForm" role="form" method="POST" enctype="multipart/form-data">
     
                   <div class="form-group">
-                    <label for="">@lang('field.title')</label>
-                      <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required autofocus>
-                      <span class="help-block errorTitle"></span>
+                    <label for="">@lang('field.title_fr')</label>
+                      <input id="title_fr" type="text" class="form-control" name="title_fr" value="{{ old('title_fr') }}" required autofocus>
+                      <span class="help-block errorTitleFr"></span>
                   </div>
+
+                  <div class="form-group">
+                    <label for="">@lang('field.title_en')</label>
+                      <input id="title_en" type="text" class="form-control" name="title_en" value="{{ old('title_en') }}" required autofocus>
+                      <span class="help-block errorTitleEn"></span>
+                  </div>                  
 
 
                   <div class="form-group">
@@ -154,7 +161,7 @@ table td {
                        <span class="sr-only">@lang('field.close')</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    @lang('field.edit')
+                    @lang('crud.edit')
                 </h4>
             </div>
             
@@ -170,10 +177,16 @@ table td {
 
 
                   <div class="form-group">
-                    <label for="title">@lang('field.title')</label>
-                      <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required autofocus>
-                      <span class="help-block errorName"></span>
+                    <label for="title_fr">@lang('field.title_fr')</label>
+                      <input id="title_fr" type="text" class="form-control" name="title_fr" value="{{ old('title_fr') }}" required autofocus>
+                      <span class="help-block errorNameFr"></span>
                   </div>
+
+                  <div class="form-group">
+                    <label for="title_en">@lang('field.title_en')</label>
+                      <input id="title_en" type="text" class="form-control" name="title_en" value="{{ old('title_en') }}" required autofocus>
+                      <span class="help-block errorNameEn"></span>
+                  </div>                  
 
 
                   <div class="form-group">
@@ -245,9 +258,15 @@ table td {
 
 
                   <div class="form-group">
-                    <label for="title">@lang('field.title')</label>
-                      <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" disabled="disabled">                  
+                    <label for="title_fr">@lang('field.title_fr')</label>
+                      <input id="title_fr" type="text" class="form-control" name="title_fr" value="{{ old('title_fr') }}" disabled="disabled">                  
                   </div>
+
+
+                 <div class="form-group">
+                    <label for="title_en">@lang('field.title_en')</label>
+                      <input id="title_en" type="text" class="form-control" name="title_en" value="{{ old('title_en') }}" disabled="disabled">                  
+                  </div>                  
 
 
 
@@ -293,7 +312,7 @@ table td {
                        <span class="sr-only">@lang('field.close')</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    @lang('field.deleteoperation') <span id="title"></span>?
+                    @lang('field.deleteoperation') <span id="title_fr"></span>?
                 </h4>
             </div>
             
@@ -353,7 +372,8 @@ table td {
 
 
     $('#editModal').on("show.bs.modal", function (e) {
-         $("#editModal #title").val($(e.relatedTarget).data('title'));
+         $("#editModal #title_fr").val($(e.relatedTarget).data('title_fr'));
+         $("#editModal #title_en").val($(e.relatedTarget).data('title_en'));       
          $("#showModal #created_at").val($(e.relatedTarget).data('created_at'));
          $("#editModal #description").val($(e.relatedTarget).data('description'));
          $("#editModal #id").val($(e.relatedTarget).data('id'));
@@ -363,14 +383,16 @@ table td {
 
 
     $('#deleteModal').on("show.bs.modal", function (e) {
-         $("#deleteModal #title").html($(e.relatedTarget).data('title'));
+         $("#deleteModal #title_fr").html($(e.relatedTarget).data('title_fr'));
+         $("#deleteModal #title_en").html($(e.relatedTarget).data('title_en'));   
          $("#deleteModal #description").html($(e.relatedTarget).data('description'));
          $("#deleteModal #id").val($(e.relatedTarget).data('id'));
     });
 
 
     $('#showModal').on("show.bs.modal", function (e) {
-         $("#showModal #title").val($(e.relatedTarget).data('title'));
+         $("#showModal #title_fr").val($(e.relatedTarget).data('title_fr'));
+         $("#showModal #title_en").val($(e.relatedTarget).data('title_en'));     
          $("#showModal #created_at").val($(e.relatedTarget).data('created_at'));
          $("#showModal #description").val($(e.relatedTarget).data('description'));
          $("#showModal #id").val($(e.relatedTarget).data('id'));
@@ -418,10 +440,15 @@ $("#addModal #submit").button('loading');
                             toastr.error('Validation error!', 'Error Alert', {timeOut: 5000});
                         }, 500);
 
-                        if (data.errors.description) {
-                            $('#addForm #title').parent(".form-group").addClass('has-error');
-                            $('#addForm .errorTitle').html("<strong>"+data.errors.title+"<strong>");
+                        if (data.errors.title_fr) {
+                            $('#addForm #title_fr').parent(".form-group").addClass('has-error');
+                            $('#addForm .errorTitleFr').html("<strong>"+data.errors.title_fr+"<strong>");
                         }
+
+                        if (data.errors.title_en) {
+                            $('#addForm #title_en').parent(".form-group").addClass('has-error');
+                            $('#addForm .errorTitleEn').html("<strong>"+data.errors.title_en+"<strong>");
+                        }                        
                         if (data.errors.description) {
                             $('#addForm #description').parent(".form-group").addClass('has-error');
                             $('#addForm .errorDescription').html("<strong>"+data.errors.description+"<strong>");
@@ -431,7 +458,7 @@ $("#addModal #submit").button('loading');
                         $("#addModal").modal("hide"); 
                         $("#addForm").trigger('reset');  
                         $('#categories-table').DataTable().draw(false)
-                        toastr.success('Successfully created Category!', 'Success Alert', {timeOut: 5000});
+                        toastr.success('@lang('field.successfullycreatedcategory')','@lang('field.successalert')', {timeOut: 5000});
                     }
                 },
                   error:function()
@@ -486,10 +513,15 @@ var formData  = new FormData($('#editForm')[0])
                             toastr.error('Validation error!', 'edit Alert', {timeOut: 5000});
                         }, 500);
 
-                        if (data.errors.title) {
-                            $('#editForm #title').parent(".form-group").addClass('has-error');
-                            $('#editForm .errorTitle').html("<strong>"+data.errors.title+"<strong>");
+                        if (data.errors.title_fr) {
+                            $('#editForm #title_fr').parent(".form-group").addClass('has-error');
+                            $('#editForm .errorTitleFr').html("<strong>"+data.errors.title_fr+"<strong>");
                         }
+
+                        if (data.errors.title_en) {
+                            $('#editForm #title_en').parent(".form-group").addClass('has-error');
+                            $('#editForm .errorTitleEn').html("<strong>"+data.errors.title_en+"<strong>");
+                        }                        
                         if (data.errors.description) {
                             $('#editForm #description').parent(".form-group").addClass('has-error');
                             $('#editForm .errordescription').html("<strong>"+data.errors.description+"<strong>");
@@ -499,7 +531,7 @@ var formData  = new FormData($('#editForm')[0])
                         $("#editModal").modal("hide"); 
                         $("#editForm").trigger('reset');  
                         $('#categories-table').DataTable().draw(false)
-                        toastr.success('Successfully edited Category!', 'Success Alert', {timeOut: 5000});
+                        toastr.success('@lang('field.successfullyeditedcategory')','@lang('field.successalert')', {timeOut: 5000});
                     }
                 },
                   error:function()
@@ -532,7 +564,7 @@ $("#deleteModal #submit").click(function(e)
         $("#deleteModal").modal("hide");   
 
         $('#categories-table').DataTable().draw(false)
-        toastr.success('Successfully deleted Category!', 'Success Alert', {timeOut: 5000});
+        toastr.success('@lang('field.successfullydeletedcategory')','@lang('field.successalert')', {timeOut: 5000});
       },
        error:function()
        {
@@ -554,7 +586,8 @@ $("#deleteModal #submit").click(function(e)
         ajax: '{{ route('admin.getcategories') }}',
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'title_{{ config('app.locale') }}', name: 'title_{{ config('app.locale') }}' },
+            { data: 'title_fr', name: 'title_fr' },
+            { data: 'title_en', name: 'title_en' },            
             { data: 'created_at', name: 'created_at' },
             { data: 'description', name: 'description' },
           
@@ -566,13 +599,13 @@ $("#deleteModal #submit").click(function(e)
                     searchable: false,
                     render: function (data) {
                         var actions = '';
-                        actions += '<a data-toggle="modal"  data-id=":id" data-title=":title" data-description=":description" data-created_at=":created_at" data-photo=":photo" data-target="#showModal"><span class="glyphicon glyphicon-eye-open"></span></a>';
+                        actions += '<a data-toggle="modal"  data-id=":id" data-title_fr=":title_fr"                          data-title_en=":title_en"                          data-description=":description" data-created_at=":created_at" data-photo=":photo" data-target="#showModal"><span class="glyphicon glyphicon-eye-open"></span></a>';
 
-                        actions += '|<a data-toggle="modal"  data-id=":id" data-title=":title" data-description=":description" data-created_at=":created_at" data-photo=":photo" data-target="#editModal"><span class="glyphicon glyphicon-edit"></span></a>';
+                        actions += '|<a data-toggle="modal"  data-id=":id" data-title_fr=":title_fr"                          data-title_en=":title_en"                          data-description=":description" data-created_at=":created_at" data-photo=":photo" data-target="#editModal"><span class="glyphicon glyphicon-edit"></span></a>';
 
                         actions += '|<a data-toggle="modal"  data-id=":id" data-target="#deleteModal"><span class="glyphicon glyphicon-trash"></span></a>';
 
-                        return actions.replace(/:id/g, data.id).replace(/:title/g, data.title).replace(/:description/g, data.description).replace(/:photo/g, data.photo).replace(/:created_at/g, data.created_at);
+                        return actions.replace(/:id/g, data.id).replace(/:title_fr/g, data.title_fr).replace(/:title_en/g, data.title_en).replace(/:description/g, data.description).replace(/:photo/g, data.photo).replace(/:created_at/g, data.created_at);
                     }
             }
 

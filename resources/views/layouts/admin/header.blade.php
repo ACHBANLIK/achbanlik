@@ -53,15 +53,14 @@
                           <b class="caret"></b>
                       </a>
                       <ul class="dropdown-menu extended logout">
-                          <div class="log-arrow-up"></div>
-                          <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                          <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+
+                          <li><a onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();"><i class="fa fa-key"></i> Log Out</a></li>
                       </ul>
                   </li>
 
 
-                                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                       <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
                                            {{ csrf_field() }}
                                        </form>
 

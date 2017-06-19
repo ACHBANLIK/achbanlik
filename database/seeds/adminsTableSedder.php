@@ -57,7 +57,6 @@ class adminsTableSedder extends Seeder
             'lname' => 'zakaria',
             'email' => 'hamza.zakaria@achbanlik.ma',
             'password' => bcrypt('Temp123*'),
-            'photo' => 'admins_avatars/hamzazakaria.jpg',
             'role' => 2,
         ] 
         );

@@ -34,18 +34,33 @@ return [
     'yes'=>'Oui',
     'no'=>'Non',
     'admin'=>'Administrateur',    
-    'user'=>'Utilsateur',
+    'user'=>'Utilisateur',
 
     
 
    /* sidebar Categories  */
     'title' => 'Titre',
+    'title_fr' => 'Titre FR',
+    'title_en' => 'Titre AN',
     'icone' => 'Icone',
     'idCategory' => 'Id Categorie',
     'creationdate'=>'Date de création',
     'description'=>'Description',
-    'categorie'=>'categorie',  
+    'categorie'=>'Categorie',  
     'status'=>'Statut',
+    'travelandtransport'=>'Voyage et transport',
+    'food'=>'Aliment',
+    'health&beauty'=> 'Santé & Beauté',
+    'fashionwomen'=>'Mode Femme',
+    'fashionmen'=>'Mode Homme',
+    'hardware'=>'Matériel d`équipement',    
+    'automobiles&motorcycles'=>'Automobiles et motos',
+    'phone&telecommunication'=>'Téléphone et télécommunication',
+    'home&garden'=>'Maison & Jardin',
+    'sports'=>'Sports',
+    'study'=>'Etude',
+    'goodplan'=>'Bon Plan',
+    'others'=>'autres',    
 
     
 
@@ -73,21 +88,13 @@ return [
     'private'=>'Private', 
     'approved'=>'Approuvé',   
 
+
     /* sidebar Opinions */
     'choice' => 'Choix',
-    'travelandtransport'=>'Voyage et transport',
-    'food'=>'Aliment',
-    'health&beauty'=> 'Santé & Beauté',
-    'fashionwomen'=>'Mode Femme',
-    'fashionmen'=>'Mode Homme',
-    'hardware'=>'Matériel d`équipement',    
-    'automobiles&motorcycles'=>'Automobiles et motos',
-    'phone&telecommunication'=>'Téléphone et télécommunication',
-    'home&garden'=>'Maison & Jardin',
-    'sports'=>'Sports',
-    'study'=>'Etude',
-    'goodplan'=>'Bon Plan',
-    'others'=>'autres',
+    'votes'=>'Votes',
+    'opinions'=>'Opinions',
+
+
 
 
     /* sidebar Validation edit , add, delete */
@@ -95,6 +102,10 @@ return [
    'successfullycreatedadmin'=>'Administrateur créé avec succès',
    'successfullyeditedadmin'=>'Administrateur modifié avec succès',
    'successfullydeletedadmin'=>'Administrateur supprimé avec succès',
+   'successalert'=>'Alerte de succès',
+
+    'successfullyediteduser'=>'Utilisateur modifié avec succès',
+
 
    'successfullycreatedcategory'=>'Categorie créé avec succès',
    'successfullyeditecategory'=>'Categorie modifiée avec succès',
@@ -104,6 +115,11 @@ return [
    'successfullycreatedtrophie'=>'Trophée créé avec succès',
    'successfullyeditetrophie'=>'Trophée modifiée avec succès',
    'successfullydeletedtrophie'=>'Trophée supprimée avec succès',
+
+
+   'successfullydeletedcomment'=>'Commentaire effacé avec succès',
+   'successfullyeditecomment'=>'Commentaire édité avec succès',
+
 
 
     /* sidebar Others */
@@ -123,7 +139,37 @@ return [
     'new'=>'Nouveau',
     'action'=>'Action',
     'name'=>'Nom',
-    'trophie'=>'Trophée'
+    'trophie'=>'Trophée',
+
+
+    /* sidebar Filter */
+    
+     'selectdaterange'=>'Sélectionnez la plage de dates',
+     'daterange'=>'Plage de dates',
+     'all'=>'Tous',
+     'disabled'=>'Désactivé',
+     'active'=>'Active',
+     'fenced'=>'Clôturé',
+     'refine'=>'Raffiner',
+     'text'=>'Texte',
+     'image'=>'Image',
+     'textandimage'=>'Texte et Image',
+     '2text'=>' 2 Textes',
+     '2image'=>'2 Images',
+     '2imageandtext'=>'2 Images et Textes',
+     'numberofsignals'=>'Nombre des signals ',
+     'signals'=>'Signals',
+     'filter'=>'Filtre',
+     'filters'=>'Filtres',
+
+     
+    /* sidebar Dashboeard */
+   'publicationsbycategory'=>'Publications par catégorie',
+   'pubstatus'=>'Publications - Statut',
+   'userstatus'=>'Utilisateurs - Statut',
+   'publicationsbytype'=>'Publications par Type',
+   'bestuser'=>'Meilleur utilisateur'
+
    
 
 

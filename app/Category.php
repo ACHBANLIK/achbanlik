@@ -9,7 +9,7 @@ class Category extends Model
 {
 
     protected $fillable = [
-        'title' , 'description','photo','idAdmin',
+        'title_fr','title_en', 'description','photo','idAdmin',
     ];
 
 

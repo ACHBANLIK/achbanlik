@@ -34,7 +34,7 @@ class usersTableSedder extends Seeder
             'email' => 'olea.fadlo@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'users_avatars/olayafadlo.jpg',
+            'photo' => 'users_avatars/olayafadlo.png',
             'password' => bcrypt('Temp123*'),
         ]
         );
@@ -47,7 +47,6 @@ class usersTableSedder extends Seeder
             'email' => 'hamza.zakaria@gmail.com',
             'idCountry' => 149,   
             'birthday' => Carbon::now(), 
-            'photo' => 'users_avatars/hamzazakaria.jpg',
             'password' => bcrypt('Temp123*'),
         ]
         );

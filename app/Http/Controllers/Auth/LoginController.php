@@ -2,38 +2,59 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Auth;
+use Validator;
+use Response;
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
 
-    use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/index';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+   public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('guest', ['except' => ['logout' ,'UserLogout']]);
     }
+
+
+    public function UserLogout() {
+
+        Auth::guard('web')->logout();
+        return redirect('/');
+
+    }
+
+
+    /**
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+    public function login(Request $request)
+    {
+
+       $validator =  Validator::make($request->all(), [
+        'email'   => 'required|email',
+        'password' => 'required|min:6'
+      ]);
+
+
+      if($validator->fails())
+      {
+        return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
+
+      }elseif (Auth::guard()->attempt(['email' => $request->email, 'password' => $request->password ,'status' => true], $request->remember))
+      {
+          return Response::json(array('loggedin' => true));
+      }
+      else
+      {
+          return Response::json(array('loggedin' => false));
+      }
+
+    }
+
 }

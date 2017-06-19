@@ -181,7 +181,7 @@ table td {
 
                   <div class="form-group">
                     <label for="points">@lang('field.points')</label>
-                      <input id="points" type="text" class="form-control" name="points" value="{{ old('points') }}" required autofocus>
+                      <input id="points" type="number" class="form-control" name="points" value="{{ old('points') }}" required autofocus>
                       <span class="help-block errorPoints"></span>
                   </div>
 
@@ -453,7 +453,7 @@ $("#addModal #submit").button('loading');
                         $("#addModal").modal("hide"); 
                         $("#addForm").trigger('reset');  
                         $('#trophies-table').DataTable().draw(false)
-                        toastr.success('Successfully created admin!', 'Success Alert', {timeOut: 5000});
+                        toastr.success('@lang('field.successfullycreatedtrophie')','@lang('field.successalert')', {timeOut: 5000});
                     }
                 },
                   error:function()
@@ -507,6 +507,9 @@ var formData  = new FormData($('#editForm')[0])
                     $('.help-block').html("");
 
                     if ((data.errors)) {
+
+                        console.log(data.errors);
+
                         setTimeout(function () {
                             toastr.error('Validation error!', 'edit Alert', {timeOut: 5000});
                         }, 500);
@@ -527,7 +530,7 @@ var formData  = new FormData($('#editForm')[0])
                         $("#editModal").modal("hide"); 
                         $("#editForm").trigger('reset');  
                         $('#trophies-table').DataTable().draw(false)
-                        toastr.success('Successfully edited trophy!', 'Success Alert', {timeOut: 5000});
+                        toastr.success('@lang('field.successfullyeditetrophie')','@lang('field.successalert')', {timeOut: 5000});
                     }
                 },
                   error:function()
@@ -560,7 +563,7 @@ $("#deleteModal #submit").click(function(e)
         $("#deleteModal").modal("hide");   
 
         $('#trophies-table').DataTable().draw(false)
-        toastr.success('Successfully deleted Trophy!', 'Success Alert', {timeOut: 5000});
+        toastr.success('@lang('field.successfullydeletedtrophie')','@lang('field.successalert')', {timeOut: 5000});
       },
        error:function()
        {

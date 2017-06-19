@@ -38,19 +38,19 @@ color: #999;
     <section class="panel">
 
                           <header class="panel-heading">
-                              Utilisateurs
+                             @lang('adminTemplate.users')
                           </header>
                           <div class="panel-body">
                             <div class="adv-table">
                               <table id="users-table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                             <thead>
                                             <tr>
-                                                <th>Id</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Points</th>
-                                                <th>Active</th>
-                                                <th>Action</th>
+                                                <th>@lang('field.id')</th>
+                                                <th>@lang('field.fname')</th>
+                                                <th>@lang('field.lname')</th>
+                                                <th>@lang('field.points')</th>
+                                                <th>@lang('field.active')</th>
+                                                <th>@lang('field.action')</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -87,10 +87,10 @@ color: #999;
                 <button type="button" class="close" 
                    data-dismiss="modal">
                        <span aria-hidden="true">&times;</span>
-                       <span class="sr-only">Close</span>
+                       <span class="sr-only">@lang('field.close')</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    User
+                    @lang('field.user')
                 </h4>
             </div>
             
@@ -116,10 +116,10 @@ color: #999;
                               </div>
 
                               <ul class="nav nav-pills nav-stacked">
-                                  <li><a href="javascript:;"> <i class="fa fa-file-image-o"></i> Publications <span id="publications" class="label label-primary pull-right r-activity"></span></a></li>
-                                  <li><a href="javascript:;"> <i class="fa fa-eye"></i> Votes <span id="votes" class="label label-info pull-right r-activity"></span></a></li>
-                                  <li><a href="javascript:;"> <i class="fa fa-comments"></i> Comments <span id="comments" class="label label-info pull-right r-activity"></span></a></li>                                  
-                                  <li><a href="javascript:;"> <i class="fa fa-trophy"></i> Trophies <span id="trophies" class="label label-warning pull-right r-activity"></span></a></li>
+                                  <li><a href="javascript:;"> <i class="fa fa-file-image-o"></i> @lang('adminTemplate.publications')<span id="publications" class="label label-primary pull-right r-activity"></span></a></li>
+                                  <li><a href="javascript:;"> <i class="fa fa-eye"></i> @lang('field.votes')<span id="votes" class="label label-info pull-right r-activity"></span></a></li>
+                                  <li><a href="javascript:;"> <i class="fa fa-comments"></i>@lang('field.comments')<span id="comments" class="label label-info pull-right r-activity"></span></a></li>                                  
+                                  <li><a href="javascript:;"> <i class="fa fa-trophy"></i>@lang('adminTemplate.trophes')<span id="trophies" class="label label-warning pull-right r-activity"></span></a></li>
      
                               </ul>
 
@@ -295,7 +295,7 @@ function changeStatus(id)
               toastr.error('Error!', 'Error Alert', {timeOut: 5000});
             }else
             {
-              toastr.success('Successfully edited admin!', 'Success Alert', {timeOut: 5000});
+              toastr.success('@lang('field.successfullyediteduser')','@lang('field.successalert')', {timeOut: 5000});
             }
 
           },

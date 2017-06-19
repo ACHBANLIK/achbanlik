@@ -326,18 +326,18 @@ color: #999;
     <section class="panel">
 
                           <header class="panel-heading">
-                              Comments  
+                              @lang('field.comments')</label> 
                           </header>
                           <div class="panel-body">
                             <div class="adv-table">
                               <table id="comments-table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                             <thead>
                                             <tr>
-                                                <th>Id</th>
-                                                <th>User</th>
-                                                <th>Commentaire</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
+                                                <th> @lang('field.id')</th>
+                                                <th> @lang('field.user')</th>
+                                                <th> @lang('field.comment')</th>
+                                                <th> @lang('field.status')</th>
+                                                <th>@lang('field.action')</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -364,10 +364,10 @@ color: #999;
                 <button type="button" class="close" 
                    data-dismiss="modal">
                        <span aria-hidden="true">&times;</span>
-                       <span class="sr-only">Close</span>
+                       <span class="sr-only">@lang('field.close')</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Commentaire 
+                    @lang('field.comment')
                 </h4>
             </div>
             
@@ -384,20 +384,20 @@ color: #999;
                 </center>
       
                   <div class="form-group">
-                    <label for="id">Id</label>
+                    <label for="id">@lang('field.id')</label>
                       <input id="id" type="text" class="form-control" name="id" value="{{ old('id') }}" disabled="disabled">
                   </div>
 
 
 
                   <div class="form-group">
-                    <label for="full_name">User</label>
+                    <label for="full_name">@lang('field.user')</label>
                       <input id="full_name" type="text" class="form-control" name="full_name" value="{{ old('full_name') }}" disabled="disabled">                  
                   </div>
 
 
                   <div class="form-group">
-                    <label for="description">Commentaire</label>
+                    <label for="description">@lang('field.comment')</label>
                       <textarea id="text" class="form-control" name="text" required autofocus>{{ old('text') }}</textarea>
                   </div>
 
@@ -421,10 +421,10 @@ color: #999;
                 <button type="button" class="close" 
                    data-dismiss="modal">
                        <span aria-hidden="true">&times;</span>
-                       <span class="sr-only">Close</span>
+                       <span class="sr-only">@lang('field.close')</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Are you sure you want to delete <span id="text"></span>of<span id="full_name"></span>?
+                    @lang('field.deleteoperation') <span id="text"></span>@lang('field.of')<span id="full_name"></span>?
                 </h4>
             </div>
             
@@ -436,8 +436,8 @@ color: #999;
                   <input type="hidden" name="id" id="id" value="">
                   
                   <center>
-                    <button  type="button" data-dismiss="modal"  class="btn btn-danger btn-lg btn-bloc">Non</button>
-                    <button id="submit" type="button" class="btn btn-primary btn-lg btn-bloc" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours" >Oui</button>
+                    <button  type="button" data-dismiss="modal"  class="btn btn-danger btn-lg btn-bloc">@lang('field.no')</button>
+                    <button id="submit" type="button" class="btn btn-primary btn-lg btn-bloc" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours" >@lang('field.yes')</button>
 
                   </center>
 
@@ -542,7 +542,7 @@ $("#deleteModal #submit").click(function(e)
         $("#deleteModal").modal("hide");   
 
         $('#admins-table').DataTable().draw(false)
-        toastr.success('Successfully deleted Comment!', 'Success Alert', {timeOut: 5000});
+        toastr.success('@lang('field.successfullydeletedcomment')','@lang('field.successalert')', {timeOut: 5000});
       },
        error:function()
        {
@@ -554,10 +554,15 @@ $("#deleteModal #submit").click(function(e)
 
 
     var table  =  $('#comments-table').DataTable({
+
+            "language": {
+            "url": "{{ asset('admin/assets/data-tables/lang/datatable.'.config('app.locale').'.json') }}"
+        },
+
         processing: true,
         serverSide: true,
         ajax: {
-        "url": '/admin/getcomments/'+$("#idPub").val(),
+        "url": '/bo/getcomments/'+$("#idPub").val(),
         "type": 'GET'
         },
         columns: [
@@ -638,7 +643,7 @@ function changeStatus(id)
               toastr.error('Error!', 'Error Alert', {timeOut: 5000});
             }else
             {
-              toastr.success('Successfully edited Comment!', 'Success Alert', {timeOut: 5000});
+              toastr.success('@lang('field.successfullyeditecomment')','@lang('field.successalert')',{timeOut: 5000});
             }
 
           },

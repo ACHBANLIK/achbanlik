@@ -31,7 +31,8 @@ protected function validateMe(Request $request   , string $param)
         case 'store':
                 $rules =
                 [
-                    'title'=> 'required|max:255|unique:categories',
+                    'title_fr'=> 'required|max:255|unique:categories',
+                    'title_en'=> 'required|max:255|unique:categories',
                     'description'=> 'required|max:255|regex:/^[a-z ,.\'-]+$/i',
                     'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 ];
@@ -40,7 +41,8 @@ protected function validateMe(Request $request   , string $param)
         case 'update':
                 $rules =
                 [
-                    'title'=> 'required|max:255|regex:/^[a-z ,.\'-]+$/i',
+                    'title_fr'=> 'required|max:255|regex:/^[a-z ,.\'-]+$/i',
+                    'title_en'=> 'required|max:255|regex:/^[a-z ,.\'-]+$/i',
                     'description' => 'required|max:255|regex:/^[a-z ,.\'-]+$/i', 
                     'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 ];
@@ -82,7 +84,7 @@ protected function validateMe(Request $request   , string $param)
 
     public function getCategories()
     {
-        $categories = DB::table('categories')->select('id' , 'title_'.config('app.locale') , DB::raw("DATE_FORMAT(created_at, '%d-%m-%Y') as created_at")  , 'description', 'photo')->orderBy('created_at' , 'desc');
+        $categories = DB::table('categories')->select('id' , 'title_fr' , 'title_en', DB::raw("DATE_FORMAT(created_at, '%d-%m-%Y') as created_at")  , 'description', 'photo')->orderBy('created_at' , 'desc');
         return Datatables::of($categories)
             ->make(true);
     }
@@ -121,7 +123,8 @@ protected function validateMe(Request $request   , string $param)
 
             $category = new category();
             $category->idAdmin = Auth::user()->id;
-            $category->title = $request->title;
+            $category->title_fr = $request->title_fr;
+            $category->title_en = $request->title_en;            
             $category->description = $request->description;
            // $category->created_at = date('d-m-Y H:i:s');
 
@@ -184,7 +187,8 @@ protected function validateMe(Request $request   , string $param)
 
             $category = category::findOrFail($id);
 
-            $category->title = $request->title;
+            $category->title_fr = $request->title_fr;
+            $category->title_en = $request->title_en;
             $category->description = $request->description;
             //$category->updated_at = date('d-m-Y H:i:s');
 

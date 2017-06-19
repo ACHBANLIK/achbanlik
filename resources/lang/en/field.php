@@ -41,11 +41,26 @@ return [
 
    /* sidebar Categories  */
     'title' => 'Title',
+    'title_fr' => 'Title FR',
+    'title_en' => 'Title EN',
     'icone' => 'Icone',
     'idCategory' => 'Id Category',
     'creationdate'=>'Creation date',
     'description'=>'Description',
-    'categorie'=>'category',
+    'categorie'=>'Category',
+    'travelandtransport'=>'Travel and Transport',
+    'food'=>'Food',
+    'health&beauty'=> 'Health & Beauty',
+    'fashionwomen'=>'Fashion Women',    
+    'fashionmen'=>'Fashion Men',
+    'hardware'=>'Hardware',    
+    'automobiles&motorcycles'=>'Automobiles & Motorcycles',
+    'phone&telecommunication'=>'Phone & Telecommunication',
+    'home&garden'=>'Home & Garden',
+    'sports'=>'Sports',
+    'study'=>'Study',
+    'goodplan'=>'Good Plan ',
+    'others'=>'Others',  
 
     /* sidebar Cities and Countries  */
     'idCity' => 'Id City',
@@ -72,25 +87,18 @@ return [
 
     /* sidebar Opinions */
     'choice' => 'Choice',
-    'travelandtransport'=>'Travel and Transport',
-    'food'=>'Food',
-    'health&beauty'=> 'Health & Beauty',
-    'fashionwomen'=>'Fashion Women',    
-    'fashionmen'=>'Fashion Men',
-    'hardware'=>'Hardware',    
-    'automobiles&motorcycles'=>'Automobiles & Motorcycles',
-    'phone&telecommunication'=>'Phone & Telecommunication',
-    'home&garden'=>'Home & Garden',
-    'sports'=>'Sports',
-    'study'=>'Study',
-    'goodplan'=>'Good Plan ',
-    'others'=>'Others',    
+    'votes'=>'Votes',
+    'opinions'=>'Opinions',
+
 
     /* sidebar Validation edit , add, delete(admin, categorie,trophie,contactus) */
 
    'successfullycreatedadmin'=>'Successfully Created Admin',
    'successfullyeditedadmin'=>'Successfully Edited admin',
    'successfullydeletedadmin'=>'Successfully Deleted admin',
+   'successalert'=>'Success Alert',
+
+   'successfullyediteduser'=>'Successfully Edited User',
 
    'successfullycreatedcategory'=>'Successfully Created category',
    'successfullyeditecategory'=>'Successfully Edited category',
@@ -100,6 +108,10 @@ return [
    'successfullycreatedtrophie'=>'Successfully Created Trophie',
    'successfullyeditetrophie'=>'Successfully Edited Trophie',
    'successfullydeletedtrophie'=>'Successfully Deleted Trophie',
+
+   'successfullydeletedcomment'=>'Successfully deleted Comment',
+   'successfullyeditecomment'=>'Successfully Edited Comment',
+
 
 
 
@@ -120,9 +132,37 @@ return [
     'new'=>'New',
     'action'=>'Action',
     'name'=>'Name',
-    'trophie'=>'Trophie'
+    'trophie'=>'Trophie',
 
+    /* sidebar Filter */
     
+     'selectdaterange'=>'Select date range',
+     'daterange'=>'Date Range',
+     'all'=>'All',
+     'disabled'=>'Disabled',
+     'active'=>'Active',
+     'fenced'=>'Fenced',
+     'refine'=>'Refine',
+     'text'=>'Text',
+     'image'=>'Image',
+     'textandimage'=>'Text and Image',
+     '2text'=>' 2 Text',
+     '2image'=>'2 Image',
+     '2imageandtext'=>'2 Image and Text',
+     'numberofsignals'=>'Number of Signals',
+     'signals'=>'Signals',
+     'filter'=>'Filter',
+     'filters'=>'Filters',
+
+    /* sidebar Dashboeard */
+   'publicationsbycategory'=>'Publications by category',
+   'pubstatus'=>'Publications - Status',
+    'userstatus'=>'Users - Status',
+    'publicationsbytype'=>'Publications by Type',
+    'bestuser'=>'Best User'
+
+
+
 
 
 

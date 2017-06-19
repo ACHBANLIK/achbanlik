@@ -13,7 +13,7 @@ class CreateUsersTable extends Migration {
 			$table->string('email')->unique();
 			$table->string('lname');
 			$table->string('fname');
-			$table->string('photo')->default('all/user_avatar.jpg');
+			$table->string('photo')->default('all/user_avatar.png');
 			$table->boolean('status')->default(true);
 			$table->integer('idCountry')->unsigned()->nullable();
 			$table->date('birthday')->nullable();

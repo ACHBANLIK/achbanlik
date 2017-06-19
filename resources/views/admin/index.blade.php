@@ -29,7 +29,7 @@
               <div class="col-md-12">
                   <section class="panel">
                       <header class="panel-heading">
-                          Filtres
+                           @lang('field.filters')
                           <span class="tools pull-right">
                             <a href="javascript:;" class="fa fa-chevron-down"></a>
                         </span>
@@ -39,12 +39,12 @@
 
 
                               <div class="form-group">
-                                  <label class="control-label col-md-3">Date Range</label>
+                                  <label class="control-label col-md-3">@lang('field.daterange')</label>
                                   <div class="col-md-4">
                                       <div class="input-group input-large" data-date-format="mm-dd-yyyy h:m:s">
                                           <input type="text" class="form-control from" name="from" value="{{ $from }}" required>
                                           <span class="help-block errorDp1"></span>
-                                          <span class="input-group-addon">To</span>
+                                          <span class="input-group-addon">@lang('field.to')</span>
                                           <input type="text" class="form-control to" name="to" value="{{ $to }}" required>
                                           <span class="help-block errorDp2"></span>
 
@@ -84,7 +84,7 @@
                               <h1 class="count">
                                   {{ $dashboard['users'] }}
                               </h1>
-                              <p>Users</p>
+                              <p>@lang('adminTemplate.users')</p>
                           </div>
                       </section>
                   </div>
@@ -97,7 +97,7 @@
                               <h1 class=" count2">
                                   {{ $dashboard['publications'] }}
                               </h1>
-                              <p>Publications</p>
+                              <p>@lang('adminTemplate.publications')</p>
                           </div>
                       </section>
                   </div>
@@ -110,7 +110,7 @@
                               <h1 class=" count3">
                                   {{ $dashboard['opinions'] }}
                               </h1>
-                              <p>Opinions</p>
+                              <p>@lang('field.opinions')</p>
                           </div>
                       </section>
                   </div>
@@ -123,7 +123,7 @@
                               <h1 class=" count4">
                                   {{ $dashboard['comments'] }}
                               </h1>
-                              <p>Comments</p>
+                              <p>@lang('field.comments')</p>
                           </div>
                       </section>
                   </div>
@@ -144,7 +144,7 @@
                  <div class="col-lg-7">
                       <section class="panel">
                           <header class="panel-heading">
-                              Publications par catégorie
+                              <p>@lang('field.publicationsbycategory')</p>
                           </header>
                           <div class="panel-body">
                               <div id="pubsCat" style="height: 400px"></div>
@@ -156,10 +156,10 @@
                   <div class="col-lg-5">
                       <section class="panel">
                           <header class="panel-heading">
-                              Publications - Status
+                             @lang('field.pubstatus') 
                           </header>
                           <div class="panel-body">
-                             <div id="pubsStatus" style="width: 550px; height: 400px; margin: 0 auto">
+                             <div id="pubsStatus" style="width: 440px; height: 400px; margin: 0 auto">
                           </div>
                       </section>
                   </div>
@@ -176,7 +176,7 @@
                   <div class="col-lg-12">
                       <section class="panel">
                           <header class="panel-heading">
-                              Publications
+                              @lang('adminTemplate.publications')
                           </header>
                           <div class="panel-body">
                             <div id="pubsTime" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
@@ -196,10 +196,10 @@
                    <div class="col-lg-5">
                       <section class="panel">
                           <header class="panel-heading">
-                              Users - Status
+                              @lang('field.userstatus') 
                           </header>
                           <div class="panel-body">
-                             <div id="usersStatus" style="width: 400px; height: 400px; margin: 0 auto">
+                             <div id="usersStatus" style="width: 350px; height: 400px; margin: 0 auto">
                           </div>
                       </section>
                   </div>
@@ -209,10 +209,10 @@
                   <div class="col-lg-7">
                       <section class="panel">
                           <header class="panel-heading">
-                                Publications par Type
+                                @lang('field.publicationsbytype')
                           </header>
                           <div class="panel-body">
-                             <div id="pubsType" style="width: 600px; height: 400px; margin: 0 auto">
+                             <div id="pubsType" style="width: 550px; height: 400px; margin: 0 auto">
                           </div>
                       </section>
                  </div>
@@ -234,7 +234,7 @@
   
                               <div  class="task-thumb-details">
                                   <h1>{{ $bestUser->fname }} {{ $bestUser->lname }}</h1>
-                                  <p>Best User</p>
+                                  <p>@lang('field.bestuser')</p>
                               </div>
                           </div>
                           <table class="table table-hover personal-task">
@@ -243,28 +243,28 @@
                                     <td>
                                         <i class=" fa fa-tags"></i>
                                     </td>
-                                    <td>Publications</td>
+                                    <td>@lang('adminTemplate.publications')</td>
                                     <td> {{ $bestUser->publications->count() }}</td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <i class="fa fa-eye"></i>
                                     </td>
-                                    <td>opinions</td>
+                                    <td>@lang('field.opinions')</td>
                                     <td> {{ $bestUser->opinions->count() }}</td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <i class="fa fa-comment"></i>
                                     </td>
-                                    <td>Comments</td>
+                                    <td>@lang('field.comments')</td>
                                     <td> {{ $bestUser->comments->count() }}</td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <i class=" fa fa-trophy"></i>
                                     </td>
-                                    <td>Trophies</td>
+                                    <td>@lang('admintemplate.trophes')</td>
                                     <td> {{ $bestUser->utrophies->count() }}</td>
                                 </tr>
                               </tbody>
@@ -365,7 +365,7 @@ Highcharts.chart('pubsCat', {
         }
     },
     title: {
-        text: 'Publications par catégorie'
+        text: '@lang('field.publicationsbycategory')'
     },
     plotOptions: {
         pie: {
@@ -394,7 +394,7 @@ Highcharts.chart('pubsType', {
         type: 'pie'
     },
     title: {
-        text: 'Publications par type'
+        text: '@lang('field.publicationsbytype')'
     },
 
     plotOptions: {

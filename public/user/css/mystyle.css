@@ -1,0 +1,59 @@
+ body {
+         background-color: #fff;
+         font-family: Montserrat, sans-serif;
+         font-size: 15px;
+         }
+         h1,
+         h2,
+         h3,
+         h4,
+         h5,
+         h6 {
+         font-family: Open Sans,cursive;
+         text-transform: capitalize;
+         }
+         .widget.widget_recent_comments .recentcomments a {
+         font-family: Open Sans,cursive;
+         }
+         .menu.main-menu ul li a,
+         .hvbt-menu-list li a,
+         .menu-top-menu-container .top-menu li.menu-item-has-children .sub-menu li a,
+         .create-post-login .cp-btn,
+         ul.quick-menu li a,
+         footer.footer .v2-footer .hvbt-menu-list li a{
+/*           font-family: Open Sans, cursive;
+           */          text-transform: uppercase;
+         }
+         .post-item-container .swiper-pagination .swiper-pagination-bullet{
+         width: 25%;
+         }
+         .header-1 .header-bottom,
+         .header-2 .header-top,
+         .header-style3,
+         .header-4 .header-top{
+         background-color: #262843;
+         }
+         .footer-light .footer-top, .footer-light .sidebar-style3 .widget-heading h2 {
+         background-color: #f0f1f2;
+         }
+         .footer-dark .footer-top, .footer-dark .sidebar-style3 .widget-heading h2{
+         background-color: #252525;
+         }
+         footer.footer .v2-footer.footer-bottom {
+         background-color: #fff;
+         }
+         footer.footer .v1-footer.footer-bottom {
+         background-color: #252525;
+         }
+         a:focus,a:active,a:hover,.sticky .post-item .content h4 a,.bypostauthor .comment-meta .fn,.post-thumb>.content h5>a:hover,.post-thumb>.content h4>a:hover,.post-thumb>.content h3>a:hover,.menu.main-menu>ul>li:hover>a,.menu.main-menu ul li.active>a,.menu.main-menu ul li.menu-item-has-children .sub-menu li.active-sub-menu a,.menu.main-menu .mega-menu-content .mega-recent-post h3 a:hover,.header-1 .menu.main-menu .mega-menu-content h3 a:hover,ul.post-pagination li.dot,.post-load-end,.load-more, .infinite-scroll, .infinite-loading,.widget.widget_recent_comments .recentcomments:before,.latest-comment .latest-post-item .comment-icon,.footer-style-3 .hvbt-menu-list li a:hover,.footer-style-3 .widget .cat-list a:hover,.footer-dark .small-post-list .post-item .content h5 a:hover,.menu.main-menu ul>li>a:hover,.menu.main-menu ul>li.current-menu-ancestor>a,.menu.main-menu ul>li.current-menu-item>a,.entry-social-share .entry-social-like .love-received.active a i,.edit-link .comment-edit-link,.vp-entry legend {
+         color: #f2d122;
+         }
+         .share-icon,.menu.main-menu ul li.menu-item-has-children>.sub-menu li.current_page_item>a,.menu.main-menu ul li.menu-item-has-children>.sub-menu li:hover>a,.hvbt-menu-list ul li.menu-item-has-children>.sub-menu li.current_page_item>a,.hvbt-menu-list ul li.menu-item-has-children>.sub-menu li:hover>a,.hvb-top,.menu-top-menu-container .top-menu li.menu-item-has-children > .sub-menu li:hover > a,ul.post-pagination li a,.widget .widget_wysija_cont .wysija-submit,.footer-feature-post-next:hover,.footer-feature-post-prev:hover,.sidebar-style5 .widget-heading h2 {
+         background-color: #f2d122;
+         }
+         .login .modal-footer .register-now {
+         color: #F2D122;
+         }
+         .remember-login .submit-login,.mobile-popular-next:hover,.mobile-popular-prev:hover,.mega-sub-cat-list.nav-tabs li.active>a,.mega-sub-cat.nav-tabs li.active>a,.mega-sub-cat-list.nav-tabs li>a:focus,.mega-sub-cat.nav-tabs li>a:focus,.mega-sub-cat.nav-tabs li>a:hover,.mega-sub-cat-list.nav-tabs li>a:hover,.create-post-login .cp-btn,ul.post-pagination li a:hover,ul.post-pagination li.active a,.header-4 .create-post-login>a,.header-1 .create-post-login>a,.comment-respond .form-submit input,.error .custom-btn,.fixed-top-btn{
+         background-color: #F2D122;
+         }

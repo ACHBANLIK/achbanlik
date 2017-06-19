@@ -24,6 +24,7 @@ class publicationsTableSedder extends Seeder
             'text2' => 'esaouira',
             'image1'=>'publications/DSC8633.jpg',
             'image2'=>'publications/essaouira_3098993a-small.jpg',
+            'created_at' => '2017-01-02',
             'status' => 0 
         ]
         );
@@ -37,7 +38,7 @@ class publicationsTableSedder extends Seeder
             'idType' => 5,  
             'image1' => 'publications/téléchargement.jpg',
             'image2' => 'publications/téléchargement (1).jpg',            
-            'created_at' => '2017-01-01',
+            'created_at' => '2017-01-02',
         ]
         );
 
@@ -135,7 +136,7 @@ class publicationsTableSedder extends Seeder
  
            DB::table('publications')->insert(
         [
-            'title' => 'Un bon café a kenitra???? Help ',
+            'title' => 'Un bon café a kenitra? ',
             'idUser' => 5,
             'idCategory' => 12,
             'idType' => 1,  
@@ -195,7 +196,7 @@ Pour un budget de 50000dh ( niveau consommation, fiabilité, pannes et tt )Perso
 
            DB::table('publications')->insert(
         [
-            'title' => 'svp les voyageures vos avis sur ce programme je compte sur vous et merci ',
+            'title' => ' Avis sur ce programme plz',
             'idUser' => 6,
             'idCategory' => 1,
             'idType' => 2,  
@@ -206,7 +207,7 @@ Pour un budget de 50000dh ( niveau consommation, fiabilité, pannes et tt )Perso
 
            DB::table('publications')->insert(
         [
-            'title' => 'Coucou les amis je partage avec vous des bons plans que j`ai trouvé  ',
+            'title' => 'Bons plans ',
             'idUser' => 7,
             'idCategory' => 12,
             'idType' => 5,  

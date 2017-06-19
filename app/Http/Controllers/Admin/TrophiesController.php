@@ -34,7 +34,7 @@ protected function validateMe(Request $request   , string $param)
                 $rules =
                 [
                     'name'=> 'required|max:255|unique:trophies',
-                    'description'=> 'required|max:255|regex:/^[a-z ,.\'-]+$/i',
+                    'description'=> 'required',
                     'points' => 'required|numeric',
                     'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 ];
@@ -44,7 +44,7 @@ protected function validateMe(Request $request   , string $param)
                 $rules =
                 [
                     'name'=> 'required|max:255|regex:/^[a-z ,.\'-]+$/i',
-                    'description' => 'required|max:255|regex:/^[a-z ,.\'-]+$/i', 
+                    'description' => 'required', 
                     'points' => 'required|numeric',
                     'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 ];
