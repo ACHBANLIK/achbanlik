@@ -3,7 +3,6 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>{{invite_sender_name}} invited you to [Product Name]</title>
     <!-- 
     The style block is collapsed on page load to save you some scrolling.
     Postmark automatically inlines all CSS properties for maximum email client 
@@ -392,7 +391,6 @@
     </style>
   </head>
   <body>
-    <span class="preheader">{{invite_sender_name}} with {{invite_sender_organization_name}} has invited you to use [Product Name] to collaborate with them.</span>
     <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0">
       <tr>
         <td align="center">
@@ -411,13 +409,11 @@
                   <!-- Body content -->
                   <tr>
                     <td class="content-cell">
-                      <h1>Bonjour, {{$admin->fname}}</h1>
+                      <h1>Bonjour, {!! $fname !!}  {!! $lname !!}</h1>
                       <p>
                           Au nom de tous les membres de ACHBANLIK , je vous souhaite la bienvenue.
 
                           Vous pouvez Accéder au panel d'administration en cliquant sur le boutton suivant.
-
-
 
                       </p>
                       <!-- Action -->
@@ -444,16 +440,15 @@
                       </table>
   
 
-                          Login : {{$admin->email}}
+                          Login : {!! $email !!}
                           <br>
-                          Mot de passe : {{$admin->password}}
-
+                          Password : {!! $passworde !!}
                           <br>
                           <br>
 
 
                       <p>Cordialement.
-                        <br>Hamid</p>
+                        <br>L'équipe achbanlik</p>
 
                     </td>
                   </tr>

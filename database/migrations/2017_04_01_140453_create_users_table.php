@@ -1,4 +1,4 @@
-é<?php
+<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration {
 			$table->string('fname');
 			$table->string('photo')->default('all/user_avatar.png');
 			$table->boolean('status')->default(true);
-			$table->integer('idCountry')->unsigned()->nullable();
+			$table->integer('idCountry')->unsigned()->nullable()->default(149);
 			$table->date('birthday')->nullable();
 			$table->integer('points')->default(0);
             $table->rememberToken(); 	

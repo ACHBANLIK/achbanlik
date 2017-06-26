@@ -14,13 +14,12 @@ class CreatePublicationsTable extends Migration {
 			$table->integer('idCategory')->unsigned();
 			$table->integer('idType')->unsigned();
 			$table->boolean('status')->default(true);
-			$table->boolean('privacy')->default(true);
-			$table->integer('signals')->default(0);
+			$table->boolean('privacy')->default(false);
 			$table->text('text1')->nullable();
 			$table->text('text2')->nullable();
 			$table->text('image1')->nullable();
 			$table->text('image2')->nullable();
-			$table->timestamp('date_fin')->useCurrent();
+			$table->timestamp('willend_at')->useCurrent();
 			$table->timestamp('updated_at')->useCurrent();
 			$table->timestamp('created_at')->useCurrent();
 			});

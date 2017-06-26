@@ -5,11 +5,11 @@
     }
 
     .massonry-post-item.massonry-post-item2 {
-        width: 18%;
+        width: 26%;
         float: left;
     }
     .massonry-post-sizer.massonry-post-sizer2 {
-        width: 18%;
+        width: 26%;
     }
 }
 @media screen and (max-width: 1400px) {
@@ -25,14 +25,14 @@
     }
 
     .massonry-post-item.massonry-post-item2 {
-        width: 23%;
+        width: 30%;
         float: left;
     }
     .massonry-post-sizer.massonry-post-sizer2 {
-        width: 23%;
+        width: 30%;
     }    
     .image-post {
-        width: 20%;
+        width: 27%;
     }
 }
 @media screen and (max-width: 1300px) {
@@ -50,21 +50,21 @@
         height: 150px;
     }
     .massonry-post-item {
-        width: 30.5%;
+        width: 42%;
         float: left;
     }
     .massonry-post-sizer {
-        width: 30.5%;
+        width: 42%;
     }
     .ice-berge {
             background-image: none;
     }
     .massonry-post-item.massonry-post-item2 {
-        width: 22%;
+        width: 37%;
         float: left;
     }
     .massonry-post-sizer.massonry-post-sizer2 {
-        width: 22%;
+        width: 37%;
     }
     .boxed .body-wrapper {
         width: auto;
@@ -257,11 +257,11 @@
         margin-bottom: 20px;
     }
     .massonry-post-item.massonry-post-item2 {
-        width: 30.5%;
+        width: 37%;
         float: left;
     }
     .massonry-post-sizer.massonry-post-sizer2 {
-        width: 30.5%;
+        width: 37%;
     }
     .sidebar-left {
         display: none;
@@ -309,11 +309,11 @@
         margin-right: 10px;
     }
     .massonry-post-item.massonry-post-item2 {
-        width: 45.5%;
+        width: 100%;
         float: left;
     }
     .massonry-post-sizer.massonry-post-sizer2 {
-        width: 45.5%;
+        width: 100%;
     }
     .massonry-post-area.massonry-post-area2 {
         padding-left: 0px;

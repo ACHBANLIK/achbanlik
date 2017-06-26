@@ -44,7 +44,7 @@ class adminsTableSedder extends Seeder
             'lname' => 'chebbourh',
             'email' => 'basma.chebbourh@achbanlik.ma',
             'password' => bcrypt('Temp123*'),
-            'photo' => 'admins_avatars/admin_avatar.png',
+            'photo' => 'admins_avatars/basmachebbourh.png',
             'role' => 2,
         ]
         );
@@ -57,6 +57,7 @@ class adminsTableSedder extends Seeder
             'lname' => 'zakaria',
             'email' => 'hamza.zakaria@achbanlik.ma',
             'password' => bcrypt('Temp123*'),
+            'photo' => 'admins_avatars/hamzazakaria.jpg',
             'role' => 2,
         ] 
         );

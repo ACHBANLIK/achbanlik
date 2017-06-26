@@ -13,7 +13,7 @@
                                  </form>
 
                            @else
-                                 <div id="loginModal" class="modal fade" role="dialog">
+                                 <div id="loginModal" class="modal fade formModal" role="dialog">
                                     <div class="modal-dialog">
                                        <!-- Modal content-->
                                        <div class="modal-content">
@@ -23,16 +23,13 @@
                                           <div class="modal-body">
                    
                                              <div class="wp-social-login-widget">
-                                                <div class="wp-social-login-connect-with">Log In</div>
+                                                <div class="wp-social-login-connect-with">Se connecter</div>
                                                 <div class="wp-social-login-provider-list">
-                                                   <a rel="nofollow" href="wp-login.php-action=wordpress_social_authenticate&mode=login&provider=Facebook&redirect_to=http_%7C%7Cthemes.codexcoder.com%7Cvbuzz%7C.html" title="Connect with Facebook" class="wp-social-login-provider wp-social-login-provider-facebook" data-provider="Facebook">
+                                                   <a rel="nofollow" href="#" class="wp-social-login-provider wp-social-login-provider-facebook" >
                                                    Facebook
                                                    </a>
-                                                   <a rel="nofollow" href="wp-login.php-action=wordpress_social_authenticate&mode=login&provider=Google&redirect_to=http_%7C%7Cthemes.codexcoder.com%7Cvbuzz%7C.html" title="Connect with Google" class="wp-social-login-provider wp-social-login-provider-google" data-provider="Google">
+                                                   <a rel="nofollow" href="#" class="wp-social-login-provider wp-social-login-provider-google" >
                                                    Google
-                                                   </a>
-                                                   <a rel="nofollow" href="wp-login.php-action=wordpress_social_authenticate&mode=login&provider=Twitter&redirect_to=http_%7C%7Cthemes.codexcoder.com%7Cvbuzz%7C.html" title="Connect with Twitter" class="wp-social-login-provider wp-social-login-provider-twitter" data-provider="Twitter">
-                                                   Twitter
                                                    </a>
                                                 </div>
                                                 <div class="wp-social-login-widget-clearing"></div>
@@ -43,7 +40,7 @@
                                                    <br>
                                                    <hr>
                                                 </div>
-                                                <div class="col-lg-2 col-sm-2 col-xs-2 text-center" style="margin-top:10px"> OR </div>
+                                                <div class="col-lg-2 col-sm-2 col-xs-2 text-center" style="margin-top:10px"> OU </div>
                                                 <div class="col-lg-5 col-sm-5 col-xs-5">
                                                    <br>
                                                    <hr>
@@ -63,30 +60,30 @@
                                                 <input class="submit_button" type="submit" value="Se connecter">
 
                                                 <div class="clearfix"></div>
-                                                <a class="forgot-pass text-link" href="password-lost/index.html">Forgot Password?</a> 
-                                                <a id="pop_signup" class="create-account">Create an Account</a>
+                                                <a class="forgot-pass text-link" href="password-lost/index.html">Mot de passe oublié?</a> 
+                                                <a id="pop_signup" class="create-account">Créer un compte</a>
                                              </form>
 
 
 
                                              <form id="register" class="ajax-auth login-form" >
-                                                <div class="wp-social-login-connect-with">Register</div>
+                                                <div class="wp-social-login-connect-with">Créer un compte</div>
 
                                                 <div class="status" style="display: none"></div>
 
                                                 <label for="fname"></label>
-                                                <input id="fname" type="text" name="fname" class="required" placeholder="First Name" value="hamza">
+                                                <input id="fname" type="text" name="fname" class="required" placeholder="Prénom">
 
                                                 <label for="lname"></label>
-                                                <input id="lname" type="text" name="lname" class="required" placeholder="Last Name" value="zakaria">                                  
-                                                <input id="email" type="text" class="required email" name="email" placeholder="Email" value="hamza.zakaria@achbanlik.ma" >
+                                                <input id="lname" type="text" name="lname" class="required" placeholder="Nom">                                  
+                                                <input id="email" type="text" class="required email" name="email" placeholder="Email" >
 
-                                                <input id="password" type="password" class="required" name="password" placeholder="Password" value="Temp123*">
-                                                <input type="password" id="password2" class="required" name="password2" placeholder="Confirm Password" value="Temp123*">
+                                                <input id="password" type="password" class="required" name="password" placeholder="Mot de passe" >
+                                                <input type="password" id="password2" class="required" name="password2" placeholder="Confirmation de mot de passe" >
 
                                                 <input class="submit_button" type="submit" value="Register">
 
-                                                <a id="pop_login" class="create-account" href="">Already have an account?</a>
+                                                <a id="pop_login" class="create-account" href="">Vous avez déjà un compte?</a>
                                              </form>
                                           </div>
                                        </div>

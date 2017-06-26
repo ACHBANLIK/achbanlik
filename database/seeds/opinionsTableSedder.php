@@ -796,14 +796,6 @@ DB::table('opinions')->insert(
         ]
         );
 
-        DB::table('opinions')->insert(
-        [
-            'idUser' => 3,
-            'choice' => 1,
-            'idPublication' => 15,
-            'created_at' => '2017-11-12',
-        ]
-        );
 
         DB::table('opinions')->insert(
         [
@@ -866,14 +858,6 @@ DB::table('opinions')->insert(
         ]
         );  
 
-        DB::table('opinions')->insert(
-        [
-            'idUser' => 3,
-            'choice' => 1,
-            'idPublication' => 16,
-            'created_at' => '2017-12-12',
-        ]
-        );
 
         DB::table('opinions')->insert(
         [
@@ -935,7 +919,311 @@ DB::table('opinions')->insert(
             'created_at' => '2017-12-13',
         ]
         ); 
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 7,
+            'choice' => 1,
+            'idPublication' => 17,
+            'created_at' => '2017-10-14',
+        ]
+        ); 
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 10,
+            'choice' => 1,
+            'idPublication' => 17,
+            'created_at' => '2017-10-14',
+        ]
+        );         
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 11,
+            'choice' => 1,
+            'idPublication' => 17,
+            'created_at' => '2017-10-14',
+        ]
+        ); 
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 12,
+            'choice' => 1,
+            'idPublication' => 17,
+            'created_at' => '2017-10-14',
+        ]
+        );   
+            DB::table('opinions')->insert(
+        [
+            'idUser' => 13,
+            'choice' => 1,
+            'idPublication' => 17,
+            'created_at' => '2017-10-14',
+        ]
+        );         
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 14,
+            'choice' => 1,
+            'idPublication' => 17,
+            'created_at' => '2017-10-14',
+        ]
+        ); 
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 15,
+            'choice' => 1,
+            'idPublication' => 17,
+            'created_at' => '2017-10-14',
+        ]
+        );  
+
+             DB::table('opinions')->insert(
+        [
+            'idUser' => 16,
+            'choice' => 1,
+            'idPublication' => 17,
+            'created_at' => '2017-10-14',
+        ]
+        );         
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 17,
+            'choice' => 1,
+            'idPublication' => 17,
+            'created_at' => '2017-10-14',
+        ]
+        ); 
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 18,
+            'choice' => 1,
+            'idPublication' => 17,
+            'created_at' => '2017-10-14',
+        ]
+        );     
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 19,
+            'choice' => 2,
+            'idPublication' => 18,
+            'created_at' => '2017-11-14',
+        ]
+        );   
 
 
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 1,
+            'choice' => 2,
+            'idPublication' => 18,
+            'created_at' => '2017-11-14',
+        ]
+        );     
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 2,
+            'choice' => 2,
+            'idPublication' => 18,
+            'created_at' => '2017-11-14',
+        ]
+        );   
+
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 2,
+            'choice' => 1,
+            'idPublication' => 18,
+            'created_at' => '2017-11-14',
+        ]
+        );
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 3,
+            'choice' => 1,
+            'idPublication' => 18,
+            'created_at' => '2017-11-14',
+        ]
+        );   
+
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 4,
+            'choice' => 1,
+            'idPublication' => 18,
+            'created_at' => '2017-11-14',
+        ]
+        );     
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 5,
+            'choice' => 1,
+            'idPublication' => 18,
+            'created_at' => '2017-11-14',
+        ]
+        );   
+
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 6,
+            'choice' => 1,
+            'idPublication' => 18,
+            'created_at' => '2017-11-14',
+        ]
+        );        
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 6,
+            'choice' => 1,
+            'idPublication' => 19,
+            'created_at' => '2017-11-14',
+        ]
+        );
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 7,
+            'choice' => 1,
+            'idPublication' => 19,
+            'created_at' => '2017-11-14',
+        ]
+        );
+
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 8,
+            'choice' => 2,
+            'idPublication' => 19,
+            'created_at' => '2017-11-14',
+        ]
+        );
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 9,
+            'choice' => 2,
+            'idPublication' => 19,
+            'created_at' => '2017-11-14',
+        ]
+        );        
+       
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 10,
+            'choice' => 1,
+            'idPublication' => 19,
+            'created_at' => '2017-11-14',
+        ]
+        );
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 11,
+            'choice' => 2,
+            'idPublication' => 19,
+            'created_at' => '2017-11-14',
+        ]
+        );
+
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 12,
+            'choice' => 1,
+            'idPublication' => 19,
+            'created_at' => '2017-11-14',
+        ]
+        );
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 13,
+            'choice' => 1,
+            'idPublication' => 19,
+            'created_at' => '2017-11-14',
+        ]
+        ); 
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 14,
+            'choice' => 1,
+            'idPublication' => 20,
+            'created_at' => '2017-11-14',
+        ]
+        );   
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 15,
+            'choice' => 1,
+            'idPublication' => 20,
+            'created_at' => '2017-11-14',
+        ]
+        );    
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 16,
+            'choice' => 1,
+            'idPublication' => 20,
+            'created_at' => '2017-11-14',
+        ]
+        );   
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 17,
+            'choice' => 2,
+            'idPublication' => 20,
+            'created_at' => '2017-11-14',
+        ]
+        ); 
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 18,
+            'choice' => 2,
+            'idPublication' => 20,
+            'created_at' => '2017-11-14',
+        ]
+        );   
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 19,
+            'choice' => 2,
+            'idPublication' => 20,
+            'created_at' => '2017-11-14',
+        ]
+        );    
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 1,
+            'choice' => 2,
+            'idPublication' => 20,
+            'created_at' => '2017-11-14',
+        ]
+        );   
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 2,
+            'choice' => 2,
+            'idPublication' => 20,
+            'created_at' => '2017-11-14',
+        ]
+        );         
     }
 }

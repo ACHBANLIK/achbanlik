@@ -47,7 +47,7 @@
                   <!-- user login dropdown start-->
                   <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                          {!! Html  ::image(asset('/storage/'.Auth::user()->photo)  ,  '', array( 'height' => 30 )) !!}
+                          {!! Html  ::image(asset('/storage/'.Auth::user()->photo)  ,  '', array( 'height' => 20 )) !!}
                             <span class="username">{{ Auth::user()->fname }}  {{ Auth::user()->lname }}</span>
                           
                           <b class="caret"></b>

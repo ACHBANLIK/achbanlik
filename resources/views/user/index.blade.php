@@ -3,12 +3,10 @@
 
 @push('styles')
     <link href="{{ asset('user/assets/wysija-newsletters/css/validationEngine.jquery-ver=2.7.7.css') }}" rel="stylesheet"  media='all'>
-    <link rel="stylesheet" type="text/css" href="{{ asset('user/assets/toastr/css/toastr.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('user/css/bootstrap-tour.min.css') }}">
+    <link href="{{ asset('user/assets/toast/css/jquery.toastmessage-min.css') }}" rel="stylesheet"  media='all'>
 
     <style type="text/css">
       .ajax-load{
-        background: #e1e1e1;
         padding: 10px 0px;
         width: 100%;
       }
@@ -20,35 +18,47 @@
 
 @section('content')
 
-<!--  Start Main Content Area -->
+@isset ($category)
+
+    <div class="page-title-section single-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-header">                        
+                        <div class="page-header-text">
+                                                
+                            <ul id="breadcrumbs" class="breadcrumb ">
+                              <li class="item-home"><a class="bread-link bread-home" href="/" title="Home">ACHBANLIK</a></li>
+                              <li class="item-cat">{{ $category }}</li>
+
+                            </ul>                        
+                         </div>
+                        
+                    </div><!-- /.catagory-header -->
+                </div>
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div>
+    <!-- end page-header-section -->
+
+@endisset
+
+
 <div class="main-content-area vb-full-width-massonry">
     <div class="vb-full-massonry-content">
-
-
         <div id="massonry-post-area2" class="massonry-post-area massonry-post-area2">        
             <div class="massonry-post-sizer massonry-post-sizer2"></div>            
-
-
-@include('user.data')
-
-
+              @include('user.publications')
         </div>
-
-
-   <!-- <div class="ajax-load text-center" style="display:none">
-  <p><img src="http://demo.itsolutionstuff.com/plugin/loader.gif">Loading More post</p>
-</div>
- -->      
     </div>
-
 </div>
 
 
+<div class="ajax-load text-center" style="display:none">
+ <p> <img src="{{ asset('user/img/loader.gif') }}" /></p>
+</div>
 
 
-
-
-          @include('layouts.user.footer')
 
       
 
@@ -58,29 +68,75 @@
 @push('scripts')
 
       <script src='{{ asset('user/js/jquery.validate-ver=4.7.5.js') }}'></script>
+      <script src="{{ asset('user/assets/toast/js/jquery.toastmessage-min.js') }}"></script>
       <script src='{{ asset('user/js/ajax-login-ver=4.7.5.js') }}'></script>
-      <script src="{{ asset('user/assets/toastr/js/toastr.min.js') }}"></script>
       <script src='{{ asset('user/js/bootstrap-tour.min.js') }}'></script>
       <script src='{{ asset('user/js/isotope.pkgd.min.js') }}'></script>
 
 <script>
 
-/*    var page = 1;
 
+$(document).ready(function() {
+
+
+
+
+$(".ended").click(function(event) {
+        toastr.info('Cette publication est clotûrée.', {timeOut: 3000});
+});
+
+$(document).on("click", ".upvote", function(event) {
+        id = $(this).parents('.post-item').attr('id');
+        Opinion('/upvote/all/'+id , "Opinion enregistré.");   
+});
+
+$(document).on("click", ".downvote", function(event) {
+        id = $(this).parents('.post-item').attr('id');
+        Opinion('/downvote/all/'+id , "Opinion enregistré.");   
+});
+
+
+$(document).on("click", ".deletevotes", function(event) {
+        id = $(this).parents('.post-item').attr('id');
+        Opinion('/deletevotes/all/'+id , "Opinion supprimé.");     
+});
+
+
+
+});
+
+  var page = 1;
   $(window).scroll(function() {
-
-    console.log($(window).scrollTop() + $(window).height() );
-    console.log($(document).height());
       if($(window).scrollTop() + $(window).height() >= $(document).height()) {
           page++;
           loadMoreData(page);
       }
-  });*/
+  });
 
+
+function Opinion($link  , $message)
+{
+          $.ajax({
+                type: 'get',
+                url: $link,
+
+            error: function(data) {
+                    toastr.error('Une erreur est survenu.', {timeOut: 3000});
+            },
+            success: function(data) {
+                if (data.success == true) {
+                    toastr.success($message, {timeOut: 3000});
+                     var $newItems = $(data.html);
+                      $( "div#"+id ).replaceWith( $newItems );
+                } else{
+                    toastr.error('Une erreur est survenu.', {timeOut: 3000});
+                }
+            }
+        });
+}
 
 
   function loadMoreData(page){
-
     $.ajax(
           {
               url: ' ?page=' + page,
@@ -92,14 +148,21 @@
           })
           .done(function(data)
           {
-              if(data.html == " "){
-                  $('.ajax-load').html("No more records found");
+              if(data.html == ""){
+                  $('.ajax-load').html("Fin de liste.");
+                  reloadIso();
                   return;
               }
               $('.ajax-load').hide();
 
               var $newItems = $(data.html);
-              $('.massonry-post-area').isotope( 'insert', $newItems );
+
+$('.massonry-post-area').isotope()
+  .append( $newItems )
+  .isotope( 'appended', $newItems )
+  .isotope('layout');
+
+
 
           })
           .fail(function(jqXHR, ajaxOptions, thrownError)
@@ -109,99 +172,74 @@
   }
 
 
-jQuery(
-  function($)
-  {
-    $('body').bind('scroll', function()
-                              {
-                                if($(this).scrollTop() + $(this).innerHeight()>=$(this)[0].scrollHeight)
-                                {
-                                  alert('end reached');
-                                }
-                              })
-  }
-);
+
+$(window).resize(function(){
 
 
-   $(document).ready(function($) 
-       {  
-
-
-          $('body').on('scroll', function() {
-              if($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
-                  alert('end reached');
-              }
-          })
-
-
-    // init isotope
-    $('.massonry-post-area').isotope({
+    $('.massonry-post-area').isotope
+    ({
         itemSelector: '.massonry-post-item',
         percentPosition: true,
         masonry: 
           {
             columnWidth: '.massonry-post-sizer',
-            gutter: 30
+            gutter: 20,
           }
     });
- 
-       });
+
+
+ });
+
+
+
+
+
+
+
+
+$(window).load(function(){
+    
+
+    $('.massonry-post-area').isotope
+    ({
+        itemSelector: '.massonry-post-item',
+        percentPosition: true,
+        masonry: 
+          {
+            columnWidth: '.massonry-post-sizer',
+            gutter: 20,
+          }
+    });
+
+
+ });
+
+
+
+
+
+
+function reloadIso()
+{
+  $('.massonry-post-area').isotope
+                  ({
+                      itemSelector: '.massonry-post-item',
+                      percentPosition: true,
+                      masonry: 
+                        {
+                          columnWidth: '.massonry-post-sizer',
+                          gutter: 20,
+                        }
+                  });
+}
 
 
 
 </script>
 
-<script>
 
-    if(window.location.hash) {
-      var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
-      if(hash=="demo")
-      {
-             var d = new Date();
-             var n = d.getTime();
 
-            var tour = new Tour({
-                name: n.toString()
-          });
 
-        // Add your steps. Not too many, you don't really want to get your users sleepy
-        tour.addSteps([
-        {
-          element: ".one", // string (jQuery selector) - html element next to which the step popover should be shown
-          title: "Compte crée", // string - title of the popover
-          content: "En cliquant ici , vous pouvez gérer votre profile." // string - content of the popover
-        },
-        {
-          element: ".two", // string (jQuery selector) - html element next to which the step popover should be shown
-          title: "Demander de l'aide", // string - title of the popover
-          content: "En cliquant ici , vous pouvez créer une nouvelle publication." // string - content of the popover
-        },
-        {
-          element: ".three", // string (jQuery selector) - html element next to which the step popover should be shown
-          title: "Catégorie", // string - title of the popover
-          content: "Cliquer sur la catégorie que vous préferez pour raffiner les publications." // string - content of the popover
-        },
-        {
-          element: ".four", // string (jQuery selector) - html element next to which the step popover should be shown
-          title: "Publications", // string - title of the popover
-          content: "Aidez cet utilisateur à prendre une décision" // string - content of the popover
-        },
-        {
-          element: ".five", // string (jQuery selector) - html element next to which the step popover should be shown
-          title: "Publication", // string - title of the popover
-          content: "Cliquez ici pour voir plus de détails" // string - content of the popover
-        },
-        ]);
-
-        // Initialize the tour
-        tour.init();
-
-        // Start the tour
-        tour.start();
-      }
-      // hash found
-      }
-      </script>
 
       <script src="{{ asset('user/js/functions-ver=1.0.0.js') }}"></script>
 

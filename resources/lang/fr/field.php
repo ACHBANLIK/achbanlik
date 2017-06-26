@@ -87,6 +87,7 @@ return [
     'public'=>'Public',
     'private'=>'Private', 
     'approved'=>'Approuvé',   
+    'status'=>'Status',
 
 
     /* sidebar Opinions */

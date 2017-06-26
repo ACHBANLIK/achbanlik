@@ -49,7 +49,6 @@
 
 
   <section id="container" class="">
-      <section id="container" class="">
           
           @include('layouts.admin.header')
           @include('layouts.admin.sidebar')
@@ -65,7 +64,6 @@
           
 
 
-      </section>
           @include('layouts.admin.footer')
 
       

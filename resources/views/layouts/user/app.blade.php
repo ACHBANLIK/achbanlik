@@ -2,8 +2,7 @@
 <html lang="{{ config('app.locale') }}">
 <head>
 
-
-    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -26,6 +25,10 @@
     <link href="{{ asset('user/css/custom-style-ver=4.7.5.css') }}" rel="stylesheet"  media='all' >
     <link href="{{ asset('user/css/mystyle.css') }}" rel="stylesheet"  media='all' >
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/toastr/css/toastr.min.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/bootstrap-daterangepicker/daterangepicker-bs3.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/bootstrap-datepicker/css/datepicker.css') }}">
 
 
      @stack('styles')
@@ -50,8 +53,15 @@
       <script type='text/javascript' data-cfasync="false" src='{{ asset('user/js/jquery.js') }}'></script>
       <script type='text/javascript' data-cfasync="false" src='{{ asset('user/js/jquery/jquery-migrate.min-ver=1.4.1.js') }}'></script>
 
-<!--       <script type='text/javascript' data-cfasync="false" src='{{ asset('user/js/plugins-ver=1.0.0.js') }}'></script>
- -->
+      <script type='text/javascript' data-cfasync="false" src='{{ asset('user/js/plugins-ver=1.0.0.js') }}'></script>
+
+      <script src="{{ asset('admin/assets/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+      <script src="{{ asset('admin/assets/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
+      <script src="{{ asset('admin/assets/toastr/js/toastr.min.js') }}"></script>
+
+      <script src="{{ asset('user/js/createpublications.js') }}"></script>
+
+
 
       <link rel="icon" href="{{ asset('user/img/cropped-fevicon-32x32.png') }}" sizes="32x32" />
       <link rel="icon" href="{{ asset('user/img/cropped-fevicon-192x192.png') }}" sizes="192x192" />
@@ -71,13 +81,13 @@
 
                 @yield('content')
 
-      <a data-scroll data-options='{ "easing": "easeInQuad" }' href="http://themes.codexcoder.com/vbuzz/gag/body" class="fixed-top-btn"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
 
 
           @include('layouts.user.modals')
 
 
-      
+{{--           @include('layouts.user.footer')
+ --}}
 
     <!-- js placed at the end of the document so the pages load faster -->
 

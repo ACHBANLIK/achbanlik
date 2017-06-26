@@ -10,7 +10,7 @@ class CreateAdminsTable extends Migration {
 		Schema::create('admins', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('email')->unique();
-			$table->string('password');
+			$table->string('password')->nullable();
 			$table->string('fname');
 			$table->string('lname');
 			$table->string('photo')->default('all/admin_avatar.png');

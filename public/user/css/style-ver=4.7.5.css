@@ -484,7 +484,7 @@
         border-collapse: separate;
         border-spacing: 0;
         border-width: 1px 0 0 1px;
-        margin: 0 0 1.75em;
+        margin: 0 0 0em;
         table-layout: fixed;
         /* Prevents HTML tables from becoming too wide */
         width: 100%;
@@ -508,7 +508,7 @@
      
     th,
     td {
-        padding: 0.4375em;
+        padding: 0.2em;
     }
      
     /* Placeholder text color -- selectors need to be separate to work. */
@@ -919,13 +919,21 @@ article.post .entry-content > ol{
 .post-info {
     color: #b0b0b0;
     font-size: 0.933em;
+     margin-top: 10px;
 }
-.v4-style .post-info,.v5-style .post-info {
+/*.v4-style .post-info,.v5-style .post-info n {
     margin-top: 8px;
-}
+}*/
 .post-info .author {
     color: #252525;
 }
+
+
+.post-info .comments {
+    color: #252525;
+    float:right;
+}
+
 
 .post-thumb .badge-list {
     position: absolute;
@@ -980,47 +988,161 @@ article.post .entry-content > ol{
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 100%;
     z-index: 1;
+
 }
-.v1-style .cat-share {
+
+.massonry-post-item
+{
+    margin-bottom: 20px;
+    background-color: white;
+    webkit-box-shadow: 3px 4px 20px -6px rgba(0,0,0,0.39);
+    moz-box-shadow: 3px 4px 20px -6px rgba(0,0,0,0.39);
+    box-shadow: 3px 4px 25px -6px rgba(0,0,0,0.39);
+}
+
+
+
+/*.v1-style .cat-share {
     width: inherit;
-}
+}*/
+
 .cat-list {
     display: inline-block;
-    background: #fff;
-    padding: 6px 10px;
-    color: #b0b0b0;
+    padding: 5px 6px;
+    color: #fff;
+    margin-left:0px;
+    background-color: rgba(0,0,0,0.4);
+    margin-left: 10px;
 }
-.post-item .cat-share .cat-list {
+
+.cat-list2 {
+    display: inline-block;
+    padding: 5px 6px;
+    color: #fff;
+    margin-left:0px;
+    margin-left: 10px;
+}
+
+.post-item .cat-share .cat-list , .post-item .cat-share .cat-list2 {
     transform: translate(-5px, 1px);
 }
-.cat-list .cat {
+
+
+.cat-list2 .cat , .cat-list .cat {
     text-transform: capitalize;
     margin-right: 10px;
     display: inline-block;
     font-size: .9em;
 }
+
+
+
+
+
+
 .share-icon {
     display: inline-block;
     background-color: #458bfb;
     color: #fff;
-    padding: 6px 10px;    
+    padding: 5px 8px;  
+    cursor: pointer;  
+    margin-left: 5px;
+    opacity: 1;
 }
-.share-icon .mashsb-count {
+
+.share-icon-selected {
+    opacity: .5;
+}
+
+
+.share-icon-selected:hover{
+    opacity: 1 !important;
+}
+
+.share-icon:hover {
+    opacity: .5;
+}
+
+
+.share-icon3 {
+    display: inline-block;
+    color: #458bfb;
+    padding: 5px 3px;  
+    cursor: pointer;  
+    margin-left: 5px;
+    opacity: 1;
+    font-size: 20px;
+}
+
+.share-icon3-selected {
+    opacity: .5;
+}
+
+
+.share-icon3-selected:hover{
+    opacity: 1 !important;
+}
+
+.share-icon3:hover {
+    opacity: .5;
+}
+
+
+
+
+.share-icon2 {
+    display: inline-block;
+    color: #fff;
+    padding: 5px 8px;  
+    cursor: pointer;  background-color: inherit;
+    margin-left: 5px;
+    opacity: 1;
+}
+
+.share-icon2-selected {
+    opacity: .5;
+}
+
+
+.share-icon2-selected:hover {
+    opacity: 1 !important;
+}
+
+.share-icon2:hover {
+    opacity: .5;
+}
+
+
+
+
+
+
+
+.share-icon .mashsb-count, .share-icon2 .mashsb-count , .share-icon3 .mashsb-count {
     margin-top: 8px;
 }
-.cat-share .share-icon {
+.cat-share .share-icon , .cat-share .share-icon2 {
     transform: translateY(1px);
 }
-.share-icon .mashsb-count {
+.share-icon .mashsb-count   , .share-icon2 .mashsb-count {
     float: right !important;
-    font-size: 18px;
-    line-height: 6px;
-    margin-left: 5px;
-    color: #fff;
+    font-size: 16px;
+    line-height: 8px;
+    margin-left: 3px;
 }
-.share-icon .mashsb-sharetext {
+
+ .share-icon3 .mashsb-count {
+    float: right !important;
+    font-size: 16px;
+    line-height: 14px;
+    margin-left: 3px;
+}
+
+
+
+
+.share-icon .mashsb-sharetext , .share-icon2 .mashsb-sharetext , .share-icon3 .mashsb-sharetext {
     display: none;
 }
 .badge-list .menu-emoji-menu-container ul li a {
@@ -1345,8 +1467,8 @@ header .search.open>form {
 }
 .post-thumb {
     overflow: hidden;
-    text-align: center;
-}
+/*    text-align: center;
+*/}
 .zoom .post-thumb .content {
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
@@ -2162,7 +2284,7 @@ ul.post-pagination li.active a{
     margin-bottom: 17px;
 }
 .post-item .post-thumb {
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
 }
 .post-load-end {
     text-align: center;
@@ -2466,7 +2588,7 @@ a.twitter-text {
 }
 .footer-bottom {
     background-color: #252525;
-    padding: 32px 0;
+    padding: 25px 0;
     text-align: center;
 }
 .footer-bottom .footer-logo,
@@ -2586,7 +2708,7 @@ a.twitter-text {
     color: #b0b0b0;
     float: left;
 }
-.v2-style .share-icon {
+.v2-style .share-icon , .v2-style .share-icon2 {
     display: inline-block;
     background-color: transparent;
     color: #c5c5c5;
@@ -2594,7 +2716,9 @@ a.twitter-text {
     transform: translateX(0px);
     float: right;
 }
-.share-icon .angle-border {
+
+
+.share-icon .angle-border , .share-icon2 .angle-border {
     width: 22px;
     height: 25px;
     background-color: #c9cacb;
@@ -2602,9 +2726,11 @@ a.twitter-text {
     display: inline-block;
     text-align: center;
     position: relative;
-    margin-right: 4px;
+    margin-right: 0px;
     border-radius: 3px;
 }
+
+
 .angle-border:after {
     content: "";
     position: absolute;
@@ -2745,6 +2871,16 @@ footer.footer .v2-footer.footer-bottom p a {
     transform: translateY(0px);
     opacity: 1;
 }
+
+
+
+.v1-style .content
+{
+padding: 10px 15px;
+background-color: #fff;
+}
+
+
 .v3-style .cat-share {
     position: absolute;
     left: 0;
@@ -3013,14 +3149,21 @@ footer.footer .v2-footer.footer-bottom p a {
     width: 31.5%;
     float: left;
 }
+.massonry-post-item--width2 {
+    width: 55%;
+    float: left;
+}
+
 .massonry-post-sizer {
     width: 31.5%;
 }
+
+
 .massonry-post-item .post-item {
     position: relative;
     overflow: hidden;
     padding-bottom: 0;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
 }
 video { 
     min-width: 100%;
@@ -3136,7 +3279,7 @@ video {
     color: #bebebe;
 }
 .footer-dark .footer-bottom {
-    background-color: #303030;
+    background-color: #0f161e;
 }
 
 /*=============================================================
@@ -3322,15 +3465,23 @@ video {
     padding-right: 30px;
 }
 .massonry-post-item.massonry-post-item2 {
-    width: 18.5%;
+    width: 23%;
     float: left;
 }
+
+.massonry-post-item--width2 {
+    width: 45%;
+    float: left;
+}
+
+
+
 .massonry-post-sizer.massonry-post-sizer2 {
-    width: 18.5%;
+    width: 23%;
 }
 .boxed .massonry-post-item.massonry-post-item2,
 .boxed .massonry-post-sizer.massonry-post-sizer2{
-    width: 22.9%;
+    width: 27%;
 }
 /*=======================================================
         single page
@@ -3492,6 +3643,13 @@ ul.comment-list ul.children{
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.comment-section {
+/*border-top: 1px solid #EBEBEB;*/
+}
+ 
+
+
 .comment-list article, 
 .comment-list .pingback, 
 .comment-list .trackback {
@@ -3572,16 +3730,16 @@ ul.comment-list ul.children {
     margin-bottom: 10px;
     background: #f0f1f2;
     border: none;
-    height: 168px;
+    height: 100px;
 }
 .comment-respond .form-submit {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .comment-respond .form-submit input {
     background-color: #f2d122;
     color: #252525;
-    padding: 18px 0;
+    padding: 15px 0;
 }
 
 .social-media.social-style1 a {
@@ -4034,7 +4192,7 @@ ul.comment-list ul.children {
 }
 
 /*--------------- wordpress social login --------------------*/
-#loginModal .modal-header {
+.formModal .modal-header {
     padding: 15px 15px 0;
     border-bottom: none;
 }
@@ -4047,15 +4205,15 @@ ul.comment-list ul.children {
     font-size: 25px;
     padding-left: 2px;
 }
-#loginModal .modal-content .modal-body {
+.formModal .modal-content .modal-body {
     padding: 0 70px 30px;
     overflow: hidden;
 }
-#loginModal .wp-social-login-connect-with {
+.formModal .wp-social-login-connect-with {
     font-weight: bold;
     font-size: 1.5em;
 }
-#loginModal .wp-social-login-provider-list .wp-social-login-provider {
+.formModal .wp-social-login-provider-list .wp-social-login-provider {
     padding: 10px 0 10px 25px;
     margin-right: 5px;
     margin-bottom: 5px;
@@ -4065,7 +4223,7 @@ ul.comment-list ul.children {
     position: relative;
     border-radius: 4px;
 }
-#loginModal .wp-social-login-provider-list .wp-social-login-provider:before {    
+.formModal .wp-social-login-provider-list .wp-social-login-provider:before {    
     font-family: FontAwesome;
     font-style: normal;
     font-weight: normal;
@@ -4077,60 +4235,82 @@ ul.comment-list ul.children {
     top: 5px;
     left: 12px;
 }
-#loginModal .wp-social-login-provider-list .wp-social-login-provider-facebook {
+.formModal .wp-social-login-provider-list .wp-social-login-provider-facebook {
     background-color: #2D5F9A;
 }
-#loginModal .wp-social-login-provider-list .wp-social-login-provider-facebook:before {
+.formModal .wp-social-login-provider-list .wp-social-login-provider-facebook:before {
     content: "\f082";
 }
-#loginModal .wp-social-login-provider-list .wp-social-login-provider-google {
+.formModal .wp-social-login-provider-list .wp-social-login-provider-google {
     background-color: #DD4B39;
 }
-#loginModal .wp-social-login-provider-list .wp-social-login-provider-google:before {
+.formModal .wp-social-login-provider-list .wp-social-login-provider-google:before {
     content: "\f0d4";
 }
-#loginModal .wp-social-login-provider-list .wp-social-login-provider-twitter{
+.formModal .wp-social-login-provider-list .wp-social-login-provider-twitter{
     background-color: #1DA1F2;
 }
-#loginModal .wp-social-login-provider-list .wp-social-login-provider-twitter:before{
+.formModal .wp-social-login-provider-list .wp-social-login-provider-twitter:before{
     content: "\f099";
 }
-#loginModal .wp-social-login-connect-with, .wp-social-login-provider-list {
+.formModal .wp-social-login-connect-with, .wp-social-login-provider-list {
     padding: 10px 0;
 }
 
-#loginModal .wp-social-login-widget {
+.formModal .wp-social-login-widget {
     text-align: center;
 }
-#loginModal .modal-body .row{
+.formModal .modal-body .row{
     padding: 0 10px;
 }
-#loginModal .login-form input[type="text"], 
-#loginModal .login-form input[type="email"], 
-#loginModal .login-form input[type="url"], 
-#loginModal .login-form input[type="password"], 
-#loginModal .login-form input[type="search"], 
-#loginModal .login-form input[type="tel"], 
-#loginModal .login-form input[type="number"], 
-#loginModal .login-form textarea{
+.formModal .login-form input[type="text"], 
+.formModal .login-form input[type="email"], 
+.formModal .login-form input[type="url"], 
+.formModal .login-form input[type="password"], 
+.formModal .login-form input[type="search"], 
+.formModal .login-form input[type="tel"], 
+.formModal .login-form input[type="number"], 
+.formModal .login-form textarea{
     padding: 12px 12px;
     background-color: #fff;
     text-align: center;
     margin-bottom: 15px;
     border-radius: 4px;
 }
-#loginModal .login-form input[type="submit"] {
+.formModal .login-form input[type="submit"] {
     width: 100%;
     margin-bottom: 20px;
 }
-#loginModal .login-form a {
+.formModal .login-form a {
     display: inline-block;
     margin-bottom: 10px; 
     float: right;
 }
-#loginModal .login-form a.forgot-pass {
+.formModal .login-form a.forgot-pass {
     float: left; 
 }
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
 .ajax-auth input#username:focus,
 .ajax-auth input#password:focus,
 .ajax-auth input#signonname:focus,
@@ -4144,7 +4324,7 @@ ul.comment-list ul.children {
     margin-bottom: 5px !important;
     color: #FF0000 !important; 
 }
-#loginModal .login-form .error{
+.formModal .login-form .error{
     padding: 0;
     color: #FF0000;
     margin-bottom: 10px;

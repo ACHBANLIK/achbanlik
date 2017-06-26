@@ -1,6 +1,6 @@
     <!-- Start footer  -->
-      <footer class="footer footer-light">
-         <div class="footer-bottom v2-footer">
+      <footer class="footer footer-dark">
+         <div class="footer-bottom v1-footer">
             <div class="container">
                <div class="row">
                   <div class="footer-logo">

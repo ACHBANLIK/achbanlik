@@ -76,7 +76,6 @@ table td {
                                           <div class="input-group-btn">
                                               <button type="button" id="resetDate" class="btn btn-danger date-reset"><i class="fa fa-times"></i></button>
                                           </div>
-
                                       </div>
                                       <span class="help-block">@lang('field.selectdaterange')</span>
                                   </div>

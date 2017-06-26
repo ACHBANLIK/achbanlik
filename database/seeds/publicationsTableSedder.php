@@ -25,8 +25,8 @@ class publicationsTableSedder extends Seeder
             'image1'=>'publications/DSC8633.jpg',
             'image2'=>'publications/essaouira_3098993a-small.jpg',
             'created_at' => '2017-01-02',
-            'status' => 0 
-        ]
+            'willend_at' => '2018-01-02'
+                    ]
         );
 
 
@@ -36,9 +36,10 @@ class publicationsTableSedder extends Seeder
             'idUser' => 2,
             'idCategory' => 8,
             'idType' => 5,  
-            'image1' => 'publications/téléchargement.jpg',
-            'image2' => 'publications/téléchargement (1).jpg',            
+            'image1' => 'publications/telechargement.jpg',
+            'image2' => 'publications/telechargement (1).jpg',            
             'created_at' => '2017-01-02',
+            'willend_at' => '2018-01-02'
         ]
         );
 
@@ -51,6 +52,7 @@ class publicationsTableSedder extends Seeder
             'idType' => 1,  
             'text1' => 'Svp pouvez vous me montrer qlq photos en Bruxelles d’après votre propre voyage !! Merciiii',
             'created_at' => '2017-02-01',
+            'willend_at' => '2018-01-02'
         ]
         );
 
@@ -63,7 +65,7 @@ class publicationsTableSedder extends Seeder
             'idCategory' => 1,
             'idType' => 3,  
             'text1' => 'Coucou les amis 😘😘 svp des contacts pour le loyer a nerja ( de préference a burriana beach ). Torremolinos ou puerto banus pour un petit appart pour 2 personnes ? Bonne soirée et merci d `avance',
-            'image1'=>'publications/téléchargement (2).jpg',
+            'image1'=>'publications/telechargement (2).jpg',
             'created_at' => '2017-03-01',
         ]
         );
@@ -152,7 +154,7 @@ class publicationsTableSedder extends Seeder
             'idUser' => 11,
             'idCategory' => 8,
             'idType' => 2,  
-            'image1' => 'pulication/lgg6-phone_tile.jpg',
+            'image1' => 'publications/lgg6-phone_tile.jpg',
             'status' => 0,
             'created_at' => '2017-02-01',
         ]
@@ -215,7 +217,59 @@ Pour un budget de 50000dh ( niveau consommation, fiabilité, pannes et tt )Perso
              'image2'=>'publications/bon plan.PNG',
             'created_at' => '2017-12-12',
         ]
+        );       
+
+           DB::table('publications')->insert(
+        [
+            'title' => 'Un balcon pour les amoureux de la nature',
+            'idUser' => 2,
+            'idCategory' => 9,
+            'idType' => 3,  
+            'text1'=>'Pour les amoureaux des plantes et des balcons comme moi je partage avec vous cette photo pour vous inspirer',
+             'image1'=>'publications/ff7c43388b61477429d9998e244957d6.jpg',
+            'created_at' => '2017-10-14',
+        ]
+        );     
+
+           DB::table('publications')->insert(
+        [
+            'title' => 'voyage en Espagne 2017',
+            'idUser' => 7,
+            'idCategory' => 1,
+            'idType' => 4,  
+            'text1'=>'Mois 9 ',
+            'text2'=>' Mois 10',
+            'created_at' => '2017-11-14',
+        ]
+        );  
+
+           DB::table('publications')->insert(
+        [
+            'title' => 'Le quel vous preferez ?',
+            'idUser' => 18,
+            'idCategory' => 5,
+            'idType' => 5,  
+            'image1'=>'publications/bag1.png',
+             'image2'=>'publications/bag2.png',
+            'created_at' => '2017-11-14',
+        ]
         );            
 
+
+           DB::table('publications')->insert(
+        [
+            'title' => 'Quelles couleurs Choisir pour mon bureau ?',
+            'idUser' => 3,
+            'idCategory' => 9,
+            'idType' => 6,  
+             'text1'=>'Bureau en blanc avec une chaise Marron  ',
+             'text2'=>' Bureau en gris foncé avec une chaise Marron',
+            'image1'=>'publications/bureau1.png',
+             'image2'=>'publications/bureau2.png',
+            'created_at' => '2017-11-14',
+        ]
+        );   
+
+           
     }
 }

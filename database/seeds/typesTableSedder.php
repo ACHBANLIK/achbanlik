@@ -36,7 +36,7 @@ class typesTableSedder extends Seeder
         [
             'title_fr' => 'Texte et Image',
             'title_en' => 'Texte and Image',
-            'icone' => 'glyphicon glyphicon-playlist',
+            'icone' => 'glyphicon glyphicon-inbox',
         ]
         );
 

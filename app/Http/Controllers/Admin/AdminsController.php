@@ -122,7 +122,7 @@ protected function validateMe(Request $request   , string $param)
             $admin->fname = $request->fname;
             $admin->lname = $request->lname;
             $admin->email = $request->email;
-            $admin->password = bcrypt(str_random(8));
+           
 
             if($request->hasFile('photo'))
             {
@@ -132,7 +132,7 @@ protected function validateMe(Request $request   , string $param)
 
             $admin->save();
 
-            //Event::fire(new SendAdminWelcomeMail($admin->id));
+            Event::fire(new SendAdminWelcomeMail($admin->id));
             return response()->json(['success'=>'done']);
 
              
@@ -246,9 +246,7 @@ protected function validateMe(Request $request   , string $param)
         } catch (Exception $e) {
             return response()->json('msg');
         }
-
-
-        
+ 
     }
 
 

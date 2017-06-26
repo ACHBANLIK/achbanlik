@@ -21,7 +21,7 @@ class usersTableSedder extends Seeder
             'idCountry' => 149,         
             'photo' => 'users_avatars/basmachebbourh.png',
             'points' => '100',
-            'birthday' => Carbon::now(),
+            'birthday' => '1993-08-20',
             'password' => bcrypt('Temp123*'),
         ]
         );
@@ -33,8 +33,8 @@ class usersTableSedder extends Seeder
             'lname' => 'fadlo',
             'email' => 'olea.fadlo@gmail.com',
             'idCountry' => 149,   
-            'birthday' => Carbon::now(), 
-            'photo' => 'users_avatars/olayafadlo.png',
+            'birthday' => '1993-02-21',
+            'photo' => 'users_avatars/olayafadlo.jpg',
             'password' => bcrypt('Temp123*'),
         ]
         );
@@ -46,7 +46,8 @@ class usersTableSedder extends Seeder
             'lname' => 'zakaria',
             'email' => 'hamza.zakaria@gmail.com',
             'idCountry' => 149,   
-            'birthday' => Carbon::now(), 
+            'birthday' => '1993-08-23',
+            'photo' => 'users_avatars/hamzazakaria.jpg',
             'password' => bcrypt('Temp123*'),
         ]
         );

@@ -14,6 +14,7 @@ use App\User;
 use App\Category;
 use App\Publication;
 use App\Type;
+use App\PSignal;
 use View;
 use Validator;
 use Response;
@@ -40,12 +41,17 @@ class PublicationsController extends Controller
 
     public function getPublications(Request $request)
     {
+
+
         $publications = DB::table('publications')
                     ->join('users' , 'users.id' , '=' , 'publications.idUser')
                     ->join('categories' , 'categories.id' , '=' , 'publications.idCategory')
                     ->join('types' , 'types.id' , '=' , 'publications.idType')
-        ->select('publications.id' , 'publications.title', 'publications.status' , 'publications.signals' , DB::raw('types.title_'.config('app.locale').' AS type'),  DB::raw('CONCAT(users.fname, " ", users.lname) AS full_name')  , DB::raw('categories.title_'.config('app.locale').' AS c_title'))->orderBy('publications.created_at' , 'desc');
+                    ->leftJoin('psignals' , function ($join) {
+                         $join->where('psignals.idPublication', '=', 'publications.id');
+                    })->select('publications.id' , 'publications.title', 'publications.status'  , DB::raw('types.title_'.config('app.locale').' AS type'),  DB::raw('CONCAT(users.fname, " ", users.lname) AS full_name')  , DB::raw('categories.title_'.config('app.locale').' AS c_title') , DB::raw('COUNT(psignals.id) as signals'))->groupBy('publications.id' , 'publications.title' , 'publications.status' , 'type'  , 'full_name'  , 'c_title' )->orderBy('publications.created_at' , 'desc');
         
+
         return Datatables::of($publications)
          ->filter(function ($query) use ($request) {
 
@@ -69,10 +75,10 @@ class PublicationsController extends Controller
                 $query->where('publications.status', '=', $request->get('status'));
             }
 
-            if ($request->has('signals2') && $request->get('signals2') != "0") {
-                $query->whereBetween('publications.signals',array($request->get('signals1')  , $request->get('signals2')));
+/*            if ($request->has('signals2') && $request->get('signals2') != "0") {
+                $query->where('signals' , array($request->get('signals1')  , $request->get('signals2')));
             }
-
+*/
             if ($request->has('from') && $request->has('to')) {
                 $query->whereDate('publications.created_at' , '>=' ,  Carbon::Parse($request->get('from'))->toDateTimeString());
                 $query->whereDate('publications.created_at' , '<=' ,  Carbon::Parse($request->get('to'))->addHours(23)->addMinutes(59)->toDateTimeString());
@@ -134,7 +140,26 @@ class PublicationsController extends Controller
     }
 
 
+   /**
+     * Change resource status.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function changeStatus() 
+    {
 
+        try {
+
+        $id = Input::get('id');
+        $publication = Publication::findOrFail($id);
+        $publication->status = abs($publication->status - 1);
+        $publication->save();
+
+        } catch (Exception $e) {
+            return response()->json('msg');
+        }
+ 
+    }
 
 
 }

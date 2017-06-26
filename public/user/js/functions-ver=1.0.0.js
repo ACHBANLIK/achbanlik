@@ -1,22 +1,4 @@
-
-
 (function($){
-
-/*    'use strict';
-    jQuery(window).load(function() {
-        jQuery('.massonry-post-area').isotope({
-            itemSelector: '.massonry-post-item',
-            percentPosition: true,
-            masonry: {
-              columnWidth: '.massonry-post-sizer',
-              gutter: 30
-            }
-        });
-        jQuery('.massonry-image-post-area').isotope({
-            itemSelector: '.image-post',
-            percentPosition: true,            
-        });
-    });*/
 
 
 
@@ -79,6 +61,10 @@ $(window).click(function(event)
                 $('#loginModal').css('padding-right','17px');
             }, 500);                                    
         });
+
+
+
+
     });
 }(jQuery));
 

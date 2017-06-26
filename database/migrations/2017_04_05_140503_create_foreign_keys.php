@@ -10,14 +10,14 @@ class CreateForeignKeys extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table) {
 			$table->foreign('idCountry')->references('id')->on('countries')
-						->onDelete('cascade')
-						->onUpdate('cascade');
+						->onDelete('restrict')
+						->onUpdate('restrict');
 		});	
 
 		Schema::table('publications', function(Blueprint $table) {
 			$table->foreign('idUser')->references('id')->on('users')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('publications', function(Blueprint $table) {
 			$table->foreign('idCategory')->references('id')->on('Categories')
@@ -41,8 +41,8 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('opinions', function(Blueprint $table) {
 			$table->foreign('idPublication')->references('id')->on('publications')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('comments', function(Blueprint $table) {
 			$table->foreign('idUser')->references('id')->on('users')
@@ -51,8 +51,8 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('comments', function(Blueprint $table) {
 			$table->foreign('idPublication')->references('id')->on('publications')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('friends', function(Blueprint $table) {
 			$table->foreign('idUser1')->references('id')->on('users')
@@ -64,6 +64,12 @@ class CreateForeignKeys extends Migration {
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
+		Schema::table('friends', function(Blueprint $table) {
+			$table->foreign('idUserAction')->references('id')->on('users')
+						->onDelete('restrict')
+						->onUpdate('restrict');
+		});
+
 
 		Schema::table('utrophies', function(Blueprint $table) {
 			$table->foreign('idTrophy')->references('id')->on('trophies')
@@ -76,6 +82,20 @@ class CreateForeignKeys extends Migration {
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
+
+		Schema::table('psignals', function(Blueprint $table) {
+			$table->foreign('idUser')->references('id')->on('users')
+						->onDelete('restrict')
+						->onUpdate('restrict');
+		});
+		
+		Schema::table('psignals', function(Blueprint $table) {
+			$table->foreign('idPublication')->references('id')->on('publications')
+						->onDelete('restrict')
+						->onUpdate('restrict');
+		});
+
+
 
 	}
 
@@ -120,6 +140,15 @@ class CreateForeignKeys extends Migration {
 		Schema::table('utrophies', function(Blueprint $table) {
 			$table->dropForeign('utrophies_idUser_foreign');
 		});
+
+		Schema::table('psignals', function(Blueprint $table) {
+			$table->dropForeign('psignals_idPublication_foreign');
+		});
+
+		Schema::table('psignals', function(Blueprint $table) {
+			$table->dropForeign('psignals_idUser_foreign');
+		});
+
 
 	}
 }

@@ -638,7 +638,7 @@ function changeStatus(id)
               toastr.error('Error!', 'Error Alert', {timeOut: 5000});
             }else
             {
-              toastr.success('Successfully edited admin!', 'Success Alert', {timeOut: 5000});
+              toastr.success('@lang('field.successfullyeditedadmin')','@lang('field.successalert')', {timeOut: 5000});
             }
 
           },

@@ -163,7 +163,7 @@ DB::table('countries')->insert(['code' =>  'MC', 'name' => 'Monaco']);
 DB::table('countries')->insert(['code' =>  'MN', 'name' => 'Mongolia']);
 DB::table('countries')->insert(['code' =>  'ME', 'name' => 'Montenegro']);
 DB::table('countries')->insert(['code' =>  'MS', 'name' => 'Montserrat']);
-DB::table('countries')->insert(['code' =>  'MA', 'name' => 'Morocco']);
+DB::table('countries')->insert(['code' =>  'MA', 'name' => 'Maroc']);
 DB::table('countries')->insert(['code' =>  'MZ', 'name' => 'Mozambique']);
 DB::table('countries')->insert(['code' =>  'MM', 'name' => 'Myanmar']);
 DB::table('countries')->insert(['code' =>  'NA', 'name' => 'Namibia']);

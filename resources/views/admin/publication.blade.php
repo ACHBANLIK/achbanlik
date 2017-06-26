@@ -69,7 +69,7 @@ color: #999;
                                  </li>
                                   <li>
                                       <i class="fa fa-user-secret"></i><br>
-                                      {{ ($publication->privacy ? 'Public' : 'Privé') }}
+                                      {{ ($publication->privacy ? 'Privée' : 'Public') }}
                                   </li>
                                   <li>
                                       <i class="fa fa-comment"></i><br>
@@ -77,7 +77,7 @@ color: #999;
                                   </li>
                                   <li>
                                     <i class="fa fa-calendar-times-o"></i><br>
-                                    {{ date('d F, Y', strtotime($publication->date_fin)) }}
+                                    {{ date('d F, Y', strtotime($publication->willend_at)) }}
                                   </li>
 
                               </ul>
@@ -186,7 +186,7 @@ color: #999;
                                   <div class="panel-body text-center">
 
                                       <div class="easy-pie-chart">
-                                          <div class="percentage" data-percent="{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '1')->count()*100 / $publication->opinions->count()) }}"><span>{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '1')->count()*100 / $publication->opinions->count()) }}</span>%</div>
+                                          <div class="percentage" data-percent="{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '1')->count()*100 / $publication->opinions->count()) }}"><span>{{ ($publication->opinions->count() == 0 ? '0' : number_format($publication->opinions->where('choice' , '=' , '1')->count()*100 / $publication->opinions->count() ,  2 , '.' , '') ) }}</span>%</div>
                                       </div>  
 
                                       <h4>
@@ -210,7 +210,7 @@ color: #999;
                                   <div class="panel-body text-center">
 
                                       <div class="easy-pie-chart">
-                                          <div class="percentage" data-percent="{{ ($publication->opinions->count()  == 0 ? '0' : $publication->opinions->where('choice' , '=' , '2')->count()*100 / $publication->opinions->count()) }}"><span>{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '2')->count()*100 / $publication->opinions->count()) }}</span>%</div>
+                                          <div class="percentage" data-percent="{{ ($publication->opinions->count()  == 0 ? '0' : $publication->opinions->where('choice' , '=' , '2')->count()*100 / $publication->opinions->count()) }}"><span>{{ ($publication->opinions->count() == 0 ? '0' : number_format($publication->opinions->where('choice' , '=' , '2')->count()*100 / $publication->opinions->count(),  2 , '.' , '')) }}</span>%</div>
                                       </div>  
 
                                       <h4>
@@ -247,7 +247,7 @@ color: #999;
                                         <img src="{{ asset(  ($publication->image1 == '') ? 'storage/all/publication.png' : './storage/'.$publication->image1  ) }}" />
                                       </div>
 
-                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '1')->count()*100 / $publication->opinions->count()) }}%</span>
+                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : number_format($publication->opinions->where('choice' , '=' , '1')->count()*100 / $publication->opinions->count(),  2 , '.' , '') ) }}%</span>
                                   </div>
                               </section>
                           </div>
@@ -262,7 +262,7 @@ color: #999;
                                         <img src="{{ asset(  ($publication->image2 == '') ? 'storage/all/publication.png' : './storage/'.$publication->image2  ) }}" />
                                       </div>
 
-                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '2')->count()*100 / $publication->opinions->count()) }}%</span>
+                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : number_format($publication->opinions->where('choice' , '=' , '2')->count()*100 / $publication->opinions->count(),  2 , '.' , '')) }}%</span>
                                   </div>
                               </section>
                           </div>
@@ -289,7 +289,7 @@ color: #999;
                                           </a>
                                       </h4>
 
-                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '1')->count()*100 / $publication->opinions->count()) }}%</span>
+                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : number_format($publication->opinions->where('choice' , '=' , '1')->count()*100 / $publication->opinions->count(),  2 , '.' , '')) }}%</span>
 
                                   </div>
                               </section>
@@ -309,7 +309,7 @@ color: #999;
                                           </a>
                                       </h4>
 
-                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : $publication->opinions->where('choice' , '=' , '2')->count()*100 / $publication->opinions->count()) }}%</span>
+                                      <span class="badge bg-primary">{{ ($publication->opinions->count() == 0 ? '0' : number_format($publication->opinions->where('choice' , '=' , '2')->count()*100 / $publication->opinions->count(),  2 , '.' , '')) }}%</span>
 
                                   </div>
                               </section>

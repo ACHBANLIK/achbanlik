@@ -32,11 +32,17 @@ class SendAdminWelcomeMailFired
     public function handle(SendAdminWelcomeMail $event)
     {
        $admin = Admin::find($event->adminId);
+       $password  = str_random(8);
+
+       $admin->password = bcrypt($password);
+       $admin->save();
+
+       $admin->passworde  = $password;
+
        Mail::send('emails.admin.welcome',$admin->toArray() , function ($message) use($admin)
         {
-
-            $message->from('aachbanlik@gmail.com', 'Hamid');
-
+            $message->from('aachbanlik@gmail.com', "L'équipe aachbanlik");
+            $message->subject('Message de bienvenue');
             $message->to($admin->email);
 
         });

@@ -97,8 +97,7 @@ $( document ).ready(function() {
             success: function(data) {
 
                     if (data.done) {
-                       window.location.href += "#demo";
-                        location.reload();
+                       window.location = "/demo";
                     }
                     else
                     {
@@ -133,6 +132,50 @@ $( document ).ready(function() {
 
 
 
+    // Perform AJAX login on form submit
+    $('form#commentform').on('submit', function(e) {
+
+
+            $('form#commentform .status').show().html("Opération en cours");
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                    type: 'post',
+                    url: '/addcomment',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    data: new FormData($('form#commentform')[0])
+                ,
+
+                error: function(data) {
+                    $('form#commentform .status').hide();
+                        toastr.error('Une erreur est survenu.', {timeOut: 3000});
+                },
+                success: function(data) {
+                    $('form#commentform .status').hide();
+                    if (data.success == true) {
+                     $('form#comment').val("");
+                        var $newItems = $(data.html);
+                        $('.comment-list').prepend( $newItems )
+                        toastr.success('Commentaire ajouté avec sucées.', {timeOut: 3000});
+                        $("form#commentform").trigger('reset');
+                    } else{
+                        toastr.error('Une erreur est survenu.', {timeOut: 3000});
+                    }
+                }
+            });
+            e.preventDefault();
+    });
+
+
+
+
+
     // Client side form validation
     if (jQuery("#register").length)
         jQuery("#register").validate({
@@ -144,6 +187,7 @@ $( document ).ready(function() {
             }
         });
 
+
     else if (jQuery("#login").length)
         jQuery("#login").validate(
             {
@@ -154,6 +198,9 @@ $( document ).ready(function() {
                     }
                 }
             });
+
+
+
 
 });
 

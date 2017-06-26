@@ -481,7 +481,76 @@ Sinon tu pourras accéder aux détails de ta réservation avec le numéro de Ré
             'text' => 'Bon affaires les tarif convenable pour les deux plans ',
             'created_at' => '2017-12-12',
         ]
-        );                  
+        );      
 
+
+                   DB::table('comments')->insert(
+        [
+            'idUser' => 4,
+            'idPublication' => 17,
+            'text' => 'j`aime bien ',
+            'created_at' => '2017-10-14',
+        ]
+        );    
+
+
+                   DB::table('comments')->insert(
+        [
+            'idUser' => 9,
+            'idPublication' => 17,
+            'text' => 'Que c beauuuu  ',
+            'created_at' => '2017-10-14',
+        ]
+        );   
+
+
+                  DB::table('comments')->insert(
+        [
+            'idUser' => 9,
+            'idPublication' => 17,
+            'text' => 'Je voudrais bien Aménager et décorer bon balcon like that  ',
+            'created_at' => '2017-10-14',
+        ]
+        );    
+
+
+
+                  DB::table('comments')->insert(
+        [
+            'idUser' => 2,
+            'idPublication' => 20,
+            'text' => 'le gris eu bcp plus mieux avec une chaise vert comme  c`est afficher dans l`image 2',
+            'created_at' => '2017-10-14',
+        ]
+        );                   
+                 
+                  DB::table('comments')->insert(
+        [
+            'idUser' => 5,
+            'idPublication' => 20,
+            'text' => 'La verité les 2 couleurs zouinin mais le gris est mieux ',
+            'created_at' => '2017-10-14',
+        ]
+        );  
+
+              DB::table('comments')->insert(
+        [
+            'idUser' => 6,
+            'idPublication' => 20,
+            'text' => 'Blanc et une chaise en  blanc ,mais tu dois pensé au netoyage quotiend avant de l`acheter :p ',
+            'created_at' => '2017-10-14',
+        ]
+        );      
+
+              DB::table('comments')->insert(
+        [
+            'idUser' => 7,
+            'idPublication' => 20,
+            'text' => 'Grissssssssssssss of course  ',
+            'created_at' => '2017-10-14',
+        ]
+        );               
+
+           
     }
 }

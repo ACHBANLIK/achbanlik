@@ -23,8 +23,53 @@
 
         Route::group(['namespace' => 'User'], function() 
         {
+
+
+            Route::get('/', 'UserController@index')->name('user.index');   
+            Route::get('/demo', 'UserController@demo')->name('user.demo');  
+            Route::get('/friends', 'UserController@friends')->name('user.friends');   
+
+
+            Route::get('/cat/{id}', 'UserController@category')->name('user.category');    
+
+            Route::get('/publication/{id}', 'PublicationController@index')->name('user.publication');        
+            Route::POST('/addcomment', 'PublicationController@addcomment')->name('user.addcomment');
+            Route::get('/signalpubliciation/{id}', 'PublicationController@signal')->name('user.signalpubliciation');   
+
+
+            Route::get('/upvote/{source}/{id}', 'OpinionController@upvote')->name('user.upvote');   
+            Route::get('/downvote/{source}/{id}', 'OpinionController@downvote')->name('user.downvote');   
+            Route::get('/deletevotes/{source}/{id}', 'OpinionController@deletevotes')->name('user.deletevotes');   
+
+
             Route::get('/profile', 'UserController@profile')->name('user.profile');
-            Route::get('/', 'UserController@index')->name('user.index');        
+            Route::get('/editprofile', function(){ return view('user.editprofile');})->name('user.editprofile'); 
+            Route::post('/editprofile/{method}', 'UserController@update')->name('user.updateprofile'); 
+
+
+            Route::get('/mespublications', function(){ return view('user.mespublications');})->name('user.mespublications'); 
+            Route::get('/getpublications', 'PublicationController@getMyPublications')->name('user.getmypublications');
+            Route::post('mespublications/changeStatus', 'PublicationController@changeStatus')->name('user.changePublicationStatus');
+            Route::post('mespublications/changePrivacy', 'PublicationController@changePrivacy')->name('user.changePublicationPrivacy');
+            
+            Route::post('createpost', 'PublicationController@store')->name('user.createPost');
+            Route::delete('deletepublication/{id}', 'PublicationController@deletePublication')->name('user.deletepublication');
+
+
+
+
+            Route::get('/user/{id}', 'UserController@user')->name('user.user');  
+
+
+ 
+
+
+
+
+
+
+
+
         });
 
 
