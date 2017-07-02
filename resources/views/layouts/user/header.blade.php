@@ -22,9 +22,6 @@
                         <div class="menu-vp_guest_menu_items-container">
                            <ul id="primary-menu" class="menu">
                               <li class="menu-item four"><a href="/">Acceuil</a></li>
-{{--                               <li class="menu-item four"><a href="index.html">Hot</a></li>
-                              <li class="menu-item five"><a href="index.html">New</a></li>
-                              <li class="menu-item"><a href="index.html">Old</a></li> --}}
                               @if (Auth::check())
                                     <li class="menu-item six"><a href="{{ route('user.friends') }}">Amis</a></li>
                               @endif
@@ -61,6 +58,7 @@
                     <div id="myLogged" class="logged-content">
                       <a href="{{ route('user.profile') }}">{{ title_case(Auth::user()->fname) }}  {{ title_case(Auth::user()->lname) }}</a>
                       <a href="/mespublications">Mes publications</a>
+                      <a href="/mesamis">Mes Amis</a>
                       <a href="/demo">Démo</a>
                       <a onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();"> Log Out</a>
@@ -95,7 +93,9 @@
                                        @endphp
 
                                        @foreach ( $types as $type)
-                                          <a  class="ps-button {{ (!Auth::check()) ? 'go-login'  : ''  }}"  data-toggle="modal" data-target="#type{{ $type->id }}Modal">
+                                          <a  class="ps-button go-login"  data-toggle="modal" data-target="{{ (Auth::check()) ? '#type'.$type->id.'Modal'  : ''  }}">
+
+
                                           <i class="{{ $type->icone }}"></i>
                                           <span>{{ $type->{'title_'.config('app.locale')} }}</span>
                                           </a>
@@ -118,25 +118,25 @@
                               <i class="fa fa-share-alt"></i>
                               <div class="follow-us">
                                  <div class="follow-us-item">
-                                    <a class="facebook" href="index.html#"><i class="fa fa-facebook"></i></a>
+                                    <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
                                  </div>
                                  <div class="follow-us-item">
-                                    <a class="pinterest" href="index.html#"><i class="fa fa-pinterest"></i></a>
+                                    <a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a>
                                  </div>
                                  <div class="follow-us-item">
-                                    <a class="google" href="index.html#"><i class="fa fa-google-plus"></i></a>
+                                    <a class="google" href="#"><i class="fa fa-google-plus"></i></a>
                                  </div>
                                  <div class="follow-us-item">
-                                    <a class="twitter" href="index.html#"><i class="fa fa-twitter"></i></a>
+                                    <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
                                  </div>
                               </div>
                            </div>
-                           <div class="search">
-                              <i class="fa fa-search" data-toggle="dropdown"></i>
-                              <form action="http://themes.codexcoder.com/vbuzz/">
-                                 <input type="search" class="search-field" placeholder="Mot clé &hellip;" value="" name="s" title="Search for:" />
-                              </form>
-                           </div>
+<!--                            <div class="search">
+   <i class="fa fa-search" data-toggle="dropdown"></i>
+   <form action="">
+      <input type="search" class="search-field" placeholder="Mot clé &hellip;" value="" name="s" title="Search for:" />
+   </form>
+</div> -->
                         </div>
 
 

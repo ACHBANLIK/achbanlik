@@ -150,19 +150,49 @@ protected function validateMe(Request $request   , string $param)
 
 
 
-
-
-
-  
     public function profile()
     {
         $user = User::FindOrFail(Auth::user()->id);
 
-        $friends = Friend::where('idUser1' , Auth::user()->id)->orWhere('idUser2' , Auth::user()->id)->count();
+        $friends = Friend::where('idUser1' , Auth::user()->id)->where('status'  , 1)->orWhere('idUser2' , Auth::user()->id)->where('status'  , 1)->count();
 
         return view('user.profile' ,  ['user' => $user , 'friends' => $friends]);
     }
 
+
+    public function myfriends()
+    {
+        $user = User::FindOrFail(Auth::user()->id);
+
+        $friends = Friend::where('idUser1' , Auth::user()->id)->where('status'  , 1)->orWhere('idUser2' , Auth::user()->id)->where('status'  , 1)->get();
+
+        $sent = Friend::where('idUser1' , Auth::user()->id)->where('status'  , 0)->get();
+
+        $recieved = Friend::where('idUser2' , Auth::user()->id)->where('status'  , 0)->get();
+
+        return view('user.mesamis' ,  ['user' => $user , 'friends' => $friends , 'sent' => $sent , 'recieved' => $recieved]);
+    }
+
+
+/*    public function searchMyfriends(Request $request)
+    {
+        $user = User::FindOrFail(Auth::user()->id);
+
+        $friends = Friend::where('idUser1' , Auth::user()->id)->where('status'  , 1)->orWhere('idUser2' , Auth::user()->id)->where('status'  , 1)->get();
+
+
+$friends = $friends->filter(function ($friend) {
+    if($friend->user1->id == Auth::user())
+     $friend->user1 > 10;
+});
+
+        $sent = Friend::where('idUser1' , Auth::user()->id)->where('status'  , 0)->get();
+
+        $recieved = Friend::where('idUser2' , Auth::user()->id)->where('status'  , 0)->get();
+
+        return view('user.mesamis' ,  ['user' => $user , 'friends' => $friends , 'sent' => $sent , 'recieved' => $recieved]);
+    }
+*/
 
 
 
@@ -170,7 +200,7 @@ protected function validateMe(Request $request   , string $param)
     {
         $user = User::FindOrFail($id);
 
-        $friends = Friend::where('idUser1' , $id)->orWhere('idUser2' , $id)->count();
+        $friends = Friend::where('idUser1' , $id)->where('status'  , 1)->orWhere('idUser2' , $id)->where('status'  , 1)->count();
 
         return view('user.profile' ,  ['user' => $user , 'friends' => $friends]);
     }
@@ -192,6 +222,8 @@ protected function validateMe(Request $request   , string $param)
     }
 
 
+
+
         /**
      * Show the application dashboard.
      *
@@ -199,14 +231,17 @@ protected function validateMe(Request $request   , string $param)
      */
     public function index(Request $request)
     {
-        $pubs = Publication::where('privacy' , false)->where('status' , true)->orderBy('created_at' , 'Desc')->paginate(5);
+            $pubs = Publication::where('privacy' , false)->where('status' , true)->orderBy('created_at' , 'Desc')->paginate(5);
 
-        if ($request->ajax()) {
-            $view = view('user.publications',compact('pubs'))->render();
-            return response()->json(['html'=>$view]);
-        }
-        return view('user.index',compact('pubs'));
+            if ($request->ajax()) {
+                $view = view('user.publications',compact('pubs'))->render();
+                return response()->json(['html'=>$view]);
+            }
+            return view('user.index',compact('pubs'));
+
     }
+
+
 
 
 
@@ -219,7 +254,7 @@ protected function validateMe(Request $request   , string $param)
     public function friends(Request $request)
     {
 
-        $friends = Friend::where('idUser1' , Auth::user()->id)->orWhere('idUser2' , Auth::user()->id)->orderBy('created_at' , 'desc')->get();
+        $friends = Friend::where('idUser1' , auth::user()->id)->orWhere('idUser2' , Auth::user()->id)->orderBy('created_at' , 'desc')->get();
         $list = collect([]);
 
         foreach ($friends as $friend) {

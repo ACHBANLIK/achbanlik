@@ -92,7 +92,7 @@
    <div class="post-item v1-style zoom type3" id="3">
       <div class="post-thumb ">
          <a href="#">
-         <img src="{{ asset('storage/publications/lgg6-phone_tile.jpg') }}">
+         <img src="{{ asset('storage/publications/telechargement (2).jpg') }}">
          </a>
          <div class="cat-share">
             <div class="share-icon" data-toggle="modal" data-target="#loginModal">
@@ -136,7 +136,7 @@
             <td valign="bottom">
                <div class="post-thumb zoom type5">
                   <a href="#">
-                  <img src="{{ asset('storage/publications/lgg6-phone_tile.jpg') }}">
+                  <img src="{{ asset('storage/publications/bag1.png') }}">
                   </a>
                   <div class="cat-share">
                      <div class="share-icon" data-toggle="modal" data-target="#loginModal">
@@ -154,7 +154,7 @@
             <td valign="bottom">
                <div class="post-thumb ">
                   <a href="#">
-                  <img src="{{ asset('storage/publications/lgg6-phone_tile.jpg') }}">
+                  <img src="{{ asset('storage/publications/bag2.png') }}">
                   </a>
                   <div class="cat-share">
                      <div class="share-icon" data-toggle="modal" data-target="#loginModal">
@@ -246,7 +246,7 @@
             <td valign="bottom">
                <div class="post-thumb zoom type6">
                   <a href="#">
-                  <img src="{{ asset('storage/publications/lgg6-phone_tile.jpg') }}">
+                  <img src="{{ asset('storage/publications/bureau1.png') }}">
                   </a>
                   <div class="textContent textContent2" style="background-color: #1395ba;">
                      <span>Bureau en blanc avec une chaise Marron  </span> 
@@ -269,7 +269,7 @@
             <td valign="bottom">
                <div class="post-thumb zoom">
                   <a href="#">
-                  <img src="{{ asset('storage/publications/lgg6-phone_tile.jpg') }}">
+                  <img src="{{ asset('storage/publications/bureau2.png') }}">
                   </a>
                   <div class="textContent textContent2" style="background-color: #294f8a;">
                      <span> Bureau en gris foncé avec une chaise Marron</span> 
@@ -440,7 +440,7 @@ $(window).load(function(){
           title: "Catégories", 
           content: "Si vous voulez filtrer les publications par la catégorie qui vous intéresse ,Cliquez ici."
         },
-        {
+/*        {
           element: ".four", 
           title: "Hot", 
           content: "Voir les TOP-100 publications-ACHBANLIK en cliquant ici."
@@ -449,7 +449,7 @@ $(window).load(function(){
           element: ".five", 
           title: "New", 
           content: "En cliquant ici vous allez afficher les nouvelles publications."
-        },
+        },*/
         {
           element: ".six", 
           title: "Amis", 

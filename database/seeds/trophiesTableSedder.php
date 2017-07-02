@@ -17,9 +17,70 @@ class trophiesTableSedder extends Seeder
 
    		DB::table('trophies')->insert(
         [
-            'name' => 'welcome',
+            'name' => 'Newbie',
             'points' => '5',
             'description' => 'trophée de bienvenu',
+            'photo' => 'trophies/1.png',
+        ]
+        );
+
+
+
+        DB::table('trophies')->insert(
+        [
+            'name' => 'Premier commentaire',
+            'points' => '5',
+            'description' => 'User a publié son premier commentaire dans la platforme ',
+            'photo' => 'trophies/2.png',
+        ]
+        );
+
+        DB::table('trophies')->insert(
+        [
+            'name' => 'Premiere publication',
+            'points' => '5',
+            'description' => 'User a publié sa premiere publication dans la platforme ',
+            'photo' => 'trophies/3.png',
+        ]
+        );
+
+
+        DB::table('trophies')->insert(
+        [
+            'name' => 'Premier ami',
+            'points' => '5',
+            'description' => 'User a son premier ami',
+            'photo' => 'trophies/4.png',
+        ]
+        );
+
+
+        DB::table('trophies')->insert(
+        [
+            'name' => 'Premier vote',
+            'points' => '10',
+            'description' => 'User a voté pour la premiere fois',
+            'photo' => 'trophies/5.png',
+        ]
+        );
+
+
+
+        DB::table('trophies')->insert(
+        [
+            'name' => 'Le roi',
+            'points' => '35',
+            'description' => 'User is a king',
+            'photo' => 'trophies/6.png',
+        ]
+        );
+
+
+        DB::table('trophies')->insert(
+        [
+            'name' => 'InfoProfil',
+            'points' => '10',
+            'description' => 'Les information de USER sont completes',
         ]
         );
 
@@ -33,13 +94,6 @@ class trophiesTableSedder extends Seeder
         ]
         );
 
-        DB::table('trophies')->insert(
-        [
-            'name' => 'FistPublication',
-            'points' => '2',
-            'description' => 'User a publié sa premiere publication dans la platforme ',
-        ]
-        );
 
         DB::table('trophies')->insert(
         [

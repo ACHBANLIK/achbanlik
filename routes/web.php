@@ -13,6 +13,8 @@
         Auth::routes();
         
 
+/*        Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
+        Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');*/
 
 
 
@@ -23,9 +25,8 @@
 
         Route::group(['namespace' => 'User'], function() 
         {
-
-
             Route::get('/', 'UserController@index')->name('user.index');   
+
             Route::get('/demo', 'UserController@demo')->name('user.demo');  
             Route::get('/friends', 'UserController@friends')->name('user.friends');   
 
@@ -52,23 +53,19 @@
             Route::post('mespublications/changeStatus', 'PublicationController@changeStatus')->name('user.changePublicationStatus');
             Route::post('mespublications/changePrivacy', 'PublicationController@changePrivacy')->name('user.changePublicationPrivacy');
             
+            Route::get('/mesamis', 'UserController@myfriends')->name('user.myfriends');
+
             Route::post('createpost', 'PublicationController@store')->name('user.createPost');
             Route::delete('deletepublication/{id}', 'PublicationController@deletePublication')->name('user.deletepublication');
 
 
-
+            Route::get('/addfriend/{source}/{id}', 'FriendController@addfriend')->name('user.addfriend');   
+            Route::get('/deletefriend/{source}/{id}', 'FriendController@deletefriend')->name('user.deletefriend');   
+            Route::get('/acceptfriend/{source}/{id}', 'FriendController@acceptfriend')->name('user.acceptfriend');   
+            Route::get('/cancelfriend/{source}/{id}', 'FriendController@cancelfriend')->name('user.cancelfriend');   
+            Route::get('/declinefriend/{source}/{id}', 'FriendController@declinefriend')->name('user.declinefriend');   
 
             Route::get('/user/{id}', 'UserController@user')->name('user.user');  
-
-
- 
-
-
-
-
-
-
-
 
         });
 

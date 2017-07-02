@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://achbanlik.dev'),
 
     /*
     |--------------------------------------------------------------------------
@@ -210,7 +210,8 @@ return [
         Yajra\Datatables\DatatablesServiceProvider::class,
 
 
-
+/*        Laravel\Socialite\SocialiteServiceProvider::class,
+*/
        /*
          * End  custom ...
          */
@@ -275,6 +276,8 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,  
         'Datatables' => 'Yajra\Datatables\Facades\Datatables',
 
+/*        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+*/
         /*
          * End  custom ...
          */

@@ -66,7 +66,7 @@
 
                             <div class="post-meta">
                                 <div class="post-info">
-                                    <img alt='' src="{{ asset('/storage/'.$publication->user->photo) }}"  height='32' width='32' /><span> par <span class="author"><a class="url fn n" href="#"">{{  $publication->user->fname.' '.$publication->user->lname }}</a></span></span> <a href="index.html"><span class="posted-on">{{ $publication->created_at->diffForHumans() }}</span></a> </div>
+                                    <img alt='' src="{{ asset('/storage/'.$publication->user->photo) }}"  height='32' width='32' /><span> par <span class="author"><a target="_blank" class="url fn n" href="{{ route('user.user' , $publication->user->id) }}">{{  $publication->user->fname.' '.$publication->user->lname }}</a></span></span> <a href="index.html"><span class="posted-on">{{ $publication->created_at->diffForHumans() }}</span></a> </div>
                             </div>
                             <!-- .entry-meta -->
                             <div class="clearfix"></div>
@@ -80,6 +80,8 @@
           
                             @if(Auth::user() && !$publication->doesUserSignaled())
                               <a style="cursor: pointer;" class="signal" id="{{ $publication->id }}"  >Signaler un abus</a>
+                            @else
+                              <a style="cursor: pointer;" class="vb-nav-login" data-toggle="modal" data-target="#loginModal"  >Signaler un abus</a>
                             @endif
 
                             <div class="vp-clearfix"></div>
@@ -114,6 +116,20 @@
                                 </p>
                             </form>
                         </div>
+                    @else
+                        <div id="respond" class="comment-respond">
+                              <h4 id="reply-title" class="comment-reply-title">Laisser un commentaire </h4>
+                              <form  class="comment-form" novalidate>
+
+                                  <div class="status" style="display: none"></div>
+                                  
+                                  <input type="hidden"  name="id" value="{{ $publication->id }}">
+                                  <textarea id="comment" name="comment" placeholder="Commentaire" cols="30" rows="4" aria-required="true"></textarea>
+                                  <p class="form-submit">
+                                      <input name="submit" type="button" id="submit" class="submit" value="Publier" data-toggle="modal" data-target="#loginModal" />
+                                  </p>
+                              </form>
+                          </div>
                     @endif
 
 
@@ -178,18 +194,18 @@ $(".ended").click(function(event) {
 
 
 $(document).on("click", ".upvote", function(event) {
-        id = $(this).parents('.post-item').attr('id');
+        id = $(this).parents('.entry-content').attr('id');
         Opinion('/upvote/one/'+id , "Opinion enregistré.");   
 });
 
 $(document).on("click", ".downvote", function(event) {
-        id = $(this).parents('.post-item').attr('id');
+        id = $(this).parents('.entry-content').attr('id');
         Opinion('/downvote/one/'+id , "Opinion enregistré.");   
 });
 
 
 $(document).on("click", ".deletevotes", function(event) {
-        id = $(this).parents('.post-item').attr('id');
+        id = $(this).parents('.entry-content').attr('id');
         Opinion('/deletevotes/one/'+id , "Opinion supprimé.");     
 });
 

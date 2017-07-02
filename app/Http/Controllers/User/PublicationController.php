@@ -13,6 +13,7 @@ use App\Category;
 use App\Publication;
 use App\Comment;
 use App\Psignal;
+use App\Utrophy;
 use DB;
 use Datatables;
 use Carbon\Carbon;  
@@ -139,9 +140,12 @@ class PublicationController extends Controller
                 $publication->title = $request->title;
                 $publication->text1 = $request->description;
                 $publication->willend_at = Carbon::Parse($request->get('deadline'))->toDateTimeString();
-
-
                 $publication->save();
+
+                if(Auth::user()->publications->count() == 1)
+                {
+                    Auth::user()->addTrophy(3);
+                }
 
                 return response()->json(['success'=>'done' , 'publication' => $publication->id]);
 
@@ -172,6 +176,10 @@ class PublicationController extends Controller
 
 
                 $publication->save();
+                if(Auth::user()->publications->count() == 1)
+                {
+                    Auth::user()->addTrophy(3);
+                }
 
                 return response()->json(['success'=>'done' , 'publication' => $publication->id]);
 
@@ -200,9 +208,12 @@ class PublicationController extends Controller
                 $publication->willend_at = Carbon::Parse($request->get('deadline'))->toDateTimeString();
 
                 $publication->image1 = $request->file('photo')->store('publications');
-
-
                 $publication->save();
+
+                if(Auth::user()->publications->count() == 1)
+                {
+                    Auth::user()->addTrophy(3);
+                }
 
                 return response()->json(['success'=>'done' , 'publication' => $publication->id]);
 
@@ -229,8 +240,12 @@ class PublicationController extends Controller
                 $publication->text2 = $request->description2;
                 $publication->willend_at = Carbon::Parse($request->get('deadline'))->toDateTimeString();
 
-
                 $publication->save();
+
+                if(Auth::user()->publications->count() == 1)
+                {
+                    Auth::user()->addTrophy(3);
+                }
 
                 return response()->json(['success'=>'done' , 'publication' => $publication->id]);
 
@@ -260,8 +275,13 @@ class PublicationController extends Controller
                 $publication->image1 = $request->file('photo1')->store('publications');
                 $publication->image2 = $request->file('photo2')->store('publications');
 
-
                 $publication->save();
+
+                if(Auth::user()->publications->count() == 1)
+                {
+                    Auth::user()->addTrophy(3);
+                }
+
 
                 return response()->json(['success'=>'done' , 'publication' => $publication->id]);
 
@@ -295,11 +315,18 @@ class PublicationController extends Controller
 
                 $publication->save();
 
+                if(Auth::user()->publications->count() == 1)
+                {
+                    Auth::user()->addTrophy(3);
+                }
+                
                 return response()->json(['success'=>'done' , 'publication' => $publication->id]);
 
                 }
 
         }
+
+
     }
 
 
@@ -432,6 +459,11 @@ class PublicationController extends Controller
           $comment->text  = $request->comment;
 
           $comment->save();
+
+        if(Auth::user()->comments->count() == 1)
+        {
+            Auth::user()->addTrophy(2);
+        }
 
           $view = view('user.comments',compact('comment'))->render();
 

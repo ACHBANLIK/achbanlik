@@ -37,7 +37,7 @@
 
                                 <li><a href="{{ route('user.mespublications')}}"> <i class="fa fa-tags"></i> Mes publications</a></li>
 
-                                <li><a href="{{ route('user.friends') }}"> <i class="fa fa-users"></i> Amis</a></li>
+                                <li><a href="{{ route('user.myfriends') }}"> <i class="fa fa-users"></i> Amis</a></li>
 
                              </ul>
 
@@ -54,8 +54,8 @@
 
 
                                   <div class="form-group">
-                                      <label  class="col-lg-2 control-label">Prénom</label>
-                                      <div class="col-lg-6">
+                                      <label  class="col-lg-2 -label">Prénom</label>
+                                      <div class="col-lg-6">control
                                           <input type="text" class="form-control" id="fname" name="fname" placeholder=" " value="{{ Auth::user()->fname }}"  />
                                            <span class="help-block errorFname"></span>
                                       </div>

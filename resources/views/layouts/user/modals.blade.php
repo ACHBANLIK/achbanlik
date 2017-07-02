@@ -25,7 +25,7 @@
                                              <div class="wp-social-login-widget">
                                                 <div class="wp-social-login-connect-with">Se connecter</div>
                                                 <div class="wp-social-login-provider-list">
-                                                   <a rel="nofollow" href="#" class="wp-social-login-provider wp-social-login-provider-facebook" >
+                                                   <a rel="nofollow" href="{{ url('/login/facebook') }}" class="wp-social-login-provider wp-social-login-provider-facebook" >
                                                    Facebook
                                                    </a>
                                                    <a rel="nofollow" href="#" class="wp-social-login-provider wp-social-login-provider-google" >

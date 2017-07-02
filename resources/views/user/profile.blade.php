@@ -22,11 +22,10 @@
                   <aside class="profile-nav col-lg-3">
                       <section class="panel">
                           <div class="user-heading round">
-                              <a href="#">
+                              <a>
                                   <img src="{{ asset('/storage/'.$user->photo ) }}" alt="">
                               </a>
                               <h1>{{ $user->fname.' '.$user->lname }}</h1>
-                              <p></p>
                           </div>
 
                           @if(Auth::user()->id == $user->id)
@@ -36,15 +35,11 @@
 
                                 <li><a href="{{ route('user.editprofile') }}"><i class="fa fa-edit"></i> Modifier</a></li>
                                 <li><a href="{{ route('user.mespublications') }}"> <i class="fa fa-tags"></i> Publications</a></li>
-                                <li><a href="{{ route('user.friends') }}"> <i class="fa fa-users"></i> Amis</a></li>
+                                <li><a href="{{ route('user.myfriends') }}"> <i class="fa fa-users"></i> Amis</a></li>
                              </ul>
-
+ 
                           @else
-
-                            <ul class="nav nav-pills nav-stacked">
-                                <li class="active"><a href="{{ route('user.profile' , $user->id) }}"> <i class="fa fa-user"></i> Profile</a></li>
-                            </ul>
-
+                              @include('user.friend' , ['id' => $user->id , 'friends' => $friends])
                           @endif
 
 
@@ -62,7 +57,7 @@
                                       <i class="fa fa-user"></i>
                                   </div>
                                   <div class="value">
-                                      <h1 class="count">
+                                      <h1 class="count" id="fcount">
                                           {{  $friends }}
                                       </h1>
                                       <p>Amis</p>
@@ -138,8 +133,28 @@
                               </div>
                           </div>
                       </section>
-                      <section>
+                      <section class="panel">
+                          <div class="panel-body bio-graph-info">
+                              <h1 style="">Trophées</h1>
+                              <div class="row">
 
+                                 @php
+                                    $utrophies =$user->utrophies;
+                                 @endphp
+
+                                 @foreach ($utrophies as $utrophy)
+                                    <div class="col-lg-3 bio-badge" >
+                                          <p><img  src="{{ asset('storage/'.$utrophy->trophy->photo) }}" /></p>
+                                          <p><span>{{ $utrophy->trophy->name }}</span></p>
+                                    </div>
+                                 @endforeach
+
+
+
+                               
+
+                              </div>
+                          </div>
                       </section>
                   </aside>
               </div>
@@ -167,11 +182,69 @@
 
 @push('scripts')
 
-      <script src="{{ asset('user/js/functions-ver=1.0.0.js') }}"></script>
+  <script src="{{ asset('user/js/functions-ver=1.0.0.js') }}"></script>
 
-      <script src='{{ asset('user/js/ajax-login-ver=4.7.5.js') }}'></script>
+  <script src='{{ asset('user/js/ajax-login-ver=4.7.5.js') }}'></script>
 
-      <script>
+  <script>
 
-      </script>
+    $(document).ready(function() {
+
+
+
+    $(document).on("click", ".addFriend", function(event) {
+            id = $(this).attr('id');
+            Friend('/addfriend/one/'+id , "Demande envoyée.");   
+    });
+
+    $(document).on("click", ".deleteFriend", function(event) {
+            id = $(this).attr('id');
+            Friend('/deletefriend/one/'+id , "Ami(e) supprimé(e).");   
+    });
+
+
+    $(document).on("click", ".cancelFriend", function(event) {
+            id = $(this).attr('id');
+            Friend('/cancelfriend/one/'+id , "Demande annulée.");     
+    });
+
+    $(document).on("click", ".acceptFriend", function(event) {
+            id = $(this).attr('id');
+            Friend('/acceptfriend/one/'+id , "Demande acceptée.");     
+    });
+
+    $(document).on("click", ".declineFriend", function(event) {
+            id = $(this).attr('id');
+            Friend('/declinefriend/one/'+id , "Demande Refusée.");     
+    });
+
+
+
+    });
+
+  function Friend($link  , $message)
+  {
+            $.ajax({
+                  type: 'get',
+                  url: $link,
+
+              error: function(data) {
+                      toastr.error('Une erreur est survenu.', {timeOut: 3000});
+              },
+              success: function(data) {
+                  if (data.success == true) {
+                      toastr.success($message, {timeOut: 3000});
+                       var $newItems = $(data.html);
+                        $( "div.fra" ).replaceWith( $newItems );
+                        $("#fcount").html($( "div.fra" ).attr('id'));
+
+                  } else{
+                      toastr.error('Une erreur est survenu.', {timeOut: 3000});
+                  }
+              }
+          });
+  }
+
+
+  </script>
 @endpush

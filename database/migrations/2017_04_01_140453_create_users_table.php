@@ -9,8 +9,10 @@ class CreateUsersTable extends Migration {
 	{
 		Schema::create('users', function(Blueprint $table) {
 			$table->bigIncrements('id');
-			$table->string('password');
-			$table->string('email')->unique();
+            $table->string('email')->nullable();
+            $table->string('password', 60)->nullable();
+            $table->string('provider')->nullable();;
+            $table->string('provider_id')->nullable();
 			$table->string('lname');
 			$table->string('fname');
 			$table->string('photo')->default('all/user_avatar.png');

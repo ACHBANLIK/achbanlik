@@ -36,6 +36,11 @@ class OpinionController extends Controller
         $opinion->choice  = 1;
         $opinion->save();
 
+        if(Auth::user()->opinions->count() == 1)
+        {
+            Auth::user()->addTrophy(5);
+        }
+
         if($source == "one")
         {
             $publication = Publication::where('id' , $id)->first();
@@ -73,6 +78,11 @@ class OpinionController extends Controller
         $opinion->choice  = 2;
         $opinion->save();
 
+        if(Auth::user()->opinions->count() == 1)
+        {
+            Auth::user()->addTrophy(5);
+        }
+        
         if($source == "one")
         {
             $publication = Publication::where('id' , $id)->first();

@@ -56,13 +56,13 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('friends', function(Blueprint $table) {
 			$table->foreign('idUser1')->references('id')->on('users')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('friends', function(Blueprint $table) {
 			$table->foreign('idUser2')->references('id')->on('users')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('friends', function(Blueprint $table) {
 			$table->foreign('idUserAction')->references('id')->on('users')
@@ -73,14 +73,14 @@ class CreateForeignKeys extends Migration {
 
 		Schema::table('utrophies', function(Blueprint $table) {
 			$table->foreign('idTrophy')->references('id')->on('trophies')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 
 		Schema::table('utrophies', function(Blueprint $table) {
 			$table->foreign('idUser')->references('id')->on('users')
-						->onDelete('restrict')
-						->onUpdate('restrict');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 
 		Schema::table('psignals', function(Blueprint $table) {

@@ -52,7 +52,7 @@ table td {
 
                                 <li><a href="{{ route('user.editprofile') }}"><i class="fa fa-edit"></i> Modifier</a></li>
                                 <li class="active"><a href="{{ route('user.mespublications') }}"> <i class="fa fa-tags"></i> Publications</a></li>
-                                <li><a href="{{ route('user.friends') }}"> <i class="fa fa-users"></i> Amis</a></li>
+                                <li><a href="{{ route('user.myfriends') }}"> <i class="fa fa-users"></i> Amis</a></li>
                              </ul>
 
 

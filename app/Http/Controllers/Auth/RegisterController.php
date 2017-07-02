@@ -76,7 +76,11 @@ class RegisterController extends Controller
             'password' => bcrypt($request['password']),
         ]);
 
+
         Auth::login($user);
+
+
+        Auth::user()->addTrophy(1);
 
         return Response::json(array('done' => true));
       }

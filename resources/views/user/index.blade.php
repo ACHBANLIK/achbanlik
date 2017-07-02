@@ -44,8 +44,14 @@
 @endisset
 
 
+
 <div class="main-content-area vb-full-width-massonry">
     <div class="vb-full-massonry-content">
+
+
+
+
+
         <div id="massonry-post-area2" class="massonry-post-area massonry-post-area2">        
             <div class="massonry-post-sizer massonry-post-sizer2"></div>            
               @include('user.publications')

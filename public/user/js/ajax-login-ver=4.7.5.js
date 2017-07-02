@@ -13,6 +13,7 @@ $( document ).ready(function() {
 
         $('form#register').show();
     });
+    
     $('#pop_login').live('click', function(e) {
         e.preventDefault();
         $(':input', '#register')

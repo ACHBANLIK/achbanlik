@@ -14,11 +14,12 @@
     -webkit-border-radius: 50%;
     border: 10px solid rgba(255,255,255,0.3);
     display: inline-block;
+    cursor: pointer;
 }
 
 .profile-nav .user-heading a img {
     width: 112px;
-    height: 112px;
+    height: 130px;
     border-radius: 50%;
     -webkit-border-radius: 50%;
 }
@@ -52,6 +53,7 @@
     -webkit-border-radius: 0;
     color: #89817f;
     border-left: 5px solid #fff;
+    cursor: pointer;
 }
 
 .profile-nav ul > li > a:hover, .profile-nav ul > li > a:focus, .profile-nav ul li.active  a {
@@ -122,6 +124,62 @@
     margin-bottom: 10px;
     padding:0 15px;
 }
+
+.bio-badge {
+    margin-bottom: 10px;
+    padding:0 15px;
+    text-align: center
+}
+
+.bio-badge p img {
+    width: 50%;
+}
+
+.bio-badge p span {
+    width: 100%;
+    font-weight: bold;
+}
+
+
+/* my friends */
+
+
+.bio-friends {
+    color: #fff;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    padding: 30px;
+    text-align: center;
+}
+
+.bio-friends a  {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border: 10px solid rgba(255,255,255,0.3);
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bio-friends a img {
+    width: 50%;
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+.bio-friends p span {
+    width: 100%;
+    font-weight: bold;
+}
+
+.bio-friends p .action {
+    color
+    font-weight: bold;
+}
+
+/* my friends */
+
 
 .bio-row p span {
     width: 100px;
