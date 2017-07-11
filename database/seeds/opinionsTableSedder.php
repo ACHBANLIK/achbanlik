@@ -1224,6 +1224,163 @@ DB::table('opinions')->insert(
             'idPublication' => 20,
             'created_at' => '2017-11-14',
         ]
-        );         
+        );  
+
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 19,
+            'choice' => 1,
+            'idPublication' => 21,
+            'created_at' => '2017-05-07',
+        ]
+        );      
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 18,
+            'choice' => 1,
+            'idPublication' => 21,
+            'created_at' => '2017-05-07',
+        ]
+        ); 
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 17,
+            'choice' => 1,
+            'idPublication' => 21,
+            'created_at' => '2017-05-07',
+        ]
+        );  
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 16,
+            'choice' => 1,
+            'idPublication' => 21,
+            'created_at' => '2017-05-07',
+        ]
+        );      
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 15,
+            'choice' => 1,
+            'idPublication' => 21,
+            'created_at' => '2017-05-07',
+        ]
+        ); 
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 14,
+            'choice' => 2,
+            'idPublication' => 21,
+            'created_at' => '2017-05-07',
+        ]
+        );  
+
+
+         DB::table('opinions')->insert(
+        [
+            'idUser' => 3,
+            'choice' => 2,
+            'idPublication' => 21,
+            'created_at' => '2017-05-07',
+        ]
+        );  
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 11,
+            'choice' => 1,
+            'idPublication' => 21,
+            'created_at' => '2017-05-07',
+        ]
+        );      
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 10,
+            'choice' => 2,
+            'idPublication' => 21,
+            'created_at' => '2017-05-07',
+        ]
+        ); 
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 8,
+            'choice' => 2,
+            'idPublication' => 21,
+            'created_at' => '2017-05-07',
+        ]
+        );        
+
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 15,
+            'choice' => 1,
+            'idPublication' => 22,
+            'created_at' => '2017-05-10',
+        ]
+        ); 
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 14,
+            'choice' => 2,
+            'idPublication' => 22,
+            'created_at' => '2017-05-10',
+        ]
+        );  
+
+
+         DB::table('opinions')->insert(
+        [
+            'idUser' => 3,
+            'choice' => 2,
+            'idPublication' =>22,
+            'created_at' => '2017-05-10',
+        ]
+        );  
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 11,
+            'choice' => 1,
+            'idPublication' => 22,
+            'created_at' => '2017-05-10',
+        ]
+        );      
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 10,
+            'choice' => 2,
+            'idPublication' => 22,
+            'created_at' => '2017-05-10',
+        ]
+        ); 
+
+        DB::table('opinions')->insert(
+        [
+            'idUser' => 8,
+            'choice' => 2,
+            'idPublication' => 22,
+            'created_at' => '2017-05-10',
+        ]
+        );       
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

@@ -9,7 +9,7 @@
 
        <form class="form-signin" role="form" method="POST" action="{{ route('admin.login.submit') }}">
                         {{ csrf_field() }}
-        <h2 class="form-signin-heading">ADMIN Login</h2>
+        <h2 class="form-signin-heading">Login - Admin</h2>
         <div class="login-wrap">
 
                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -47,17 +47,17 @@
 
 
                         <div class="form-group">
-                                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Connexion automatique
                                 
                                 <span class="pull-right">
-                                    <a data-toggle="modal" href="{{ route('password.request') }}"> Forgot Password?</a>
+                                    <a data-toggle="modal" href="{{ route('password.request') }}"> Mot de pass oublié?</a>
 
                                 </span>
 
                         </div>
 
 
-            <button class="btn btn-lg btn-login btn-block" type="submit">Login</button>
+            <button class="btn btn-lg btn-login btn-block" type="submit">Se connecter</button>
         </div>
 
       </form>

@@ -174,6 +174,44 @@ $( document ).ready(function() {
     });
 
 
+    $('form#contactusform').on('submit', function(e) {
+
+
+            $('form#commentform .status').show().html("Opération en cours");
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                    type: 'post',
+                    url: '/addcontactus',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    data: new FormData($('form#contactusform')[0])
+                ,
+
+                error: function(data) {
+                    $('form#contactusform .status').hide();
+                        toastr.error('Une erreur est survenu.', {timeOut: 3000});
+                },
+                success: function(data) {
+                    $('form#contactusform .status').hide();
+                    if (data.success == true) {
+                     $('form#message').val("");
+                     $('form#title').val("");
+                        toastr.success('Message envoyé avec sucées.', {timeOut: 3000});
+                        $("form#contactusform").trigger('reset');
+                    } else{
+                        toastr.error('Une erreur est survenu.', {timeOut: 3000});
+                    }
+                }
+            });
+            e.preventDefault();
+    });
+
 
 
 

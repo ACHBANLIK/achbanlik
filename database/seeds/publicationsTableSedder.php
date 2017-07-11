@@ -30,6 +30,8 @@ class publicationsTableSedder extends Seeder
         );
 
 
+
+
         DB::table('publications')->insert(
         [
             'title' => 'Iphone 6s ou sumsung 6',
@@ -57,19 +59,6 @@ class publicationsTableSedder extends Seeder
         );
 
 
-
-        DB::table('publications')->insert(
-        [
-            'title' => 'Loyer nerja',
-            'idUser' => 1,
-            'idCategory' => 1,
-            'idType' => 3,  
-            'text1' => 'Coucou les amis 😘😘 svp des contacts pour le loyer a nerja ( de préference a burriana beach ). Torremolinos ou puerto banus pour un petit appart pour 2 personnes ? Bonne soirée et merci d `avance',
-            'image1'=>'publications/telechargement (2).jpg',
-            'created_at' => '2017-03-01',
-            'willend_at' => '2018-12-12',
-        ]
-        );
 
 
          DB::table('publications')->insert(
@@ -288,5 +277,49 @@ Pour un budget de 50000dh ( niveau consommation, fiabilité, pannes et tt )Perso
         );   
 
            
+
+           DB::table('publications')->insert(
+        [
+            'title' => 'Quel sport pour maigrir?',
+            'idUser' => 18,
+            'idCategory' => 10,
+            'idType' => 5,  
+
+            'image1'=>'publications/natation.jpg',
+             'image2'=>'publications/shutterstock_180557201.jpg',
+            'created_at' => '2017-05-10',
+            'willend_at' => '2018-10-14',
+        ]
+        );       
+
+
+
+        DB::table('publications')->insert(
+        [
+            'title' => 'Loyer Santorini',
+            'idUser' => 1,
+            'idCategory' => 1,
+            'idType' => 3,  
+            'text1' => 'Coucou les amis 😘😘 svp des contacts pour le loyer a nerja ( de préference a burriana beach ). Torremolinos ou puerto banus pour un petit appart pour 2 personnes ? Bonne soirée et merci d `avance',
+            'image1'=>'publications/telechargement (2).jpg',
+            'created_at' => '2017-03-01',
+            'willend_at' => '2018-12-12',
+        ]
+        );
+        
+            DB::table('publications')->insert(
+        [
+            'title' => 'Quel Marque vous me recommandez ??',
+            'idUser' => 18,
+            'idCategory' => 6,
+            'idType' => 6,  
+             'text1'=>'HP EliteBook 820 G4 (7500U, Full HD)  ',
+             'text2'=>'Lenovo ThinkPad Yoga 260 20FD001XGE Convertible ',
+            'image1'=>'publications/elitebook_820_gallery1_tcm_245_1493510.jpg',
+             'image2'=>'publications/ThinkPad_Yoga_260_3.jpg',
+            'created_at' => '2017-05-07',
+            'willend_at' => '2018-10-07',
+        ]
+        );                
     }
 }

@@ -39,7 +39,7 @@
                              </ul>
  
                           @else
-                              @include('user.friend' , ['id' => $user->id , 'friends' => $friends, 'source' => 'profile'])
+                              @include('user.friend' , ['id' => $user->id , 'friends' => $friends])
                           @endif
 
 
@@ -194,28 +194,28 @@
 
     $(document).on("click", ".addFriend", function(event) {
             id = $(this).attr('id');
-            Friend('/addfriend/profile/one/'+id , "Demande envoyée.");   
+            Friend('/addfriend/one/'+id , "Demande envoyée.");   
     });
 
     $(document).on("click", ".deleteFriend", function(event) {
             id = $(this).attr('id');
-            Friend('/deletefriend/profile/one/'+id , "Ami(e) supprimé(e).");   
+            Friend('/deletefriend/one/'+id , "Ami(e) supprimé(e).");   
     });
 
 
     $(document).on("click", ".cancelFriend", function(event) {
             id = $(this).attr('id');
-            Friend('/cancelfriend/profile/one/'+id , "Demande annulée.");     
+            Friend('/cancelfriend/one/'+id , "Demande annulée.");     
     });
 
     $(document).on("click", ".acceptFriend", function(event) {
             id = $(this).attr('id');
-            Friend('/acceptfriend/profile/one/'+id , "Demande acceptée.");     
+            Friend('/acceptfriend/one/'+id , "Demande acceptée.");     
     });
 
     $(document).on("click", ".declineFriend", function(event) {
             id = $(this).attr('id');
-            Friend('/declinefriend/profile/one/'+id , "Demande Refusée.");     
+            Friend('/declinefriend/one/'+id , "Demande Refusée.");     
     });
 
 

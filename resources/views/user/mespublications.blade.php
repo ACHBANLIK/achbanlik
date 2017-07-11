@@ -48,7 +48,7 @@ table td {
 
 
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="{{ route('user.profile' , Auth::user()->id) }}"> <i class="fa fa-user"></i> Profile</a></li>
+                                <li><a href="{{ route('user.profile') }}"> <i class="fa fa-user"></i> Profile</a></li>
 
                                 <li><a href="{{ route('user.editprofile') }}"><i class="fa fa-edit"></i> Modifier</a></li>
                                 <li class="active"><a href="{{ route('user.mespublications') }}"> <i class="fa fa-tags"></i> Publications</a></li>

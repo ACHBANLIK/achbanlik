@@ -2498,6 +2498,9 @@ a.google {
 a.twitter {
     background-color: #55acee;
 }
+a.commentbox {
+    background-color: #f2d122;
+}
 a.facebook-text {
     background-color: #3b5998;
 }
@@ -2509,6 +2512,9 @@ a.google-text {
 }
 a.twitter-text {
     background-color: #55acee;
+}
+a.commentbox-text {
+    background-color: #252525;
 }
 .advertise {
     text-align: center;

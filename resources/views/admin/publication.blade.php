@@ -398,7 +398,7 @@ color: #999;
 
                   <div class="form-group">
                     <label for="description">@lang('field.comment')</label>
-                      <textarea id="text" class="form-control" name="text" required autofocus>{{ old('text') }}</textarea>
+                      <textarea id="text" class="form-control" name="text" disabled required autofocus>{{ old('text') }}</textarea>
                   </div>
 
                 </form>
@@ -566,7 +566,7 @@ $("#deleteModal #submit").click(function(e)
         "type": 'GET'
         },
         columns: [
-            { data: 'id', name: 'id' },
+            { data: 'id', name: 'id' , visible :false },
             { data: 'full_name', name: 'full_name' },
             { data: 'text', name: 'text' },
             { data: null,name: 'status' , searchable: false,render: function(data)

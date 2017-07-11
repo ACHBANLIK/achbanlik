@@ -48,8 +48,7 @@ table td {
 
 
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="{{ route('user.profile' , Auth::user()->id) }}"> <i class="fa fa-user"></i> Profile</a></li>
-
+                                <li><a href="{{ route('user.profile') }}"> <i class="fa fa-user"></i> Profile</a></li>
                                 <li><a href="{{ route('user.editprofile') }}"><i class="fa fa-edit"></i> Modifier</a></li>
                                 <li><a href="{{ route('user.mespublications') }}"> <i class="fa fa-tags"></i> Publications</a></li>
                                 <li class="active"><a href="{{ route('user.myfriends') }}"> <i class="fa fa-users"></i> Amis</a></li>
@@ -132,7 +131,7 @@ table td {
                                           <img src="{{ asset('/storage/'.$friend->user2->photo ) }}" alt="">
                                       </a>
                                       <p>
-                                        <span>{{ $friend->user2->fname.' '.$friend->user2->fname }}</span>
+                                        <span>{{ $friend->user2->fname.' '.$friend->user2->lname }}</span>
                                         <br>
                                         <a class="action cancelFriend" ><i class="fa fa-remove"></i>Annuler</a>
                                       </p>
@@ -163,7 +162,7 @@ table td {
                                           <img src="{{ asset('/storage/'.$friend->user1->photo ) }}" alt="">
                                       </a>
                                       <p>
-                                        <span>{{ $friend->user1->fname.' '.$friend->user1->fname }}</span>
+                                        <span>{{ $friend->user1->fname.' '.$friend->user1->lname }}</span>
                                         <br>
                                         <a class="action acceptFriend" ><i class="fa fa-remove"></i>Accepter</a>
                                         <a class="action declineFriend"  ><i class="fa fa-remove"></i>Refuser</a>
@@ -218,19 +217,19 @@ table td {
 
           $(document).on("click", ".deleteFriend", function(event) {
                   id = $(this).parents(".bio-friends").attr('id');
-                  Friend('/deletefriend/all/'+id , "Ami(e) supprimé(e)." , id);   
+                  Friend('/deletefriend/mesamis/all/'+id , "Ami(e) supprimé(e)." , id);   
           });
 
 
           $(document).on("click", ".cancelFriend", function(event) {
                   id = $(this).parents(".bio-friends").attr('id');
-                  Friend('/cancelfriend/all/'+id , "Demande annulée." , id);     
+                  Friend('/cancelfriend/mesamis/all/'+id , "Demande annulée." , id);     
           });
 
 
           $(document).on("click", ".declineFriend", function(event) {
                   id = $(this).parents(".bio-friends").attr('id');
-                  Friend('/declinefriend/all/'+id , "Demande Refusée." , id);     
+                  Friend('/declinefriend/mesamis/all/'+id , "Demande Refusée." , id);     
           });
 
 
@@ -239,7 +238,7 @@ table td {
 
                   $.ajax({
                         type: 'get',
-                        url: '/acceptfriend/all/'+id,
+                        url: '/acceptfriend/mesamis/all/'+id,
 
                     error: function(data) {
                             toastr.error('Une erreur est survenu.', {timeOut: 3000});

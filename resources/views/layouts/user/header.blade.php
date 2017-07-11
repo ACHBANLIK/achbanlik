@@ -129,6 +129,11 @@
                                  <div class="follow-us-item">
                                     <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
                                  </div>
+                                 @if(Auth::check())
+                                    <div class="follow-us-item">
+                                       <a class="commentbox" href="{{ route('user.contact') }}"><i class="fa fa-comment"></i></a>
+                                    </div>
+                                @endif
                               </div>
                            </div>
 <!--                            <div class="search">

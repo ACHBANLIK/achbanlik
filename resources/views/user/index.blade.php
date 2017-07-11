@@ -40,7 +40,7 @@
         </div><!-- /.container -->
     </div>
     <!-- end page-header-section -->
-
+    
 @endisset
 
 
@@ -163,10 +163,10 @@ function Opinion($link  , $message)
 
               var $newItems = $(data.html);
 
-$('.massonry-post-area').isotope()
-  .append( $newItems )
-  .isotope( 'appended', $newItems )
-  .isotope('layout');
+            $('.massonry-post-area').isotope()
+              .append( $newItems )
+              .isotope( 'appended', $newItems )
+              .isotope('layout');
 
 
 

@@ -27,6 +27,9 @@
         {
             Route::get('/', 'UserController@index')->name('user.index');   
 
+            Route::get('/contact', 'ContactController@index')->name('user.contact');   
+            Route::post('/addcontactus', 'ContactController@addcontactus')->name('user.addcontactus');
+
             Route::get('/demo', 'UserController@demo')->name('user.demo');  
             Route::get('/friends', 'UserController@friends')->name('user.friends');   
 
@@ -59,11 +62,15 @@
             Route::delete('deletepublication/{id}', 'PublicationController@deletePublication')->name('user.deletepublication');
 
 
-            Route::get('/addfriend/{source}/{id}', 'FriendController@addfriend')->name('user.addfriend');   
-            Route::get('/deletefriend/{source}/{id}', 'FriendController@deletefriend')->name('user.deletefriend');   
-            Route::get('/acceptfriend/{source}/{id}', 'FriendController@acceptfriend')->name('user.acceptfriend');   
-            Route::get('/cancelfriend/{source}/{id}', 'FriendController@cancelfriend')->name('user.cancelfriend');   
-            Route::get('/declinefriend/{source}/{id}', 'FriendController@declinefriend')->name('user.declinefriend');   
+            Route::get('/addfriend/{calling}/{source}/{id}', 'FriendController@addfriend')->name('user.addfriend');   
+            Route::get('/deletefriend/{calling}/{source}/{id}', 'FriendController@deletefriend')->name('user.deletefriend');   
+            Route::get('/acceptfriend/{calling}/{source}/{id}', 'FriendController@acceptfriend')->name('user.acceptfriend');   
+            Route::get('/cancelfriend/{calling}/{source}/{id}', 'FriendController@cancelfriend')->name('user.cancelfriend');   
+            Route::get('/declinefriend/{calling}/{source}/{id}', 'FriendController@declinefriend')->name('user.declinefriend');   
+
+            // Route::get('/friends/{id}', 'FriendController@publications')->name('user.friendspub');   
+
+            Route::get('/users/{id}', 'UserController@userpublications')->name('user.userpublications');   
 
             Route::get('/user/{id}', 'UserController@user')->name('user.user');  
 

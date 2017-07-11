@@ -49,7 +49,11 @@ class UsersController extends Controller
 
     public function getUsers()
     {
-        $users = DB::table('users')->select('id' , 'fname' , 'lname' , 'points' , 'status')->orderBy('created_at' , 'desc');
+
+        $users = DB::table('users')
+        ->join('utrophies' , 'utrophies.idUser' , '=' , 'users.id')
+        ->join('trophies' , 'trophies.id' , '=' , 'utrophies.idTrophy')
+        ->select('users.id' , 'users.fname' , 'users.lname' ,DB::raw('SUM(trophies.points) as points') , 'users.status')->groupBy('users.id' , 'users.fname' , 'users.lname','users.status')->orderBy('users.id' , 'asc');
         return Datatables::of($users)
             ->make(true);
     }

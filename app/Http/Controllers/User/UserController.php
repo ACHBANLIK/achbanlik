@@ -174,26 +174,6 @@ protected function validateMe(Request $request   , string $param)
     }
 
 
-/*    public function searchMyfriends(Request $request)
-    {
-        $user = User::FindOrFail(Auth::user()->id);
-
-        $friends = Friend::where('idUser1' , Auth::user()->id)->where('status'  , 1)->orWhere('idUser2' , Auth::user()->id)->where('status'  , 1)->get();
-
-
-$friends = $friends->filter(function ($friend) {
-    if($friend->user1->id == Auth::user())
-     $friend->user1 > 10;
-});
-
-        $sent = Friend::where('idUser1' , Auth::user()->id)->where('status'  , 0)->get();
-
-        $recieved = Friend::where('idUser2' , Auth::user()->id)->where('status'  , 0)->get();
-
-        return view('user.mesamis' ,  ['user' => $user , 'friends' => $friends , 'sent' => $sent , 'recieved' => $recieved]);
-    }
-*/
-
 
 
     public function user($id)
@@ -263,7 +243,6 @@ $friends = $friends->filter(function ($friend) {
                 $list->push($friend->idUser2);
             else
                 $list->push($friend->idUser1);
-
         }
 
         $pubs = Publication::whereIn('idUser' , $list)->paginate(5);
@@ -298,6 +277,33 @@ $friends = $friends->filter(function ($friend) {
         return view('user.index',compact('pubs'  , 'category'));
     }
     
+
+
+    public function userpublications(Request $request , $id)
+    {
+            $user = User::FindOrFail($id);
+
+            if($user->isMyFriend())
+            {
+                $pubs = Publication::where('idUser' , $id)->orderBy('created_at' , 'Desc')->paginate(5);
+                if ($request->ajax()) {
+                    $view = view('user.publications',compact('pubs'))->render();
+                    return response()->json(['html'=>$view]);
+                }
+                return view('user.friendpubs',compact('pubs' , 'user'));
+            }
+            else 
+            {
+                $pubs = Publication::where('status' , false)->where('idUser' , $id)->orderBy('created_at' , 'Desc')->paginate(5);
+                if ($request->ajax()) {
+                    $view = view('user.publications',compact('pubs'))->render();
+                    return response()->json(['html'=>$view]);
+                }
+                return view('user.friendpubs',compact('pubs' , 'user'));
+            }
+    }
+
+
 
 
 }

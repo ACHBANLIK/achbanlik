@@ -55,7 +55,7 @@
                       <ul class="dropdown-menu extended logout">
 
                           <li><a onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();"><i class="fa fa-key"></i> Log Out</a></li>
+                                                    document.getElementById('logout-form').submit();"><i class="fa fa-key"></i> Se déconnecter</a></li>
                       </ul>
                   </li>
 

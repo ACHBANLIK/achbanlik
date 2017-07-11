@@ -551,6 +551,40 @@ Sinon tu pourras accéder aux détails de ta réservation avec le numéro de Ré
         ]
         );               
 
-           
+
+              DB::table('comments')->insert(
+        [
+            'idUser' => 10,
+            'idPublication' => 21,
+            'text' => 'comme performance hp est mieux . ',
+            'created_at' => '2017-05-07',
+        ]
+        );      
+     
+
+
+              DB::table('comments')->insert(
+        [
+            'idUser' => 10,
+            'idPublication' => 21,
+            'text' => 'salut tt le monde moi Lenovo ThinkPad Yoga et c magnifique pas probleme plus pratique 
+g un ami au canada qui m`a conseillé d`acheté Lenovo car la marque hp à un probleme concernant le ventilo . ',
+            'created_at' => '2017-05-07',
+        ]
+        );              
+
+
+              DB::table('comments')->insert(
+        [
+            'idUser' => 10,
+            'idPublication' => 21,
+            'text' => 'salut tt le monde moi Lenovo ThinkPad Yoga et c magnifique pas probleme plus pratique 
+g un ami au canada qui m`a conseillé d`acheté Lenovo car la marque hp à un probleme concernant le ventilo . ',
+            'created_at' => '2017-05-07',
+        ]
+        );
+
+
+
     }
 }

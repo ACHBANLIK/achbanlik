@@ -312,7 +312,7 @@ table td {
                        <span class="sr-only">@lang('field.close')</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    @lang('field.deleteoperation') <span id="title_fr"></span>?
+                    @lang('field.deleteoperation') <span id="title_fr"></span>
                 </h4>
             </div>
             
@@ -325,7 +325,8 @@ table td {
                   
                   <center>
                     <button  type="button" data-dismiss="modal"  class="btn btn-danger btn-lg btn-bloc">@lang('field.no')</button>
-                    <button id="submit" type="button" class="btn btn-primary btn-lg btn-bloc" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours" >@lang('field.oui')</button>
+
+                  <button id="submit" type="button" class="btn btn-primary btn-lg btn-bloc" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Opération en cours" >@lang('field.yes')</button>
 
                   </center>
 
@@ -402,6 +403,14 @@ table td {
       });
 
 
+$("#addModal #photo").change(function () { 
+  readURL(this , "#addModal");
+});
+
+
+$("#editModal #photo").change(function () { 
+  readURL(this , "#editModal");
+});
 
 
 
@@ -599,11 +608,11 @@ $("#deleteModal #submit").click(function(e)
                     searchable: false,
                     render: function (data) {
                         var actions = '';
-                        actions += '<a data-toggle="modal"  data-id=":id" data-title_fr=":title_fr"                          data-title_en=":title_en"                          data-description=":description" data-created_at=":created_at" data-photo=":photo" data-target="#showModal"><span class="glyphicon glyphicon-eye-open"></span></a>';
+                        actions += '<a data-toggle="modal"  data-id=":id" data-title_fr=":title_fr"                          data-title_en=":title_en" data-description=":description" data-created_at=":created_at" data-photo=":photo" data-target="#showModal"><span class="glyphicon glyphicon-eye-open"></span></a>';
 
                         actions += '|<a data-toggle="modal"  data-id=":id" data-title_fr=":title_fr"                          data-title_en=":title_en"                          data-description=":description" data-created_at=":created_at" data-photo=":photo" data-target="#editModal"><span class="glyphicon glyphicon-edit"></span></a>';
 
-                        actions += '|<a data-toggle="modal"  data-id=":id" data-target="#deleteModal"><span class="glyphicon glyphicon-trash"></span></a>';
+                        actions += '|<a data-toggle="modal"  data-id=":id" data-title_fr=":title_fr"                          data-title_en=":title_en"  data-target="#deleteModal"><span class="glyphicon glyphicon-trash"></span></a>';
 
                         return actions.replace(/:id/g, data.id).replace(/:title_fr/g, data.title_fr).replace(/:title_en/g, data.title_en).replace(/:description/g, data.description).replace(/:photo/g, data.photo).replace(/:created_at/g, data.created_at);
                     }

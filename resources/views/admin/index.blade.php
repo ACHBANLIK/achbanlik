@@ -159,7 +159,7 @@
                              @lang('field.pubstatus') 
                           </header>
                           <div class="panel-body">
-                             <div id="pubsStatus" style="width: 440px; height: 400px; margin: 0 auto">
+                             <div id="pubsStatus" style="width: 400px; height: 400px; margin: 0 auto">
                           </div>
                       </section>
                   </div>
@@ -480,7 +480,7 @@ Highcharts.chart('usersStatus', {
         plotShadow: false
     },
     title: {
-        text: 'Users',
+        text: 'Utilisateurs',
         align: 'center',
         verticalAlign: 'middle',
         y: 40

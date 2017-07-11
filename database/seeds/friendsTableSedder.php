@@ -41,6 +41,15 @@ class friendsTableSedder extends Seeder
         ]
         );
         
+        DB::table('friends')->insert(
+        [
+            'idUser1' => 4,
+            'idUser2' => 18,
+            'status' => 1,
+            'idUserAction' =>4,
+        ]
+        );
+        
 
 
     }

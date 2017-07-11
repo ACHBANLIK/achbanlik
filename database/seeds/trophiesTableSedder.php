@@ -85,16 +85,6 @@ class trophiesTableSedder extends Seeder
         );
 
 
-
-        DB::table('trophies')->insert(
-        [
-            'name' => 'InfoProfil',
-            'points' => '10',
-            'description' => 'Les information de USER sont completes',
-        ]
-        );
-
-
         DB::table('trophies')->insert(
         [
             'name' => '100 Pulications ',
